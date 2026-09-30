@@ -41,7 +41,7 @@ export default function StrawberryHero() {
       // 1. GSAP CONTINUOUS FLOATING ANIMATIONS
       // ----------------------------------------------------------------------
       
-      // Bottle subtle floating: y: ±10px, rotateZ: ±1.2deg
+      // Bottle subtle floating: y: ±10px, rotateZ: ±1.2deg (starts after bottle entrance)
       gsap.to(bottleFloatRef.current, {
         y: 11,
         rotationZ: 1.2,
@@ -49,9 +49,10 @@ export default function StrawberryHero() {
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
+        delay: 1.5,
       });
 
-      // Leaves + Flowers independent floating: y: ±16px, x: ±10px, rotate: ±1.8deg
+      // Leaves + Flowers independent floating: y: ±16px, x: ±10px, rotate: ±1.8deg (starts after botanicals entrance)
       gsap.to(botanicalsFloatRef.current, {
         y: -16,
         x: 9,
@@ -60,6 +61,7 @@ export default function StrawberryHero() {
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
+        delay: 2.15,
       });
 
       // Ambient Studio Glow breathing
@@ -254,12 +256,12 @@ export default function StrawberryHero() {
 
         {/* VISUAL STAGE: BOTANICALS & BOTTLE LAYERS */}
         <div className="strawberry-hero__stage">
-          {/* 2. LEAVES + FLOWERS IMAGE LAYER (ONE ASSET, BEHIND BOTTLE) */}
+          {/* 2. LEAVES + FLOWERS IMAGE LAYER (ONE ASSET, BEHIND BOTTLE - ENTERS AFTER BOTTLE) */}
           <motion.div
             className="strawberry-hero__botanicals hero-botanicals"
-            initial={{ opacity: 0, y: 60, scale: 0.94 }}
+            initial={{ opacity: 0, y: 50, scale: 0.88 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.75 }}
           >
             <div ref={botanicalsParallaxRef} className="strawberry-hero__botanicals-parallax">
               <div ref={botanicalsFloatRef} className="strawberry-hero__botanicals-float">
@@ -275,12 +277,12 @@ export default function StrawberryHero() {
             </div>
           </motion.div>
 
-          {/* 3. BOTTLE IMAGE LAYER (ONE ASSET, IN FRONT OF BOTANICALS) */}
+          {/* 3. BOTTLE IMAGE LAYER (ONE ASSET, IN FRONT OF BOTANICALS - ENTERS FIRST) */}
           <motion.div
             className="strawberry-hero__bottle hero-bottle"
             initial={{ opacity: 0, y: 80, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
+            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
             <div ref={bottleParallaxRef} className="strawberry-hero__bottle-parallax">
               <div ref={bottleFloatRef} className="strawberry-hero__bottle-float">
