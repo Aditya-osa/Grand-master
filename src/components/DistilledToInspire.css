@@ -8,7 +8,8 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  background-color: #0b0b0b;
+  background-color: #4a0912;
+  background-image: radial-gradient(ellipse 90% 75% at 50% 50%, #5c0d18 0%, #3a060e 100%);
   color: #f0ebeb;
   display: flex;
   align-items: center;
@@ -28,7 +29,7 @@
   transform: translate(-50%, -50%);
   width: min(850px, 90vw);
   height: 480px;
-  background: radial-gradient(circle, rgba(233, 78, 27, 0.05) 0%, rgba(245, 166, 35, 0.03) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, rgba(233, 78, 27, 0.04) 45%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }

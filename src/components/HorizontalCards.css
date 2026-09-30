@@ -1,0 +1,476 @@
+/* ==========================================================================
+   HorizontalCards.css - Authentic Luxury Distillery Process Section
+   Bespoke Editorial Aesthetics (Zero Pitch Black, Zero AI Glassmorphism)
+   ========================================================================== */
+
+.hz-cards-section {
+  position: relative;
+  width: 100%;
+  background-color: #fbf5ed;
+  background-image: 
+    radial-gradient(ellipse 90% 70% at 50% 0%, #fffdfa 0%, #f9f0e5 55%, #f2e4d4 100%);
+  color: #3b2f2d;
+  overflow: hidden;
+  box-sizing: border-box;
+  isolation: isolate;
+  border-top: 1px solid rgba(118, 37, 48, 0.1);
+  border-bottom: 1px solid rgba(118, 37, 48, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Pinned Viewport Container (Locks 100vh during GSAP Pin)
+   -------------------------------------------------------------------------- */
+
+.hz-cards-viewport {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(32px, 4.2vh, 48px) 0 clamp(24px, 3.2vh, 36px) 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Atmospheric Editorial Watermark in Background */
+.hz-cards-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif, "ivymode", "Playfair Display", Georgia, serif);
+  font-size: clamp(120px, 20vw, 280px);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(118, 37, 48, 0.035);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Section Header (Title, Eyebrow, Progress Bar)
+   -------------------------------------------------------------------------- */
+
+.hz-cards-header {
+  position: relative;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4.5vw, 64px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.hz-cards-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hz-cards-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hz-cards-eyebrow-badge {
+  font-family: var(--font-sans, "ivystyle-sans", "Avenir Next", sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #762530;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.hz-cards-eyebrow {
+  font-family: var(--font-sans, "ivystyle-sans", "Avenir Next", sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c93a0e;
+}
+
+.hz-cards-title {
+  font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
+  font-size: clamp(28px, 3.4vw, 48px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: #4a0b14;
+  margin: 0;
+}
+
+/* Progress indicator on the right */
+.hz-cards-header-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 190px;
+}
+
+.hz-cards-counter-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.hz-cards-scroll-hint {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8c726d;
+}
+
+.hz-cards-counter {
+  font-family: var(--font-serif, "ivymode", Georgia, serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #762530;
+  min-width: 110px;
+  text-align: right;
+}
+
+.hz-cards-progress-track {
+  width: 190px;
+  height: 3px;
+  background: rgba(118, 37, 48, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.hz-cards-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #762530 0%, #c93a0e 100%);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.08s linear;
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Track (Contains all process cards)
+   -------------------------------------------------------------------------- */
+
+.hz-cards-track {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  gap: clamp(24px, 2.5vw, 38px);
+  padding-left: clamp(24px, 4.5vw, 64px);
+  padding-right: clamp(48px, 8vw, 120px);
+  z-index: 2;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   Individual Process Card (Tactile Archival Craftsmanship)
+   -------------------------------------------------------------------------- */
+
+.hz-card {
+  position: relative;
+  flex: 0 0 clamp(320px, 27vw, 410px);
+  height: clamp(450px, 57vh, 550px);
+  background: #ffffff;
+  border: 1px solid rgba(118, 37, 48, 0.14);
+  border-radius: 18px;
+  padding: clamp(22px, 3vh, 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 
+    0 20px 42px -14px rgba(90, 20, 30, 0.09),
+    0 3px 8px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hz-card:hover {
+  border-color: rgba(118, 37, 48, 0.4);
+  box-shadow: 
+    0 28px 56px -14px rgba(90, 20, 30, 0.16),
+    0 6px 14px rgba(0, 0, 0, 0.03);
+}
+
+/* Atmospheric Step Watermark in Card Corner */
+.hz-card__watermark {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-serif, "ivymode", Georgia, serif);
+  font-size: clamp(80px, 11vh, 110px);
+  font-weight: 900;
+  line-height: 0.8;
+  color: rgba(118, 37, 48, 0.045);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Card Header */
+.hz-card__top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 1;
+}
+
+.hz-card__badge {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #762530;
+  background: #fbf1e8;
+  border: 1px solid rgba(118, 37, 48, 0.22);
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+.hz-card__category {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c93a0e;
+}
+
+/* Archival Visual Aperture (Framed Presentation) */
+.hz-card__visual {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 125px;
+  max-height: 175px;
+  margin: clamp(10px, 1.6vh, 16px) 0;
+  background: #faf4ed;
+  border: 1px solid rgba(118, 37, 48, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 1;
+}
+
+.hz-card__img-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hz-card__img {
+  max-height: clamp(105px, 15vh, 140px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 10px 18px rgba(90, 20, 30, 0.15));
+  will-change: transform;
+}
+
+/* Card Content & Text */
+.hz-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hz-card__subtitle {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8c4228;
+}
+
+.hz-card__title {
+  font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
+  font-size: clamp(20px, 2.1vw, 25px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #4a0b14;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.hz-card__desc {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(13px, 1vw, 14px);
+  line-height: 1.55;
+  color: #594844;
+  margin: 4px 0 0 0;
+}
+
+/* Technical Specification Panel */
+.hz-card__specs {
+  position: relative;
+  margin-top: clamp(10px, 1.6vh, 16px);
+  padding-top: 12px;
+  border-top: 1px solid rgba(118, 37, 48, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  z-index: 1;
+}
+
+.hz-card__spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hz-card__spec-item--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.hz-card__spec-label {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8c726d;
+}
+
+.hz-card__spec-value {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #4a0b14;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Tablets & Mobile Viewports)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .hz-card {
+    flex: 0 0 330px;
+    height: 480px;
+  }
+
+  .hz-cards-title {
+    font-size: 32px;
+  }
+
+  .hz-card__title {
+    font-size: 21px;
+  }
+}
+
+/* Mobile: Native Touch Carousel (Zero Pin Trap) */
+@media (max-width: 768px) {
+  .hz-cards-section {
+    padding: 60px 0 70px 0;
+  }
+
+  .hz-cards-viewport {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .hz-cards-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 20px;
+  }
+
+  .hz-cards-header-progress {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .hz-cards-progress-track {
+    width: 100%;
+  }
+
+  .hz-cards-scroll-hint {
+    display: none;
+  }
+
+  .hz-cards-counter {
+    font-size: 14px;
+    min-width: auto;
+  }
+
+  .hz-cards-track {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 20px 30px 20px;
+    gap: 16px;
+    scrollbar-width: none;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .hz-cards-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hz-card {
+    scroll-snap-align: center;
+    flex: 0 0 84vw;
+    max-width: 330px;
+    min-width: 270px;
+    height: 460px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: prefers-reduced-motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hz-cards-track,
+  .hz-card,
+  .hz-card__img-wrap,
+  .hz-card__img,
+  .hz-cards-progress-bar {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

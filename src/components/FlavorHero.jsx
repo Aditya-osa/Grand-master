@@ -113,7 +113,6 @@ export default function FlavorHero() {
   const botanicalLayerRef = useRef(null);
   const bottleParallaxRef = useRef(null);
   const bottleFloatRef = useRef(null);
-  const selectorRef = useRef(null);
 
   // --------------------------------------------------------------------------
   // 1. GSAP Persistent Dynamics: Floating, Mouse Parallax, ScrollTrigger
@@ -175,30 +174,10 @@ export default function FlavorHero() {
           },
         });
       }
-
-      gsap.to(selectorRef.current, {
-        y: -30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: hero,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 0.6,
-        },
-      });
     }, heroRef);
 
     return () => ctx.revert();
   }, []); // Run ONCE on mount
-
-  // Flavor switch handler
-  const handleSelectFlavor = (flavor) => {
-    if (flavor.id === activeFlavor.id) return;
-    setActiveFlavor(flavor);
-  };
-
-  // The 3 additional flavor bottles for the right-side selector
-  const selectorFlavors = FLAVORS.filter((f) => f.id !== activeFlavor.id);
 
   return (
     <div ref={heroRef} className="flavor-hero hero" aria-label="Grand Masters Vodka Flavor Selector">
@@ -253,7 +232,7 @@ export default function FlavorHero() {
       </div>
 
       {/* ====================================================================
-          HERO STAGE: 3-COLUMN LAYOUT (Content | Center Bottle | Flavor Selector)
+          HERO STAGE: 2-COLUMN LAYOUT (Content | Center Bottle & Botanicals)
           ==================================================================== */}
       <div className="flavor-hero__container">
         
@@ -355,53 +334,6 @@ export default function FlavorHero() {
             </div>
           </div>
         </div>
-
-        {/* ------------------------------------------------------------------
-            COLUMN 3: RIGHT-SIDE FLAVOR SELECTOR (Pure Floating Bottles)
-            Only the bottle images, no cards, no boxes, no borders, no backgrounds
-            ------------------------------------------------------------------ */}
-        <aside
-          ref={selectorRef}
-          className="flavor-hero__selector"
-          aria-label="Available Vodka Flavors"
-        >
-          <div className="flavor-hero__selector-list">
-            <AnimatePresence mode="popLayout">
-              {selectorFlavors.map((flavor) => (
-                <motion.button
-                  key={flavor.id}
-                  layout
-                  type="button"
-                  className="flavor-hero__selector-bottle-btn"
-                  style={{ '--flavor-glow': flavor.theme.glow }}
-                  onClick={() => handleSelectFlavor(flavor)}
-                  initial={{ opacity: 0, scale: 0.84, x: 25 }}
-                  animate={{ opacity: 0.85, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.84, x: 20 }}
-                  whileHover={{
-                    scale: 1.12,
-                    x: -14,
-                    opacity: 1,
-                    transition: { duration: 0.35, ease: LUXURY_EASE },
-                  }}
-                  whileTap={{ scale: 0.94 }}
-                  transition={{ duration: 0.5, ease: LUXURY_EASE }}
-                  aria-label={`Select Grand Masters ${flavor.displayTitle} Vodka`}
-                >
-                  <div className="flavor-hero__selector-bottle-aura" aria-hidden="true" />
-                  <div className="flavor-hero__selector-bottle-shadow" aria-hidden="true" />
-                  <img
-                    src={flavor.selectorBottle || flavor.bottle}
-                    alt={`Grand Masters ${flavor.displayTitle} Vodka`}
-                    className="flavor-hero__selector-bottle-img"
-                    loading="lazy"
-                  />
-                </motion.button>
-              ))}
-            </AnimatePresence>
-          </div>
-        </aside>
-
       </div>
     </div>
   );
