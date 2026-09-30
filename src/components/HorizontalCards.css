@@ -192,10 +192,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(530px, 88vw);
+  width: min(520px, 86vw);
   height: clamp(465px, 57vh, 545px);
   background: #ffffff;
-  border: 1px solid rgba(118, 37, 48, 0.14);
+  border: 1.5px solid rgba(74, 11, 20, 0.24);
   border-radius: 20px;
   padding: clamp(22px, 3vh, 30px);
   display: flex;
@@ -203,8 +203,9 @@
   justify-content: space-between;
   box-sizing: border-box;
   box-shadow: 
-    0 22px 46px -12px rgba(90, 20, 30, 0.13),
-    0 3px 10px rgba(0, 0, 0, 0.03);
+    -10px 14px 28px -6px rgba(74, 11, 20, 0.14),
+    -3px 5px 12px -2px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(74, 11, 20, 0.08);
   overflow: hidden;
   user-select: none;
   cursor: default;
@@ -214,10 +215,10 @@
 }
 
 .stack-card:hover {
-  border-color: rgba(118, 37, 48, 0.4);
+  border-color: rgba(74, 11, 20, 0.45);
   box-shadow: 
-    0 30px 60px -14px rgba(90, 20, 30, 0.2),
-    0 6px 14px rgba(0, 0, 0, 0.04);
+    -14px 20px 36px -8px rgba(74, 11, 20, 0.22),
+    -4px 6px 14px -2px rgba(0, 0, 0, 0.08);
 }
 
 /* Atmospheric Step Watermark in Card Corner */
@@ -385,7 +386,7 @@
 
 @media (max-width: 1024px) {
   .stack-card {
-    width: min(490px, 88vw);
+    width: min(480px, 86vw);
     height: clamp(450px, 56vh, 520px);
   }
 
@@ -425,7 +426,7 @@
   }
 
   .stack-card {
-    width: min(440px, 90vw);
+    width: min(410px, 84vw);
     height: clamp(430px, 58vh, 500px);
     padding: 20px 18px;
   }
