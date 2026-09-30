@@ -1,0 +1,303 @@
+/* ==========================================================================
+   Grandmaster's Vodka – Strawberry Luxury Product Hero
+   Campaign-grade Editorial Spirits Advertising Section
+   ========================================================================== */
+
+.strawberry-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: #0b0305;
+  color: #fff0f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  isolation: isolate;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+/* Atmospheric Layered Gradient Background */
+.strawberry-hero__backdrop {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 70% 65% at 75% 55%, rgba(138, 17, 36, 0.42) 0%, rgba(68, 8, 18, 0.25) 45%, transparent 75%),
+    radial-gradient(circle 50% at 20% 70%, rgba(80, 10, 22, 0.28) 0%, transparent 65%),
+    linear-gradient(135deg, #070102 0%, #150408 50%, #0b0204 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Studio Spotlight & Strawberry Radiance behind the Bottle */
+.strawberry-hero__glow {
+  position: absolute;
+  top: 50%;
+  right: 12%;
+  transform: translate(15%, -50%);
+  width: min(720px, 60vw);
+  height: min(720px, 60vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(235, 47, 85, 0.32) 0%,
+    rgba(189, 23, 62, 0.18) 35%,
+    rgba(107, 10, 31, 0.08) 60%,
+    transparent 78%
+  );
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 1;
+  will-change: opacity, transform;
+}
+
+/* Main 2-Column Responsive Layout Grid */
+.strawberry-hero__container {
+  position: relative;
+  width: 100%;
+  max-width: 1520px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  align-items: center;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: Editorial Copy & Branding
+   -------------------------------------------------------------------------- */
+
+.strawberry-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(60px, 8vh, 120px) 0;
+  /* Positioned around center/lower-center */
+  margin-top: clamp(20px, 4vh, 60px);
+  z-index: 3;
+}
+
+.strawberry-hero__text-block {
+  max-width: 580px;
+}
+
+/* Small Elegant Eyebrow */
+.strawberry-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans, "ivystyle-sans", "Avenir Next", "Helvetica Neue", sans-serif);
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #e5989b;
+  margin-bottom: clamp(16px, 2.2vh, 26px);
+  position: relative;
+}
+
+/* Large Product Heading */
+.strawberry-hero__title {
+  font-family: var(--font-serif, "ivymode", "Iowan Old Style", "Playfair Display", Georgia, serif);
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin: 0 0 clamp(24px, 3vh, 36px) 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Product Description */
+.strawberry-hero__description {
+  font-family: var(--font-serif, "ivymode", Georgia, serif);
+  font-size: clamp(19px, 1.8vw, 25px);
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: 0.005em;
+  color: #fce4e8;
+  margin: 0 0 clamp(20px, 2.5vh, 28px) 0;
+  max-width: 520px;
+}
+
+/* Supporting Tasting Note */
+.strawberry-hero__supporting {
+  font-family: var(--font-sans, "ivystyle-sans", "Avenir Next", sans-serif);
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 215, 222, 0.72);
+  margin: 0;
+  max-width: 480px;
+  border-left: 2px solid rgba(229, 152, 155, 0.4);
+  padding-left: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: Dominant Luxury Bottle Presentation
+   -------------------------------------------------------------------------- */
+
+.strawberry-hero__visual {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: clamp(10px, 4vw, 50px);
+  z-index: 2;
+}
+
+.strawberry-hero__bottle-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* Extends slightly toward the bottom edge (0-5%) */
+  bottom: clamp(0px, 2vh, 24px);
+  right: clamp(0px, 2vw, 30px);
+  width: auto;
+  max-width: 100%;
+}
+
+/* Studio Pedestal Ground Shadow */
+.strawberry-hero__bottle-shadow {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 32px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 50%, transparent 75%);
+  filter: blur(10px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Large, Dominant, Sharp Product Bottle */
+.strawberry-hero__image {
+  position: relative;
+  height: clamp(520px, 84vh, 900px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 2;
+  filter: 
+    drop-shadow(0 20px 45px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 0 55px rgba(224, 40, 78, 0.22));
+  will-change: transform, opacity;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Tablets & Mobile Viewports)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .strawberry-hero__container {
+    grid-template-columns: 50% 50%;
+  }
+
+  .strawberry-hero__title {
+    font-size: clamp(40px, 5.5vw, 68px);
+  }
+
+  .strawberry-hero__image {
+    height: clamp(440px, 72vh, 680px);
+  }
+}
+
+@media (max-width: 820px) {
+  .strawberry-hero {
+    min-height: auto;
+    padding: 80px 24px 40px;
+  }
+
+  .strawberry-hero__container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .strawberry-hero__content {
+    padding: 20px 0 0;
+    margin-top: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .strawberry-hero__text-block {
+    max-width: 100%;
+  }
+
+  .strawberry-hero__title {
+    font-size: clamp(38px, 9vw, 56px);
+  }
+
+  .strawberry-hero__description {
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .strawberry-hero__supporting {
+    border-left: none;
+    border-top: 1px solid rgba(229, 152, 155, 0.35);
+    padding-left: 0;
+    padding-top: 14px;
+    margin: 0 auto;
+    font-size: 13px;
+  }
+
+  .strawberry-hero__visual {
+    min-height: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+  }
+
+  .strawberry-hero__bottle-wrapper {
+    bottom: 0;
+    right: 0;
+  }
+
+  .strawberry-hero__image {
+    height: clamp(380px, 58vh, 520px);
+  }
+
+  .strawberry-hero__glow {
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 380px;
+    height: 380px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY: prefers-reduced-motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .strawberry-hero__eyebrow,
+  .strawberry-hero__title,
+  .strawberry-hero__description,
+  .strawberry-hero__supporting,
+  .strawberry-hero__image,
+  .strawberry-hero__glow {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

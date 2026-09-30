@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Agrumea Farm - Authentic Hero Design System
+   ========================================================================== */
+
+:root {
+  --color-white: #fdf3eb;       /* Warm cream / off-white background */
+  --color-border: #762530;      /* Dark burgundy / wine red */
+  --color-orange: #e94e1b;      /* Vibrant Sicilian orange */
+  --color-yellow: #f39200;
+  
+  --font-serif: "ivymode", "Iowan Old Style", "Palatino Linotype", "Playfair Display", Georgia, serif;
+  --font-sans: "ivystyle-sans", "Avenir Next", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --ease-premium: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #0b0b0b;
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   Hero Section Container (100vh Full Screen)
+   ========================================================================== */
+
+.ag-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100svh;
+  max-height: 100vh;
+  background-color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Header (Language Switcher, Logo, Menu)
+   ========================================================================== */
+
+.ag-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 3.2vw, 48px);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Top-Left: Language Switcher */
+.ag-lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  pointer-events: auto;
+}
+
+.ag-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s var(--ease-soft);
+}
+
+.ag-lang-btn:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.ag-lang-btn.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.ag-lang-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+/* Top-Center: Logo */
+.ag-brand-logo-wrap {
+  position: absolute;
+  left: 50%;
+  top: clamp(20px, 2.5vw, 32px);
+  transform: translateX(-50%);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.ag-brand-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ag-brand-logo-img {
+  display: block;
+  width: clamp(122px, 9.8vw, 150px);
+  height: auto;
+  color: var(--color-border);
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.ag-brand-logo-img:hover {
+  transform: scale(1.02);
+}
+
+/* Top-Right: Menu Toggle */
+.ag-menu-toggle-wrap {
+  pointer-events: auto;
+}
+
+.ag-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ag-menu-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+  min-width: 90px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s var(--ease-soft);
+}
+
+.ag-menu-btn:hover .ag-menu-pill {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.ag-menu-disc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  transition: transform 0.3s var(--ease-soft), background 0.3s ease;
+}
+
+.ag-menu-btn:hover .ag-menu-disc {
+  transform: scale(1.06);
+}
+
+.ag-menu-diamond {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: var(--color-white);
+  border-radius: 1px;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.ag-menu-diamond.is-close {
+  transform: rotate(135deg) scale(1.15);
+}
+
+.ag-menu-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   Visual Stage & Layering
+   ========================================================================== */
+
+.ag-stage {
+  position: relative;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+/* Layer B: Angled 10-degree Marquee Stage for Bottles */
+.ag-marquee-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 620px;
+  transform: translate(-50%, -50%) rotate(10deg);
+  z-index: 5;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.ag-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(65px, 8.5vw, 140px);
+  padding-left: 50vw;
+  padding-right: 50vw;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.ag-carousel-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform-origin: center center;
+  will-change: transform, filter;
+  transition: filter 0.2s ease;
+}
+
+.ag-carousel-img {
+  height: clamp(390px, 55vh, 600px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.25s var(--ease-soft);
+}
+
+.ag-carousel-item:hover .ag-carousel-img {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Bottom Legal */
+.ag-bottom-legal {
+  position: absolute;
+  bottom: clamp(20px, 3vh, 32px);
+  left: clamp(24px, 3.2vw, 48px);
+  z-index: 20;
+}
+
+.ag-legal-link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-border);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.ag-legal-link:hover {
+  opacity: 1;
+  color: var(--color-orange);
+}
+
+/* ==========================================================================
+   Bottom Scroll Prompt
+   ========================================================================== */
+
+.ag-scroll-prompt-wrap {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.ag-scroll-prompt {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-border);
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .ag-organic-shape-wrap {
+    width: 92vw;
+    bottom: -4%;
+  }
+
+  .ag-badge-wrap {
+    width: 68vw;
+    bottom: -12%;
+  }
+
+  .ag-product--center .ag-product-img {
+    height: clamp(300px, 42vh, 440px);
+  }
+
+  .ag-product--left {
+    top: 24%;
+    left: 8%;
+  }
+
+  .ag-product--left .ag-product-img {
+    height: clamp(170px, 24vh, 260px);
+  }
+
+  .ag-product--right {
+    top: 27%;
+    right: 8%;
+  }
+
+  .ag-product--right .ag-product-img {
+    height: clamp(170px, 24vh, 260px);
+  }
+}
+
+@media (max-width: 768px) {
+  .ag-header {
+    padding: 20px 18px;
+  }
+
+  .ag-brand-logo-wrap {
+    top: 18px;
+  }
+
+  .ag-brand-logo-img {
+    width: 110px;
+  }
+
+  .ag-product--center {
+    top: 50%;
+  }
+
+  .ag-product--center .ag-product-img {
+    height: clamp(260px, 38vh, 360px);
+  }
+
+  .ag-product--left {
+    top: 20%;
+    left: 3%;
+  }
+
+  .ag-product--left .ag-product-img {
+    height: clamp(140px, 20vh, 200px);
+  }
+
+  .ag-product--right {
+    top: 24%;
+    right: 3%;
+  }
+
+  .ag-product--right .ag-product-img {
+    height: clamp(140px, 20vh, 200px);
+  }
+
+  .ag-menu-pill {
+    min-width: 75px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ag-header {
+    padding: 16px 14px;
+  }
+
+  .ag-brand-logo-img {
+    width: 98px;
+  }
+
+  .ag-product--center .ag-product-img {
+    height: 300px;
+  }
+
+  .ag-product--left {
+    top: 22%;
+    left: 1%;
+  }
+
+  .ag-product--left .ag-product-img {
+    height: 140px;
+  }
+
+  .ag-product--right {
+    top: 25%;
+    right: 1%;
+  }
+
+  .ag-product--right .ag-product-img {
+    height: 140px;
+  }
+
+  .ag-scroll-prompt {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
