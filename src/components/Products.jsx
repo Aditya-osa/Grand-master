@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroEntrance, initCarouselScroll } from '../animations/heroAnimations';
 
 import grandMasterLogo from '../assets/Logo.png';
-import bottle1 from '../All flav/1.png'; // Strawberry
+import bottle1 from '../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
 import bottle2 from '../All flav/2.png'; // Chocolate
 import bottle3 from '../All flav/3.png'; // Mango
 import bottle4 from '../All flav/4.png'; // Melon
@@ -22,16 +22,11 @@ export const PRODUCTS = [
 ];
 
 export default function Products() {
-  const [lang, setLang] = useState('EN');
-  const [menuOpen, setMenuOpen] = useState(false);
-
   // Refs
   const containerRef = useRef(null);
   const trackRef = useRef(null);
   const logoRef = useRef(null);
   const promptRef = useRef(null);
-  const langRef = useRef(null);
-  const menuRef = useRef(null);
   const bottleRefs = useRef([]);
 
   const setBottleRef = (el, i) => {
@@ -60,8 +55,6 @@ export default function Products() {
       containerRef,
       logoRef,
       promptRef,
-      langRef,
-      menuRef,
       bottleEls,
     });
 
@@ -97,28 +90,6 @@ export default function Products() {
     <section ref={containerRef} className="ag-hero" aria-label="Grand Master Products">
       {/* Top Header Controls */}
       <header className="ag-header">
-        {/* Top-Left: Language Switcher */}
-        <div ref={langRef} className="ag-lang-switcher" role="group" aria-label="Language selection">
-          <button
-            type="button"
-            className={`ag-lang-btn ${lang === 'IT' ? 'is-active' : ''}`}
-            onClick={() => setLang('IT')}
-            aria-pressed={lang === 'IT'}
-            aria-label="Switch to Italian language"
-          >
-            IT
-          </button>
-          <button
-            type="button"
-            className={`ag-lang-btn ${lang === 'EN' ? 'is-active' : ''}`}
-            onClick={() => setLang('EN')}
-            aria-pressed={lang === 'EN'}
-            aria-label="Switch to English language"
-          >
-            EN
-          </button>
-        </div>
-
         {/* Top-Center: Logo */}
         <div ref={logoRef} className="ag-brand-logo-wrap">
           <a href="#" className="ag-brand-link" aria-label="Grand Master Vodka Home">
@@ -129,24 +100,6 @@ export default function Products() {
               width="160"
             />
           </a>
-        </div>
-
-        {/* Top-Right: Menu Toggle */}
-        <div ref={menuRef} className="ag-menu-toggle-wrap">
-          <button
-            type="button"
-            className="ag-menu-btn"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-expanded={menuOpen}
-            aria-label="Toggle navigation menu"
-          >
-            <span className="ag-menu-pill">
-              <span>{menuOpen ? 'CLOSE' : 'MENU'}</span>
-            </span>
-            <span className="ag-menu-disc" aria-hidden="true">
-              <span className={`ag-menu-diamond ${menuOpen ? 'is-close' : ''}`} />
-            </span>
-          </button>
         </div>
       </header>
 

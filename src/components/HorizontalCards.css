@@ -1,9 +1,9 @@
 /* ==========================================================================
-   HorizontalCards.css - Authentic Luxury Distillery Process Section
-   Bespoke Editorial Aesthetics (Zero Pitch Black, Zero AI Glassmorphism)
+   HorizontalCards.css - Vertical Stacked-Card Physical Deck Scroll Animation
+   Pure Vertical Overlapping Deck (Zero Horizontal Scrolling, Zero Overflow-X)
    ========================================================================== */
 
-.hz-cards-section {
+.stack-cards-section {
   position: relative;
   width: 100%;
   background-color: #fbf5ed;
@@ -21,7 +21,7 @@
    Pinned Viewport Container (Locks 100vh during GSAP Pin)
    -------------------------------------------------------------------------- */
 
-.hz-cards-viewport {
+.stack-cards-viewport {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -29,15 +29,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(32px, 4.2vh, 48px) 0 clamp(24px, 3.2vh, 36px) 0;
+  padding: clamp(28px, 3.8vh, 44px) 0 clamp(20px, 2.8vh, 32px) 0;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 /* Atmospheric Editorial Watermark in Background */
-.hz-cards-watermark {
+.stack-cards-watermark {
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-serif, "ivymode", "Playfair Display", Georgia, serif);
@@ -56,33 +56,33 @@
    Section Header (Title, Eyebrow, Progress Bar)
    -------------------------------------------------------------------------- */
 
-.hz-cards-header {
+.stack-cards-header {
   position: relative;
   width: 100%;
-  max-width: 1540px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 clamp(24px, 4.5vw, 64px);
+  padding: 0 clamp(20px, 4vw, 56px);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 28px;
-  z-index: 2;
+  gap: 24px;
+  z-index: 50;
   box-sizing: border-box;
 }
 
-.hz-cards-header-info {
+.stack-cards-header-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
-.hz-cards-eyebrow-row {
+.stack-cards-eyebrow-row {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.hz-cards-eyebrow-badge {
+.stack-cards-eyebrow-badge {
   font-family: var(--font-sans, "ivystyle-sans", "Avenir Next", sans-serif);
   font-size: 11px;
   font-weight: 700;
@@ -94,7 +94,7 @@
   border-radius: 4px;
 }
 
-.hz-cards-eyebrow {
+.stack-cards-eyebrow {
   font-family: var(--font-sans, "ivystyle-sans", "Avenir Next", sans-serif);
   font-size: 12px;
   font-weight: 700;
@@ -103,9 +103,9 @@
   color: #c93a0e;
 }
 
-.hz-cards-title {
+.stack-cards-title {
   font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
-  font-size: clamp(28px, 3.4vw, 48px);
+  font-size: clamp(26px, 3.2vw, 44px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.015em;
@@ -115,21 +115,21 @@
 }
 
 /* Progress indicator on the right */
-.hz-cards-header-progress {
+.stack-cards-header-progress {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
-  min-width: 190px;
+  min-width: 180px;
 }
 
-.hz-cards-counter-wrap {
+.stack-cards-counter-wrap {
   display: flex;
   align-items: baseline;
   gap: 10px;
 }
 
-.hz-cards-scroll-hint {
+.stack-cards-scroll-hint {
   font-family: var(--font-sans, sans-serif);
   font-size: 11px;
   font-weight: 600;
@@ -138,7 +138,7 @@
   color: #8c726d;
 }
 
-.hz-cards-counter {
+.stack-cards-counter {
   font-family: var(--font-serif, "ivymode", Georgia, serif);
   font-size: 16px;
   font-weight: 700;
@@ -149,15 +149,15 @@
   text-align: right;
 }
 
-.hz-cards-progress-track {
-  width: 190px;
+.stack-cards-progress-track {
+  width: 180px;
   height: 3px;
   background: rgba(118, 37, 48, 0.12);
   border-radius: 999px;
   overflow: hidden;
 }
 
-.hz-cards-progress-bar {
+.stack-cards-progress-bar {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, #762530 0%, #c93a0e 100%);
@@ -168,57 +168,60 @@
 }
 
 /* --------------------------------------------------------------------------
-   Horizontal Track (Contains all process cards)
+   Central Vertical Stack Stage (Where cards are stacked like a physical deck)
    -------------------------------------------------------------------------- */
 
-.hz-cards-track {
+.stack-cards-stage {
   position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  width: max-content;
-  gap: clamp(24px, 2.5vw, 38px);
-  padding-left: clamp(24px, 4.5vw, 64px);
-  padding-right: clamp(48px, 8vw, 120px);
-  z-index: 2;
+  justify-content: center;
+  z-index: 10;
   box-sizing: border-box;
-  will-change: transform;
 }
 
 /* --------------------------------------------------------------------------
-   Individual Process Card (Tactile Archival Craftsmanship)
+   Individual Stacked Card (Same Constant Box Size, Layered in 3D Stack)
    -------------------------------------------------------------------------- */
 
-.hz-card {
-  position: relative;
-  flex: 0 0 clamp(320px, 27vw, 410px);
-  height: clamp(450px, 57vh, 550px);
+.stack-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(530px, 88vw);
+  height: clamp(465px, 57vh, 545px);
   background: #ffffff;
   border: 1px solid rgba(118, 37, 48, 0.14);
-  border-radius: 18px;
+  border-radius: 20px;
   padding: clamp(22px, 3vh, 30px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
   box-shadow: 
-    0 20px 42px -14px rgba(90, 20, 30, 0.09),
-    0 3px 8px rgba(0, 0, 0, 0.02);
+    0 22px 46px -12px rgba(90, 20, 30, 0.13),
+    0 3px 10px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   user-select: none;
   cursor: default;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-.hz-card:hover {
+.stack-card:hover {
   border-color: rgba(118, 37, 48, 0.4);
   box-shadow: 
-    0 28px 56px -14px rgba(90, 20, 30, 0.16),
-    0 6px 14px rgba(0, 0, 0, 0.03);
+    0 30px 60px -14px rgba(90, 20, 30, 0.2),
+    0 6px 14px rgba(0, 0, 0, 0.04);
 }
 
 /* Atmospheric Step Watermark in Card Corner */
-.hz-card__watermark {
+.stack-card__watermark {
   position: absolute;
   top: 14px;
   right: 18px;
@@ -233,7 +236,7 @@
 }
 
 /* Card Header */
-.hz-card__top {
+.stack-card__top {
   position: relative;
   display: flex;
   align-items: center;
@@ -242,7 +245,7 @@
   z-index: 1;
 }
 
-.hz-card__badge {
+.stack-card__badge {
   font-family: var(--font-sans, sans-serif);
   font-size: 11px;
   font-weight: 700;
@@ -255,7 +258,7 @@
   padding: 4px 10px;
 }
 
-.hz-card__category {
+.stack-card__category {
   font-family: var(--font-sans, sans-serif);
   font-size: 11px;
   font-weight: 700;
@@ -264,16 +267,16 @@
   color: #c93a0e;
 }
 
-/* Archival Visual Aperture (Framed Presentation) */
-.hz-card__visual {
+/* Archival Visual Aperture */
+.stack-card__visual {
   position: relative;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 125px;
-  max-height: 175px;
-  margin: clamp(10px, 1.6vh, 16px) 0;
+  min-height: 120px;
+  max-height: 170px;
+  margin: clamp(10px, 1.5vh, 16px) 0;
   background: #faf4ed;
   border: 1px solid rgba(118, 37, 48, 0.08);
   border-radius: 12px;
@@ -281,7 +284,7 @@
   z-index: 1;
 }
 
-.hz-card__img-wrap {
+.stack-card__img-wrap {
   position: relative;
   display: flex;
   align-items: center;
@@ -290,7 +293,7 @@
   height: 100%;
 }
 
-.hz-card__img {
+.stack-card__img {
   max-height: clamp(105px, 15vh, 140px);
   width: auto;
   object-fit: contain;
@@ -298,11 +301,10 @@
   user-select: none;
   -webkit-user-drag: none;
   filter: drop-shadow(0 10px 18px rgba(90, 20, 30, 0.15));
-  will-change: transform;
 }
 
 /* Card Content & Text */
-.hz-card__content {
+.stack-card__content {
   position: relative;
   z-index: 1;
   display: flex;
@@ -310,7 +312,7 @@
   gap: 5px;
 }
 
-.hz-card__subtitle {
+.stack-card__subtitle {
   font-family: var(--font-sans, sans-serif);
   font-size: 11px;
   font-weight: 700;
@@ -319,7 +321,7 @@
   color: #8c4228;
 }
 
-.hz-card__title {
+.stack-card__title {
   font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
   font-size: clamp(20px, 2.1vw, 25px);
   font-weight: 700;
@@ -329,7 +331,7 @@
   letter-spacing: -0.01em;
 }
 
-.hz-card__desc {
+.stack-card__desc {
   font-family: var(--font-sans, sans-serif);
   font-size: clamp(13px, 1vw, 14px);
   line-height: 1.55;
@@ -338,9 +340,9 @@
 }
 
 /* Technical Specification Panel */
-.hz-card__specs {
+.stack-card__specs {
   position: relative;
-  margin-top: clamp(10px, 1.6vh, 16px);
+  margin-top: clamp(10px, 1.5vh, 16px);
   padding-top: 12px;
   border-top: 1px solid rgba(118, 37, 48, 0.12);
   display: grid;
@@ -349,18 +351,18 @@
   z-index: 1;
 }
 
-.hz-card__spec-item {
+.stack-card__spec-item {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.hz-card__spec-item--right {
+.stack-card__spec-item--right {
   align-items: flex-end;
   text-align: right;
 }
 
-.hz-card__spec-label {
+.stack-card__spec-label {
   font-family: var(--font-sans, sans-serif);
   font-size: 9.5px;
   font-weight: 700;
@@ -369,7 +371,7 @@
   color: #8c726d;
 }
 
-.hz-card__spec-value {
+.stack-card__spec-value {
   font-family: var(--font-sans, sans-serif);
   font-size: 12px;
   font-weight: 700;
@@ -382,80 +384,69 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1024px) {
-  .hz-card {
-    flex: 0 0 330px;
-    height: 480px;
+  .stack-card {
+    width: min(490px, 88vw);
+    height: clamp(450px, 56vh, 520px);
   }
 
-  .hz-cards-title {
-    font-size: 32px;
-  }
-
-  .hz-card__title {
-    font-size: 21px;
+  .stack-cards-title {
+    font-size: 30px;
   }
 }
 
-/* Mobile: Native Touch Carousel (Zero Pin Trap) */
 @media (max-width: 768px) {
-  .hz-cards-section {
-    padding: 60px 0 70px 0;
+  .stack-cards-viewport {
+    padding: 24px 0 20px 0;
   }
 
-  .hz-cards-viewport {
-    height: auto !important;
-    min-height: auto !important;
-    padding: 0;
-    overflow: visible;
-  }
-
-  .hz-cards-header {
+  .stack-cards-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
     padding: 0 20px;
   }
 
-  .hz-cards-header-progress {
+  .stack-cards-header-progress {
     align-items: flex-start;
     width: 100%;
   }
 
-  .hz-cards-progress-track {
+  .stack-cards-progress-track {
     width: 100%;
   }
 
-  .hz-cards-scroll-hint {
+  .stack-cards-scroll-hint {
     display: none;
   }
 
-  .hz-cards-counter {
+  .stack-cards-counter {
     font-size: 14px;
     min-width: auto;
   }
 
-  .hz-cards-track {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 24px 20px 30px 20px;
-    gap: 16px;
-    scrollbar-width: none;
-    width: 100%;
-    transform: none !important;
+  .stack-card {
+    width: min(440px, 90vw);
+    height: clamp(430px, 58vh, 500px);
+    padding: 20px 18px;
   }
 
-  .hz-cards-track::-webkit-scrollbar {
-    display: none;
+  .stack-card__title {
+    font-size: 19px;
   }
 
-  .hz-card {
-    scroll-snap-align: center;
-    flex: 0 0 84vw;
-    max-width: 330px;
-    min-width: 270px;
-    height: 460px;
+  .stack-card__desc {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .stack-card__visual {
+    min-height: 100px;
+    max-height: 140px;
+    margin: 8px 0;
+  }
+
+  .stack-card__img {
+    max-height: 100px;
   }
 }
 
@@ -464,11 +455,10 @@
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .hz-cards-track,
-  .hz-card,
-  .hz-card__img-wrap,
-  .hz-card__img,
-  .hz-cards-progress-bar {
+  .stack-card,
+  .stack-card__img-wrap,
+  .stack-card__img,
+  .stack-cards-progress-bar {
     transition: none !important;
     transform: none !important;
     animation: none !important;
