@@ -9,9 +9,6 @@ export default function EnjoyFlavours() {
   const sectionRef = useRef(null);
   const viewportRef = useRef(null);
   
-  // Background typography refs
-  const bgTextRef = useRef(null);
-
   // Main title word refs
   const enjoyWordRef = useRef(null);
   const uniqueWordRef = useRef(null);
@@ -51,29 +48,20 @@ export default function EnjoyFlavours() {
         0
       );
 
-      // Low-opacity background typography parallax depth motion
-      if (bgTextRef.current) {
-        tl.to(
-          bgTextRef.current,
-          { y: -100, scale: 1.1, opacity: 0.1, duration: 1, ease: 'none' },
-          0
-        );
-      }
-
       // Main Title Initial Zoom (0% -> 30%)
       tl.to(
         enjoyWordRef.current,
-        { scale: 1.5, duration: 0.3, ease: 'power2.inOut' },
+        { scale: 1.2, duration: 0.3, ease: 'power2.inOut' },
         0
       );
       tl.to(
         uniqueWordRef.current,
-        { scale: 1.5, duration: 0.3, ease: 'power2.inOut' },
+        { scale: 1.2, duration: 0.3, ease: 'power2.inOut' },
         0
       );
       tl.to(
         flavoursWordRef.current,
-        { scale: 1.5, duration: 0.3, ease: 'power2.inOut' },
+        { scale: 1.2, duration: 0.3, ease: 'power2.inOut' },
         0
       );
 
@@ -83,19 +71,19 @@ export default function EnjoyFlavours() {
       // ======================================================================
       tl.to(
         enjoyWordRef.current,
-        { xPercent: -110, yPercent: -30, scale: 2.2, opacity: 0.35, duration: 0.3, ease: 'power2.inOut' },
+        { xPercent: -100, yPercent: -25, scale: 1.5, opacity: 0.35, duration: 0.3, ease: 'power2.inOut' },
         0.3
       );
 
       tl.to(
         flavoursWordRef.current,
-        { xPercent: 110, yPercent: -30, scale: 2.2, opacity: 0.35, duration: 0.3, ease: 'power2.inOut' },
+        { xPercent: 100, yPercent: -25, scale: 1.5, opacity: 0.35, duration: 0.3, ease: 'power2.inOut' },
         0.3
       );
 
       tl.to(
         uniqueWordRef.current,
-        { yPercent: -70, scale: 0.85, opacity: 0.45, duration: 0.3, ease: 'power2.inOut' },
+        { yPercent: -60, scale: 0.85, opacity: 0.45, duration: 0.3, ease: 'power2.inOut' },
         0.3
       );
 
