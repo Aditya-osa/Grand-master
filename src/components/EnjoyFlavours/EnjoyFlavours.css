@@ -5,7 +5,7 @@
 .enjoy-flavours-section {
   position: relative;
   width: 100%;
-  height: 300vh; /* 300vh scroll distance for GSAP Pinning */
+  height: 180vh; /* Tightened scroll height to remove trailing black space */
   background-color: #0b0708;
   background-image: 
     radial-gradient(ellipse 90% 80% at 50% 50%, #1c0a0e 0%, #0c0507 65%, #050203 100%);
