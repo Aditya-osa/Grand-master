@@ -173,7 +173,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Central Vertical Stack Stage (Positioned on Right)
+   Horizontal Cards Stage & Scrolling Track
    -------------------------------------------------------------------------- */
 
 .stack-cards-stage {
@@ -184,20 +184,32 @@
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow: hidden;
   z-index: 10;
   box-sizing: border-box;
+  padding-left: clamp(24px, 4vw, 48px);
+}
+
+.horizontal-cards-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3.5vw, 36px);
+  width: max-content;
+  padding: 20px 0;
+  will-change: transform;
 }
 
 /* --------------------------------------------------------------------------
-   Individual Stacked Card (Enlarged Hero Card with Soft Depth & Warm Border)
+   Individual Horizontal Card
    -------------------------------------------------------------------------- */
 
 .stack-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(390px, 84vw);
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  flex-shrink: 0;
+  width: clamp(330px, 26vw, 390px);
   height: clamp(425px, 53vh, 490px);
   background: #ffffff;
   border: 1px solid rgba(184, 134, 11, 0.35);
@@ -208,22 +220,20 @@
   justify-content: space-between;
   box-sizing: border-box;
   box-shadow: 
-    -16px 24px 48px -10px rgba(74, 11, 20, 0.18),
-    -4px 8px 18px -4px rgba(0, 0, 0, 0.06),
+    -10px 16px 36px -8px rgba(74, 11, 20, 0.14),
+    -3px 6px 14px -3px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   overflow: hidden;
   user-select: none;
   cursor: default;
-  transform-origin: center center;
-  will-change: transform, opacity;
   transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .stack-card:hover {
   border-color: rgba(184, 134, 11, 0.60);
   box-shadow: 
-    -20px 30px 56px -10px rgba(74, 11, 20, 0.24),
-    -6px 10px 22px -4px rgba(0, 0, 0, 0.09);
+    -14px 22px 46px -8px rgba(74, 11, 20, 0.20),
+    -4px 8px 18px -3px rgba(0, 0, 0, 0.08);
 }
 
 /* Atmospheric Step Watermark in Card Corner */
@@ -394,11 +404,6 @@
     display: none;
   }
 
-  .stack-card {
-    width: min(360px, 82vw);
-    height: clamp(400px, 50vh, 460px);
-  }
-
   .stack-cards-title {
     font-size: 28px;
   }
@@ -443,9 +448,17 @@
     min-width: auto;
   }
 
+  .stack-cards-stage {
+    padding-left: 20px;
+  }
+
+  .horizontal-cards-track {
+    gap: 18px;
+  }
+
   .stack-card {
-    width: min(330px, 85vw);
-    height: clamp(380px, 52vh, 440px);
+    width: clamp(290px, 82vw, 340px);
+    height: clamp(390px, 52vh, 450px);
     padding: 18px 16px;
   }
 

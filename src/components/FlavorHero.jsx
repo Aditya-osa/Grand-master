@@ -148,32 +148,23 @@ export default function FlavorHero() {
         });
       }
 
-      // 1B. GSAP ScrollTrigger Multi-Plane Parallax
-      gsap.to(bottleParallaxRef.current, {
-        y: -80,
-        scale: 0.96,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: hero,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 0.6,
+      // 1B. Pinned ScrollTrigger for flavor sequence on scroll
+      ScrollTrigger.create({
+        trigger: hero,
+        start: 'top top',
+        end: () => `+=${window.innerHeight * 2.5}`,
+        pin: true,
+        scrub: 0.5,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const index = Math.min(
+            FLAVORS.length - 1,
+            Math.floor(self.progress * (FLAVORS.length - 0.05))
+          );
+          setActiveFlavor((prev) => (prev.id !== FLAVORS[index].id ? FLAVORS[index] : prev));
         },
       });
-
-      if (botanicalLayerRef.current) {
-        gsap.to(botanicalLayerRef.current, {
-          y: -130,
-          x: 30,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: hero,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 0.6,
-          },
-        });
-      }
     }, heroRef);
 
     return () => ctx.revert();
@@ -227,56 +218,13 @@ export default function FlavorHero() {
       />
 
       {/* Atmospheric Editorial Watermark */}
-      <div className="flavor-hero__watermark" aria-hidden="true">
-        {activeFlavor.name}
-      </div>
+    
+
 
       {/* ====================================================================
           HERO STAGE: 2-COLUMN LAYOUT (Content | Center Bottle & Botanicals)
           ==================================================================== */}
       <div className="flavor-hero__container">
-        
-        {/* ------------------------------------------------------------------
-            COLUMN 1: HERO EDITORIAL CONTENT (Left)
-            Smooth cross-fade with subtle optical blur
-            ------------------------------------------------------------------ */}
-        <div className="flavor-hero__content hero-content">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeFlavor.id}
-              className="flavor-hero__text-block"
-              initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -18, filter: 'blur(4px)' }}
-              transition={{ duration: 0.55, ease: LUXURY_EASE }}
-            >
-              <span className="flavor-hero__eyebrow">
-                GRANDMASTER'S VODKA
-              </span>
-
-              <h1 className="flavor-hero__title">
-                {activeFlavor.name}
-              </h1>
-
-              <p className="flavor-hero__description">
-                {activeFlavor.description}
-              </p>
-
-              <div className="flavor-hero__supporting-wrap">
-                <p className="flavor-hero__supporting">
-                  {activeFlavor.supporting}
-                </p>
-              </div>
-
-              <div className="flavor-hero__tags">
-                <span className="flavor-hero__tag">Platinum Vodka</span>
-                <span className="flavor-hero__tag">{activeFlavor.badge}</span>
-                <span className="flavor-hero__tag">Triple Distilled</span>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
         {/* ------------------------------------------------------------------
             COLUMN 2: MAIN LARGE BOTTLE & BOTANICALS (Center)
             Sequence: First bottle arrives, then leaves and fruits emerge behind it

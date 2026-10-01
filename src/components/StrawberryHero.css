@@ -88,9 +88,9 @@
   min-height: 100vh;
   min-height: 100svh;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 40% 60%;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 2;
   box-sizing: border-box;
 }
@@ -106,6 +106,7 @@
   align-items: flex-start;
   padding: clamp(60px, 8vh, 120px) 0;
   z-index: 3;
+  width: min(460px, 36vw);
 }
 
 .strawberry-hero__text-block {
@@ -193,14 +194,16 @@
 }
 
 /* --------------------------------------------------------------------------
-   VISUAL STAGE: BOTANICALS & BOTTLE LAYERS
-   Significantly increased size: bottle fills ~75-80% of hero section height
+   VISUAL STAGE: BOTANICALS & BOTTLE LAYERS (Dead Center)
    -------------------------------------------------------------------------- */
 
 .strawberry-hero__stage {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
   height: clamp(640px, 86vh, 980px);
-  width: 100%;
+  width: min(650px, 48vw);
   display: flex;
   align-items: center;
   justify-content: center;

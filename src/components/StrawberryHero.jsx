@@ -215,45 +215,6 @@ export default function StrawberryHero() {
       </div>
 
       <div className="strawberry-hero__container">
-        {/* 4. TEXT / CONTENT LAYER */}
-        <motion.div
-          className="strawberry-hero__content hero-content"
-          variants={contentContainerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="strawberry-hero__text-block">
-            {/* Small Elegant Eyebrow */}
-            <motion.span variants={contentItemVariants} className="strawberry-hero__eyebrow">
-              GRANDMASTER'S VODKA
-            </motion.span>
-
-            {/* Large Product Heading */}
-            <motion.h1 variants={contentItemVariants} className="strawberry-hero__title">
-              Strawberry
-            </motion.h1>
-
-            {/* Product Description */}
-            <motion.p variants={contentItemVariants} className="strawberry-hero__description">
-              Pleasant mild aroma, complemented by sweet strawberry taste
-            </motion.p>
-
-            {/* Supporting Tasting Note */}
-            <motion.div variants={contentItemVariants} className="strawberry-hero__supporting-wrap">
-              <p className="strawberry-hero__supporting">
-                GRANDMASTER’s Strawberry is enjoyable sweet and refreshing
-              </p>
-            </motion.div>
-
-            {/* Premium Tasting Feature Tags */}
-            <motion.div variants={contentItemVariants} className="strawberry-hero__tags">
-              <span className="strawberry-hero__tag">Platinum Edition</span>
-              <span className="strawberry-hero__tag">Sweet Infusion</span>
-              <span className="strawberry-hero__tag">Triple Distilled</span>
-            </motion.div>
-          </div>
-        </motion.div>
-
         {/* VISUAL STAGE: BOTANICALS & BOTTLE LAYERS */}
         <div className="strawberry-hero__stage">
           {/* 2. LEAVES + FLOWERS IMAGE LAYER (ONE ASSET, BEHIND BOTTLE - ENTERS AFTER BOTTLE) */}

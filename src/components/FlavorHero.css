@@ -100,7 +100,7 @@
 .flavor-hero__glow {
   position: absolute;
   top: 50%;
-  left: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: min(850px, 65vw);
   height: min(850px, 65vw);
@@ -116,7 +116,7 @@
 .flavor-hero__watermark {
   position: absolute;
   top: 52%;
-  left: 48%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-serif, "ivymode", "Playfair Display", Georgia, serif);
   font-size: clamp(80px, 15vw, 240px);
@@ -131,7 +131,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   HERO STAGE: 3-COLUMN LAYOUT (Content | Center Bottle | Flavor Selector)
+   HERO STAGE: CENTER BOTTLE LAYOUT (Content Left | Bottle Dead Center)
    -------------------------------------------------------------------------- */
 
 .flavor-hero__container {
@@ -142,9 +142,9 @@
   min-height: calc(100vh - 70px);
   min-height: calc(100svh - 70px);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 42% 58%;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 clamp(20px, 4vw, 70px);
   z-index: 2;
   box-sizing: border-box;
@@ -161,6 +161,7 @@
   align-items: flex-start;
   z-index: 3;
   padding: 40px 0;
+  width: min(450px, 36vw);
 }
 
 .flavor-hero__text-block {
@@ -242,14 +243,16 @@
 }
 
 /* --------------------------------------------------------------------------
-   COLUMN 2: MAIN LARGE BOTTLE & BOTANICALS (Center)
+   COLUMN 2: MAIN LARGE BOTTLE & BOTANICALS (Dead Center)
    -------------------------------------------------------------------------- */
 
 .flavor-hero__stage {
-  position: relative;
-  /* Bottle: 60-75% of hero height */
-  height: clamp(540px, 74vh, 860px);
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  height: clamp(540px, 76vh, 880px);
+  width: min(600px, 45vw);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -503,13 +506,15 @@
 
 @media (max-width: 960px) {
   .flavor-hero__container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 30px 20px 50px 20px;
     text-align: center;
   }
 
   .flavor-hero__content {
+    width: 100%;
     align-items: center;
     padding: 20px 0 0 0;
   }
@@ -531,6 +536,11 @@
   }
 
   .flavor-hero__stage {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
     height: clamp(380px, 52vh, 560px);
   }
 

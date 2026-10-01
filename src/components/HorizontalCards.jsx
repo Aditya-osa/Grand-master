@@ -87,106 +87,33 @@ export const PROCESS_STEPS = [
 ];
 
 /**
- * HorizontalCards - Vertical Stacked-Card Scroll Animation
- * Pure vertical physical card stack pinned with GSAP ScrollTrigger scrub.
- * Initially shows the front card with stacked layers behind.
- * As user scrolls, each card transitions one-by-one from behind to the front.
+ * HorizontalCards - Pinned Horizontal Scroll Animation
+ * Pure horizontal card track sliding smoothly on vertical page scroll.
  */
 export default function HorizontalCards() {
   const sectionRef = useRef(null);
-  const stageRef = useRef(null);
+  const trackRef = useRef(null);
   const progressBarRef = useRef(null);
   const progressTextRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  const setCardRef = (el, i) => {
-    if (el) cardRefs.current[i] = el;
-  };
 
   useEffect(() => {
     const section = sectionRef.current;
-    const cards = cardRefs.current.filter(Boolean);
-    if (!section || cards.length === 0) return;
+    const track = trackRef.current;
+    if (!section || !track) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      const isMobile = window.innerWidth <= 768;
-      const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
-
-      // Cascading step offsets matching physical card deck reference
-      const stepX = isMobile ? -10 : isTablet ? -14 : -18;
-      const stepY = isMobile ? 8 : isTablet ? 10 : 12;
-
-      // Optical centering offsets shifting stack slightly left for balanced editorial composition
-      const baseOffsetX = isMobile ? 12 : isTablet ? -10 : -20;
-      const baseOffsetY = isMobile ? -14 : isTablet ? -18 : -22;
-
-      // Returns physical stacked deck properties simplified to 2-3 clean layers
-      const getDepthProps = (depth) => {
-        if (depth === 0) {
-          // Hero front card: prominent, crisp, primary focus
-          return {
-            xPercent: -50,
-            yPercent: -50,
-            x: baseOffsetX,
-            y: baseOffsetY,
-            scale: 1.0,
-            opacity: 1,
-            zIndex: 35,
-          };
-        }
-        if (depth === 1) {
-          // 1st card behind: clean visible accent edge
-          return {
-            xPercent: -50,
-            yPercent: -50,
-            x: baseOffsetX + stepX * 1,
-            y: baseOffsetY + stepY * 1,
-            scale: 0.975,
-            opacity: 0.85,
-            zIndex: 25,
-          };
-        }
-        if (depth === 2) {
-          // 2nd card behind: soft background depth layer
-          return {
-            xPercent: -50,
-            yPercent: -50,
-            x: baseOffsetX + stepX * 2,
-            y: baseOffsetY + stepY * 2,
-            scale: 0.95,
-            opacity: 0.50,
-            zIndex: 15,
-          };
-        }
-        // Further cards hidden cleanly behind the 2nd layer
-        return {
-          xPercent: -50,
-          yPercent: -50,
-          x: baseOffsetX + stepX * 2,
-          y: baseOffsetY + stepY * 2,
-          scale: 0.93,
-          opacity: 0,
-          zIndex: 5,
-        };
+      const getScrollAmount = () => {
+        return Math.max(0, track.scrollWidth - track.clientWidth);
       };
 
-      // Set initial stacked physical deck position
-      cards.forEach((card, idx) => {
-        gsap.set(card, getDepthProps(idx));
-      });
-
-      if (prefersReducedMotion) return;
-
-      const totalTransitions = cards.length - 1; // 4 transitions between 5 cards
-
-      // Create the pinned ScrollTrigger timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${window.innerHeight * 3.6}`,
+          end: () => `+=${getScrollAmount() + 500}`,
           pin: true,
           scrub: 0.8,
           anticipatePin: 1,
@@ -197,57 +124,19 @@ export default function HorizontalCards() {
             }
             if (progressTextRef.current) {
               const activeIndex = Math.min(
-                cards.length - 1,
-                Math.floor(self.progress * (cards.length - 0.05))
+                PROCESS_STEPS.length - 1,
+                Math.floor(self.progress * (PROCESS_STEPS.length - 0.05))
               );
-              progressTextRef.current.textContent = `STAGE 0${activeIndex + 1} OF 0${cards.length}`;
+              progressTextRef.current.textContent = `STAGE 0${activeIndex + 1} OF 0${PROCESS_STEPS.length}`;
             }
           },
         },
       });
 
-      // Build sequential 1-by-1 card transitions
-      for (let k = 0; k < totalTransitions; k++) {
-        const stepLabel = `step-${k}`;
-        tl.addLabel(stepLabel);
-
-        // 1. Outgoing Card k: smoothly lifts upward, moves slightly right and fades away
-        tl.to(
-          cards[k],
-          {
-            y: baseOffsetY - 75,
-            x: baseOffsetX + 14,
-            scale: 0.98,
-            opacity: 0,
-            duration: 1,
-            ease: 'power2.inOut',
-          },
-          stepLabel
-        );
-
-        // 2. Incoming Card k+1 and remaining deck cards step forward one depth notch
-        for (let j = k + 1; j < cards.length; j++) {
-          const targetDepth = j - (k + 1);
-          const targetProps = getDepthProps(targetDepth);
-
-          tl.to(
-            cards[j],
-            {
-              x: targetProps.x,
-              y: targetProps.y,
-              scale: targetProps.scale,
-              opacity: targetProps.opacity,
-              zIndex: targetProps.zIndex,
-              duration: 1,
-              ease: 'power2.inOut',
-            },
-            stepLabel
-          );
-        }
-
-        // 3. Resting hold so each card remains centered and readable before next scroll segment
-        tl.to({}, { duration: 0.55 });
-      }
+      tl.to(track, {
+        x: () => -getScrollAmount(),
+        ease: 'none',
+      });
 
       return () => {
         tl.scrollTrigger?.kill();
@@ -273,7 +162,7 @@ export default function HorizontalCards() {
       aria-label="Grand Master Distillation Process"
     >
       <div className="stack-cards-viewport">
-        {/* Section Editorial Header */}
+        {/* Section Editorial Header (Left) */}
         <header className="stack-cards-header">
           <div className="stack-cards-header-info">
             <div className="stack-cards-eyebrow-row">
@@ -296,62 +185,63 @@ export default function HorizontalCards() {
           </div>
         </header>
 
-        {/* Central Vertical Stack Stage */}
-        <div ref={stageRef} className="stack-cards-stage">
-          {PROCESS_STEPS.map((step, idx) => (
-            <article
-              key={step.id}
-              ref={(el) => setCardRef(el, idx)}
-              className="stack-card"
-              style={{ '--card-accent': step.accent }}
-            >
-              {/* Card Watermark Number */}
-              <div className="stack-card__watermark" aria-hidden="true">
-                {step.stepNumber}
-              </div>
-
-              {/* Card Header */}
-              <div className="stack-card__top">
-                <span className="stack-card__badge">{step.badge}</span>
-                <span className="stack-card__category">{step.category}</span>
-              </div>
-
-              {/* Archival Illustration Aperture */}
-              <div className="stack-card__visual">
-                <motion.div
-                  className="stack-card__img-wrap"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="stack-card__img"
-                    loading="lazy"
-                  />
-                </motion.div>
-              </div>
-
-              {/* Card Editorial Content */}
-              <div className="stack-card__content">
-                <span className="stack-card__subtitle">{step.subtitle}</span>
-                <h3 className="stack-card__title">{step.title}</h3>
-                <p className="stack-card__desc">{step.description}</p>
-              </div>
-
-              {/* Craft Specifications Metadata Panel */}
-              <div className="stack-card__specs">
-                <div className="stack-card__spec-item">
-                  <span className="stack-card__spec-label">SPECIFICATION</span>
-                  <span className="stack-card__spec-value">{step.spec}</span>
+        {/* Right Stage: Horizontal Cards Track */}
+        <div className="stack-cards-stage">
+          <div ref={trackRef} className="horizontal-cards-track">
+            {PROCESS_STEPS.map((step) => (
+              <article
+                key={step.id}
+                className="stack-card"
+                style={{ '--card-accent': step.accent }}
+              >
+                {/* Card Watermark Number */}
+                <div className="stack-card__watermark" aria-hidden="true">
+                  {step.stepNumber}
                 </div>
-                <div className="stack-card__spec-item stack-card__spec-item--right">
-                  <span className="stack-card__spec-label">BENCHMARK</span>
-                  <span className="stack-card__spec-value">{step.param}</span>
+
+                {/* Card Header */}
+                <div className="stack-card__top">
+                  <span className="stack-card__badge">{step.badge}</span>
+                  <span className="stack-card__category">{step.category}</span>
                 </div>
-              </div>
-            </article>
-          ))}
+
+                {/* Archival Illustration Aperture */}
+                <div className="stack-card__visual">
+                  <motion.div
+                    className="stack-card__img-wrap"
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="stack-card__img"
+                      loading="lazy"
+                    />
+                  </motion.div>
+                </div>
+
+                {/* Card Editorial Content */}
+                <div className="stack-card__content">
+                  <span className="stack-card__subtitle">{step.subtitle}</span>
+                  <h3 className="stack-card__title">{step.title}</h3>
+                  <p className="stack-card__desc">{step.description}</p>
+                </div>
+
+                {/* Craft Specifications Metadata Panel */}
+                <div className="stack-card__specs">
+                  <div className="stack-card__spec-item">
+                    <span className="stack-card__spec-label">SPECIFICATION</span>
+                    <span className="stack-card__spec-value">{step.spec}</span>
+                  </div>
+                  <div className="stack-card__spec-item stack-card__spec-item--right">
+                    <span className="stack-card__spec-label">BENCHMARK</span>
+                    <span className="stack-card__spec-value">{step.param}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
