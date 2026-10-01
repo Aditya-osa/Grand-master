@@ -92,30 +92,34 @@ export const PROCESS_STEPS = [
  */
 export default function HorizontalCards() {
   const sectionRef = useRef(null);
+  const stageRef = useRef(null);
   const trackRef = useRef(null);
   const progressBarRef = useRef(null);
   const progressTextRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
+    const stage = stageRef.current;
     const track = trackRef.current;
-    if (!section || !track) return;
+    if (!section || !stage || !track) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
       const getScrollAmount = () => {
-        return Math.max(0, track.scrollWidth - track.clientWidth);
+        const trackWidth = track.scrollWidth;
+        const stageWidth = stage.clientWidth;
+        return Math.max(0, trackWidth - stageWidth + 60);
       };
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${getScrollAmount() + 500}`,
+          end: () => `+=${getScrollAmount() * 1.5 + 400}`,
           pin: true,
-          scrub: 0.8,
+          scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -166,7 +170,9 @@ export default function HorizontalCards() {
         <header className="stack-cards-top-header">
           <h2 className="stack-cards-top-title">PROCESS</h2>
           <div className="stack-cards-header-progress">
-            
+            <span ref={progressTextRef} className="stack-cards-counter">
+              STAGE 01 OF 05
+            </span>
             <div className="stack-cards-progress-track">
               <div ref={progressBarRef} className="stack-cards-progress-bar" />
             </div>
@@ -174,7 +180,7 @@ export default function HorizontalCards() {
         </header>
 
         {/* Right Stage: Horizontal Cards Track */}
-        <div className="stack-cards-stage">
+        <div ref={stageRef} className="stack-cards-stage">
           <div ref={trackRef} className="horizontal-cards-track">
             {PROCESS_STEPS.map((step) => (
               <article
