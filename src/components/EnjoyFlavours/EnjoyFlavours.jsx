@@ -9,10 +9,8 @@ export default function EnjoyFlavours() {
   const sectionRef = useRef(null);
   const viewportRef = useRef(null);
   
-  // Main title word refs
-  const enjoyWordRef = useRef(null);
-  const uniqueWordRef = useRef(null);
-  const flavoursWordRef = useRef(null);
+  // Title container ref
+  const titleWrapRef = useRef(null);
 
   // Editorial description & final statement refs
   const descRef = useRef(null);
@@ -40,7 +38,7 @@ export default function EnjoyFlavours() {
       });
 
       // ======================================================================
-      // SCROLL 0% -> 30%: INITIAL ZOOM & SCROLL HINT FADE
+      // 1. SCROLL 0% -> 25%: SCROLL HINT FADES & TITLE SCALES UP SLIGHTLY
       // ======================================================================
       tl.to(
         scrollIndicatorRef.current,
@@ -48,84 +46,45 @@ export default function EnjoyFlavours() {
         0
       );
 
-      // Main Title Initial Zoom (0% -> 30%)
       tl.to(
-        enjoyWordRef.current,
-        { scale: 1.2, duration: 0.3, ease: 'power2.inOut' },
-        0
-      );
-      tl.to(
-        uniqueWordRef.current,
-        { scale: 1.2, duration: 0.3, ease: 'power2.inOut' },
-        0
-      );
-      tl.to(
-        flavoursWordRef.current,
-        { scale: 1.2, duration: 0.3, ease: 'power2.inOut' },
+        titleWrapRef.current,
+        { scale: 1.1, duration: 0.25, ease: 'power1.out' },
         0
       );
 
       // ======================================================================
-      // SCROLL 30% -> 60%: DRAMATIC WORD SPLIT & MAGNIFICATION
-      // "ENJOY" moves LEFT, "FLAVOURS" moves RIGHT, "UNIQUE" stays CENTER
+      // 2. SCROLL 25% -> 55%: TITLE LIFTS & FADES OUT CLEANLY (NO OVERLAP)
       // ======================================================================
       tl.to(
-        enjoyWordRef.current,
-        { xPercent: -100, yPercent: -25, scale: 1.5, opacity: 0.35, duration: 0.3, ease: 'power2.inOut' },
-        0.3
-      );
-
-      tl.to(
-        flavoursWordRef.current,
-        { xPercent: 100, yPercent: -25, scale: 1.5, opacity: 0.35, duration: 0.3, ease: 'power2.inOut' },
-        0.3
-      );
-
-      tl.to(
-        uniqueWordRef.current,
-        { yPercent: -60, scale: 0.85, opacity: 0.45, duration: 0.3, ease: 'power2.inOut' },
-        0.3
+        titleWrapRef.current,
+        { opacity: 0, y: -80, scale: 1.2, duration: 0.3, ease: 'power2.in' },
+        0.25
       );
 
       // ======================================================================
-      // SCROLL 60% -> 80%: WORDS MOVE AWAY + EDITORIAL DESCRIPTION REVEAL
+      // 3. SCROLL 45% -> 75%: EDITORIAL DESCRIPTION ENTERS CENTER
       // ======================================================================
-      tl.to(
-        enjoyWordRef.current,
-        { xPercent: -180, opacity: 0, duration: 0.2, ease: 'power2.in' },
-        0.6
-      );
-      tl.to(
-        flavoursWordRef.current,
-        { xPercent: 180, opacity: 0, duration: 0.2, ease: 'power2.in' },
-        0.6
-      );
-      tl.to(
-        uniqueWordRef.current,
-        { yPercent: -140, opacity: 0, duration: 0.2, ease: 'power2.in' },
-        0.6
-      );
-
-      // Description smooth entrance (opacity 0->1, y 80px->0, scale 0.95->1)
-      tl.to(
+      tl.fromTo(
         descRef.current,
-        { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: 'power2.out' },
-        0.6
+        { opacity: 0, y: 60, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: 'power2.out' },
+        0.45
       );
 
       // ======================================================================
-      // SCROLL 80% -> 100%: FINAL TYPOGRAPHY STATEMENT ("GRAND MASTER’S")
+      // 4. SCROLL 75% -> 100%: FINAL TYPOGRAPHY STATEMENT ("GRAND MASTER’S")
       // ======================================================================
       tl.to(
         descRef.current,
-        { opacity: 0.25, y: -25, duration: 0.2, ease: 'power2.in' },
-        0.8
+        { opacity: 0.25, y: -30, duration: 0.25, ease: 'power2.in' },
+        0.75
       );
 
-      tl.to(
+      tl.fromTo(
         statementRef.current,
-        { opacity: 1, y: 0, duration: 0.2, ease: 'power2.out' },
-        0.8
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' },
+        0.75
       );
     }, sectionRef);
 
@@ -140,17 +99,17 @@ export default function EnjoyFlavours() {
     >
       <div ref={viewportRef} className="enjoy-flavours-viewport">
         {/* Foreground Main Split Typography */}
-        <div className="enjoy-flavours-title-wrap">
+        <div ref={titleWrapRef} className="enjoy-flavours-title-wrap">
           <div className="enjoy-flavours-line-top">
-            <span ref={enjoyWordRef} className="enjoy-flavours-word enjoy-flavours-word--enjoy">
+            <span className="enjoy-flavours-word enjoy-flavours-word--enjoy">
               ENJOY
             </span>
-            <span ref={uniqueWordRef} className="enjoy-flavours-word enjoy-flavours-word--unique">
+            <span className="enjoy-flavours-word enjoy-flavours-word--unique">
               UNIQUE
             </span>
           </div>
           <div className="enjoy-flavours-line-bottom">
-            <span ref={flavoursWordRef} className="enjoy-flavours-word enjoy-flavours-word--flavours">
+            <span className="enjoy-flavours-word enjoy-flavours-word--flavours">
               FLAVOURS
             </span>
           </div>
