@@ -5,7 +5,8 @@
 @import url('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
 
 /* Base Navigation Container */
-.gm-main-nav {
+.gm-main-nav,
+nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -341,7 +342,8 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 640px) {
-  .gm-main-nav {
+  .gm-main-nav,
+  nav {
     height: 72px;
     padding: 0 20px;
   }
