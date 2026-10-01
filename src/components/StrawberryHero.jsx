@@ -118,60 +118,7 @@ export default function StrawberryHero() {
         },
       });
 
-      /*
-      // ----------------------------------------------------------------------
-      // 3. GSAP 3D MOUSE PARALLAX (quickTo for silky 60/120fps performance)
-      // ----------------------------------------------------------------------
-      const xToBg = gsap.quickTo(bgRef.current, 'x', { duration: 0.9, ease: 'power2.out' });
-      const yToBg = gsap.quickTo(bgRef.current, 'y', { duration: 0.9, ease: 'power2.out' });
-
-      const xToBottle = gsap.quickTo(bottleParallaxRef.current, 'x', { duration: 0.6, ease: 'power2.out' });
-      const yToBottle = gsap.quickTo(bottleParallaxRef.current, 'y', { duration: 0.6, ease: 'power2.out' });
-      const rotToBottle = gsap.quickTo(bottleParallaxRef.current, 'rotation', { duration: 0.6, ease: 'power2.out' });
-
-      const xToBotanicals = gsap.quickTo(botanicalsParallaxRef.current, 'x', { duration: 0.75, ease: 'power2.out' });
-      const yToBotanicals = gsap.quickTo(botanicalsParallaxRef.current, 'y', { duration: 0.75, ease: 'power2.out' });
-      const rotToBotanicals = gsap.quickTo(botanicalsParallaxRef.current, 'rotation', { duration: 0.75, ease: 'power2.out' });
-
-      const handleMouseMove = (e) => {
-        const rect = hero.getBoundingClientRect();
-        const nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-        const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-
-        // Background: very small movement (±7px)
-        xToBg(nx * 7);
-        yToBg(ny * 7);
-
-        // Bottle: medium movement (±14px, rotate ±1deg)
-        xToBottle(nx * 14);
-        yToBottle(ny * 12);
-        rotToBottle(nx * 1.0);
-
-        // Leaves + Flowers: slightly stronger movement (±28px, rotate ±1.8deg) -> 3D Depth
-        xToBotanicals(nx * 28);
-        yToBotanicals(ny * 22);
-        rotToBotanicals(nx * -1.8);
-      };
-
-      const handleMouseLeave = () => {
-        xToBg(0);
-        yToBg(0);
-        xToBottle(0);
-        yToBottle(0);
-        rotToBottle(0);
-        xToBotanicals(0);
-        yToBotanicals(0);
-        rotToBotanicals(0);
-      };
-
-      hero.addEventListener('mousemove', handleMouseMove);
-      hero.addEventListener('mouseleave', handleMouseLeave);
-
-      return () => {
-        hero.removeEventListener('mousemove', handleMouseMove);
-        hero.removeEventListener('mouseleave', handleMouseLeave);
-      };
-      */
+      
     }, heroRef);
 
     return () => ctx.revert();
@@ -215,6 +162,42 @@ export default function StrawberryHero() {
       </div>
 
       <div className="strawberry-hero__container">
+        {/* 4. TEXT / CONTENT LAYER */}
+        <motion.div
+          className="strawberry-hero__content hero-content"
+          variants={contentContainerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="strawberry-hero__text-block">
+            {/* Small Elegant Eyebrow */}
+            <motion.span variants={contentItemVariants} className="strawberry-hero__eyebrow">
+              GRANDMASTER'S VODKA
+            </motion.span>
+
+            {/* Large Product Heading */}
+          
+            {/* Product Description */}
+            <motion.p variants={contentItemVariants} className="strawberry-hero__description">
+              Pleasant mild aroma, complemented by sweet strawberry taste
+            </motion.p>
+
+            {/* Supporting Tasting Note */}
+            <motion.div variants={contentItemVariants} className="strawberry-hero__supporting-wrap">
+              <p className="strawberry-hero__supporting">
+                GRANDMASTER’s Strawberry is enjoyable sweet and refreshing
+              </p>
+            </motion.div>
+
+            {/* Premium Tasting Feature Tags */}
+            <motion.div variants={contentItemVariants} className="strawberry-hero__tags">
+              <span className="strawberry-hero__tag">Platinum Edition</span>
+              <span className="strawberry-hero__tag">Sweet Infusion</span>
+              <span className="strawberry-hero__tag">Triple Distilled</span>
+            </motion.div>
+          </div>
+        </motion.div>
+
         {/* VISUAL STAGE: BOTANICALS & BOTTLE LAYERS */}
         <div className="strawberry-hero__stage">
           {/* 2. LEAVES + FLOWERS IMAGE LAYER (ONE ASSET, BEHIND BOTTLE - ENTERS AFTER BOTTLE) */}
