@@ -162,23 +162,11 @@ export default function HorizontalCards() {
       aria-label="Grand Master Distillation Process"
     >
       <div className="stack-cards-viewport">
-        {/* Section Editorial Header (Left) */}
-        <header className="stack-cards-header">
-          <div className="stack-cards-header-info">
-            <div className="stack-cards-eyebrow-row">
-              <span className="stack-cards-eyebrow-badge">HOUSE OF DEEJAY</span>
-              <span className="stack-cards-eyebrow">CRAFT &amp; DISTILLATION</span>
-            </div>
-            <h2 className="stack-cards-title">THE FIVE-STAGE PROCESS</h2>
-          </div>
-
+        {/* Top Header above Cards */}
+        <header className="stack-cards-top-header">
+          <h2 className="stack-cards-top-title">PROCESS</h2>
           <div className="stack-cards-header-progress">
-            <div className="stack-cards-counter-wrap">
-              <span className="stack-cards-scroll-hint">PROGRESSION</span>
-              <span ref={progressTextRef} className="stack-cards-counter">
-                STAGE 01 OF 05
-              </span>
-            </div>
+            
             <div className="stack-cards-progress-track">
               <div ref={progressBarRef} className="stack-cards-progress-bar" />
             </div>
