@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroEntrance, initCarouselScroll } from '../animations/heroAnimations';
 
-import grandMasterLogo from '../assets/Logo.png';
 import bottle1 from '../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
 import bottle2 from '../All flav/2.png'; // Chocolate
 import bottle3 from '../All flav/3.png'; // Mango
@@ -25,7 +24,6 @@ export default function Products() {
   // Refs
   const containerRef = useRef(null);
   const trackRef = useRef(null);
-  const logoRef = useRef(null);
   const promptRef = useRef(null);
   const bottleRefs = useRef([]);
 
@@ -53,7 +51,6 @@ export default function Products() {
     const bottleEls = bottleRefs.current.filter(Boolean);
     const entranceCtx = initHeroEntrance({
       containerRef,
-      logoRef,
       promptRef,
       bottleEls,
     });
@@ -88,21 +85,6 @@ export default function Products() {
 
   return (
     <section ref={containerRef} className="ag-hero" aria-label="Grand Master Products">
-      {/* Top Header Controls */}
-      <header className="ag-header">
-        {/* Top-Center: Logo */}
-        <div ref={logoRef} className="ag-brand-logo-wrap">
-          <a href="#" className="ag-brand-link" aria-label="Grand Master Vodka Home">
-            <img
-              src={grandMasterLogo}
-              alt="Grand Master"
-              className="ag-brand-logo-img"
-              width="160"
-            />
-          </a>
-        </div>
-      </header>
-
       {/* Visual Stage: Only Bottles */}
       <div className="ag-stage">
         {/* Angled 10-degree Marquee Stage for Bottles */}

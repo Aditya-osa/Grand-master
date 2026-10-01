@@ -12,9 +12,8 @@ export default function EnjoyFlavours() {
   // Title container ref
   const titleWrapRef = useRef(null);
 
-  // Editorial description & final statement refs
+  // Editorial description & scroll indicator refs
   const descRef = useRef(null);
-  const statementRef = useRef(null);
   const scrollIndicatorRef = useRef(null);
 
   useEffect(() => {
@@ -25,11 +24,15 @@ export default function EnjoyFlavours() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
+      // Goonies initial states
+      gsap.set(titleWrapRef.current, { opacity: 0.2, scale: 0.85 });
+      gsap.set(descRef.current, { opacity: 0, y: 80 });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=300%', // 300vh scroll distance
+          end: '+=80%',
           pin: true,
           scrub: 0.8,
           anticipatePin: 1,
@@ -38,53 +41,35 @@ export default function EnjoyFlavours() {
       });
 
       // ======================================================================
-      // 1. SCROLL 0% -> 25%: SCROLL HINT FADES & TITLE SCALES UP SLIGHTLY
+      // PHASE 1 (0.00 -> 0.45): GOONIES TITLE ZOOM & FADE OUT
       // ======================================================================
       tl.to(
         scrollIndicatorRef.current,
-        { opacity: 0, y: -20, duration: 0.15, ease: 'power1.out' },
+        { opacity: 0, duration: 0.1, ease: 'power1.out' },
         0
       );
 
       tl.to(
         titleWrapRef.current,
-        { scale: 1.1, duration: 0.25, ease: 'power1.out' },
+        { opacity: 1, scale: 1, duration: 0.22, ease: 'power1.out' },
         0
       );
 
-      // ======================================================================
-      // 2. SCROLL 25% -> 55%: TITLE LIFTS & FADES OUT CLEANLY (NO OVERLAP)
-      // ======================================================================
       tl.to(
         titleWrapRef.current,
-        { opacity: 0, y: -80, scale: 1.2, duration: 0.3, ease: 'power2.in' },
-        0.25
+        { opacity: 0, scale: 1.35, y: -40, duration: 0.23, ease: 'power2.in' },
+        0.22
       );
 
       // ======================================================================
-      // 3. SCROLL 45% -> 75%: EDITORIAL DESCRIPTION ENTERS CENTER
+      // PHASE 2 (0.45 -> 1.00): EDITORIAL DESCRIPTION REVEAL (COMES UP FROM BELOW)
+      // Starts ONLY AFTER title is 100% invisible. Remains visible to avoid black void.
       // ======================================================================
       tl.fromTo(
         descRef.current,
-        { opacity: 0, y: 60, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: 'power2.out' },
+        { opacity: 0, y: 80 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
         0.45
-      );
-
-      // ======================================================================
-      // 4. SCROLL 75% -> 100%: FINAL TYPOGRAPHY STATEMENT ("GRAND MASTER’S")
-      // ======================================================================
-      tl.to(
-        descRef.current,
-        { opacity: 0.25, y: -30, duration: 0.25, ease: 'power2.in' },
-        0.75
-      );
-
-      tl.fromTo(
-        statementRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.25, ease: 'power2.out' },
-        0.75
       );
     }, sectionRef);
 
@@ -122,10 +107,7 @@ export default function EnjoyFlavours() {
           </p>
         </div>
 
-        {/* Final Statement Typography */}
-        <div ref={statementRef} className="enjoy-flavours-statement-wrap">
-          <h3 className="enjoy-flavours-statement">GRAND MASTER’S</h3>
-        </div>
+       
 
         {/* Initial Scroll Indicator */}
         <div ref={scrollIndicatorRef} className="enjoy-flavours-scroll-hint">

@@ -1,0 +1,355 @@
+@font-face {
+    font-family: Product Sans;
+    src: url('/Fonts/Product Sans Regular.ttf');
+}
+@font-face {
+    font-family: Product Sans B;
+    src: url('/Fonts/Product Sans Bold.ttf');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Product Sans;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+html , body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#fanta, #fanta2, #orange-text, #strawberry-text, #orange, #leaf, #leaf2, #leaf3 {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+#main{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 12vh;
+    padding: 0vw 8vw;
+    z-index: 99;
+    background: transparent;
+    box-shadow: none;
+}
+
+.nav-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+#menu-toggle {
+    font-size: 1.6vw;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+#menu-toggle:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8vh 0 6vh 0;
+    z-index: 101;
+    transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.15);
+}
+
+.menu-overlay.active {
+    right: 0;
+}
+
+#menu-close {
+    position: absolute;
+    top: 4vh;
+    right: 2.5vw;
+    font-size: 2vw;
+    color: #222222;
+    cursor: pointer;
+    transition: transform 0.25s ease, color 0.2s ease;
+}
+
+#menu-close:hover {
+    transform: rotate(90deg);
+    color: #e87700;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    margin-top: 6vh;
+}
+
+.cntr-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5vh;
+}
+
+.cntr-nav a {
+    font-size: 1.4vw;
+    font-family: Product Sans B;
+    text-decoration: none;
+    color: #222222;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.cntr-nav a:hover {
+    color: #e87700;
+    transform: translateY(-2px);
+}
+
+/* Social Media Icons Styling */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.2vw;
+    margin-bottom: 2vh;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    color: #222222;
+    font-size: 1.2vw;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.social-icons a:hover {
+    background: #e87700;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(232, 119, 0, 0.3);
+}
+
+nav i{
+    font-size: 1.4vw;
+    cursor: pointer;
+}
+
+.one{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e76d1c, #d56600);
+}
+
+.one h1{
+    position: absolute;
+    font-size: 21vw;
+    font-family: 'Anton', sans-serif;
+    color: #f7a81b;
+    opacity: 1;
+    white-space: nowrap;
+    user-select: none;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+#orange-text {
+    z-index: 1;
+}
+
+#strawberry-text {
+    font-family: 'Anton', sans-serif;
+    z-index: 1;
+    opacity: 0;
+    color: #f7365d;
+    transform: translateX(100vw);
+}
+
+#fanta, #fanta2 {
+    height: 90vh;
+    position: absolute;
+    width: auto;
+    object-fit: contain;
+    z-index: 5;
+    margin-top: 10px;
+    transform: rotate(14deg);
+    filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.35));
+    pointer-events: none;
+}
+
+#fanta2 {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(14deg);
+}
+
+/* Bottom Left Info Box Alignment */
+.info-box {
+    position: absolute;
+    bottom: 10%;
+    left: 7%;
+    z-index: 10;
+    color: #fff;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-box h2 {
+    font-size: 2.5vw;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.info-box p {
+    font-size: 0.95vw;
+    font-family: Product Sans;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 20px;
+}
+
+.pill-btn {
+    background-color: #ffffff;
+    color: #222222;
+    border: none;
+    padding: 12px 36px;
+    border-radius: 50px;
+    font-size: 0.9vw;
+    font-family: Product Sans B;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.pill-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+    background-color: #f8f8f8;
+}
+
+#info-orange {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#info-strawberry {
+    opacity: 0;
+    transform: translateY(100vh);
+    pointer-events: none;
+}
+
+/* Floating Decor Items Positioning matching reference layout */
+.decor {
+    position: absolute;
+    z-index: 4;
+    pointer-events: none;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.25));
+}
+
+/* Top Left Half Orange */
+.orange-top-left {
+    width: 12.5vw;
+    top: 10%;
+    left: 7%;
+}
+
+/* Top Right Orange Pair */
+.orange-top-right {
+    width: 13.5vw;
+    top: 6%;
+    right: 17%;
+}
+
+/* Bottom Right Cut Slices */
+.orange-bottom-right {
+    width: 17.5vw;
+    bottom: 0%;
+    right: 14%;
+}
+
+/* Mint Leaves Around */
+.leaf-left-1 {
+    width: 14vw;
+    top: 38%;
+    left: 2%;
+    transform: rotate(25deg);
+}
+
+.leaf-left-2 {
+    width: 7.5vw;
+    top: -3%;
+    left: 34%;
+    transform: rotate(-15deg);
+}
+
+.leaf-right-1 {
+    width: 6vw;
+    top: 32%;
+    right: 6%;
+    transform: rotate(70deg);
+}
+
+.leaf-bottom-mid {
+    width: 6vw;
+    bottom: 7%;
+    left: 28%;
+    transform: rotate(-25deg);
+}

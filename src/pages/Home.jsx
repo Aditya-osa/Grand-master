@@ -1,24 +1,27 @@
 import React from 'react';
-import FlavorHero from '../components/FlavorHero';
+import Navbar from '../components/Navbar';
+import BannerHero from '../components/BannerHero';
 import Products from '../components/Products';
 import DistilledToInspire from '../components/DistilledToInspire';
-import EnjoyFlavours from '../components/EnjoyFlavours/EnjoyFlavours';
 import HorizontalCards from '../components/HorizontalCards';
 import Footer from '../components/Footer/Footer';
 
 /**
  * Home Page Component
- * Renders Flavor Hero, Products, Distilled to Inspire, Enjoy Flavours Cinematic Scroll, Process Cards, and Footer
+ * Renders GM Navbar, Bannerinhtml Hero, Products, Distilled to Inspire, Horizontal Cards, and Footer.
+ * Enjoy Flavours has been removed and replaced by BannerHero.
  */
 export default function Home() {
   return (
-    <main className="gm-home-page" role="main">
-      <FlavorHero />
-      <Products />
-      <DistilledToInspire />
-      <EnjoyFlavours />
-      <HorizontalCards />
-      <Footer />
-    </main>
+    <div className="gm-home-wrapper">
+      <Navbar />
+      <main className="gm-home-page" role="main">
+        <BannerHero />
+        <Products />
+        <DistilledToInspire />
+        <HorizontalCards />
+        <Footer />
+      </main>
+    </div>
   );
 }

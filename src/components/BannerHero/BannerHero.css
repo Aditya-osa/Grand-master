@@ -1,0 +1,211 @@
+/* ==========================================================================
+   BannerHero - Preserved Exact Styles from Bannerinhtml
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('/Fonts/Product Sans Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Product Sans B';
+  src: url('/Fonts/Product Sans Bold.ttf') format('truetype');
+}
+
+.banner-hero-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-hero-container * {
+  box-sizing: border-box;
+  font-family: 'Product Sans', sans-serif;
+}
+
+#fanta,
+#fanta2,
+#orange-text,
+#strawberry-text,
+#orange,
+#leaf,
+#leaf2,
+#leaf3 {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.banner-hero-container .one {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e76d1c, #d56600);
+}
+
+.banner-hero-container .one h1 {
+  position: absolute;
+  font-size: 21vw;
+  font-family: 'Anton', sans-serif;
+  color: #f7a81b;
+  opacity: 1;
+  white-space: nowrap;
+  user-select: none;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.banner-hero-container #orange-text {
+  z-index: 1;
+}
+
+.banner-hero-container #strawberry-text {
+  font-family: 'Anton', sans-serif;
+  z-index: 1;
+  opacity: 0;
+  color: #f7365d;
+  transform: translateX(100vw);
+}
+
+.banner-hero-container #fanta,
+.banner-hero-container #fanta2 {
+  height: 90vh;
+  position: absolute;
+  width: auto;
+  object-fit: contain;
+  z-index: 5;
+  margin-top: 10px;
+  transform: rotate(14deg);
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+}
+
+.banner-hero-container #fanta2 {
+  opacity: 0;
+  transform: translateY(-100vh) rotate(14deg);
+}
+
+/* Bottom Left Info Box Alignment */
+.banner-hero-container .info-box {
+  position: absolute;
+  bottom: 10%;
+  left: 7%;
+  z-index: 10;
+  color: #fff;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.banner-hero-container .info-box h2 {
+  font-size: 2.5vw;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.banner-hero-container .info-box p {
+  font-size: 0.95vw;
+  font-family: 'Product Sans', sans-serif;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 20px;
+}
+
+.banner-hero-container .pill-btn {
+  background-color: #ffffff;
+  color: #222222;
+  border: none;
+  padding: 12px 36px;
+  border-radius: 50px;
+  font-size: 0.9vw;
+  font-family: 'Product Sans B', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.banner-hero-container .pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+  background-color: #f8f8f8;
+}
+
+.banner-hero-container #info-orange {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.banner-hero-container #info-strawberry {
+  opacity: 0;
+  transform: translateY(100vh);
+  pointer-events: none;
+}
+
+/* Floating Decor Items Positioning matching reference layout */
+.banner-hero-container .decor {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+}
+
+/* Top Left Half Orange */
+.banner-hero-container .orange-top-left {
+  width: 12.5vw;
+  top: 10%;
+  left: 7%;
+}
+
+/* Top Right Orange Pair */
+.banner-hero-container .orange-top-right {
+  width: 13.5vw;
+  top: 6%;
+  right: 17%;
+}
+
+/* Bottom Right Cut Slices */
+.banner-hero-container .orange-bottom-right {
+  width: 17.5vw;
+  bottom: 0%;
+  right: 14%;
+}
+
+/* Mint Leaves Around */
+.banner-hero-container .leaf-left-1 {
+  width: 14vw;
+  top: 38%;
+  left: 2%;
+  transform: rotate(25deg);
+}
+
+.banner-hero-container .leaf-left-2 {
+  width: 7.5vw;
+  top: -3%;
+  left: 34%;
+  transform: rotate(-15deg);
+}
+
+.banner-hero-container .leaf-right-1 {
+  width: 6vw;
+  top: 32%;
+  right: 6%;
+  transform: rotate(70deg);
+}
+
+.banner-hero-container .leaf-bottom-mid {
+  width: 6vw;
+  bottom: 7%;
+  left: 28%;
+  transform: rotate(-25deg);
+}
