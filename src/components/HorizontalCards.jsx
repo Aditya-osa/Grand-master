@@ -114,18 +114,18 @@ export default function HorizontalCards() {
       const isMobile = window.innerWidth <= 768;
       const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
 
-      // Cascading step offsets matching physical card deck reference (visible left and bottom edges)
-      const stepX = isMobile ? -12 : isTablet ? -17 : -22;
-      const stepY = isMobile ? 9 : isTablet ? 12 : 15;
+      // Cascading step offsets matching physical card deck reference
+      const stepX = isMobile ? -10 : isTablet ? -14 : -18;
+      const stepY = isMobile ? 8 : isTablet ? 10 : 12;
 
-      // Optical centering offsets so the whole deck is harmoniously centered
-      const baseOffsetX = isMobile ? 22 : isTablet ? 32 : 42;
-      const baseOffsetY = isMobile ? -16 : isTablet ? -22 : -28;
+      // Optical centering offsets shifting stack slightly left for balanced editorial composition
+      const baseOffsetX = isMobile ? 12 : isTablet ? -10 : -20;
+      const baseOffsetY = isMobile ? -14 : isTablet ? -18 : -22;
 
-      // Returns the physical stacked deck properties for a given depth level
+      // Returns physical stacked deck properties simplified to 2-3 clean layers
       const getDepthProps = (depth) => {
         if (depth === 0) {
-          // Active front card: fully prominent, crisp, in front
+          // Hero front card: prominent, crisp, primary focus
           return {
             xPercent: -50,
             yPercent: -50,
@@ -137,50 +137,38 @@ export default function HorizontalCards() {
           };
         }
         if (depth === 1) {
-          // 1st card behind: prominently visible edge and border
+          // 1st card behind: clean visible accent edge
           return {
             xPercent: -50,
             yPercent: -50,
             x: baseOffsetX + stepX * 1,
             y: baseOffsetY + stepY * 1,
-            scale: 0.985,
-            opacity: 1,
-            zIndex: 28,
+            scale: 0.975,
+            opacity: 0.85,
+            zIndex: 25,
           };
         }
         if (depth === 2) {
-          // 2nd card behind: clearly visible
+          // 2nd card behind: soft background depth layer
           return {
             xPercent: -50,
             yPercent: -50,
             x: baseOffsetX + stepX * 2,
             y: baseOffsetY + stepY * 2,
-            scale: 0.97,
-            opacity: 0.98,
-            zIndex: 22,
+            scale: 0.95,
+            opacity: 0.50,
+            zIndex: 15,
           };
         }
-        if (depth === 3) {
-          // 3rd card behind: clearly visible
-          return {
-            xPercent: -50,
-            yPercent: -50,
-            x: baseOffsetX + stepX * 3,
-            y: baseOffsetY + stepY * 3,
-            scale: 0.955,
-            opacity: 0.96,
-            zIndex: 16,
-          };
-        }
-        // 4th card behind (all 5 cards in the deck are clearly visible)
+        // Further cards hidden cleanly behind the 2nd layer
         return {
           xPercent: -50,
           yPercent: -50,
-          x: baseOffsetX + stepX * 4,
-          y: baseOffsetY + stepY * 4,
-          scale: 0.94,
-          opacity: 0.94,
-          zIndex: 10,
+          x: baseOffsetX + stepX * 2,
+          y: baseOffsetY + stepY * 2,
+          scale: 0.93,
+          opacity: 0,
+          zIndex: 5,
         };
       };
 
@@ -285,11 +273,6 @@ export default function HorizontalCards() {
       aria-label="Grand Master Distillation Process"
     >
       <div className="stack-cards-viewport">
-        {/* Subtle Archival Warm Paper Watermark */}
-        <div className="stack-cards-watermark" aria-hidden="true">
-          DISTILLERY
-        </div>
-
         {/* Section Editorial Header */}
         <header className="stack-cards-header">
           <div className="stack-cards-header-info">
