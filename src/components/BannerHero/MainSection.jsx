@@ -7,6 +7,12 @@ import melonBottle from '../../assets/bottles/all-flav/4.png';
 const MainSection = () => {
   return (
     <div className="one">
+      {/* Background Flavour Gradients for smooth GPU-accelerated transitions */}
+      <div className="hero-bg bg-orange" />
+      <div className="hero-bg bg-strawberry" />
+      <div className="hero-bg bg-chocolate" />
+      <div className="hero-bg bg-melon" />
+
       {/* Background Giant Text */}
       <h1 id="orange-text">ORANGE</h1>
       <h1 id="strawberry-text">STRAWBERRY</h1>

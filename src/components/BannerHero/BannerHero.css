@@ -55,7 +55,39 @@
   min-height: 100svh;
   height: 100dvh;
   overflow: hidden;
+  background-color: #e76d1c;
+}
+
+/* GPU-accelerated background flavour gradient layers */
+.banner-hero-container .hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.banner-hero-container .bg-orange {
   background: linear-gradient(135deg, #e76d1c, #d56600);
+  opacity: 1;
+}
+
+.banner-hero-container .bg-strawberry {
+  background: linear-gradient(135deg, #eb2d55, #b41432);
+  opacity: 0;
+}
+
+.banner-hero-container .bg-chocolate {
+  background: linear-gradient(135deg, #3d1c14, #180905);
+  opacity: 0;
+}
+
+.banner-hero-container .bg-melon {
+  background: linear-gradient(135deg, #389e27, #1b6312);
+  opacity: 0;
 }
 
 .banner-hero-container .one h1 {
@@ -63,8 +95,6 @@
   top: clamp(60px, 11vh, 130px);
   font-size: clamp(48px, 15vw, 280px);
   font-family: 'Anton', sans-serif;
-  color: #f7a81b;
-  opacity: 1;
   white-space: nowrap;
   user-select: none;
   text-transform: uppercase;
@@ -75,10 +105,12 @@
 
 .banner-hero-container #orange-text {
   z-index: 1;
+  color: #f7a81b;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .banner-hero-container #strawberry-text {
-  font-family: 'Anton', sans-serif;
   z-index: 1;
   opacity: 0;
   color: #f7365d;
@@ -86,7 +118,6 @@
 }
 
 .banner-hero-container #chocolate-text {
-  font-family: 'Anton', sans-serif;
   z-index: 1;
   opacity: 0;
   color: #d49b6a;
@@ -94,7 +125,6 @@
 }
 
 .banner-hero-container #melon-text {
-  font-family: 'Anton', sans-serif;
   z-index: 1;
   opacity: 0;
   color: #88ea36;

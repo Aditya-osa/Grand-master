@@ -21,7 +21,7 @@ export default function BannerHero() {
 
     // Reset state on mount
     currentFlavourRef.current = 0;
-    isAnimatingRef.current = false;
+    isAnimatingRef.current = true; // Lock interactions until entrance animation completes
 
     // Prevent Lenis interference while inside Hero flavour stages
     heroEl.setAttribute('data-lenis-prevent', 'true');
@@ -89,33 +89,32 @@ export default function BannerHero() {
       // TRANSITION 1: Orange -> Strawberry (0.0s -> 1.0s)
       // =========================================================================
       // Exit Orange (0.0s -> 0.5s)
-      tl.fromTo("#fanta",
-        { y: "0vh", opacity: 1, rotate: 14 },
+      tl.to("#fanta",
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
         0
       )
-      .fromTo("#orange-text",
-        { x: "0vw", opacity: 1 },
+      .to("#orange-text",
         { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
         0
       )
-      .fromTo("#info-orange",
-        { y: "0vh", opacity: 1 },
+      .to("#info-orange",
         { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
         0
       )
-      .fromTo(".decor-orange",
-        { y: "0vh", opacity: 1 },
+      .to(".decor-orange",
         { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
         0
       )
-      // Background: Orange -> Strawberry (0.0s -> 1.0s)
-      .fromTo(".one",
-        { background: "linear-gradient(135deg, #e76d1c, #d56600)" },
-        { background: "linear-gradient(135deg, #eb2d55, #b41432)", duration: 1.0, ease: "power2.inOut" },
+      // Background Crossfade: Orange -> Strawberry (0.0s -> 1.0s)
+      .to(".bg-orange",
+        { opacity: 0, duration: 1.0, ease: "power2.inOut" },
         0
       )
-      // Enter Strawberry (0.5s -> 1.0s)
+      .to(".bg-strawberry",
+        { opacity: 1, duration: 1.0, ease: "power2.inOut" },
+        0
+      )
+      // Enter Strawberry (0.5s -> 1.0s) (Enters from RIGHT: 100vw)
       .fromTo("#fanta2",
         { y: "-100vh", opacity: 0, rotate: 14 },
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
@@ -137,25 +136,26 @@ export default function BannerHero() {
       // =========================================================================
       // TRANSITION 2: Strawberry -> Chocolate (1.0s -> 2.0s)
       // =========================================================================
-      // Exit Strawberry (1.0s -> 1.5s)
-      tl.fromTo("#fanta2",
-        { y: "0vh", opacity: 1, rotate: 14 },
+      // Exit Strawberry (1.0s -> 1.5s) (Exits to RIGHT: 100vw)
+      tl.to("#fanta2",
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
         1.0
       )
-      .fromTo("#strawberry-text",
-        { x: "0vw", opacity: 1 },
+      .to("#strawberry-text",
         { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
         1.0
       )
-      .fromTo("#info-strawberry",
-        { y: "0vh", opacity: 1 },
+      .to("#info-strawberry",
         { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
         1.0
       )
-      // Background: Strawberry -> Chocolate (1.0s -> 2.0s)
-      .to(".one",
-        { background: "linear-gradient(135deg, #3d1c14, #180905)", duration: 1.0, ease: "power2.inOut" },
+      // Background Crossfade: Strawberry -> Chocolate (1.0s -> 2.0s)
+      .to(".bg-strawberry",
+        { opacity: 0, duration: 1.0, ease: "power2.inOut" },
+        1.0
+      )
+      .to(".bg-chocolate",
+        { opacity: 1, duration: 1.0, ease: "power2.inOut" },
         1.0
       )
       // Enter Chocolate (1.5s -> 2.0s) (Enters from LEFT: -100vw)
@@ -181,24 +181,25 @@ export default function BannerHero() {
       // TRANSITION 3: Chocolate -> Melon (2.0s -> 3.0s)
       // =========================================================================
       // Exit Chocolate (2.0s -> 2.5s) (Exits to LEFT: -100vw)
-      tl.fromTo("#fanta3",
-        { y: "0vh", opacity: 1, rotate: 14 },
+      tl.to("#fanta3",
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
         2.0
       )
-      .fromTo("#chocolate-text",
-        { x: "0vw", opacity: 1 },
+      .to("#chocolate-text",
         { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
         2.0
       )
-      .fromTo("#info-chocolate",
-        { y: "0vh", opacity: 1 },
+      .to("#info-chocolate",
         { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
         2.0
       )
-      // Background: Chocolate -> Melon (2.0s -> 3.0s)
-      .to(".one",
-        { background: "linear-gradient(135deg, #389e27, #1b6312)", duration: 1.0, ease: "power2.inOut" },
+      // Background Crossfade: Chocolate -> Melon (2.0s -> 3.0s)
+      .to(".bg-chocolate",
+        { opacity: 0, duration: 1.0, ease: "power2.inOut" },
+        2.0
+      )
+      .to(".bg-melon",
+        { opacity: 1, duration: 1.0, ease: "power2.inOut" },
         2.0
       )
       // Enter Melon (2.5s -> 3.0s) (Enters from RIGHT: 100vw)
