@@ -145,7 +145,7 @@ export default function BannerHero() {
       )
       .fromTo("#strawberry-text",
         { x: "0vw", opacity: 1 },
-        { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
+        { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
         1.0
       )
       .fromTo("#info-strawberry",
@@ -158,14 +158,14 @@ export default function BannerHero() {
         { background: "linear-gradient(135deg, #3d1c14, #180905)", duration: 1.0, ease: "power2.inOut" },
         1.0
       )
-      // Enter Chocolate (1.5s -> 2.0s)
+      // Enter Chocolate (1.5s -> 2.0s) (Enters from LEFT: -100vw)
       .fromTo("#fanta3",
         { y: "-100vh", opacity: 0, rotate: 14 },
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
         1.5
       )
       .fromTo("#chocolate-text",
-        { x: "100vw", opacity: 0 },
+        { x: "-100vw", opacity: 0 },
         { x: "0vw", opacity: 1, duration: 0.5, ease: "power2.out" },
         1.5
       )
@@ -180,7 +180,7 @@ export default function BannerHero() {
       // =========================================================================
       // TRANSITION 3: Chocolate -> Melon (2.0s -> 3.0s)
       // =========================================================================
-      // Exit Chocolate (2.0s -> 2.5s)
+      // Exit Chocolate (2.0s -> 2.5s) (Exits to LEFT: -100vw)
       tl.fromTo("#fanta3",
         { y: "0vh", opacity: 1, rotate: 14 },
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
@@ -201,7 +201,7 @@ export default function BannerHero() {
         { background: "linear-gradient(135deg, #389e27, #1b6312)", duration: 1.0, ease: "power2.inOut" },
         2.0
       )
-      // Enter Melon (2.5s -> 3.0s)
+      // Enter Melon (2.5s -> 3.0s) (Enters from RIGHT: 100vw)
       .fromTo("#fanta4",
         { y: "-100vh", opacity: 0, rotate: 14 },
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },

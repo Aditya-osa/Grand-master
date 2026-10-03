@@ -90,7 +90,7 @@
   z-index: 1;
   opacity: 0;
   color: #d49b6a;
-  transform: translateX(100vw);
+  transform: translateX(-100vw);
 }
 
 .banner-hero-container #melon-text {
