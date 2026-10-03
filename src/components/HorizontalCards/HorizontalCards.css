@@ -1,0 +1,312 @@
+/* ==========================================================================
+   HorizontalCards.css - Vertical Stacked-Card Physical Deck Scroll Animation
+   Pure Vertical Overlapping Deck (Zero Horizontal Scrolling, Zero Overflow-X)
+   ========================================================================== */
+
+.stack-cards-section {
+  position: relative;
+  width: 100%;
+  background-color: #fcf9f4;
+  background-image: 
+    radial-gradient(circle at 30% 40%, #ffffff 0%, #f7eee2 55%, #eedfcc 100%);
+  color: #3b2f2d;
+  overflow: hidden;
+  box-sizing: border-box;
+  isolation: isolate;
+  border-top: 1px solid rgba(118, 37, 48, 0.08);
+  border-bottom: 1px solid rgba(118, 37, 48, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Pinned Viewport Container (Locks 100vh during GSAP Pin)
+   -------------------------------------------------------------------------- */
+
+.stack-cards-viewport {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(28px, 4vh, 44px) clamp(20px, 4vw, 56px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Section Top Header ("PROCESS" Title Above Cards)
+   -------------------------------------------------------------------------- */
+
+.stack-cards-top-header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: clamp(16px, 2.5vh, 28px);
+  z-index: 50;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.stack-cards-top-title {
+  font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4a0b14;
+  margin: 0;
+}
+
+/* Progress indicator on top right */
+.stack-cards-header-progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stack-cards-counter {
+  font-family: var(--font-serif, "ivymode", Georgia, serif);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #762530;
+  white-space: nowrap;
+}
+
+.stack-cards-progress-track {
+  width: 140px;
+  height: 3px;
+  background: rgba(118, 37, 48, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.stack-cards-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #762530 0%, #c93a0e 100%);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.08s linear;
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Cards Stage & Scrolling Track
+   -------------------------------------------------------------------------- */
+
+.stack-cards-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 10;
+  box-sizing: border-box;
+  padding-left: 0;
+}
+
+.horizontal-cards-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3.5vw, 36px);
+  width: max-content;
+  padding: 20px 0;
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   Individual Horizontal Card
+   -------------------------------------------------------------------------- */
+
+.stack-card {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  flex-shrink: 0;
+  width: clamp(320px, 25vw, 380px);
+  height: clamp(410px, 52vh, 470px);
+  background: #ffffff;
+  border: 1px solid rgba(184, 134, 11, 0.30);
+  border-radius: 10px;
+  padding: clamp(20px, 2.6vh, 26px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(16px, 2.2vh, 22px);
+  box-sizing: border-box;
+  box-shadow: 
+    0 16px 36px -8px rgba(74, 11, 20, 0.12),
+    0 4px 12px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.stack-card:hover {
+  border-color: rgba(184, 134, 11, 0.65);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 24px 48px -10px rgba(74, 11, 20, 0.18),
+    0 6px 18px -3px rgba(0, 0, 0, 0.06);
+}
+
+/* Archival Visual Aperture - Enlarged Hero Illustration */
+.stack-card__visual {
+  position: relative;
+  width: 100%;
+  height: clamp(185px, 24vh, 225px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf1e6 100%);
+  border: 1px solid rgba(118, 37, 48, 0.10);
+  border-radius: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.stack-card__img-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.stack-card__img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 12px 24px rgba(90, 20, 30, 0.18));
+}
+
+/* Card Content & Text */
+.stack-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  flex: 1;
+}
+
+.stack-card__title {
+  font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
+  font-size: clamp(20px, 1.6vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #4a0b14;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.stack-card__desc {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(13px, 0.88vw, 14.5px);
+  line-height: 1.55;
+  color: #5e4c48;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Tablets & Mobile Viewports)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .stack-cards-top-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+  }
+}
+
+@media (max-width: 768px) {
+  .stack-cards-viewport {
+    padding: 20px 16px;
+  }
+
+  .stack-cards-top-header {
+    margin-bottom: 16px;
+  }
+
+  .stack-cards-top-title {
+    font-size: 28px;
+  }
+
+  .stack-cards-counter {
+    font-size: 13px;
+  }
+
+  .stack-cards-progress-track {
+    width: 100px;
+  }
+
+  .stack-cards-stage {
+    padding-left: 20px;
+  }
+
+  .horizontal-cards-track {
+    gap: 18px;
+  }
+
+  .stack-card {
+    width: clamp(280px, 80vw, 330px);
+    height: clamp(370px, 54vh, 430px);
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .stack-card__visual {
+    height: 165px;
+    padding: 12px;
+    margin: 0;
+  }
+
+  .stack-card__title {
+    font-size: 18px;
+  }
+
+  .stack-card__desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: prefers-reduced-motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-card,
+  .stack-card__img-wrap,
+  .stack-card__img,
+  .stack-cards-progress-bar {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

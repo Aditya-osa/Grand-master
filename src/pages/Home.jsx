@@ -4,7 +4,7 @@ import BannerHero from '../components/BannerHero';
 import Products from '../components/Products';
 import DistilledToInspire from '../components/DistilledToInspire';
 import HorizontalCards from '../components/HorizontalCards';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer';
 
 /**
  * Home Page Component
@@ -17,8 +17,9 @@ export default function Home() {
       <Navbar />
       <main className="gm-home-page" role="main">
         <BannerHero />
-        <Products />
         <DistilledToInspire />
+        <Products />
+
         <HorizontalCards />
         <Footer />
       </main>

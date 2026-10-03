@@ -49,14 +49,15 @@
 
 .banner-hero-container .one h1 {
   position: absolute;
-  font-size: 21vw;
+  top: clamp(65px, 12vh, 130px);
+  font-size: clamp(100px, 19vw, 280px);
   font-family: 'Anton', sans-serif;
   color: #f7a81b;
   opacity: 1;
   white-space: nowrap;
   user-select: none;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 0.95;
   letter-spacing: 2px;
 }
 
@@ -93,51 +94,57 @@
 /* Bottom Left Info Box Alignment */
 .banner-hero-container .info-box {
   position: absolute;
-  bottom: 10%;
-  left: 7%;
+  bottom: clamp(20px, 5vh, 44px);
+  left: clamp(24px, 5vw, 64px);
   z-index: 10;
   color: #fff;
-  max-width: 320px;
+  max-width: clamp(280px, 24vw, 360px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .banner-hero-container .info-box h2 {
-  font-size: 2.5vw;
+  font-size: clamp(24px, 2.1vw, 34px);
   font-family: 'Anton', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px 0;
   color: #ffffff;
-  line-height: 1;
+  line-height: 1.1;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
 }
 
 .banner-hero-container .info-box p {
-  font-size: 0.95vw;
-  font-family: 'Product Sans', sans-serif;
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-family: 'Plus Jakarta Sans', 'Product Sans', sans-serif;
+  font-weight: 500;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
 }
 
 .banner-hero-container .pill-btn {
   background-color: #ffffff;
-  color: #222222;
+  color: #1a1a1a;
   border: none;
-  padding: 12px 36px;
-  border-radius: 50px;
-  font-size: 0.9vw;
-  font-family: 'Product Sans B', sans-serif;
+  padding: 11px 32px;
+  border-radius: 999px;
+  font-size: clamp(13px, 0.9vw, 15px);
+  font-family: 'Plus Jakarta Sans', 'Product Sans B', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .banner-hero-container .pill-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
-  background-color: #f8f8f8;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  background-color: #fafafa;
 }
 
 .banner-hero-container #info-orange {
@@ -169,7 +176,7 @@
 
 /* Top Right Orange Pair */
 .banner-hero-container .orange-top-right {
-  width: 13.5vw;
+  width: 16.5vw;
   top: 6%;
   right: 17%;
 }
@@ -209,3 +216,34 @@
   left: 28%;
   transform: rotate(-25deg);
 }
+
+/* Responsive adjustments for Hero & Info Box */
+@media (max-width: 768px) {
+  .banner-hero-container .one h1 {
+    top: 15vh;
+    font-size: 21vw;
+  }
+
+  .banner-hero-container .info-box {
+    bottom: 3.5vh;
+    left: 5vw;
+    max-width: 250px;
+  }
+
+  .banner-hero-container .info-box h2 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .banner-hero-container .info-box p {
+    font-size: 12.5px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+
+  .banner-hero-container .pill-btn {
+    padding: 9px 24px;
+    font-size: 12px;
+  }
+}
+
