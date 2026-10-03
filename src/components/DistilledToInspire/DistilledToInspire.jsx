@@ -38,8 +38,17 @@ export default function DistilledToInspire() {
           invalidateOnRefresh: true,
           onUpdate: () => {
             const p = state.p;
-            // Reveal sweeps upwards starting from the end (bottom) of the paragraph
-            textEl.style.backgroundImage = `linear-gradient(to top, #ffffff 0%, #fcedc7 ${p * 0.7}%, #f5a623 ${p}%, rgba(255, 255, 255, 0.18) ${p + 14}%, rgba(255, 255, 255, 0.18) 100%)`;
+            if (p >= 92) {
+              // When scrolled through, all text is completely solid black
+              textEl.style.backgroundImage = 'none';
+              textEl.style.color = '#000000';
+              textEl.style.webkitTextFillColor = '#000000';
+            } else {
+              textEl.style.color = 'transparent';
+              textEl.style.webkitTextFillColor = 'transparent';
+              const progressPoint = Math.min(100, p * 1.25);
+              textEl.style.backgroundImage = `linear-gradient(to top, #000000 0%, #000000 ${progressPoint}%, rgba(0, 0, 0, 0.25) ${Math.min(100, progressPoint + 14)}%, rgba(0, 0, 0, 0.25) 100%)`;
+            }
           },
         },
       });

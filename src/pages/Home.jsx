@@ -5,6 +5,8 @@ import Products from '../components/Products';
 import DistilledToInspire from '../components/DistilledToInspire';
 import HorizontalCards from '../components/HorizontalCards';
 import Footer from '../components/Footer';
+import Enjoyflavours from '../components/Enjoy-flv/Enjoyflavours';
+
 
 /**
  * Home Page Component
@@ -19,7 +21,7 @@ export default function Home() {
         <BannerHero />
         <DistilledToInspire />
         <Products />
-
+        <Enjoyflavours />
         <HorizontalCards />
         <Footer />
       </main>

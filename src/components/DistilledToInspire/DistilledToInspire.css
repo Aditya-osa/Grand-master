@@ -8,9 +8,9 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  background-color: #4a0912;
-  background-image: radial-gradient(ellipse 90% 75% at 50% 50%, #5c0d18 0%, #3a060e 100%);
-  color: #f0ebeb;
+  background-color: #ffffff;
+  background-image: none;
+  color: #1a1012;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@
   transform: translate(-50%, -50%);
   width: min(850px, 90vw);
   height: 480px;
-  background: radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, rgba(233, 78, 27, 0.04) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.05) 0%, rgba(233, 78, 27, 0.02) 45%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -59,7 +59,7 @@
   line-height: 1.1;
   letter-spacing: -0.015em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #000000;
   margin: 0 0 14px 0;
 }
 
@@ -69,7 +69,7 @@
   width: 54px;
   height: 14px;
   margin-bottom: clamp(20px, 3vh, 28px);
-  filter: drop-shadow(0 0 8px rgba(245, 166, 35, 0.4));
+  filter: drop-shadow(0 0 6px rgba(245, 166, 35, 0.35));
 }
 
 /* Inception Year Meta */
@@ -77,13 +77,13 @@
   font-family: var(--font-serif, "ivymode", Georgia, serif);
   font-size: clamp(16px, 1.3vw, 21px);
   line-height: 1.5;
-  color: #9ca3af;
+  color: #555555;
   margin: 0 0 24px 0;
   letter-spacing: 0.01em;
 }
 
 .distilled-to-inspire__inception strong {
-  color: #ffffff;
+  color: #000000;
   font-weight: 700;
 }
 
@@ -101,11 +101,11 @@
   letter-spacing: 0.005em;
   margin: 0;
   
-  /* Initial state: muted 18% white, revealed upwards from end (bottom) */
+  /* Initial state: muted dark gray text, reveals from down/bottom upwards */
   background-image: linear-gradient(
     to top,
-    rgba(255, 255, 255, 0.18) 0%,
-    rgba(255, 255, 255, 0.18) 100%
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.25) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -138,7 +138,7 @@
 @media (prefers-reduced-motion: reduce) {
   .distilled-to-inspire__paragraph {
     background-image: none !important;
-    color: #fcedc7 !important;
+    color: #000000 !important;
     -webkit-text-fill-color: initial !important;
   }
 }
