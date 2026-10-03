@@ -45,13 +45,15 @@ export default function BannerHero() {
 
       entryTlRef.current = entryTl;
 
-      entryTl.from("#fanta", {
-        y: "-100vh",
-        opacity: 0,
-        rotate: 14,
-        duration: 1.4,
-        ease: "power3.out",
-      })
+      entryTl.fromTo("#fanta",
+        { y: "-100vh", opacity: 0, scale: 0.94, rotate: 14 },
+        { y: "0vh", opacity: 1, scale: 1, rotate: 14, duration: 1.4, ease: "power3.out" }
+      )
+      .fromTo("#bottle-spotlight, #bottle-glow",
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1.4, ease: "power3.out" },
+        0
+      )
       .from("#orange-text", {
         x: "-100vw",
         opacity: 0,
@@ -94,6 +96,11 @@ export default function BannerHero() {
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
         0
       )
+      .fromTo("#bottle-spotlight, #bottle-glow",
+        { scale: 1, opacity: 1 },
+        { scale: 0.85, opacity: 0.45, duration: 0.5, ease: "power2.in" },
+        0
+      )
       .fromTo("#orange-text",
         { x: "0vw", opacity: 1 },
         { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
@@ -121,6 +128,10 @@ export default function BannerHero() {
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
         0.5
       )
+      .to("#bottle-spotlight, #bottle-glow",
+        { scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" },
+        0.5
+      )
       .fromTo("#strawberry-text",
         { x: "100vw", opacity: 0 },
         { x: "0vw", opacity: 1, duration: 0.5, ease: "power2.out" },
@@ -143,6 +154,10 @@ export default function BannerHero() {
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
         1.0
       )
+      .to("#bottle-spotlight, #bottle-glow",
+        { scale: 0.85, opacity: 0.45, duration: 0.5, ease: "power2.in" },
+        1.0
+      )
       .fromTo("#strawberry-text",
         { x: "0vw", opacity: 1 },
         { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
@@ -162,6 +177,10 @@ export default function BannerHero() {
       .fromTo("#fanta3",
         { y: "-100vh", opacity: 0, rotate: 14 },
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
+        1.5
+      )
+      .to("#bottle-spotlight, #bottle-glow",
+        { scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" },
         1.5
       )
       .fromTo("#chocolate-text",
@@ -186,6 +205,10 @@ export default function BannerHero() {
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
         2.0
       )
+      .to("#bottle-spotlight, #bottle-glow",
+        { scale: 0.85, opacity: 0.45, duration: 0.5, ease: "power2.in" },
+        2.0
+      )
       .fromTo("#chocolate-text",
         { x: "0vw", opacity: 1 },
         { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
@@ -207,6 +230,10 @@ export default function BannerHero() {
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
         2.5
       )
+      .to("#bottle-spotlight, #bottle-glow",
+        { scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" },
+        2.5
+      )
       .fromTo("#melon-text",
         { x: "100vw", opacity: 0 },
         { x: "0vw", opacity: 1, duration: 0.5, ease: "power2.out" },
@@ -219,6 +246,15 @@ export default function BannerHero() {
       );
 
       tl.addLabel('flavour-3', 3.0);
+
+      // Subtle ambient breathing aura when bottle is held
+      gsap.to(["#bottle-spotlight", "#bottle-glow"], {
+        scale: 1.025,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
     }, heroEl);
 
     const gotoNextFlavour = () => {
