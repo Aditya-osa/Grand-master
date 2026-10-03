@@ -5,14 +5,14 @@ import './BannerHero.css';
 
 /**
  * BannerHero Component
- * Fully integrated Hero section from Bannerinhtml.
+ * 4-Stage Interactive Hero section (Orange -> Strawberry -> Chocolate -> Melon).
  * Preserves exact GSAP timeline animations, layout, typography, timing, wheel, touch, and key interactions.
  */
 export default function BannerHero() {
   const heroRef = useRef(null);
   const tlRef = useRef(null);
   const entryTlRef = useRef(null);
-  const currentFlavourRef = useRef(0); // 0 = Orange, 1 = Strawberry
+  const currentFlavourRef = useRef(0); // 0 = Orange, 1 = Strawberry, 2 = Chocolate, 3 = Melon
   const isAnimatingRef = useRef(false);
 
   useEffect(() => {
@@ -23,12 +23,12 @@ export default function BannerHero() {
     currentFlavourRef.current = 0;
     isAnimatingRef.current = false;
 
-    // Ensure hero prevents Lenis interference while in Orange state
+    // Prevent Lenis interference while inside Hero flavour stages
     heroEl.setAttribute('data-lenis-prevent', 'true');
 
     const updateLenisPrevent = () => {
       if (!heroEl) return;
-      if (currentFlavourRef.current === 0 || isAnimatingRef.current) {
+      if (currentFlavourRef.current < 3 || isAnimatingRef.current) {
         heroEl.setAttribute('data-lenis-prevent', 'true');
       } else {
         heroEl.removeAttribute('data-lenis-prevent');
@@ -36,7 +36,7 @@ export default function BannerHero() {
     };
 
     const ctx = gsap.context(() => {
-      // 1. Initial Page Entrance Animation (Bottle from UP, Orange decor elements from DOWN)
+      // 1. Initial Page Entrance Animation (Orange bottle from UP, decor elements from DOWN)
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
@@ -72,24 +72,23 @@ export default function BannerHero() {
         ease: "power3.out",
       }, "-=0.8");
 
-      // 2. Master Timeline for Flavour Change (Orange -> Strawberry)
+      // 2. Master Timeline for 4 Flavour Transitions
+      // Stage 0: Orange (0.0s)
+      // Stage 1: Strawberry (1.0s)
+      // Stage 2: Chocolate (2.0s)
+      // Stage 3: Melon (3.0s)
       const tl = gsap.timeline({
         paused: true,
-        onComplete: () => {
-          currentFlavourRef.current = 1;
-          isAnimatingRef.current = false;
-          updateLenisPrevent();
-        },
-        onReverseComplete: () => {
-          currentFlavourRef.current = 0;
-          isAnimatingRef.current = false;
-          updateLenisPrevent();
-        },
       });
 
       tlRef.current = tl;
 
-      // Step 1: Exit Orange elements cleanly (0s -> 0.5s)
+      tl.addLabel('flavour-0', 0);
+
+      // =========================================================================
+      // TRANSITION 1: Orange -> Strawberry (0.0s -> 1.0s)
+      // =========================================================================
+      // Exit Orange (0.0s -> 0.5s)
       tl.fromTo("#fanta",
         { y: "0vh", opacity: 1, rotate: 14 },
         { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
@@ -110,16 +109,13 @@ export default function BannerHero() {
         { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
         0
       )
-
-      // Background Transition (0s -> 1.0s)
+      // Background: Orange -> Strawberry (0.0s -> 1.0s)
       .fromTo(".one",
-        { background: "linear-gradient(135deg, #ea7b00, #d56600)" },
+        { background: "linear-gradient(135deg, #e76d1c, #d56600)" },
         { background: "linear-gradient(135deg, #eb2d55, #b41432)", duration: 1.0, ease: "power2.inOut" },
         0
       )
-
-      // Step 2: Enter Strawberry elements cleanly (0.5s -> 1.0s)
-      // Bottle comes from UP (-100vh -> 0vh)
+      // Enter Strawberry (0.5s -> 1.0s)
       .fromTo("#fanta2",
         { y: "-100vh", opacity: 0, rotate: 14 },
         { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
@@ -135,23 +131,133 @@ export default function BannerHero() {
         { y: "0vh", opacity: 1, duration: 0.5, ease: "power2.out" },
         0.5
       );
+
+      tl.addLabel('flavour-1', 1.0);
+
+      // =========================================================================
+      // TRANSITION 2: Strawberry -> Chocolate (1.0s -> 2.0s)
+      // =========================================================================
+      // Exit Strawberry (1.0s -> 1.5s)
+      tl.fromTo("#fanta2",
+        { y: "0vh", opacity: 1, rotate: 14 },
+        { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
+        1.0
+      )
+      .fromTo("#strawberry-text",
+        { x: "0vw", opacity: 1 },
+        { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
+        1.0
+      )
+      .fromTo("#info-strawberry",
+        { y: "0vh", opacity: 1 },
+        { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
+        1.0
+      )
+      // Background: Strawberry -> Chocolate (1.0s -> 2.0s)
+      .to(".one",
+        { background: "linear-gradient(135deg, #3d1c14, #180905)", duration: 1.0, ease: "power2.inOut" },
+        1.0
+      )
+      // Enter Chocolate (1.5s -> 2.0s)
+      .fromTo("#fanta3",
+        { y: "-100vh", opacity: 0, rotate: 14 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
+        1.5
+      )
+      .fromTo("#chocolate-text",
+        { x: "100vw", opacity: 0 },
+        { x: "0vw", opacity: 1, duration: 0.5, ease: "power2.out" },
+        1.5
+      )
+      .fromTo("#info-chocolate",
+        { y: "100vh", opacity: 0 },
+        { y: "0vh", opacity: 1, duration: 0.5, ease: "power2.out" },
+        1.5
+      );
+
+      tl.addLabel('flavour-2', 2.0);
+
+      // =========================================================================
+      // TRANSITION 3: Chocolate -> Melon (2.0s -> 3.0s)
+      // =========================================================================
+      // Exit Chocolate (2.0s -> 2.5s)
+      tl.fromTo("#fanta3",
+        { y: "0vh", opacity: 1, rotate: 14 },
+        { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" },
+        2.0
+      )
+      .fromTo("#chocolate-text",
+        { x: "0vw", opacity: 1 },
+        { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" },
+        2.0
+      )
+      .fromTo("#info-chocolate",
+        { y: "0vh", opacity: 1 },
+        { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" },
+        2.0
+      )
+      // Background: Chocolate -> Melon (2.0s -> 3.0s)
+      .to(".one",
+        { background: "linear-gradient(135deg, #389e27, #1b6312)", duration: 1.0, ease: "power2.inOut" },
+        2.0
+      )
+      // Enter Melon (2.5s -> 3.0s)
+      .fromTo("#fanta4",
+        { y: "-100vh", opacity: 0, rotate: 14 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: 0.5, ease: "power2.out" },
+        2.5
+      )
+      .fromTo("#melon-text",
+        { x: "100vw", opacity: 0 },
+        { x: "0vw", opacity: 1, duration: 0.5, ease: "power2.out" },
+        2.5
+      )
+      .fromTo("#info-melon",
+        { y: "100vh", opacity: 0 },
+        { y: "0vh", opacity: 1, duration: 0.5, ease: "power2.out" },
+        2.5
+      );
+
+      tl.addLabel('flavour-3', 3.0);
     }, heroEl);
 
-    const gotoStrawberry = () => {
-      if (currentFlavourRef.current === 1 || isAnimatingRef.current) return;
+    const gotoNextFlavour = () => {
+      if (currentFlavourRef.current >= 3 || isAnimatingRef.current) return;
       if (entryTlRef.current && entryTlRef.current.isActive()) {
         entryTlRef.current.progress(1);
       }
+      const target = currentFlavourRef.current + 1;
       isAnimatingRef.current = true;
       updateLenisPrevent();
-      if (tlRef.current) tlRef.current.play();
+      if (tlRef.current) {
+        tlRef.current.tweenTo(`flavour-${target}`, {
+          duration: 0.7,
+          ease: "power2.inOut",
+          onComplete: () => {
+            currentFlavourRef.current = target;
+            isAnimatingRef.current = false;
+            updateLenisPrevent();
+          },
+        });
+      }
     };
 
-    const gotoOrange = () => {
-      if (currentFlavourRef.current === 0 || isAnimatingRef.current) return;
+    const gotoPrevFlavour = () => {
+      if (currentFlavourRef.current <= 0 || isAnimatingRef.current) return;
+      const target = currentFlavourRef.current - 1;
       isAnimatingRef.current = true;
       updateLenisPrevent();
-      if (tlRef.current) tlRef.current.reverse();
+      if (tlRef.current) {
+        tlRef.current.tweenTo(`flavour-${target}`, {
+          duration: 0.7,
+          ease: "power2.inOut",
+          onComplete: () => {
+            currentFlavourRef.current = target;
+            isAnimatingRef.current = false;
+            updateLenisPrevent();
+          },
+        });
+      }
     };
 
     const isAtTop = () => {
@@ -174,7 +280,6 @@ export default function BannerHero() {
 
     // 1. Mouse Wheel Trigger
     const handleWheel = (e) => {
-      // If mid-animation, always prevent default and stop propagation to prevent jumps
       if (isAnimatingRef.current) {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -186,24 +291,23 @@ export default function BannerHero() {
       if (atTop) {
         if (e.deltaY > 0) {
           // Scrolling DOWN
-          if (currentFlavourRef.current === 0) {
+          if (currentFlavourRef.current < 3) {
             e.preventDefault();
             e.stopImmediatePropagation();
-            gotoStrawberry();
+            gotoNextFlavour();
           }
-          // If currentFlavour === 1, allow natural page scroll down into next sections!
+          // If currentFlavour === 3, allow natural page scroll down into next sections!
         } else if (e.deltaY < 0) {
           // Scrolling UP
-          if (currentFlavourRef.current === 1) {
-            // If just arrived at top from lower section, absorb trailing scroll inertia
-            if (Date.now() - topArrivalTimestamp < 250) {
+          if (currentFlavourRef.current > 0) {
+            if (currentFlavourRef.current === 3 && Date.now() - topArrivalTimestamp < 250) {
               e.preventDefault();
               e.stopImmediatePropagation();
               return;
             }
             e.preventDefault();
             e.stopImmediatePropagation();
-            gotoOrange();
+            gotoPrevFlavour();
           } else if (currentFlavourRef.current === 0) {
             // Already in Orange at top: prevent overscroll bounce
             e.preventDefault();
@@ -239,10 +343,10 @@ export default function BannerHero() {
 
         const atTop = isAtTop();
         if (atTop) {
-          if (currentFlavourRef.current === 0) {
+          if (currentFlavourRef.current < 3 && deltaY > 0) {
             if (e.cancelable) e.preventDefault();
             e.stopImmediatePropagation();
-          } else if (currentFlavourRef.current === 1 && deltaY < 0) {
+          } else if (currentFlavourRef.current > 0 && deltaY < 0) {
             if (e.cancelable) e.preventDefault();
             e.stopImmediatePropagation();
           }
@@ -262,13 +366,13 @@ export default function BannerHero() {
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
         const atTop = isAtTop();
         if (atTop) {
-          // Mobile swipe up (deltaY > 30) -> Strawberry
-          if (deltaY > 30 && currentFlavourRef.current === 0) {
-            gotoStrawberry();
+          // Mobile swipe up (deltaY > 30) -> Next flavour
+          if (deltaY > 30 && currentFlavourRef.current < 3) {
+            gotoNextFlavour();
           }
-          // Mobile swipe down (deltaY < -30) -> Orange
-          else if (deltaY < -30 && currentFlavourRef.current === 1) {
-            gotoOrange();
+          // Mobile swipe down (deltaY < -30) -> Previous flavour
+          else if (deltaY < -30 && currentFlavourRef.current > 0) {
+            gotoPrevFlavour();
           }
         }
       }
@@ -287,17 +391,16 @@ export default function BannerHero() {
       const atTop = isAtTop();
 
       if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-        if (atTop && currentFlavourRef.current === 0) {
+        if (atTop && currentFlavourRef.current < 3) {
           e.preventDefault();
           e.stopImmediatePropagation();
-          gotoStrawberry();
+          gotoNextFlavour();
         }
-        // If currentFlavour === 1, allow ArrowDown/PageDown to scroll into next sections
       } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        if (atTop && currentFlavourRef.current === 1) {
+        if (atTop && currentFlavourRef.current > 0) {
           e.preventDefault();
           e.stopImmediatePropagation();
-          gotoOrange();
+          gotoPrevFlavour();
         } else if (atTop && currentFlavourRef.current === 0) {
           e.preventDefault();
           e.stopImmediatePropagation();

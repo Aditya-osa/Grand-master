@@ -25,8 +25,16 @@
 
 #fanta,
 #fanta2,
+#fanta3,
+#fanta4,
 #orange-text,
 #strawberry-text,
+#chocolate-text,
+#melon-text,
+#info-orange,
+#info-strawberry,
+#info-chocolate,
+#info-melon,
 #orange,
 #leaf,
 #leaf2,
@@ -42,15 +50,18 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 100%;
   height: 100vh;
+  min-height: 100svh;
+  height: 100dvh;
   overflow: hidden;
   background: linear-gradient(135deg, #e76d1c, #d56600);
 }
 
 .banner-hero-container .one h1 {
   position: absolute;
-  top: clamp(65px, 12vh, 130px);
-  font-size: clamp(100px, 19vw, 280px);
+  top: clamp(60px, 11vh, 130px);
+  font-size: clamp(48px, 15vw, 280px);
   font-family: 'Anton', sans-serif;
   color: #f7a81b;
   opacity: 1;
@@ -59,6 +70,7 @@
   text-transform: uppercase;
   line-height: 0.95;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .banner-hero-container #orange-text {
@@ -73,11 +85,31 @@
   transform: translateX(100vw);
 }
 
+.banner-hero-container #chocolate-text {
+  font-family: 'Anton', sans-serif;
+  z-index: 1;
+  opacity: 0;
+  color: #d49b6a;
+  transform: translateX(100vw);
+}
+
+.banner-hero-container #melon-text {
+  font-family: 'Anton', sans-serif;
+  z-index: 1;
+  opacity: 0;
+  color: #88ea36;
+  transform: translateX(100vw);
+}
+
 .banner-hero-container #fanta,
-.banner-hero-container #fanta2 {
-  height: 90vh;
+.banner-hero-container #fanta2,
+.banner-hero-container #fanta3,
+.banner-hero-container #fanta4 {
+  height: clamp(340px, 80vh, 90vh);
+  max-height: 90vh;
   position: absolute;
   width: auto;
+  max-width: 85vw;
   object-fit: contain;
   z-index: 5;
   margin-top: 10px;
@@ -86,7 +118,9 @@
   pointer-events: none;
 }
 
-.banner-hero-container #fanta2 {
+.banner-hero-container #fanta2,
+.banner-hero-container #fanta3,
+.banner-hero-container #fanta4 {
   opacity: 0;
   transform: translateY(-100vh) rotate(14deg);
 }
@@ -94,29 +128,29 @@
 /* Bottom Left Info Box Alignment */
 .banner-hero-container .info-box {
   position: absolute;
-  bottom: clamp(20px, 5vh, 44px);
-  left: clamp(24px, 5vw, 64px);
+  bottom: clamp(16px, 4.5vh, 44px);
+  left: clamp(16px, 4.5vw, 64px);
   z-index: 10;
   color: #fff;
-  max-width: clamp(280px, 24vw, 360px);
+  max-width: clamp(240px, 24vw, 360px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .banner-hero-container .info-box h2 {
-  font-size: clamp(24px, 2.1vw, 34px);
+  font-size: clamp(18px, 2.1vw, 34px);
   font-family: 'Anton', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   color: #ffffff;
   line-height: 1.1;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
 }
 
 .banner-hero-container .info-box p {
-  font-size: clamp(14px, 0.95vw, 16px);
+  font-size: clamp(12px, 0.95vw, 16px);
   font-family: 'Plus Jakarta Sans', 'Product Sans', sans-serif;
   font-weight: 500;
   line-height: 1.45;
@@ -132,7 +166,7 @@
   border: none;
   padding: 11px 32px;
   border-radius: 999px;
-  font-size: clamp(13px, 0.9vw, 15px);
+  font-size: clamp(12px, 0.9vw, 15px);
   font-family: 'Plus Jakarta Sans', 'Product Sans B', sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -152,7 +186,9 @@
   pointer-events: auto;
 }
 
-.banner-hero-container #info-strawberry {
+.banner-hero-container #info-strawberry,
+.banner-hero-container #info-chocolate,
+.banner-hero-container #info-melon {
   opacity: 0;
   transform: translateY(100vh);
   pointer-events: none;
@@ -169,81 +205,156 @@
 
 /* Top Left Half Orange */
 .banner-hero-container .orange-top-left {
-  width: 12.5vw;
+  width: clamp(60px, 12.5vw, 240px);
   top: 10%;
   left: 7%;
 }
 
 /* Top Right Orange Pair */
 .banner-hero-container .orange-top-right {
-  width: 16.5vw;
+  width: clamp(80px, 16.5vw, 320px);
   top: 6%;
   right: 17%;
 }
 
 /* Bottom Right Cut Slices */
 .banner-hero-container .orange-bottom-right {
-  width: 17.5vw;
+  width: clamp(80px, 17.5vw, 340px);
   bottom: 0%;
   right: 14%;
 }
 
 /* Mint Leaves Around */
 .banner-hero-container .leaf-left-1 {
-  width: 14vw;
+  width: clamp(65px, 14vw, 270px);
   top: 38%;
   left: 2%;
   transform: rotate(25deg);
 }
 
 .banner-hero-container .leaf-left-2 {
-  width: 7.5vw;
+  width: clamp(40px, 7.5vw, 150px);
   top: -3%;
   left: 34%;
   transform: rotate(-15deg);
 }
 
 .banner-hero-container .leaf-right-1 {
-  width: 6vw;
+  width: clamp(35px, 6vw, 120px);
   top: 32%;
   right: 6%;
   transform: rotate(70deg);
 }
 
 .banner-hero-container .leaf-bottom-mid {
-  width: 6vw;
+  width: clamp(35px, 6vw, 120px);
   bottom: 7%;
   left: 28%;
   transform: rotate(-25deg);
 }
 
-/* Responsive adjustments for Hero & Info Box */
-@media (max-width: 768px) {
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1024px) {
   .banner-hero-container .one h1 {
-    top: 15vh;
-    font-size: 21vw;
+    top: clamp(60px, 12vh, 100px);
+    font-size: clamp(60px, 14vw, 180px);
+  }
+
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    height: clamp(320px, 72vh, 650px);
   }
 
   .banner-hero-container .info-box {
-    bottom: 3.5vh;
-    left: 5vw;
-    max-width: 250px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-hero-container .one h1 {
+    top: clamp(55px, 10vh, 85px);
+    font-size: clamp(52px, 13.5vw, 110px);
+    letter-spacing: 1px;
+  }
+
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    height: clamp(280px, 62vh, 480px);
+  }
+
+  .banner-hero-container .info-box {
+    bottom: 24px;
+    left: 20px;
+    max-width: 240px;
   }
 
   .banner-hero-container .info-box h2 {
     font-size: 20px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .banner-hero-container .info-box p {
-    font-size: 12.5px;
+    font-size: 12px;
     line-height: 1.4;
-    margin-bottom: 14px;
   }
 
   .banner-hero-container .pill-btn {
-    padding: 9px 24px;
-    font-size: 12px;
+    padding: 8px 22px;
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-hero-container .one h1 {
+    top: clamp(50px, 9vh, 75px);
+    font-size: clamp(44px, 13vw, 72px);
+  }
+
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    height: clamp(250px, 56vh, 400px);
+  }
+
+  .banner-hero-container .info-box {
+    bottom: 18px;
+    left: 16px;
+    max-width: min(220px, 68vw);
+  }
+
+  .banner-hero-container .info-box h2 {
+    font-size: 17px;
+  }
+
+  .banner-hero-container .info-box p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .banner-hero-container .one h1 {
+    font-size: 40px;
+  }
+
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    height: 230px;
+  }
+
+  .banner-hero-container .info-box {
+    bottom: 14px;
+    left: 12px;
+    max-width: 200px;
   }
 }
 

@@ -147,9 +147,14 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
 
     // Real-time bottle center proximity & magnification engine
     const updateBottleScales = () => {
+      const isMobile = window.innerWidth <= 768;
+      const isSmallMobile = window.innerWidth <= 480;
       const centerX = window.innerWidth / 2;
-      const maxDistance = window.innerWidth * 0.38; // active magnification zone
+      const maxDistance = isMobile ? window.innerWidth * 0.45 : Math.min(window.innerWidth * 0.38, 380);
       const bottleEls = getBottleEls();
+
+      const baseScale = isSmallMobile ? 0.78 : isMobile ? 0.82 : 0.85;
+      const maxBoost = isSmallMobile ? 0.32 : isMobile ? 0.42 : 0.55;
 
       bottleEls.forEach((el) => {
         if (!el) return;
@@ -162,8 +167,8 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         // Smooth sine curve for natural organic magnification
         const smoothCurve = Math.sin((proximity * Math.PI) / 2);
 
-        // Center magnification: 0.85 when away -> 1.40 when centered!
-        const targetScale = 0.85 + smoothCurve * 0.55;
+        // Center magnification: responsive scale
+        const targetScale = baseScale + smoothCurve * maxBoost;
         const targetZIndex = smoothCurve > 0.55 ? 30 : smoothCurve > 0.2 ? 20 : 10;
         
         // Counter-rotate when centered (+4deg) like the reference; tilt outwards when left (-16deg) or right (+14deg)
@@ -171,7 +176,7 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         const targetRotation = (1 - smoothCurve) * baseTilt + smoothCurve * 4;
         
         // Subtle focus blur on flanking bottles for photographic depth of field
-        const blurAmount = Math.max(0, (1 - smoothCurve) * 0.7);
+        const blurAmount = Math.max(0, (1 - smoothCurve) * (isMobile ? 0.4 : 0.7));
 
         gsap.set(el, {
           scale: targetScale,

@@ -8,8 +8,16 @@ const InfoBox = () => {
         <p>Pleasant citrus aroma, complemented by refreshing orange taste</p>
       </div>
       <div className="info-box" id="info-strawberry">
-        <h2>MORE THAN A VODKA</h2>
-        <p>Bolder flavours<br />Brighter movements</p>
+        <h2>STRAWBERRY</h2>
+        <p>Sweet wild strawberry essence, blended with velvety smoothness</p>
+      </div>
+      <div className="info-box" id="info-chocolate">
+        <h2>CHOCOLATE</h2>
+        <p>Decadent dark cocoa notes, crafted for an indulgent refined palate</p>
+      </div>
+      <div className="info-box" id="info-melon">
+        <h2>MELON</h2>
+        <p>Crisp honeydew melon aroma, delivering a refreshing vibrant finish</p>
       </div>
     </>
   );

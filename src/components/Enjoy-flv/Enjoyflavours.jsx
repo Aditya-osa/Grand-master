@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import bgImage from '../../assets/WhatsApp Image 2026-10-03 at 12.31.13 PM.jpeg';
+import fgImage from '../../assets/a.png';
+import bgImage from '../../assets/b.png';
 import './Enjoy-flv.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Enjoyflavours() {
   const sectionRef = useRef(null);
   const bgImageRef = useRef(null);
+  const fgImageRef = useRef(null);
   const overlayRef = useRef(null);
   const titleRef = useRef(null);
   const textRef = useRef(null);
@@ -18,67 +20,81 @@ export default function Enjoyflavours() {
     const section = sectionRef.current;
     const title = titleRef.current;
     const text = textRef.current;
-    const img = bgImageRef.current;
+    const bgImg = bgImageRef.current;
+    const fgImg = fgImageRef.current;
     const overlay = overlayRef.current;
-    if (!section || !title || !text || !img || !overlay) return;
+    if (!section || !title || !text || !bgImg || !fgImg || !overlay) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
     const mm = gsap.matchMedia(sectionRef);
 
-    // Desktop Timeline (Extremely smooth, slow, cinematic camera push-in)
+    // Desktop Timeline (Multi-layered 3D Parallax & Continuous Forward Camera Push-In)
     mm.add('(min-width: 769px)', () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=2800', // Extended scroll distance so animation has plenty of room to breathe
+          end: '+=2400', // Perfectly paced scroll distance for fluid transition
           pin: true,
           anticipatePin: 1,
-          scrub: 2.5, // High numeric scrub for ultra-smooth catch-up and zero jitter
+          scrub: 1.5, // Responsive scrub for instant catch-up and zero jumpiness
           invalidateOnRefresh: true,
         },
       });
 
-      // Initial state: starts at natural scale: 1 and transparent overlay
-      gsap.set(title, { opacity: 1, scale: 1.35, y: 0, transformOrigin: 'center center' });
-      gsap.set(text, { opacity: 0, y: 60, scale: 0.96, transformOrigin: 'center center' });
-      gsap.set(img, { scale: 1.0, transformOrigin: 'center center', force3D: true });
+      // Initial state: starts at natural scale: 1.0
+      gsap.set(title, { opacity: 1, scale: 1.0, y: 0, transformOrigin: 'center center' });
+      gsap.set(text, { opacity: 0, y: 45, scale: 1.0, transformOrigin: 'center center' });
+      gsap.set(bgImg, { scale: 1.0, transformOrigin: 'center center', force3D: true });
+      gsap.set(fgImg, { scale: 1.0, opacity: 1, transformOrigin: 'center center', force3D: true });
       gsap.set(overlay, { opacity: 0, force3D: true });
 
-      // Slow, continuous camera push-in: scale 1 -> 1.18 and gradual darkening 0 -> 0.42
-      tl.to(img, {
-        scale: 1.18,
+      // Layer 1: Background landscape continuous forward zoom-in (scale 1.0 -> 1.24)
+      tl.to(bgImg, {
+        scale: 1.24,
         duration: 10,
         ease: 'none',
       }, 0);
 
+      // Layer 2: Foreground archway continuously pushes forward past the camera lens (scale 1.0 -> 1.85, fading outward)
+      tl.to(fgImg, {
+        scale: 1.85,
+        opacity: 0.1,
+        duration: 10,
+        ease: 'none',
+      }, 0);
+
+      // Layer 3: Atmospheric progressive darkening (opacity 0 -> 0.45)
       tl.to(overlay, {
         opacity: 0.45,
         duration: 10,
         ease: 'none',
       }, 0);
 
-      // STAGE 1 (0% to 20%): Initial hero title display
-      tl.to(title, { scale: 1.28, y: -10, duration: 2, ease: 'none' }, 0);
+      // STAGE 1 (0% to 20%): Initial hero title begins moving forward with the camera zoom
+      tl.to(title, { scale: 1.08, y: -10, duration: 2, ease: 'none' }, 0);
 
-      // STAGE 2 (20% to 48%): Title smoothly ascends, scales, and fades out
-      tl.to(title, { opacity: 0, y: -80, scale: 0.92, duration: 2.8, ease: 'power2.inOut' }, 2.0);
+      // STAGE 2 (20% to 44%): Title continues zooming forward as it floats up and dissolves (scale 1.08 -> 1.20, opacity -> 0)
+      tl.to(title, { opacity: 0, y: -60, scale: 1.20, duration: 2.4, ease: 'power2.inOut' }, 2.0);
 
-      // STAGE 3 (34% to 66%): Story paragraph glides in over the slowly zooming background
+      // STAGE 3 (32% to 62%): Story paragraph glides into focal position and holds clean focus
       tl.fromTo(
         text,
-        { opacity: 0, y: 60, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 3.2, ease: 'power2.out' },
-        3.4
+        { opacity: 0, y: 45, scale: 1.0 },
+        { opacity: 1, y: 0, scale: 1.02, duration: 3.0, ease: 'power2.out' },
+        3.2
       );
 
-      // STAGE 4 (66% to 86%): Paragraph holds focus steadily
-      tl.to(text, { y: -10, duration: 2.0, ease: 'none' }, 6.6);
+      // STAGE 4 (62% to 80%): Paragraph holds steadily with subtle forward drift (scale 1.02 -> 1.04)
+      tl.to(text, { scale: 1.04, y: -6, duration: 1.8, ease: 'none' }, 6.2);
 
-      // STAGE 5 (86% to 100%): Final hold
-      tl.to({}, { duration: 1.4 });
+      // STAGE 5 (80% to 95%): Narrative text softly ascends and dissolves for a graceful exit into the next section
+      tl.to(text, { opacity: 0, y: -35, scale: 1.06, duration: 1.5, ease: 'power2.inOut' }, 8.0);
+
+      // STAGE 6 (95% to 100%): Clean transition cushion
+      tl.to({}, { duration: 0.5 }, 9.5);
     });
 
     // Mobile & Tablet Timeline
@@ -87,42 +103,48 @@ export default function Enjoyflavours() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=2000',
+          end: '+=1800',
           pin: true,
           anticipatePin: 1,
-          scrub: 2.0,
+          scrub: 1.2,
           invalidateOnRefresh: true,
         },
       });
 
       // Initial state
-      gsap.set(title, { opacity: 1, scale: 1.15, y: 0, transformOrigin: 'center center' });
-      gsap.set(text, { opacity: 0, y: 40, scale: 0.96, transformOrigin: 'center center' });
-      gsap.set(img, { scale: 1.0, transformOrigin: 'center center', force3D: true });
+      gsap.set(title, { opacity: 1, scale: 1.0, y: 0, transformOrigin: 'center center' });
+      gsap.set(text, { opacity: 0, y: 35, scale: 1.0, transformOrigin: 'center center' });
+      gsap.set(bgImg, { scale: 1.0, transformOrigin: 'center center', force3D: true });
+      gsap.set(fgImg, { scale: 1.0, opacity: 1, transformOrigin: 'center center', force3D: true });
       gsap.set(overlay, { opacity: 0, force3D: true });
 
-      // Mobile slow continuous zoom & darkening
-      tl.to(img, { scale: 1.18, duration: 8, ease: 'none' }, 0);
+      // Mobile layered continuous forward zoom-in
+      tl.to(bgImg, { scale: 1.20, duration: 8, ease: 'none' }, 0);
+      tl.to(fgImg, { scale: 1.55, opacity: 0.15, duration: 8, ease: 'none' }, 0);
       tl.to(overlay, { opacity: 0.45, duration: 8, ease: 'none' }, 0);
 
-      // Title fade
-      tl.to(title, { scale: 1.10, y: -6, duration: 1.5, ease: 'none' }, 0)
-        .to(title, { opacity: 0, y: -50, scale: 0.92, duration: 2.0, ease: 'power2.inOut' }, 1.5);
+      // Title zooms in as it dissolves
+      tl.to(title, { scale: 1.05, y: -6, duration: 1.5, ease: 'none' }, 0)
+        .to(title, { opacity: 0, y: -35, scale: 1.12, duration: 1.8, ease: 'power2.inOut' }, 1.5);
 
       // Text entry
       tl.fromTo(
         text,
-        { opacity: 0, y: 40, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 2.5, ease: 'power2.out' },
+        { opacity: 0, y: 35, scale: 1.0 },
+        { opacity: 1, y: 0, scale: 1.02, duration: 2.2, ease: 'power2.out' },
         2.2
       );
 
       // Text hold
-      tl.to(text, { y: -6, duration: 1.8, ease: 'none' }, 5.0);
-      tl.to({}, { duration: 1.2 });
+      tl.to(text, { scale: 1.04, y: -4, duration: 1.8, ease: 'none' }, 4.4);
+
+      // Smooth exit dissolve into next section
+      tl.to(text, { opacity: 0, y: -25, scale: 1.05, duration: 1.4, ease: 'power2.inOut' }, 6.2);
+      tl.to({}, { duration: 0.4 }, 7.6);
     });
 
     const refreshTimer = setTimeout(() => {
+      ScrollTrigger.sort();
       ScrollTrigger.refresh();
     }, 200);
 
@@ -133,21 +155,32 @@ export default function Enjoyflavours() {
 
   return (
     <section ref={sectionRef} className="enjoy-flavours-section" aria-label="Enjoy Unique Flavours">
-      {/* Layer 1: Full-Screen Background Image with Slow Smooth Scroll Zoom */}
+      {/* Visual Canvas Layers */}
       <div className="enjoy-flavours-bg-wrap">
+        {/* Layer 1: Background Landscape (b.png) */}
         <img
           ref={bgImageRef}
-          className="enjoy-flavours-bg-image hero-background-image"
+          className="enjoy-flavours-bg-image"
           src={bgImage}
-          alt="Grand Master Vineyard Landscape"
+          alt="Grand Master Vineyard Landscape Background"
           loading="eager"
         />
-        {/* Layer 1b: Progressive Dark Overlay (0 -> ~0.45) */}
+
+        {/* Layer 2: Foreground Arch & Chairs (a.png) */}
+        <img
+          ref={fgImageRef}
+          className="enjoy-flavours-fg-image"
+          src={fgImage}
+          alt="Grand Master Archway and Trellis Foreground"
+          loading="eager"
+        />
+
+        {/* Layer 3: Progressive Atmospheric Dark Overlay */}
         <div ref={overlayRef} className="enjoy-flavours-dark-overlay" aria-hidden="true" />
       </div>
 
-      {/* Layer 2 (z-2): Centered Independent Foreground Typography */}
-        <div className="enjoy-flavours-container">
+      {/* Layer 4: Centered Independent Foreground Typography */}
+      <div className="enjoy-flavours-container">
         <h2 ref={titleRef} className="enjoy-flavours-title">
           ENJOY UNIQUE FLAVOURS
         </h2>

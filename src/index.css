@@ -20,11 +20,13 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
   min-height: 100%;
+  min-height: 100svh;
   background-color: #0b0b0b;
   color: var(--color-border);
   font-family: var(--font-sans);
@@ -33,6 +35,13 @@ html, body {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.gm-home-wrapper,
+.gm-home-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar,
@@ -46,10 +55,11 @@ body::-webkit-scrollbar {
 
 .ag-hero {
   position: relative;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   min-height: 100svh;
-  max-height: 100vh;
+  height: 100dvh;
   background-color: var(--color-white);
   overflow: hidden;
   display: flex;
@@ -228,22 +238,25 @@ body::-webkit-scrollbar {
 .ag-stage {
   position: relative;
   flex: 1;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
+  min-height: 100svh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-
 /* Layer B: Angled 10-degree Marquee Stage for Bottles */
 .ag-marquee-stage {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 620px;
+  width: 100%;
+  max-width: 100%;
+  height: clamp(380px, 58vh, 620px);
   transform: translate(-50%, -50%) rotate(10deg);
   z-index: 5;
   pointer-events: auto;
@@ -256,7 +269,7 @@ body::-webkit-scrollbar {
 .ag-carousel-track {
   display: flex;
   align-items: center;
-  gap: clamp(65px, 8.5vw, 140px);
+  gap: clamp(45px, 7vw, 130px);
   padding-left: 50vw;
   padding-right: 50vw;
   pointer-events: auto;
@@ -275,8 +288,9 @@ body::-webkit-scrollbar {
 }
 
 .ag-carousel-img {
-  height: clamp(390px, 55vh, 600px);
+  height: clamp(280px, 48vh, 580px);
   width: auto;
+  max-width: none;
   object-fit: contain;
   display: block;
   user-select: none;
@@ -291,14 +305,14 @@ body::-webkit-scrollbar {
 /* Bottom Legal */
 .ag-bottom-legal {
   position: absolute;
-  bottom: clamp(20px, 3vh, 32px);
-  left: clamp(24px, 3.2vw, 48px);
+  bottom: clamp(16px, 3vh, 32px);
+  left: clamp(20px, 3.2vw, 48px);
   z-index: 20;
 }
 
 .ag-legal-link {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: clamp(11px, 0.9vw, 13px);
   color: var(--color-border);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -317,7 +331,7 @@ body::-webkit-scrollbar {
 
 .ag-scroll-prompt-wrap {
   position: absolute;
-  bottom: 22px;
+  bottom: clamp(14px, 2.5vh, 24px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
@@ -326,7 +340,7 @@ body::-webkit-scrollbar {
 
 .ag-scroll-prompt {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: clamp(9.5px, 0.9vw, 11px);
   font-weight: 700;
   letter-spacing: 0.16em;
   color: var(--color-border);
@@ -340,76 +354,43 @@ body::-webkit-scrollbar {
    ========================================================================== */
 
 @media (max-width: 1024px) {
-  .ag-organic-shape-wrap {
-    width: 92vw;
-    bottom: -4%;
+  .ag-marquee-stage {
+    height: clamp(360px, 52vh, 520px);
   }
 
-  .ag-badge-wrap {
-    width: 68vw;
-    bottom: -12%;
+  .ag-carousel-img {
+    height: clamp(260px, 42vh, 460px);
   }
 
-  .ag-product--center .ag-product-img {
-    height: clamp(300px, 42vh, 440px);
-  }
-
-  .ag-product--left {
-    top: 24%;
-    left: 8%;
-  }
-
-  .ag-product--left .ag-product-img {
-    height: clamp(170px, 24vh, 260px);
-  }
-
-  .ag-product--right {
-    top: 27%;
-    right: 8%;
-  }
-
-  .ag-product--right .ag-product-img {
-    height: clamp(170px, 24vh, 260px);
+  .ag-carousel-track {
+    gap: clamp(35px, 6vw, 85px);
   }
 }
 
 @media (max-width: 768px) {
   .ag-header {
-    padding: 20px 18px;
+    padding: 18px 16px;
   }
 
   .ag-brand-logo-wrap {
-    top: 18px;
+    top: 16px;
   }
 
   .ag-brand-logo-img {
     width: 110px;
   }
 
-  .ag-product--center {
-    top: 50%;
+  .ag-marquee-stage {
+    height: clamp(320px, 48vh, 440px);
+    transform: translate(-50%, -50%) rotate(8deg);
   }
 
-  .ag-product--center .ag-product-img {
-    height: clamp(260px, 38vh, 360px);
+  .ag-carousel-img {
+    height: clamp(240px, 38vh, 380px);
   }
 
-  .ag-product--left {
-    top: 20%;
-    left: 3%;
-  }
-
-  .ag-product--left .ag-product-img {
-    height: clamp(140px, 20vh, 200px);
-  }
-
-  .ag-product--right {
-    top: 24%;
-    right: 3%;
-  }
-
-  .ag-product--right .ag-product-img {
-    height: clamp(140px, 20vh, 200px);
+  .ag-carousel-track {
+    gap: clamp(28px, 5vw, 60px);
   }
 
   .ag-menu-pill {
@@ -421,37 +402,28 @@ body::-webkit-scrollbar {
 
 @media (max-width: 480px) {
   .ag-header {
-    padding: 16px 14px;
+    padding: 14px 12px;
   }
 
   .ag-brand-logo-img {
-    width: 98px;
+    width: 96px;
   }
 
-  .ag-product--center .ag-product-img {
-    height: 300px;
+  .ag-marquee-stage {
+    height: clamp(290px, 44vh, 360px);
+    transform: translate(-50%, -50%) rotate(7deg);
   }
 
-  .ag-product--left {
-    top: 22%;
-    left: 1%;
+  .ag-carousel-img {
+    height: clamp(210px, 35vh, 310px);
   }
 
-  .ag-product--left .ag-product-img {
-    height: 140px;
-  }
-
-  .ag-product--right {
-    top: 25%;
-    right: 1%;
-  }
-
-  .ag-product--right .ag-product-img {
-    height: 140px;
+  .ag-carousel-track {
+    gap: 24px;
   }
 
   .ag-scroll-prompt {
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 0.12em;
   }
 }
