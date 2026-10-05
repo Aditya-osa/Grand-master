@@ -298,10 +298,11 @@
 }
 
 .ag-shop-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #d61420;
+  background: linear-gradient(135deg, #e01b27 0%, #b30f16 100%);
   color: #ffffff;
   font-family: 'Anybody', sans-serif;
   font-size: 13.5px;
@@ -313,18 +314,37 @@
   text-decoration: none;
   border: 4px solid #e6ff00;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(230, 255, 0, 0.25), 0 2px 4px rgba(224, 27, 39, 0.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+/* Stylish shine sweep effect */
+.ag-shop-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-25deg);
+  transition: left 0s; /* No transition when returning to original position */
 }
 
 .ag-shop-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  background-color: #e01b27;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(230, 255, 0, 0.45), 0 6px 12px rgba(224, 27, 39, 0.3);
+}
+
+.ag-shop-btn:hover::before {
+  left: 200%;
+  transition: left 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .ag-shop-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(230, 255, 0, 0.3);
 }
 
 /* Bottom Right Sparkle Star */
