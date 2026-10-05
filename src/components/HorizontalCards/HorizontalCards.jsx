@@ -283,7 +283,8 @@ export default function HorizontalCards() {
                 style={{ '--card-accent': step.accent }}
               >
                 {/* Archival Illustration Aperture */}
-                <div className="stack-card__visual">
+                <div className="
+                ">
                   <motion.div
                     className="stack-card__img-wrap"
                     whileHover={{ scale: 1.06 }}
