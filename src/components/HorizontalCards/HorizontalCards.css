@@ -145,15 +145,15 @@
   flex-shrink: 0;
   /* Exact formula: 3.5 cards visible in viewport width */
   width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
-  height: clamp(480px, 62vh, 600px);
+  height: clamp(480px, 62vh, 560px);
   background: #ffffff;
   border: 1px solid rgba(184, 134, 11, 0.28);
- border-radius: clamp(12px, 1vw, 18px);
-  padding: 0;
+  border-radius: clamp(18px, 1.6vw, 24px);
+  padding: clamp(20px, 2.4vh, 28px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 0;
+  gap: clamp(16px, 2vh, 22px);
   box-sizing: border-box;
   box-shadow: 
     0 20px 48px -10px rgba(74, 11, 20, 0.12),
@@ -174,18 +174,17 @@
   z-index: 2;
 }
 
-/* Archival Visual Aperture - Enlarged Hero Illustration */
+/* Archival Visual Aperture - Inset Warm Beige Illustration Box */
 .stack-card__visual {
   position: relative;
   width: 100%;
-  height: clamp(210px, 29vh, 290px);
+  height: clamp(210px, 28vh, 260px);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f4f4f4;
-  border: none;
-  border-radius: 0;
+  background: #faf0e4;
+  border-radius: clamp(14px, 1.2vw, 18px);
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
@@ -204,30 +203,37 @@
 .stack-card__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   user-select: none;
   -webkit-user-drag: none;
+  filter: drop-shadow(0 8px 18px rgba(74, 11, 20, 0.08));
 }
 
-/* Card Content & Text */
+.stack-card__img--cover,
+.stack-card[data-step="harvest"] .stack-card__img {
+  object-fit: cover;
+  filter: none;
+}
+
+/* Card Content & Text - Below Box */
 .stack-card__content {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: clamp(8px, 1.2vh, 12px);
+  gap: clamp(12px, 1.6vh, 16px);
   flex: 1;
-  min-height: 0;
-  padding: clamp(20px, 2.6vh, 30px);
+  min-height: clamp(170px, 22vh, 220px);
+  padding: 0;
 }
 
 .stack-card__title {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(20px, 1.55vw, 26px);
+  font-size: clamp(24px, 1.85vw, 30px);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.22;
   color: #4a0b14;
   margin: 0;
   letter-spacing: -0.015em;
@@ -235,9 +241,9 @@
 
 .stack-card__desc {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(13px, 0.95vw, 15.5px);
+  font-size: clamp(15px, 1.1vw, 17.5px);
   font-weight: 400;
-  line-height: 1.52;
+  line-height: 1.55;
   color: #5e4c48;
   margin: 0;
 }
@@ -265,24 +271,26 @@
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
-    height: clamp(510px, 64vh, 620px);
-    padding: 0;
+    height: clamp(510px, 64vh, 590px);
+    padding: clamp(22px, 2.6vh, 30px);
+    gap: clamp(16px, 2.2vh, 24px);
   }
 
   .stack-card__content {
-    padding: clamp(24px, 3vh, 32px);
+    padding: 0;
+    min-height: clamp(180px, 24vh, 230px);
   }
 
   .stack-card__visual {
-    height: clamp(240px, 33vh, 320px);
+    height: clamp(225px, 29vh, 275px);
   }
 
   .stack-card__title {
-    font-size: clamp(23px, 1.55vw, 28px);
+    font-size: clamp(26px, 1.85vw, 32px);
   }
 
   .stack-card__desc {
-    font-size: clamp(14px, 0.95vw, 16.5px);
+    font-size: clamp(16px, 1.1vw, 18.5px);
   }
 }
 
@@ -299,24 +307,26 @@
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
-    height: clamp(440px, 60vh, 530px);
-    padding: 0;
+    height: clamp(480px, 61vh, 550px);
+    padding: clamp(20px, 2.4vh, 28px);
+    gap: clamp(15px, 2vh, 22px);
   }
 
   .stack-card__content {
-    padding: 22px 20px;
+    padding: 0;
+    min-height: clamp(170px, 22vh, 220px);
   }
 
   .stack-card__visual {
-    height: clamp(200px, 28vh, 260px);
+    height: clamp(210px, 28vh, 255px);
   }
 
   .stack-card__title {
-    font-size: 21.5px;
+    font-size: 25px;
   }
 
   .stack-card__desc {
-    font-size: 13.8px;
+    font-size: 15.5px;
   }
 }
 
@@ -349,27 +359,28 @@
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - (2 * var(--card-gap))) / 2.5);
-    height: clamp(410px, 56vh, 480px);
-    padding: 0;
-    gap: 0;
+    height: clamp(440px, 58vh, 510px);
+    padding: clamp(18px, 2.2vh, 24px);
+    gap: clamp(14px, 1.8vh, 18px);
   }
 
   .stack-card__content {
-    padding: 20px 18px;
-    gap: 15px;
+    padding: 0;
+    gap: 12px;
+    min-height: clamp(160px, 22vh, 200px);
   }
 
   .stack-card__visual {
-    height: clamp(185px, 26vh, 230px);
+    height: clamp(185px, 25vh, 225px);
   }
 
   .stack-card__title {
-    font-size: 20px;
+    font-size: 22.5px;
   }
 
   .stack-card__desc {
-    font-size: 13.5px;
-    line-height: 1.46;
+    font-size: 14.8px;
+    line-height: 1.5;
   }
 }
 
@@ -402,27 +413,28 @@
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 2.2);
-    height: clamp(400px, 52vh, 460px);
-    padding: 0;
-    gap: 0;
-  }
-
-  .stack-card__content {
+    height: clamp(420px, 56vh, 480px);
     padding: 18px 16px;
     gap: 14px;
   }
 
+  .stack-card__content {
+    padding: 0;
+    gap: 10px;
+    min-height: clamp(150px, 20vh, 190px);
+  }
+
   .stack-card__visual {
-    height: clamp(180px, 24vh, 220px);
+    height: clamp(170px, 24vh, 210px);
   }
 
   .stack-card__title {
-    font-size: 19.5px;
+    font-size: 21.5px;
   }
 
   .stack-card__desc {
-    font-size: 13px;
-    line-height: 1.45;
+    font-size: 14.2px;
+    line-height: 1.48;
   }
 }
 
@@ -455,27 +467,28 @@
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.15);
-    height: clamp(380px, 53vh, 440px);
-    padding: 0;
-    gap: 0;
-  }
-
-  .stack-card__content {
+    height: clamp(410px, 57vh, 465px);
     padding: 16px 14px;
     gap: 12px;
   }
 
+  .stack-card__content {
+    padding: 0;
+    gap: 10px;
+    min-height: clamp(140px, 20vh, 180px);
+  }
+
   .stack-card__visual {
-    height: clamp(170px, 24vh, 210px);
+    height: clamp(160px, 23vh, 200px);
   }
 
   .stack-card__title {
-    font-size: 18.5px;
+    font-size: 20px;
   }
 
   .stack-card__desc {
-    font-size: 12.5px;
-    line-height: 1.42;
+    font-size: 13.5px;
+    line-height: 1.44;
   }
 }
 
@@ -508,26 +521,27 @@
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.12);
-    height: clamp(350px, 55vh, 400px);
-    padding: 0;
-    gap: 0;
-  }
-
-  .stack-card__content {
+    height: clamp(380px, 56vh, 430px);
     padding: 14px 12px;
     gap: 10px;
   }
 
+  .stack-card__content {
+    padding: 0;
+    gap: 8px;
+    min-height: clamp(130px, 18vh, 160px);
+  }
+
   .stack-card__visual {
-    height: clamp(150px, 24vh, 180px);
+    height: clamp(145px, 23vh, 180px);
   }
 
   .stack-card__title {
-    font-size: 17px;
+    font-size: 18.5px;
   }
 
   .stack-card__desc {
-    font-size: 11.8px;
+    font-size: 12.8px;
     line-height: 1.36;
   }
 }
@@ -550,18 +564,18 @@
   }
 
   .stack-card {
-    height: clamp(250px, 78vh, 320px);
-    padding: 0;
-    gap: 0;
-  }
-
-  .stack-card__content {
+    height: clamp(280px, 82vh, 350px);
     padding: 12px 14px;
     gap: 8px;
   }
 
+  .stack-card__content {
+    padding: 0;
+    gap: 6px;
+  }
+
   .stack-card__visual {
-    height: clamp(105px, 34vh, 145px);
+    height: clamp(115px, 35vh, 155px);
   }
 
   .stack-card__title {

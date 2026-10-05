@@ -280,11 +280,11 @@ export default function HorizontalCards() {
               <article
                 key={step.id}
                 className="stack-card"
+                data-step={step.id}
                 style={{ '--card-accent': step.accent }}
               >
                 {/* Archival Illustration Aperture */}
-                <div className="
-                ">
+                <div className="stack-card__visual">
                   <motion.div
                     className="stack-card__img-wrap"
                     whileHover={{ scale: 1.06 }}
@@ -293,7 +293,7 @@ export default function HorizontalCards() {
                     <img
                       src={step.image}
                       alt={step.title}
-                      className="stack-card__img"
+                      className={`stack-card__img ${step.id === 'harvest' ? 'stack-card__img--cover' : ''}`}
                       loading="lazy"
                     />
                   </motion.div>
