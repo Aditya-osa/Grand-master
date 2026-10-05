@@ -10,6 +10,7 @@ export const initHeroEntrance = ({
   containerRef,
   logoRef,
   promptRef,
+  infoRef,
   langRef,
   menuRef,
   bottleEls,
@@ -24,6 +25,7 @@ export const initHeroEntrance = ({
         [
           logoRef?.current,
           promptRef?.current,
+          infoRef?.current,
           ...navElements,
           ...bottleEls,
         ],
@@ -49,6 +51,10 @@ export const initHeroEntrance = ({
       gsap.set(promptRef.current, { opacity: 0, y: 15 });
     }
 
+    if (infoRef?.current) {
+      gsap.set(infoRef.current, { opacity: 0, y: 30 });
+    }
+
     // Set initial bottle states
     gsap.set(bottleEls, {
       opacity: 0,
@@ -64,6 +70,10 @@ export const initHeroEntrance = ({
 
     if (logoRef?.current) {
       tl.to(logoRef.current, { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.6');
+    }
+
+    if (infoRef?.current) {
+      tl.to(infoRef.current, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.7');
     }
 
     // Stagger bottles into view

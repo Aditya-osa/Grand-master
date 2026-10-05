@@ -1,0 +1,612 @@
+/* ==========================================================================
+   Hero Section Container (100vh Full Screen)
+   ========================================================================== */
+
+.ag-hero {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  height: 100dvh;
+  background-color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Header (Language Switcher, Logo, Menu)
+   ========================================================================== */
+
+.ag-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 3.2vw, 48px);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Top-Left: Language Switcher */
+.ag-lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  pointer-events: auto;
+}
+
+.ag-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s var(--ease-soft);
+}
+
+.ag-lang-btn:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.ag-lang-btn.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.ag-lang-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+/* Top-Center: Logo */
+.ag-brand-logo-wrap {
+  position: absolute;
+  left: 50%;
+  top: clamp(20px, 2.5vw, 32px);
+  transform: translateX(-50%);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.ag-brand-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ag-brand-logo-img {
+  display: block;
+  width: clamp(122px, 9.8vw, 150px);
+  height: auto;
+  color: var(--color-border);
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.ag-brand-logo-img:hover {
+  transform: scale(1.02);
+}
+
+/* Top-Right: Menu Toggle */
+.ag-menu-toggle-wrap {
+  pointer-events: auto;
+}
+
+.ag-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ag-menu-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+  min-width: 90px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s var(--ease-soft);
+}
+
+.ag-menu-btn:hover .ag-menu-pill {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.ag-menu-disc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  transition: transform 0.3s var(--ease-soft), background 0.3s ease;
+}
+
+.ag-menu-btn:hover .ag-menu-disc {
+  transform: scale(1.06);
+}
+
+.ag-menu-diamond {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: var(--color-white);
+  border-radius: 1px;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.ag-menu-diamond.is-close {
+  transform: rotate(135deg) scale(1.15);
+}
+
+.ag-menu-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   Visual Stage & Layering
+   ========================================================================== */
+
+.ag-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Layer B: Angled 10-degree Marquee Stage for Bottles */
+.ag-marquee-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 100%;
+  height: clamp(380px, 58vh, 620px);
+  transform: translate(-50%, -50%) rotate(10deg);
+  z-index: 5;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.ag-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(45px, 7vw, 130px);
+  padding-left: 50vw;
+  padding-right: 50vw;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.ag-carousel-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform-origin: center center;
+  will-change: transform, filter;
+  transition: filter 0.2s ease;
+}
+
+.ag-carousel-img {
+  height: clamp(280px, 48vh, 580px);
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.25s var(--ease-soft);
+}
+
+.ag-carousel-item:hover .ag-carousel-img {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* ==========================================================================
+   Hero Info Block (VODKA DRINKS, Description, Shop Now CTA)
+   ========================================================================== */
+
+.ag-hero-info {
+  position: absolute;
+  /* Left positioning scales relative to viewport */
+  left: clamp(32px, 5.5vw, 92px);
+  /* Bottom positioning scales relatively */
+  bottom: clamp(65px, 14vh, 135px);
+  z-index: 15;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* CRITICAL: Enforce safe zone. Width must never cross into Mango bottle area */
+  width: min(390px, 32vw);
+  max-width: 390px;
+  user-select: none;
+}
+
+.ag-hero-title {
+  font-family: 'Impact', 'Anton', 'Anybody', sans-serif;
+  font-size: clamp(32px, 4.2vw, 64px);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  color: #c59828;
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  /* Ensure title wraps cleanly inside safe zone on smaller desktops if needed */
+  white-space: nowrap;
+  user-select: none;
+}
+
+.ag-hero-desc {
+  font-family: 'Anybody', var(--font-sans), sans-serif;
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 500;
+  line-height: 1.38;
+  color: #2c2723;
+  margin: 0 0 24px 0;
+  max-width: 270px;
+  opacity: 0.95;
+}
+
+.ag-shop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d61420;
+  color: #ffffff;
+  font-family: 'Anybody', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 4px solid #e6ff00;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ag-shop-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #e01b27;
+}
+
+.ag-shop-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bottom Right Sparkle Star */
+.ag-sparkle-wrap {
+  position: absolute;
+  right: clamp(24px, 8vw, 120px);
+  bottom: clamp(60px, 14vh, 140px);
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.ag-sparkle-star {
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Bottom Legal */
+.ag-bottom-legal {
+  position: absolute;
+  bottom: clamp(16px, 3vh, 32px);
+  left: clamp(20px, 3.2vw, 48px);
+  z-index: 20;
+}
+
+.ag-legal-link {
+  font-family: var(--font-sans);
+  font-size: clamp(11px, 0.9vw, 13px);
+  color: var(--color-border);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.ag-legal-link:hover {
+  opacity: 1;
+  color: var(--color-orange);
+}
+
+/* ==========================================================================
+   Bottom Scroll Prompt
+   ========================================================================== */
+
+.ag-scroll-prompt-wrap {
+  position: absolute;
+  bottom: clamp(14px, 2.5vh, 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.ag-scroll-prompt {
+  font-family: var(--font-sans);
+  font-size: clamp(9.5px, 0.9vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-border);
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* Smaller Desktop: 1280px - 1440px */
+@media (max-width: 1440px) {
+  .ag-hero-info {
+    width: min(340px, 30vw);
+    max-width: 340px;
+  }
+  .ag-hero-title {
+    font-size: clamp(32px, 4vw, 58px);
+  }
+  .ag-hero-desc {
+    font-size: 13.5px;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .ag-marquee-stage {
+    height: clamp(380px, 52vh, 550px);
+  }
+  .ag-carousel-img {
+    height: clamp(260px, 42vh, 480px);
+  }
+  .ag-carousel-track {
+    gap: clamp(40px, 6vw, 100px);
+  }
+  .ag-hero-info {
+    left: clamp(20px, 4vw, 60px);
+    bottom: clamp(50px, 10vh, 100px);
+    width: min(310px, 28vw);
+    max-width: 310px;
+  }
+  .ag-hero-title {
+    font-size: clamp(28px, 3.8vw, 52px);
+  }
+  .ag-hero-desc {
+    font-size: 13px;
+    max-width: 220px;
+  }
+  .ag-shop-btn {
+    padding: 10px 28px;
+    font-size: 12.5px;
+  }
+}
+
+/* Laptop & Tablet Landscape: 768px–1023px */
+@media (max-width: 1023px) {
+  .ag-marquee-stage {
+    height: clamp(340px, 50vh, 500px);
+  }
+
+  .ag-carousel-img {
+    height: clamp(250px, 40vh, 440px);
+  }
+
+  .ag-carousel-track {
+    gap: clamp(32px, 5.5vw, 75px);
+  }
+
+  .ag-hero-info {
+    left: clamp(20px, 4vw, 40px);
+    bottom: clamp(40px, 8vh, 75px);
+    max-width: 320px;
+  }
+}
+
+/* Tablet Portrait: 600px–767px */
+@media (max-width: 767px) {
+  .ag-header {
+    padding: 18px 16px;
+  }
+
+  .ag-brand-logo-wrap {
+    top: 16px;
+  }
+
+  .ag-brand-logo-img {
+    width: 110px;
+  }
+
+  .ag-marquee-stage {
+    height: clamp(310px, 46vh, 420px);
+    transform: translate(-50%, -50%) rotate(8deg);
+  }
+
+  .ag-carousel-img {
+    height: clamp(230px, 36vh, 360px);
+  }
+
+  .ag-carousel-track {
+    gap: clamp(24px, 4.5vw, 50px);
+  }
+
+  .ag-menu-pill {
+    min-width: 75px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+
+  .ag-hero-info {
+    left: 20px;
+    bottom: 45px;
+    max-width: 260px;
+  }
+
+  .ag-vodka-infused-wrap {
+    width: 160px;
+    margin-bottom: -6px;
+  }
+
+  .ag-vodka-infused-text {
+    font-size: 24px;
+  }
+
+  .ag-hero-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .ag-hero-desc {
+    font-size: 13px;
+    margin-bottom: 16px;
+    max-width: 230px;
+  }
+
+  .ag-shop-btn {
+    padding: 9px 24px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile: 375px–599px */
+@media (max-width: 599px) {
+  .ag-header {
+    padding: 14px 12px;
+  }
+
+  .ag-brand-logo-img {
+    width: 96px;
+  }
+
+  .ag-marquee-stage {
+    height: clamp(280px, 42vh, 340px);
+    transform: translate(-50%, -50%) rotate(7deg);
+  }
+
+  .ag-carousel-img {
+    height: clamp(200px, 34vh, 290px);
+  }
+
+  .ag-carousel-track {
+    gap: 22px;
+  }
+
+  .ag-scroll-prompt {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .ag-hero-info {
+    left: 16px;
+    bottom: 40px;
+    max-width: 220px;
+  }
+
+  .ag-vodka-infused-wrap {
+    width: 140px;
+    margin-bottom: -4px;
+  }
+
+  .ag-hero-title {
+    font-size: 30px;
+  }
+
+  .ag-hero-desc {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .ag-shop-btn {
+    padding: 8px 20px;
+    font-size: 11.5px;
+  }
+}
+
+/* Small Mobile: 320px–374px */
+@media (max-width: 374px) {
+  .ag-header {
+    padding: 12px 10px;
+  }
+
+  .ag-brand-logo-img {
+    width: 88px;
+  }
+
+  .ag-marquee-stage {
+    height: 260px;
+    transform: translate(-50%, -50%) rotate(6deg);
+  }
+
+  .ag-carousel-img {
+    height: 185px;
+  }
+
+  .ag-carousel-track {
+    gap: 18px;
+  }
+
+  .ag-scroll-prompt {
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
+
+  .ag-hero-title {
+    font-size: 26px;
+  }
+}
+

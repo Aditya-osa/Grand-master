@@ -3,6 +3,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnimations';
+import './Products.css';
 
 import bottle1 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
 import bottle2 from '../../assets/bottles/all-flav/2.png'; // Chocolate
@@ -25,6 +26,7 @@ export default function Products() {
   const containerRef = useRef(null);
   const trackRef = useRef(null);
   const promptRef = useRef(null);
+  const infoRef = useRef(null);
   const bottleRefs = useRef([]);
 
   const setBottleRef = (el, i) => {
@@ -52,6 +54,7 @@ export default function Products() {
     const entranceCtx = initHeroEntrance({
       containerRef,
       promptRef,
+      infoRef,
       bottleEls,
     });
 
@@ -85,7 +88,7 @@ export default function Products() {
 
   return (
     <section ref={containerRef} className="ag-hero" aria-label="Grand Master Products">
-      {/* Visual Stage: Only Bottles */}
+      {/* Visual Stage: Bottles */}
       <div className="ag-stage">
         {/* Angled 10-degree Marquee Stage for Bottles */}
         <div className="ag-marquee-stage">
@@ -110,8 +113,24 @@ export default function Products() {
         </div>
       </div>
 
-    
-    
+      {/* Bottom Left: Vodka Drinks Hero Info Block matching screenshot */}
+      <div ref={infoRef} className="ag-hero-info">
+        <h2 className="ag-hero-title">VODKA DRINKS</h2>
+        <p className="ag-hero-desc">
+          Amazing, smooth, premium<br />vodkas for all occasions.
+        </p>
+        <a href="#shop" className="ag-shop-btn">
+          SHOP NOW
+        </a>
+      </div>
+
+      {/* Subtle Star Sparkle Decoration */}
+      <div className="ag-sparkle-wrap" aria-hidden="true">
+        <svg className="ag-sparkle-star" viewBox="0 0 24 24" width="30" height="30">
+          <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" fill="#ffffff" opacity="0.8" />
+        </svg>
+      </div>
+
       {/* Bottom Center: Scroll Prompt */}
       <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
         <span className="ag-scroll-prompt">SCROLL TO DISCOVER</span>
