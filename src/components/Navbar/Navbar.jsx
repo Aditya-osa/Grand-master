@@ -88,19 +88,19 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
             <div className="cntr-nav">
               <a href="#" onClick={handleNavLinkClick} data-text="Home">
-                <span className="nav-number">01</span>
+             
                 <span className="nav-text">Home</span>
               </a>
               <a href="#products" onClick={handleNavLinkClick} data-text="Products">
-                <span className="nav-number">02</span>
+              
                 <span className="nav-text">Products</span>
               </a>
               <a href="#shop" onClick={handleNavLinkClick} data-text="Shop">
-                <span className="nav-number">03</span>
+              
                 <span className="nav-text">Shop</span>
               </a>
               <a href="#contact" onClick={handleNavLinkClick} data-text="Contact">
-                <span className="nav-number">04</span>
+             
                 <span className="nav-text">Contact</span>
               </a>
             </div>
