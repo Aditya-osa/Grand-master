@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  * DistilledToInspire - Apple & Webflow scroll-driven gradient text reveal
  * Recreates https://gradient-text-scroll-effect.webflow.io/
- * Illuminates progressively from the end (bottom) of the paragraph to the top
+ * Illuminates progressively from the start (top) of the paragraph to the bottom
  */
 export default function DistilledToInspire() {
   const sectionRef = useRef(null);
@@ -46,8 +46,9 @@ export default function DistilledToInspire() {
             } else {
               textEl.style.color = 'transparent';
               textEl.style.webkitTextFillColor = 'transparent';
-              const progressPoint = Math.min(100, p * 1.25);
-              textEl.style.backgroundImage = `linear-gradient(to top, #000000 0%, #000000 ${progressPoint}%, rgba(0, 0, 0, 0.25) ${Math.min(100, progressPoint + 14)}%, rgba(0, 0, 0, 0.25) 100%)`;
+              const progressPoint = Math.min(100, Math.max(0, p * 1.2));
+              const fadePoint = Math.min(100, progressPoint + 14);
+              textEl.style.backgroundImage = `linear-gradient(to bottom, #000000 0%, #000000 ${progressPoint}%, rgba(0, 0, 0, 0.25) ${fadePoint}%, rgba(0, 0, 0, 0.25) 100%)`;
             }
           },
         },

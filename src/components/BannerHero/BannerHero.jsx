@@ -36,7 +36,7 @@ export default function BannerHero() {
     };
 
     const ctx = gsap.context(() => {
-      // 1. Initial Page Entrance Animation (Orange bottle from UP, decor elements from DOWN)
+      // 1. Initial Page Entrance Animation with customized directions & easing per element
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
@@ -52,19 +52,60 @@ export default function BannerHero() {
         duration: 1.4,
         ease: "power3.out",
       })
-      .from("#orange-text", {
-        x: "-100vw",
+      .from(".bottle-ground-shadow", {
+        scale: 0.3,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out",
-      }, "-=1.0")
-      .from(".decor-orange", {
-        y: "100vh",
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.08,
-        ease: "power3.out",
-      }, "-=1.0")
+      }, "-=1.2")
+      // ORANGE title: Left -> Center (Large text reveals/slides from left)
+      .fromTo("#orange-text",
+        { x: "-100vw", opacity: 0 },
+        { x: "0vw", opacity: 1, duration: 1.3, ease: "power3.out" },
+        "-=1.1"
+      )
+      // 🍊 Large orange — top-left: Left -> Right (Slight floating movement)
+      .fromTo(".orange-top-left",
+        { x: "-70vw", y: -20, rotate: -12, opacity: 0 },
+        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.4, ease: "power3.out" },
+        "-=1.1"
+      )
+      // 🍊 Orange + leaf — top-right: Right -> Left (Soft slide + rotation)
+      .fromTo(".orange-top-right",
+        { x: "70vw", rotate: 40, opacity: 0 },
+        { x: 0, rotate: 0, opacity: 1, duration: 1.4, ease: "power3.out" },
+        "-=1.1"
+      )
+      // 🌿 Mint — left side: Left -> Right (Small diagonal movement)
+      .fromTo(".leaf-left-1",
+        { x: "-50vw", y: -40, rotate: -10, opacity: 0 },
+        { x: 0, y: 0, rotate: 25, opacity: 1, duration: 1.2, ease: "power2.out" },
+        "-=1.05"
+      )
+      // 🌿 Mint — top-center: Top -> Down (Drop in gently)
+      .fromTo(".leaf-left-2",
+        { y: "-80vh", rotate: -45, opacity: 0 },
+        { y: 0, rotate: -15, opacity: 1, duration: 1.3, ease: "power3.out" },
+        "-=1.1"
+      )
+      // 🌿 Small mint — right: Right -> Left (Fast, subtle movement)
+      .fromTo(".leaf-right-1",
+        { x: "45vw", rotate: 95, opacity: 0 },
+        { x: 0, rotate: 70, opacity: 1, duration: 0.85, ease: "power2.out" },
+        "-=1.0"
+      )
+      // 🍊 Orange slices — bottom-right: Bottom-right -> Up/Left (Larger movement, slight rotation)
+      .fromTo(".orange-bottom-right",
+        { x: "60vw", y: "50vh", rotate: -45, opacity: 0 },
+        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
+        "-=1.15"
+      )
+      // 🌿 Mint — bottom-center-left: Bottom -> Up (Gentle float)
+      .fromTo(".leaf-bottom-mid",
+        { y: "50vh", rotate: 10, opacity: 0 },
+        { y: 0, rotate: -25, opacity: 1, duration: 1.3, ease: "power2.out" },
+        "-=1.0"
+      )
       .from("#info-orange", {
         y: "100vh",
         opacity: 0,

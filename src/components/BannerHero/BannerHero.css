@@ -55,10 +55,10 @@
   min-height: 100svh;
   height: 100dvh;
   overflow: hidden;
-  background-color: #e76d1c;
+  background-color: #ff7900;
 }
 
-/* GPU-accelerated background flavour gradient layers */
+/* GPU-accelerated background flavour gradient layers with radiant central spotlight */
 .banner-hero-container .hero-bg {
   position: absolute;
   top: 0;
@@ -71,22 +71,30 @@
 }
 
 .banner-hero-container .bg-orange {
-  background: linear-gradient(135deg, #e76d1c, #d56600);
+  background: 
+    radial-gradient(ellipse 55% 50% at 50% 46%, rgba(255, 235, 170, 0.42) 0%, rgba(255, 175, 45, 0.22) 42%, transparent 70%),
+    radial-gradient(ellipse 85% 82% at 50% 48%, #ffa726 0%, #ff7900 28%, #f05200 62%, #bf3600 100%);
   opacity: 1;
 }
 
 .banner-hero-container .bg-strawberry {
-  background: linear-gradient(135deg, #eb2d55, #b41432);
+  background: 
+    radial-gradient(ellipse 55% 50% at 50% 46%, rgba(255, 195, 215, 0.38) 0%, rgba(255, 80, 125, 0.22) 42%, transparent 70%),
+    radial-gradient(ellipse 85% 82% at 50% 48%, #ff4b77 0%, #f41e53 28%, #cf0e36 62%, #85041e 100%);
   opacity: 0;
 }
 
 .banner-hero-container .bg-chocolate {
-  background: linear-gradient(135deg, #3d1c14, #180905);
+  background: 
+    radial-gradient(ellipse 55% 50% at 50% 46%, rgba(245, 195, 155, 0.28) 0%, rgba(185, 115, 75, 0.16) 42%, transparent 70%),
+    radial-gradient(ellipse 85% 82% at 50% 48%, #723c2a 0%, #4a2115 28%, #2d1008 62%, #140402 100%);
   opacity: 0;
 }
 
 .banner-hero-container .bg-melon {
-  background: linear-gradient(135deg, #389e27, #1b6312);
+  background: 
+    radial-gradient(ellipse 55% 50% at 50% 46%, rgba(215, 255, 175, 0.38) 0%, rgba(125, 235, 65, 0.22) 42%, transparent 70%),
+    radial-gradient(ellipse 85% 82% at 50% 48%, #64e340 0%, #3db81b 28%, #24840e 62%, #104805 100%);
   opacity: 0;
 }
 
@@ -101,11 +109,13 @@
   line-height: 0.95;
   letter-spacing: 2px;
   text-align: center;
+  color: #ffffff;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
 }
 
 .banner-hero-container #orange-text {
   z-index: 1;
-  color: #f7a81b;
+  color: #ffffff;
   opacity: 1;
   transform: translateX(0);
 }
@@ -113,22 +123,38 @@
 .banner-hero-container #strawberry-text {
   z-index: 1;
   opacity: 0;
-  color: #f7365d;
+  color: #ffffff;
   transform: translateX(100vw);
 }
 
 .banner-hero-container #chocolate-text {
   z-index: 1;
   opacity: 0;
-  color: #d49b6a;
+  color: #ffffff;
   transform: translateX(-100vw);
 }
 
 .banner-hero-container #melon-text {
   z-index: 1;
   opacity: 0;
-  color: #88ea36;
+  color: #ffffff;
   transform: translateX(100vw);
+}
+
+/* 3D Contact Shadow directly below the floating bottle */
+.banner-hero-container .bottle-ground-shadow {
+  position: absolute;
+  bottom: clamp(14px, 6.5vh, 75px);
+  left: 50%;
+  transform: translateX(-44%) rotate(-2deg);
+  width: clamp(190px, 30vw, 420px);
+  height: clamp(26px, 4.5vh, 58px);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.22) 45%, rgba(0, 0, 0, 0.04) 68%, transparent 75%);
+  filter: blur(12px);
+  z-index: 3;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .banner-hero-container #fanta,
@@ -144,15 +170,38 @@
   z-index: 5;
   margin-top: 10px;
   transform: rotate(14deg);
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.35));
   pointer-events: none;
+  will-change: transform, opacity, filter;
 }
 
-.banner-hero-container #fanta2,
-.banner-hero-container #fanta3,
+.banner-hero-container #fanta {
+  filter: brightness(1.08) contrast(1.06) saturate(1.16)
+          drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
+          drop-shadow(0 0 55px rgba(255, 175, 45, 0.48));
+}
+
+.banner-hero-container #fanta2 {
+  opacity: 0;
+  transform: translateY(-100vh) rotate(14deg);
+  filter: brightness(1.08) contrast(1.06) saturate(1.16)
+          drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
+          drop-shadow(0 0 55px rgba(255, 60, 100, 0.45));
+}
+
+.banner-hero-container #fanta3 {
+  opacity: 0;
+  transform: translateY(-100vh) rotate(14deg);
+  filter: brightness(1.12) contrast(1.08) saturate(1.12)
+          drop-shadow(0 26px 38px rgba(0, 0, 0, 0.45))
+          drop-shadow(0 0 55px rgba(215, 145, 85, 0.38));
+}
+
 .banner-hero-container #fanta4 {
   opacity: 0;
   transform: translateY(-100vh) rotate(14deg);
+  filter: brightness(1.08) contrast(1.06) saturate(1.16)
+          drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
+          drop-shadow(0 0 55px rgba(110, 245, 50, 0.45));
 }
 
 /* Bottom Left Info Box Alignment */
@@ -230,7 +279,8 @@
   z-index: 4;
   pointer-events: none;
   object-fit: contain;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+  filter: brightness(1.06) saturate(1.18) drop-shadow(0 18px 28px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
 }
 
 /* Top Left Half Orange */

@@ -103,9 +103,9 @@
   letter-spacing: 0.005em;
   margin: 0;
   
-  /* Initial state: muted dark gray text, reveals from down/bottom upwards */
+  /* Initial state: muted dark gray text, reveals from start (top) downwards */
   background-image: linear-gradient(
-    to top,
+    to bottom,
     rgba(0, 0, 0, 0.25) 0%,
     rgba(0, 0, 0, 0.25) 100%
   );
