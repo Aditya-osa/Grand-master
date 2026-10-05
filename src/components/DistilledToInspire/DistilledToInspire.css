@@ -55,7 +55,7 @@
 
 /* Bold Uppercase Slab Heading */
 .distilled-to-inspire__title {
-  font-family: var(--font-serif, "ivymode", "Iowan Old Style", Georgia, serif);
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(26px, 4.2vw, 58px);
   font-weight: 900;
   line-height: 1.1;
@@ -76,7 +76,7 @@
 
 /* Inception Year Meta */
 .distilled-to-inspire__inception {
-  font-family: var(--font-serif, "ivymode", Georgia, serif);
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(13.5px, 1.3vw, 21px);
   line-height: 1.5;
   color: #555555;
@@ -97,7 +97,7 @@
 }
 
 .distilled-to-inspire__paragraph {
-  font-family: var(--font-serif, "ivymode", Georgia, serif);
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(16px, 1.8vw, 28px);
   line-height: 1.6;
   letter-spacing: 0.005em;

@@ -205,7 +205,7 @@
 }
 
 .menu-tagline {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-family: 'Anybody', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.24em;
@@ -235,7 +235,7 @@
   display: inline-flex;
   align-items: baseline;
   gap: 14px;
-  font-family: var(--font-sans, "Product Sans", "Plus Jakarta Sans", sans-serif);
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 700;
   text-decoration: none;
@@ -249,6 +249,7 @@
 }
 
 .nav-number {
+  font-family: 'Anybody', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -298,7 +299,7 @@
 }
 
 .social-label {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+  font-family: 'Anybody', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
