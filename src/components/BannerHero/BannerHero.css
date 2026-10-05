@@ -79,8 +79,8 @@
 
 .banner-hero-container .bg-strawberry {
   background: 
-    radial-gradient(ellipse 55% 50% at 50% 46%, rgba(255, 195, 215, 0.38) 0%, rgba(255, 80, 125, 0.22) 42%, transparent 70%),
-    radial-gradient(ellipse 85% 82% at 50% 48%, #ff4b77 0%, #f41e53 28%, #cf0e36 62%, #85041e 100%);
+    radial-gradient(ellipse 55% 50% at 50% 46%, rgba(255, 190, 200, 0.38) 0%, rgba(255, 90, 95, 0.22) 42%, transparent 70%),
+    radial-gradient(ellipse 85% 82% at 50% 48%, #ff5a5f 0%, #e63946 28%, #c62828 62%, #8e1b23 100%);
   opacity: 0;
 }
 
@@ -344,7 +344,6 @@
 /* 🍓 Strawberry Stage Floating Decor Items (Matching Orange Sizing & Visual Prominence) */
 .banner-hero-container .decor-strawberry {
   opacity: 0;
-  transform: translateY(-100vh);
   pointer-events: none;
 }
 
