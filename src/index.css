@@ -354,21 +354,23 @@ body::-webkit-scrollbar {
    Responsive Adaptations
    ========================================================================== */
 
-@media (max-width: 1024px) {
+/* Laptop & Tablet Landscape: 768px–1023px */
+@media (max-width: 1023px) {
   .ag-marquee-stage {
-    height: clamp(360px, 52vh, 520px);
+    height: clamp(340px, 50vh, 500px);
   }
 
   .ag-carousel-img {
-    height: clamp(260px, 42vh, 460px);
+    height: clamp(250px, 40vh, 440px);
   }
 
   .ag-carousel-track {
-    gap: clamp(35px, 6vw, 85px);
+    gap: clamp(32px, 5.5vw, 75px);
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet Portrait: 600px–767px */
+@media (max-width: 767px) {
   .ag-header {
     padding: 18px 16px;
   }
@@ -382,16 +384,16 @@ body::-webkit-scrollbar {
   }
 
   .ag-marquee-stage {
-    height: clamp(320px, 48vh, 440px);
+    height: clamp(310px, 46vh, 420px);
     transform: translate(-50%, -50%) rotate(8deg);
   }
 
   .ag-carousel-img {
-    height: clamp(240px, 38vh, 380px);
+    height: clamp(230px, 36vh, 360px);
   }
 
   .ag-carousel-track {
-    gap: clamp(28px, 5vw, 60px);
+    gap: clamp(24px, 4.5vw, 50px);
   }
 
   .ag-menu-pill {
@@ -401,7 +403,8 @@ body::-webkit-scrollbar {
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile: 375px–599px */
+@media (max-width: 599px) {
   .ag-header {
     padding: 14px 12px;
   }
@@ -411,21 +414,50 @@ body::-webkit-scrollbar {
   }
 
   .ag-marquee-stage {
-    height: clamp(290px, 44vh, 360px);
+    height: clamp(280px, 42vh, 340px);
     transform: translate(-50%, -50%) rotate(7deg);
   }
 
   .ag-carousel-img {
-    height: clamp(210px, 35vh, 310px);
+    height: clamp(200px, 34vh, 290px);
   }
 
   .ag-carousel-track {
-    gap: 24px;
+    gap: 22px;
   }
 
   .ag-scroll-prompt {
     font-size: 9px;
     letter-spacing: 0.12em;
+  }
+}
+
+/* Small Mobile: 320px–374px */
+@media (max-width: 374px) {
+  .ag-header {
+    padding: 12px 10px;
+  }
+
+  .ag-brand-logo-img {
+    width: 88px;
+  }
+
+  .ag-marquee-stage {
+    height: 260px;
+    transform: translate(-50%, -50%) rotate(6deg);
+  }
+
+  .ag-carousel-img {
+    height: 185px;
+  }
+
+  .ag-carousel-track {
+    gap: 18px;
+  }
+
+  .ag-scroll-prompt {
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
   }
 }
 

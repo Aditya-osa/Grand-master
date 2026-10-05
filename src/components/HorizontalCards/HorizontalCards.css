@@ -1,9 +1,11 @@
 /* ==========================================================================
-   HorizontalCards.css - Vertical Stacked-Card Physical Deck Scroll Animation
-   Pure Vertical Overlapping Deck (Zero Horizontal Scrolling, Zero Overflow-X)
+   HorizontalCards.css - Edge-to-Edge Distillation Process Cards
+   3.5 Cards Visible on Big Screens (1024px+), Responsive Across All Devices
    ========================================================================== */
 
 .stack-cards-section {
+  --track-pad: clamp(40px, 5vw, 84px);
+  --card-gap: clamp(20px, 2vw, 36px);
   position: relative;
   width: 100%;
   background-color: #fcf9f4;
@@ -33,7 +35,7 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  padding: clamp(20px, 3.5vh, 40px) 0;
+  padding: clamp(20px, 3.2vh, 44px) 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -49,8 +51,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 clamp(20px, 4.5vw, 64px);
-  margin-bottom: clamp(12px, 2.2vh, 24px);
+  padding: 0 var(--track-pad);
+  margin-bottom: clamp(12px, 2.0vh, 24px);
   z-index: 50;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -58,10 +60,10 @@
 
 .stack-cards-top-title {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(24px, 3.8vw, 54px);
+  font-size: clamp(28px, 3.8vw, 56px);
   font-weight: 900;
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #4a0b14;
   margin: 0;
@@ -71,12 +73,12 @@
 .stack-cards-header-progress {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.5vw, 16px);
+  gap: clamp(10px, 1.5vw, 18px);
 }
 
 .stack-cards-counter {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(12px, 1.2vw, 16px);
+  font-size: clamp(12px, 1.1vw, 16px);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -85,8 +87,8 @@
 }
 
 .stack-cards-progress-track {
-  width: clamp(80px, 10vw, 140px);
-  height: 3px;
+  width: clamp(80px, 9vw, 140px);
+  height: 3.5px;
   background: rgba(118, 37, 48, 0.12);
   border-radius: 999px;
   overflow: hidden;
@@ -124,14 +126,14 @@
 .horizontal-cards-track {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 2.5vw, 36px);
+  gap: var(--card-gap);
   width: max-content;
-  padding: 12px clamp(20px, 4.5vw, 64px);
+  padding: 12px var(--track-pad);
   will-change: transform;
 }
 
 /* --------------------------------------------------------------------------
-   Individual Horizontal Card
+   Individual Horizontal Card - Exactly 3.5 Cards Visible on Big Screens
    -------------------------------------------------------------------------- */
 
 .stack-card {
@@ -140,48 +142,49 @@
   left: auto;
   transform: none;
   flex-shrink: 0;
-  width: clamp(280px, 25vw, 380px);
-  height: clamp(370px, 52vh, 470px);
+  /* Exact formula: 3.5 cards visible in viewport width */
+  width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
+  height: clamp(480px, 62vh, 600px);
   background: #ffffff;
-  border: 1px solid rgba(184, 134, 11, 0.30);
-  border-radius: 10px;
-  padding: clamp(16px, 2.4vh, 26px);
+  border: 1px solid rgba(184, 134, 11, 0.28);
+  border-radius: clamp(18px, 1.6vw, 24px);
+  padding: clamp(20px, 2.6vh, 30px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: clamp(12px, 2vh, 20px);
+  gap: clamp(14px, 2vh, 22px);
   box-sizing: border-box;
   box-shadow: 
-    0 16px 36px -8px rgba(74, 11, 20, 0.12),
-    0 4px 12px -2px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 20px 48px -10px rgba(74, 11, 20, 0.12),
+    0 6px 18px -2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
   overflow: hidden;
   user-select: none;
   cursor: default;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stack-card:hover {
-  border-color: rgba(184, 134, 11, 0.65);
-  transform: translateY(-4px);
+  border-color: rgba(184, 134, 11, 0.75);
+  transform: translateY(-6px);
   box-shadow: 
-    0 24px 48px -10px rgba(74, 11, 20, 0.18),
-    0 6px 18px -3px rgba(0, 0, 0, 0.06);
+    0 28px 56px -12px rgba(74, 11, 20, 0.18),
+    0 10px 24px -4px rgba(0, 0, 0, 0.07);
 }
 
 /* Archival Visual Aperture - Enlarged Hero Illustration */
 .stack-card__visual {
   position: relative;
   width: 100%;
-  height: clamp(160px, 23vh, 225px);
+  height: clamp(210px, 29vh, 290px);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf1e6 100%);
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf0e4 100%);
   border: 1px solid rgba(118, 37, 48, 0.10);
-  border-radius: 14px;
-  padding: 14px;
+  border-radius: clamp(14px, 1.3vw, 18px);
+  padding: clamp(14px, 2vh, 22px);
   box-sizing: border-box;
   overflow: hidden;
   z-index: 1;
@@ -197,15 +200,15 @@
 }
 
 .stack-card__img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 94%;
+  max-width: 94%;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
   user-select: none;
   -webkit-user-drag: none;
-  filter: drop-shadow(0 12px 24px rgba(90, 20, 30, 0.18));
+  filter: drop-shadow(0 10px 22px rgba(90, 20, 30, 0.16));
 }
 
 /* Card Content & Text */
@@ -215,73 +218,170 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 6px;
+  gap: clamp(8px, 1.2vh, 12px);
   flex: 1;
+  min-height: 0;
 }
 
 .stack-card__title {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(18px, 1.5vw, 24px);
+  font-size: clamp(20px, 1.55vw, 26px);
   font-weight: 800;
   line-height: 1.25;
   color: #4a0b14;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .stack-card__desc {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(12.5px, 0.88vw, 14.5px);
+  font-size: clamp(13px, 0.95vw, 15.5px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.52;
   color: #5e4c48;
   margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   RESPONSIVE DESIGN (Tablets & Mobile Viewports)
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   Responsive Breakpoints System
+   1. Large Desktop: 1440px+ -> 3.5 Cards Visible
+   2. Desktop & Laptop: 1024px–1439px -> 3.5 Cards Visible
+   3. Tablet Landscape: 768px–1023px -> 2.5 Cards Visible
+   4. Tablet Portrait: 600px–767px -> 2.2 Cards Visible
+   5. Mobile: 375px–599px -> 1.15 Cards Visible
+   6. Small Mobile: 320px–374px -> 1.12 Cards Visible
+   ========================================================================== */
 
-@media (max-width: 1024px) {
+/* 1. Large Desktop (1440px+): Exactly 3.5 cards */
+@media (min-width: 1440px) {
+  .stack-cards-section {
+    --track-pad: clamp(48px, 5.5vw, 96px);
+    --card-gap: clamp(24px, 2.2vw, 38px);
+  }
+
   .stack-cards-viewport {
-    padding: clamp(18px, 3vh, 32px) 0;
-  }
-
-  .stack-cards-top-header {
-    padding: 0 24px;
-  }
-
-  .horizontal-cards-track {
-    padding: 12px 24px;
-  }
-
-  .stack-cards-top-title {
-    font-size: clamp(24px, 3.5vw, 38px);
+    padding: clamp(24px, 3.8vh, 48px) 0;
   }
 
   .stack-card {
-    width: clamp(260px, 35vw, 330px);
-    height: clamp(350px, 50vh, 430px);
+    width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
+    height: clamp(510px, 64vh, 620px);
+    border-radius: 22px;
+    padding: clamp(24px, 3vh, 32px);
+  }
+
+  .stack-card__visual {
+    height: clamp(240px, 33vh, 320px);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .stack-card__title {
+    font-size: clamp(23px, 1.55vw, 28px);
+  }
+
+  .stack-card__desc {
+    font-size: clamp(14px, 0.95vw, 16.5px);
   }
 }
 
-@media (max-width: 768px) {
+/* 2. Desktop & Laptop (1024px–1439px): Exactly 3.5 cards */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .stack-cards-section {
+    --track-pad: clamp(36px, 4.5vw, 64px);
+    --card-gap: clamp(20px, 1.8vw, 28px);
+  }
+
+  .stack-cards-viewport {
+    padding: clamp(18px, 3vh, 36px) 0;
+  }
+
+  .stack-card {
+    width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
+    height: clamp(440px, 60vh, 530px);
+    padding: 22px 20px;
+  }
+
+  .stack-card__visual {
+    height: clamp(200px, 28vh, 260px);
+  }
+
+  .stack-card__title {
+    font-size: 21.5px;
+  }
+
+  .stack-card__desc {
+    font-size: 13.8px;
+  }
+}
+
+/* 3. Tablet Landscape (768px–1023px): Exactly 2.5 cards */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stack-cards-section {
+    --track-pad: clamp(24px, 3.5vw, 36px);
+    --card-gap: clamp(16px, 2vw, 22px);
+  }
+
+  .stack-cards-viewport {
+    padding: clamp(14px, 2.5vh, 26px) 0;
+  }
+
+  .stack-cards-top-header {
+    margin-bottom: 16px;
+  }
+
+  .stack-cards-top-title {
+    font-size: clamp(26px, 4vw, 36px);
+  }
+
+  .stack-cards-counter {
+    font-size: 13px;
+  }
+
+  .stack-cards-progress-track {
+    width: 90px;
+  }
+
+  .stack-card {
+    width: calc((100vw - var(--track-pad) - (2 * var(--card-gap))) / 2.5);
+    height: clamp(410px, 56vh, 480px);
+    padding: 20px 18px;
+    gap: 15px;
+    border-radius: 16px;
+  }
+
+  .stack-card__visual {
+    height: clamp(185px, 26vh, 230px);
+    padding: 12px;
+  }
+
+  .stack-card__title {
+    font-size: 20px;
+  }
+
+  .stack-card__desc {
+    font-size: 13.5px;
+    line-height: 1.46;
+  }
+}
+
+/* 4. Tablet Portrait (600px–767px): Exactly 2.2 cards */
+@media (min-width: 600px) and (max-width: 767px) {
+  .stack-cards-section {
+    --track-pad: 24px;
+    --card-gap: 18px;
+  }
+
   .stack-cards-viewport {
     padding: 16px 0;
   }
 
   .stack-cards-top-header {
-    padding: 0 16px;
-    margin-bottom: 12px;
-  }
-
-  .horizontal-cards-track {
-    padding: 10px 16px;
-    gap: 14px;
+    margin-bottom: 14px;
   }
 
   .stack-cards-top-title {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .stack-cards-counter {
@@ -293,15 +393,118 @@
   }
 
   .stack-card {
-    width: clamp(250px, 78vw, 310px);
-    height: clamp(340px, 50vh, 410px);
-    padding: 14px 12px;
-    gap: 10px;
+    width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 2.2);
+    height: clamp(400px, 52vh, 460px);
+    padding: 18px 16px;
+    gap: 14px;
+    border-radius: 16px;
   }
 
   .stack-card__visual {
-    height: clamp(140px, 20vh, 175px);
+    height: clamp(180px, 24vh, 220px);
+    padding: 12px;
+  }
+
+  .stack-card__title {
+    font-size: 19.5px;
+  }
+
+  .stack-card__desc {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+}
+
+/* 5. Mobile (375px–599px): 1.15 cards peek */
+@media (max-width: 599px) {
+  .stack-cards-section {
+    --track-pad: 20px;
+    --card-gap: 16px;
+  }
+
+  .stack-cards-viewport {
+    padding: 14px 0;
+  }
+
+  .stack-cards-top-header {
+    margin-bottom: 12px;
+  }
+
+  .stack-cards-top-title {
+    font-size: 22px;
+  }
+
+  .stack-cards-counter {
+    font-size: 11px;
+  }
+
+  .stack-cards-progress-track {
+    width: 70px;
+  }
+
+  .stack-card {
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.15);
+    height: clamp(380px, 53vh, 440px);
+    padding: 16px 14px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+
+  .stack-card__visual {
+    height: clamp(170px, 24vh, 210px);
     padding: 10px;
+    border-radius: 12px;
+  }
+
+  .stack-card__title {
+    font-size: 18.5px;
+  }
+
+  .stack-card__desc {
+    font-size: 12.5px;
+    line-height: 1.42;
+  }
+}
+
+/* 6. Small Mobile (320px–374px): 1.12 cards peek */
+@media (max-width: 374px) {
+  .stack-cards-section {
+    --track-pad: 14px;
+    --card-gap: 12px;
+  }
+
+  .stack-cards-viewport {
+    padding: 10px 0;
+  }
+
+  .stack-cards-top-header {
+    margin-bottom: 10px;
+  }
+
+  .stack-cards-top-title {
+    font-size: 20px;
+  }
+
+  .stack-cards-counter {
+    font-size: 10.5px;
+  }
+
+  .stack-cards-progress-track {
+    width: 60px;
+  }
+
+  .stack-card {
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.12);
+    height: clamp(350px, 55vh, 400px);
+    padding: 14px 12px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+
+  .stack-card__visual {
+    height: clamp(150px, 24vh, 180px);
+    padding: 8px;
+    border-radius: 10px;
   }
 
   .stack-card__title {
@@ -309,54 +512,46 @@
   }
 
   .stack-card__desc {
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 11.8px;
+    line-height: 1.36;
   }
 }
 
-@media (max-width: 480px) {
+/* --------------------------------------------------------------------------
+   Height-Constrained Viewports (Landscape mobile, compact laptops)
+   -------------------------------------------------------------------------- */
+
+@media (max-height: 620px) {
   .stack-cards-viewport {
-    padding: 14px 0;
+    padding: 8px 0;
   }
 
   .stack-cards-top-header {
-    padding: 0 12px;
-  }
-
-  .horizontal-cards-track {
-    padding: 8px 12px;
+    margin-bottom: 6px;
   }
 
   .stack-cards-top-title {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   .stack-card {
-    width: min(280px, 84vw);
-    height: clamp(320px, 48vh, 380px);
+    height: clamp(250px, 78vh, 320px);
+    padding: 12px 14px;
+    gap: 8px;
   }
 
   .stack-card__visual {
-    height: 135px;
-  }
-}
-
-@media (max-width: 360px) {
-  .stack-card {
-    width: 250px;
-    height: 310px;
-  }
-
-  .stack-card__visual {
-    height: 120px;
+    height: clamp(105px, 34vh, 145px);
+    padding: 8px;
   }
 
   .stack-card__title {
-    font-size: 15.5px;
+    font-size: 15px;
   }
 
   .stack-card__desc {
     font-size: 11px;
+    line-height: 1.3;
   }
 }
 

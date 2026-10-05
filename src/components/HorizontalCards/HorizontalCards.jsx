@@ -106,55 +106,149 @@ export default function HorizontalCards() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const ctx = gsap.context(() => {
-      const getScrollAmount = () => {
-        const trackWidth = track.scrollWidth;
-        const stageWidth = stage.clientWidth;
-        return Math.max(0, trackWidth - stageWidth);
-      };
+    // Helper to update progress bar and step counter
+    const updateProgress = (progress) => {
+      // Scale effective progress so 100% is reached when the track reaches the 5th card
+      const effectiveProgress = Math.min(1, progress / 0.82);
+      if (progressBarRef.current) {
+        progressBarRef.current.style.transform = `scaleX(${effectiveProgress})`;
+      }
+      if (progressTextRef.current) {
+        const stepCount = PROCESS_STEPS.length;
+        const activeIndex = Math.min(
+          stepCount - 1,
+          Math.max(0, Math.floor(effectiveProgress * stepCount * 0.999))
+        );
+        progressTextRef.current.textContent = `STAGE 0${activeIndex + 1} OF 0${stepCount}`;
+      }
+    };
 
+    const getScrollAmount = () => {
+      const cards = track.querySelectorAll('.stack-card');
+      if (!cards || cards.length === 0) {
+        return Math.max(0, track.scrollWidth - stage.clientWidth);
+      }
+      const lastCard = cards[cards.length - 1];
+      const stageWidth = stage.clientWidth;
+      const trackStyles = window.getComputedStyle(track);
+      const paddingRight =
+        parseFloat(trackStyles.paddingRight) ||
+        parseFloat(trackStyles.paddingLeft) ||
+        60;
+
+      // Exact right boundary of the 5th card + full right padding
+      const totalTrackEnd = lastCard.offsetLeft + lastCard.offsetWidth + paddingRight;
+      return Math.max(0, totalTrackEnd - stageWidth);
+    };
+
+    // Use GSAP matchMedia for fully responsive scroll trigger calculations
+    const mm = gsap.matchMedia();
+
+    // 1. Large Desktop & Desktop (1024px+)
+    mm.add('(min-width: 1024px)', () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${getScrollAmount() * 1.5 + 400}`,
+          end: () => `+=${getScrollAmount() * 1.3 + 320}`,
           pin: true,
-          scrub: 1,
+          scrub: 0.8,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (progressBarRef.current) {
-              progressBarRef.current.style.transform = `scaleX(${self.progress})`;
-            }
-            if (progressTextRef.current) {
-              const activeIndex = Math.min(
-                PROCESS_STEPS.length - 1,
-                Math.floor(self.progress * (PROCESS_STEPS.length - 0.05))
-              );
-              progressTextRef.current.textContent = `STAGE 0${activeIndex + 1} OF 0${PROCESS_STEPS.length}`;
-            }
-          },
+          onUpdate: (self) => updateProgress(self.progress),
         },
       });
 
       tl.to(track, {
         x: () => -getScrollAmount(),
         ease: 'none',
+        duration: 1,
       });
+
+      // Dwell period so the 5th card is comfortably viewed before unpinning
+      tl.to({}, { duration: 0.22 });
 
       return () => {
         tl.scrollTrigger?.kill();
         tl.kill();
       };
-    }, sectionRef);
+    });
 
+    // 2. Tablet (600px - 1023px)
+    mm.add('(min-width: 600px) and (max-width: 1023px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: () => `+=${getScrollAmount() * 1.15 + 220}`,
+          pin: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => updateProgress(self.progress),
+        },
+      });
+
+      tl.to(track, {
+        x: () => -getScrollAmount(),
+        ease: 'none',
+        duration: 1,
+      });
+
+      tl.to({}, { duration: 0.18 });
+
+      return () => {
+        tl.scrollTrigger?.kill();
+        tl.kill();
+      };
+    });
+
+    // 3. Mobile (320px - 599px)
+    mm.add('(max-width: 599px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: () => `+=${getScrollAmount() * 1.05 + 140}`,
+          pin: true,
+          scrub: 0.35, // Snappier touch response for finger scrolling
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => updateProgress(self.progress),
+        },
+      });
+
+      tl.to(track, {
+        x: () => -getScrollAmount(),
+        ease: 'none',
+        duration: 1,
+      });
+
+      tl.to({}, { duration: 0.15 });
+
+      return () => {
+        tl.scrollTrigger?.kill();
+        tl.kill();
+      };
+    });
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    // Refresh after layout and images settle
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 250);
+    }, 300);
 
     return () => {
       clearTimeout(timer);
-      ctx.revert();
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      mm.revert();
     };
   }, []);
 

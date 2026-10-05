@@ -44,12 +44,12 @@ export default function Enjoyflavours() {
         },
       });
 
-      // Initial state: starts at natural scale: 1.0
+      // Initial state: starts with cinematic darkness
       gsap.set(title, { opacity: 1, scale: 1.0, y: 0, transformOrigin: 'center center' });
       gsap.set(text, { opacity: 0, y: 45, scale: 1.0, transformOrigin: 'center center' });
       gsap.set(bgImg, { scale: 1.0, transformOrigin: 'center center', force3D: true });
       gsap.set(fgImg, { scale: 1.0, opacity: 1, transformOrigin: 'center center', force3D: true });
-      gsap.set(overlay, { opacity: 0, force3D: true });
+      gsap.set(overlay, { opacity: 0.42, force3D: true });
 
       // Layer 1: Background landscape continuous forward zoom-in (scale 1.0 -> 1.24)
       tl.to(bgImg, {
@@ -66,9 +66,9 @@ export default function Enjoyflavours() {
         ease: 'none',
       }, 0);
 
-      // Layer 3: Atmospheric progressive darkening (opacity 0 -> 0.45)
+      // Layer 3: Consistent atmospheric darkness throughout zoom
       tl.to(overlay, {
-        opacity: 0.45,
+        opacity: 0.48,
         duration: 10,
         ease: 'none',
       }, 0);
@@ -116,12 +116,12 @@ export default function Enjoyflavours() {
       gsap.set(text, { opacity: 0, y: 35, scale: 1.0, transformOrigin: 'center center' });
       gsap.set(bgImg, { scale: 1.0, transformOrigin: 'center center', force3D: true });
       gsap.set(fgImg, { scale: 1.0, opacity: 1, transformOrigin: 'center center', force3D: true });
-      gsap.set(overlay, { opacity: 0, force3D: true });
+      gsap.set(overlay, { opacity: 0.42, force3D: true });
 
       // Mobile layered continuous forward zoom-in
       tl.to(bgImg, { scale: 1.20, duration: 8, ease: 'none' }, 0);
       tl.to(fgImg, { scale: 1.55, opacity: 0.15, duration: 8, ease: 'none' }, 0);
-      tl.to(overlay, { opacity: 0.45, duration: 8, ease: 'none' }, 0);
+      tl.to(overlay, { opacity: 0.48, duration: 8, ease: 'none' }, 0);
 
       // Title zooms in as it dissolves
       tl.to(title, { scale: 1.05, y: -6, duration: 1.5, ease: 'none' }, 0)

@@ -9,7 +9,7 @@ const InfoBox = () => {
       </div>
       <div className="info-box" id="info-strawberry">
         <h2>STRAWBERRY</h2>
-        <p>Sweet wild strawberry essence, blended with velvety smoothness</p>
+        <p>Pleasant mild aroma, complemented by sweet strawberry taste</p>
       </div>
       <div className="info-box" id="info-chocolate">
         <h2>CHOCOLATE</h2>

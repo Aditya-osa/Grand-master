@@ -204,33 +204,36 @@
           drop-shadow(0 0 55px rgba(110, 245, 50, 0.45));
 }
 
-/* Bottom Left Info Box Alignment */
+/* Bottom Left Info Box Alignment (Aligned with Navbar Logo Margin) */
 .banner-hero-container .info-box {
   position: absolute;
-  bottom: clamp(16px, 4.5vh, 44px);
-  left: clamp(16px, 4.5vw, 64px);
+  bottom: max(clamp(32px, 14vh, 160px), env(safe-area-inset-bottom));
+  left: max(clamp(72px, 10.5vw, 180px), env(safe-area-inset-left));
   z-index: 10;
   color: #fff;
-  max-width: clamp(240px, 24vw, 360px);
+  max-width: clamp(300px, 30vw, 520px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 0;
+  pointer-events: auto;
 }
 
 .banner-hero-container .info-box h2 {
-  font-size: clamp(18px, 2.1vw, 34px);
+  font-size: clamp(28px, 3.4vw, 52px);
   font-family: 'Anybody', sans-serif;
-  font-weight: 800;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin: 0 0 6px 0;
+  margin: 0 0 clamp(4px, 1vh, 8px) 0;
   color: #ffffff;
-  line-height: 1.1;
+  line-height: 1.05;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+  overflow-wrap: break-word;
 }
 
 .banner-hero-container .info-box p {
-  font-size: clamp(12px, 0.95vw, 16px);
+  font-size: clamp(14.5px, 1.3vw, 21px);
   font-family: 'Anybody', sans-serif;
   font-weight: 500;
   line-height: 1.45;
@@ -238,6 +241,7 @@
   color: rgba(255, 255, 255, 0.96);
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+  overflow-wrap: break-word;
 }
 
 .banner-hero-container .pill-btn {
@@ -337,32 +341,260 @@
   transform: rotate(-25deg);
 }
 
+/* 🍓 Strawberry Stage Floating Decor Items (Matching Orange Sizing & Visual Prominence) */
+.banner-hero-container .decor-strawberry {
+  opacity: 0;
+  transform: translateY(-100vh);
+  pointer-events: none;
+}
+
+/* 1. Top Left Whole Strawberry (Visual match with .orange-top-left) */
+.banner-hero-container .strawberry-top-left {
+  width: clamp(45px, 9.5vw, 185px);
+  top: 10%;
+  left: 8%;
+  transform: rotate(-12deg);
+}
+
+/* 2. Top-Center-Left Mint Leaf (Visual match with .leaf-left-2) */
+.banner-hero-container .strawberry-leaf-top-mid {
+  width: clamp(28px, 5.5vw, 110px);
+  top: 3%;
+  left: 30%;
+  transform: rotate(-25deg);
+}
+
+/* 3. Top Right Double Cut Strawberry (Visual match with .orange-top-right) */
+.banner-hero-container .strawberry-top-right {
+  width: clamp(52px, 11vw, 210px);
+  top: 8%;
+  right: 18%;
+  transform: rotate(5deg);
+}
+
+/* 4. Mid/Top-Right Mint Leaf (Visual match with .leaf-right-1) */
+.banner-hero-container .strawberry-leaf-right-mid {
+  width: clamp(25px, 4.8vw, 95px);
+  top: 17%;
+  right: 8%;
+  transform: rotate(55deg);
+}
+
+/* 5. Bottom-Left Mint Leaf (Visual match with .leaf-left-1) */
+.banner-hero-container .strawberry-leaf-bottom-left {
+  width: clamp(35px, 7.5vw, 145px);
+  bottom: 16%;
+  left: 0%;
+  transform: rotate(-35deg);
+}
+
+/* 6. Bottom-Mid-Right Ripe Strawberry (Visual match with .orange-bottom-right) */
+.banner-hero-container .strawberry-bottom-mid {
+  width: clamp(45px, 9.5vw, 175px);
+  bottom: 9%;
+  left: 60%;
+  transform: rotate(8deg);
+}
+
+/* 7. Bottom-Mid Small Accent Strawberry (Visual match with small decorative element) */
+.banner-hero-container .strawberry-bottom-small {
+  width: clamp(25px, 4.5vw, 85px);
+  bottom: 11%;
+  left: 55.5%;
+  transform: rotate(-15deg);
+}
+
+/* 8. Bottom-Right Leaf Cluster (Visual match with .leaf-bottom-mid) */
+.banner-hero-container .strawberry-leaf-cluster {
+  width: clamp(30px, 6vw, 120px);
+  bottom: 12%;
+  right: 7%;
+  transform: rotate(10deg);
+}
+
 /* ==========================================================================
-   Responsive Breakpoints
+   Responsive Breakpoints System
+   - Large desktop: 1440px+
+   - Desktop: 1200px–1439px
+   - Laptop: 1024px–1199px
+   - Tablet landscape: 768px–1023px
+   - Tablet portrait: 600px–767px
+   - Mobile: 375px–599px
+   - Small mobile: 320px–374px
    ========================================================================== */
 
-@media (max-width: 1024px) {
+/* Laptop: 1024px–1199px */
+@media (max-width: 1199px) {
   .banner-hero-container .one h1 {
-    top: clamp(60px, 12vh, 100px);
-    font-size: clamp(60px, 14vw, 180px);
+    top: clamp(65px, 11.5vh, 120px);
+    font-size: clamp(64px, 14vw, 190px);
   }
 
   .banner-hero-container #fanta,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
   .banner-hero-container #fanta4 {
-    height: clamp(320px, 72vh, 650px);
+    height: clamp(380px, 76vh, 660px);
+    max-height: 78vh;
   }
 
   .banner-hero-container .info-box {
-    max-width: 280px;
+    max-width: clamp(280px, 30vw, 420px);
+    bottom: max(clamp(32px, 12vh, 120px), env(safe-area-inset-bottom));
+    left: max(clamp(56px, 8.5vw, 110px), env(safe-area-inset-left));
+    margin: 0;
+  }
+
+  .banner-hero-container .info-box h2 {
+    font-size: clamp(26px, 3.2vw, 42px);
+  }
+
+  .banner-hero-container .info-box p {
+    font-size: clamp(14px, 1.25vw, 18px);
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet Landscape: 768px–1023px */
+@media (max-width: 1023px) {
   .banner-hero-container .one h1 {
-    top: clamp(55px, 10vh, 85px);
-    font-size: clamp(52px, 13.5vw, 110px);
+    top: clamp(58px, 10.5vh, 95px);
+    font-size: clamp(56px, 13vw, 140px);
+    letter-spacing: 1.5px;
+  }
+
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    height: clamp(340px, 68vh, 540px);
+    max-height: 72vh;
+  }
+
+  .banner-hero-container .bottle-ground-shadow {
+    width: clamp(180px, 28vw, 320px);
+    height: clamp(22px, 3.8vh, 42px);
+    bottom: clamp(14px, 5vh, 48px);
+  }
+
+  .banner-hero-container .orange-top-left {
+    width: clamp(48px, 9.5vw, 130px);
+    top: 11%;
+    left: 5%;
+  }
+
+  .banner-hero-container .orange-top-right {
+    width: clamp(58px, 12.5vw, 160px);
+    top: 8%;
+    right: 10%;
+  }
+
+  .banner-hero-container .orange-bottom-right {
+    width: clamp(58px, 13.5vw, 170px);
+    bottom: 2%;
+    right: 8%;
+  }
+
+  .banner-hero-container .leaf-left-1 {
+    width: clamp(48px, 9.5vw, 125px);
+    top: 38%;
+    left: 2%;
+  }
+
+  .banner-hero-container .leaf-left-2 {
+    width: clamp(28px, 5.2vw, 80px);
+    top: 0%;
+    left: 32%;
+  }
+
+  .banner-hero-container .leaf-right-1 {
+    width: clamp(24px, 4.2vw, 65px);
+    top: 32%;
+    right: 5%;
+  }
+
+  .banner-hero-container .leaf-bottom-mid {
+    width: clamp(24px, 4.2vw, 65px);
+    bottom: 7%;
+    left: 26%;
+  }
+
+  /* Strawberry Tablet Landscape */
+  .banner-hero-container .strawberry-top-left {
+    width: clamp(36px, 7.2vw, 100px);
+    top: 11%;
+    left: 6%;
+  }
+
+  .banner-hero-container .strawberry-leaf-top-mid {
+    width: clamp(22px, 4.2vw, 60px);
+    top: 4%;
+    left: 28%;
+  }
+
+  .banner-hero-container .strawberry-top-right {
+    width: clamp(38px, 8.2vw, 105px);
+    top: 9%;
+    right: 14%;
+  }
+
+  .banner-hero-container .strawberry-leaf-right-mid {
+    width: clamp(20px, 3.6vw, 52px);
+    top: 18%;
+    right: 6%;
+  }
+
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: clamp(28px, 5.2vw, 75px);
+    bottom: 18%;
+    left: 0%;
+  }
+
+  .banner-hero-container .strawberry-bottom-mid {
+    width: clamp(32px, 7.2vw, 95px);
+    bottom: 10%;
+    left: 59%;
+  }
+
+  .banner-hero-container .strawberry-bottom-small {
+    width: clamp(20px, 3.8vw, 50px);
+    bottom: 12%;
+    left: 55%;
+  }
+
+  .banner-hero-container .strawberry-leaf-cluster {
+    width: clamp(24px, 4.5vw, 65px);
+    bottom: 13%;
+    right: 6%;
+  }
+
+  .banner-hero-container .info-box {
+    bottom: max(clamp(26px, 9vh, 90px), env(safe-area-inset-bottom));
+    left: max(clamp(48px, 7.5vw, 85px), env(safe-area-inset-left));
+    max-width: clamp(260px, 34vw, 360px);
+    margin: 0;
+  }
+
+  .banner-hero-container .info-box h2 {
+    font-size: clamp(24px, 3vw, 34px);
+    margin-bottom: 5px;
+  }
+
+  .banner-hero-container .info-box p {
+    font-size: clamp(13.5px, 1.35vw, 16.5px);
+    line-height: 1.4;
+  }
+
+  .banner-hero-container .pill-btn {
+    padding: 9px 26px;
+    font-size: 12.5px;
+  }
+}
+
+/* Tablet Portrait: 600px–767px */
+@media (max-width: 767px) {
+  .banner-hero-container .one h1 {
+    top: clamp(52px, 9.5vh, 80px);
+    font-size: clamp(46px, 12.5vw, 92px);
     letter-spacing: 1px;
   }
 
@@ -370,23 +602,122 @@
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
   .banner-hero-container #fanta4 {
-    height: clamp(280px, 62vh, 480px);
+    height: clamp(300px, 62vh, 460px);
+    max-height: 65vh;
+  }
+
+  .banner-hero-container .bottle-ground-shadow {
+    width: clamp(150px, 32vw, 260px);
+    height: clamp(18px, 3.2vh, 32px);
+    bottom: clamp(12px, 4vh, 36px);
+  }
+
+  .banner-hero-container .orange-top-left {
+    width: clamp(40px, 8.5vw, 85px);
+    top: 12%;
+    left: 4%;
+  }
+
+  .banner-hero-container .orange-top-right {
+    width: clamp(48px, 10.5vw, 105px);
+    top: 9%;
+    right: 7%;
+  }
+
+  .banner-hero-container .orange-bottom-right {
+    width: clamp(50px, 11.5vw, 115px);
+    bottom: 2%;
+    right: 5%;
+  }
+
+  .banner-hero-container .leaf-left-1 {
+    width: clamp(38px, 8vw, 80px);
+    top: 40%;
+    left: 2%;
+  }
+
+  .banner-hero-container .leaf-left-2 {
+    width: clamp(24px, 4.4vw, 55px);
+    top: 1%;
+    left: 30%;
+  }
+
+  .banner-hero-container .leaf-right-1 {
+    width: clamp(20px, 3.6vw, 45px);
+    top: 33%;
+    right: 4%;
+  }
+
+  .banner-hero-container .leaf-bottom-mid {
+    width: clamp(20px, 3.6vw, 45px);
+    bottom: 8%;
+    left: 25%;
+  }
+
+  /* Strawberry Tablet Portrait */
+  .banner-hero-container .strawberry-top-left {
+    width: clamp(30px, 6.5vw, 65px);
+    top: 12%;
+    left: 5%;
+  }
+
+  .banner-hero-container .strawberry-leaf-top-mid {
+    width: clamp(18px, 3.6vw, 42px);
+    top: 5%;
+    left: 27%;
+  }
+
+  .banner-hero-container .strawberry-top-right {
+    width: clamp(32px, 6.8vw, 70px);
+    top: 10%;
+    right: 10%;
+  }
+
+  .banner-hero-container .strawberry-leaf-right-mid {
+    width: clamp(16px, 3.0vw, 36px);
+    top: 19%;
+    right: 5%;
+  }
+
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: clamp(22px, 4.4vw, 50px);
+    bottom: 20%;
+    left: 0%;
+  }
+
+  .banner-hero-container .strawberry-bottom-mid {
+    width: clamp(26px, 6.0vw, 65px);
+    bottom: 11%;
+    left: 58%;
+  }
+
+  .banner-hero-container .strawberry-bottom-small {
+    width: clamp(16px, 3.2vw, 36px);
+    bottom: 13%;
+    left: 54%;
+  }
+
+  .banner-hero-container .strawberry-leaf-cluster {
+    width: clamp(18px, 3.8vw, 45px);
+    bottom: 14%;
+    right: 5%;
   }
 
   .banner-hero-container .info-box {
-    bottom: 24px;
-    left: 20px;
-    max-width: 240px;
+    bottom: max(clamp(22px, 7vh, 70px), env(safe-area-inset-bottom));
+    left: max(clamp(36px, 6.5vw, 55px), env(safe-area-inset-left));
+    max-width: min(280px, 68vw);
+    margin: 0;
   }
 
   .banner-hero-container .info-box h2 {
-    font-size: 20px;
+    font-size: clamp(22px, 3.8vw, 28px);
     margin-bottom: 4px;
   }
 
   .banner-hero-container .info-box p {
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.38;
   }
 
   .banner-hero-container .pill-btn {
@@ -395,50 +726,285 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile: 375px–599px */
+@media (max-width: 599px) {
   .banner-hero-container .one h1 {
-    top: clamp(50px, 9vh, 75px);
-    font-size: clamp(44px, 13vw, 72px);
+    top: clamp(46px, 8.5vh, 68px);
+    font-size: clamp(36px, 12vw, 68px);
+    letter-spacing: 0.5px;
   }
 
   .banner-hero-container #fanta,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
   .banner-hero-container #fanta4 {
-    height: clamp(250px, 56vh, 400px);
+    height: clamp(260px, 54vh, 400px);
+    max-height: 58vh;
+  }
+
+  .banner-hero-container .bottle-ground-shadow {
+    width: clamp(130px, 36vw, 210px);
+    height: 20px;
+    bottom: clamp(10px, 3vh, 24px);
+  }
+
+  .banner-hero-container .orange-top-left {
+    width: clamp(34px, 10vw, 58px);
+    top: 12%;
+    left: 4%;
+  }
+
+  .banner-hero-container .orange-top-right {
+    width: clamp(42px, 12vw, 72px);
+    top: 9%;
+    right: 5%;
+  }
+
+  .banner-hero-container .orange-bottom-right {
+    width: clamp(44px, 13vw, 76px);
+    bottom: 2%;
+    right: 4%;
+  }
+
+  .banner-hero-container .leaf-left-1 {
+    width: clamp(32px, 9vw, 55px);
+    top: 42%;
+    left: 2%;
+  }
+
+  .banner-hero-container .leaf-left-2 {
+    width: clamp(20px, 5vw, 36px);
+    top: 2%;
+    left: 28%;
+  }
+
+  .banner-hero-container .leaf-right-1 {
+    width: clamp(16px, 4.2vw, 30px);
+    top: 34%;
+    right: 3%;
+  }
+
+  .banner-hero-container .leaf-bottom-mid {
+    width: clamp(16px, 4.2vw, 30px);
+    bottom: 8%;
+    left: 24%;
+  }
+
+  /* Strawberry Mobile */
+  .banner-hero-container .strawberry-top-left {
+    width: clamp(26px, 7.5vw, 44px);
+    top: 12%;
+    left: 4%;
+  }
+
+  .banner-hero-container .strawberry-leaf-top-mid {
+    width: clamp(15px, 4.2vw, 28px);
+    top: 5%;
+    left: 25%;
+  }
+
+  .banner-hero-container .strawberry-top-right {
+    width: clamp(28px, 7.8vw, 48px);
+    top: 10%;
+    right: 7%;
+  }
+
+  .banner-hero-container .strawberry-leaf-right-mid {
+    width: clamp(14px, 3.5vw, 24px);
+    top: 20%;
+    right: 4%;
+  }
+
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: clamp(18px, 4.8vw, 34px);
+    bottom: 22%;
+    left: 0%;
+  }
+
+  .banner-hero-container .strawberry-bottom-mid {
+    width: clamp(22px, 6.5vw, 42px);
+    bottom: 12%;
+    left: 58%;
+  }
+
+  .banner-hero-container .strawberry-bottom-small {
+    width: clamp(14px, 3.6vw, 26px);
+    bottom: 14%;
+    left: 54%;
+  }
+
+  .banner-hero-container .strawberry-leaf-cluster {
+    width: clamp(15px, 4.2vw, 30px);
+    bottom: 15%;
+    right: 4%;
   }
 
   .banner-hero-container .info-box {
-    bottom: 18px;
-    left: 16px;
-    max-width: min(220px, 68vw);
+    bottom: max(clamp(16px, 5vh, 48px), env(safe-area-inset-bottom));
+    left: max(clamp(26px, 6vw, 40px), env(safe-area-inset-left));
+    max-width: min(230px, 60vw);
+    margin: 0;
   }
 
   .banner-hero-container .info-box h2 {
-    font-size: 17px;
+    font-size: clamp(19px, 4.8vw, 24px);
+    margin-bottom: 3px;
+  }
+
+  .banner-hero-container .info-box p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .banner-hero-container .pill-btn {
+    padding: 7px 18px;
+    font-size: 10.5px;
+  }
+}
+
+/* Small Mobile: 320px–374px */
+@media (max-width: 374px) {
+  .banner-hero-container .one h1 {
+    top: clamp(40px, 7.5vh, 58px);
+    font-size: clamp(30px, 11vw, 48px);
+  }
+
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    height: clamp(220px, 48vh, 320px);
+    max-height: 52vh;
+  }
+
+  .banner-hero-container .orange-top-left {
+    width: 32px;
+    top: 13%;
+    left: 3%;
+  }
+
+  .banner-hero-container .orange-top-right {
+    width: 38px;
+    top: 10%;
+    right: 4%;
+  }
+
+  .banner-hero-container .orange-bottom-right {
+    width: 40px;
+    bottom: 2%;
+    right: 3%;
+  }
+
+  .banner-hero-container .leaf-left-1 {
+    width: 28px;
+    top: 44%;
+    left: 2%;
+  }
+
+  .banner-hero-container .leaf-left-2 {
+    width: 17px;
+    top: 2%;
+    left: 26%;
+  }
+
+  .banner-hero-container .leaf-right-1 {
+    width: 14px;
+    top: 35%;
+    right: 2%;
+  }
+
+  .banner-hero-container .leaf-bottom-mid {
+    width: 14px;
+    bottom: 8%;
+    left: 22%;
+  }
+
+  /* Strawberry Small Mobile */
+  .banner-hero-container .strawberry-top-left {
+    width: 25px;
+    top: 13%;
+    left: 3%;
+  }
+
+  .banner-hero-container .strawberry-leaf-top-mid {
+    width: 14px;
+    top: 6%;
+    left: 24%;
+  }
+
+  .banner-hero-container .strawberry-top-right {
+    width: 25px;
+    top: 11%;
+    right: 5%;
+  }
+
+  .banner-hero-container .strawberry-leaf-right-mid {
+    width: 13px;
+    top: 21%;
+    right: 3%;
+  }
+
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: 16px;
+    bottom: 24%;
+    left: 0%;
+  }
+
+  .banner-hero-container .strawberry-bottom-mid {
+    width: 21px;
+    bottom: 13%;
+    left: 57%;
+  }
+
+  .banner-hero-container .strawberry-bottom-small {
+    width: 14px;
+    bottom: 15%;
+    left: 53%;
+  }
+
+  .banner-hero-container .strawberry-leaf-cluster {
+    width: 15px;
+    bottom: 16%;
+    right: 3%;
+  }
+
+  .banner-hero-container .info-box {
+    bottom: max(14px, env(safe-area-inset-bottom));
+    left: max(20px, env(safe-area-inset-left));
+    max-width: 195px;
+    margin: 0;
+  }
+
+  .banner-hero-container .info-box h2 {
+    font-size: 16.5px;
   }
 
   .banner-hero-container .info-box p {
     font-size: 11px;
   }
+
+  .banner-hero-container .pill-btn {
+    padding: 6px 14px;
+    font-size: 9.5px;
+  }
 }
 
-@media (max-width: 360px) {
-  .banner-hero-container .one h1 {
-    font-size: 40px;
-  }
-
-  .banner-hero-container #fanta,
-  .banner-hero-container #fanta2,
-  .banner-hero-container #fanta3,
-  .banner-hero-container #fanta4 {
-    height: 230px;
-  }
-
+/* Height-Constrained / Mobile Landscape */
+@media (max-height: 600px) {
   .banner-hero-container .info-box {
-    bottom: 14px;
-    left: 12px;
-    max-width: 200px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    max-width: clamp(220px, 40vw, 300px);
+    margin: 0;
+  }
+
+  .banner-hero-container .info-box h2 {
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+
+  .banner-hero-container .info-box p {
+    font-size: 10.5px;
+    line-height: 1.25;
   }
 }
 
