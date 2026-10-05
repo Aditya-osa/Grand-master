@@ -725,14 +725,70 @@
   }
 }
 
-/* Mobile: 375px–599px */
+/* =========================================================
+   MOBILE — FLAVOUR NAME BEHIND BOTTLE
+   375px–599px
+   ========================================================= */
 @media (max-width: 599px) {
+
+  /* Keep the main hero stacking context predictable */
+  .banner-hero-container .one {
+    position: relative;
+    z-index: 1;
+    transform-style: flat;
+  }
+
+  /* Background */
+  .banner-hero-container .hero-bg {
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Flavour name — BEHIND bottle */
+  .banner-hero-container .one h1,
+  .banner-hero-container #orange-text,
+  .banner-hero-container #strawberry-text,
+  .banner-hero-container #chocolate-text,
+  .banner-hero-container #melon-text {
+    position: absolute;
+    z-index: 2 !important;
+  }
+
+  /* Decorative fruits/leaves */
+  .banner-hero-container .decor {
+    position: absolute;
+    z-index: 4 !important;
+  }
+
+  /* Bottle — ABOVE flavour name */
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    position: absolute;
+    z-index: 5 !important;
+  }
+
+  /* Ground shadow */
+  .banner-hero-container .bottle-ground-shadow {
+    position: absolute;
+    z-index: 3;
+  }
+
+  /* Info box stays in foreground */
+  .banner-hero-container .info-box {
+    position: absolute;
+    z-index: 10 !important;
+  }
+
+  /* Flavour heading sizing — positioned directly in the center of the bottle */
   .banner-hero-container .one h1 {
-    top: clamp(46px, 8.5vh, 68px);
-    font-size: clamp(36px, 12vw, 68px);
+    top: calc(50% - 5vh);
+    font-size: clamp(54px, 18.5vw, 92px);
     letter-spacing: 0.5px;
   }
 
+  /* Bottle sizing — unchanged */
   .banner-hero-container #fanta,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
@@ -741,6 +797,7 @@
     max-height: 58vh;
   }
 
+  /* Shadow */
   .banner-hero-container .bottle-ground-shadow {
     width: clamp(130px, 36vw, 210px);
     height: 20px;
@@ -864,8 +921,8 @@
 /* Small Mobile: 320px–374px */
 @media (max-width: 374px) {
   .banner-hero-container .one h1 {
-    top: clamp(40px, 7.5vh, 58px);
-    font-size: clamp(30px, 11vw, 48px);
+    top: calc(50% - 5vh);
+    font-size: clamp(44px, 16vw, 64px);
   }
 
   .banner-hero-container #fanta,
@@ -1006,4 +1063,65 @@
     line-height: 1.25;
   }
 }
+
+/* =========================================================
+   MOBILE FIX — FLAVOUR TEXT BEHIND BOTTLE
+   ========================================================= */
+
+@media (max-width: 599px) {
+
+  .banner-hero-container .one {
+    position: relative !important;
+    isolation: isolate !important;
+    transform-style: flat !important;
+  }
+
+  /* Background (Layer 0) */
+  .banner-hero-container .hero-bg {
+    position: absolute !important;
+    z-index: 0 !important;
+  }
+
+  /* Flavour names (Layer 2) — behind bottle, centered on the bottle */
+  .banner-hero-container .one h1,
+  .banner-hero-container #orange-text,
+  .banner-hero-container #strawberry-text,
+  .banner-hero-container #chocolate-text,
+  .banner-hero-container #melon-text {
+    position: absolute !important;
+    z-index: 2 !important;
+    top: calc(50% - 5vh) !important;
+    font-size: clamp(54px, 18.5vw, 92px) !important;
+  }
+
+  /* Bottle shadow (Layer 3) */
+  .banner-hero-container .bottle-ground-shadow {
+    position: absolute !important;
+    z-index: 3 !important;
+  }
+
+  /* Decorative fruits and leaves (Layer 4) — includes strawberry decor */
+  .banner-hero-container .decor,
+  .banner-hero-container .decor-orange,
+  .banner-hero-container .decor-strawberry {
+    position: absolute !important;
+    z-index: 4 !important;
+  }
+
+  /* Bottle (Layer 5) — always in front of flavour text (#fanta2 has identical sizing/positioning to #fanta) */
+  .banner-hero-container #fanta,
+  .banner-hero-container #fanta2,
+  .banner-hero-container #fanta3,
+  .banner-hero-container #fanta4 {
+    position: absolute !important;
+    z-index: 5 !important;
+  }
+
+  /* Information box (Layer 10) */
+  .banner-hero-container .info-box {
+    position: absolute !important;
+    z-index: 10 !important;
+  }
+}
+
 
