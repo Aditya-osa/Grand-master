@@ -120,7 +120,7 @@ export default function Products() {
           Amazing, smooth, premium<br />vodkas for all occasions.
         </p>
         <a href="#shop" className="ag-shop-btn">
-          SHOP NOW
+         View More
         </a>
       </div>
 
