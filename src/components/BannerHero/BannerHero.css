@@ -805,92 +805,92 @@
   }
 
   .banner-hero-container .orange-top-left {
-    width: clamp(34px, 10vw, 58px);
+    width: clamp(62px, 17.5vw, 105px);
     top: 12%;
     left: 4%;
   }
 
   .banner-hero-container .orange-top-right {
-    width: clamp(42px, 12vw, 72px);
+    width: clamp(76px, 21vw, 130px);
     top: 9%;
     right: 5%;
   }
 
   .banner-hero-container .orange-bottom-right {
-    width: clamp(44px, 13vw, 76px);
+    width: clamp(78px, 22vw, 135px);
     bottom: 2%;
     right: 4%;
   }
 
   .banner-hero-container .leaf-left-1 {
-    width: clamp(32px, 9vw, 55px);
+    width: clamp(48px, 14vw, 85px);
     top: 42%;
     left: 2%;
   }
 
   .banner-hero-container .leaf-left-2 {
-    width: clamp(20px, 5vw, 36px);
+    width: clamp(32px, 8vw, 56px);
     top: 2%;
     left: 28%;
   }
 
   .banner-hero-container .leaf-right-1 {
-    width: clamp(16px, 4.2vw, 30px);
+    width: clamp(26px, 6.8vw, 46px);
     top: 34%;
     right: 3%;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-    width: clamp(16px, 4.2vw, 30px);
+    width: clamp(26px, 6.8vw, 46px);
     bottom: 8%;
     left: 24%;
   }
 
   /* Strawberry Mobile */
   .banner-hero-container .strawberry-top-left {
-    width: clamp(26px, 7.5vw, 44px);
+    width: clamp(48px, 14vw, 80px);
     top: 12%;
     left: 4%;
   }
 
   .banner-hero-container .strawberry-leaf-top-mid {
-    width: clamp(15px, 4.2vw, 28px);
+    width: clamp(24px, 6.5vw, 44px);
     top: 5%;
     left: 25%;
   }
 
   .banner-hero-container .strawberry-top-right {
-    width: clamp(28px, 7.8vw, 48px);
+    width: clamp(52px, 15vw, 90px);
     top: 10%;
     right: 7%;
   }
 
   .banner-hero-container .strawberry-leaf-right-mid {
-    width: clamp(14px, 3.5vw, 24px);
+    width: clamp(22px, 5.5vw, 38px);
     top: 20%;
     right: 4%;
   }
 
   .banner-hero-container .strawberry-leaf-bottom-left {
-    width: clamp(18px, 4.8vw, 34px);
+    width: clamp(28px, 7.5vw, 52px);
     bottom: 22%;
     left: 0%;
   }
 
   .banner-hero-container .strawberry-bottom-mid {
-    width: clamp(22px, 6.5vw, 42px);
+    width: clamp(42px, 12.5vw, 78px);
     bottom: 12%;
     left: 58%;
   }
 
   .banner-hero-container .strawberry-bottom-small {
-    width: clamp(14px, 3.6vw, 26px);
+    width: clamp(26px, 7vw, 48px);
     bottom: 14%;
     left: 54%;
   }
 
   .banner-hero-container .strawberry-leaf-cluster {
-    width: clamp(15px, 4.2vw, 30px);
+    width: clamp(24px, 6.8vw, 46px);
     bottom: 15%;
     right: 4%;
   }
@@ -934,92 +934,92 @@
   }
 
   .banner-hero-container .orange-top-left {
-    width: 32px;
+    width: 52px;
     top: 13%;
     left: 3%;
   }
 
   .banner-hero-container .orange-top-right {
-    width: 38px;
+    width: 62px;
     top: 10%;
     right: 4%;
   }
 
   .banner-hero-container .orange-bottom-right {
-    width: 40px;
+    width: 65px;
     bottom: 2%;
     right: 3%;
   }
 
   .banner-hero-container .leaf-left-1 {
-    width: 28px;
+    width: 42px;
     top: 44%;
     left: 2%;
   }
 
   .banner-hero-container .leaf-left-2 {
-    width: 17px;
+    width: 26px;
     top: 2%;
     left: 26%;
   }
 
   .banner-hero-container .leaf-right-1 {
-    width: 14px;
+    width: 22px;
     top: 35%;
     right: 2%;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-    width: 14px;
+    width: 22px;
     bottom: 8%;
     left: 22%;
   }
 
   /* Strawberry Small Mobile */
   .banner-hero-container .strawberry-top-left {
-    width: 25px;
+    width: 42px;
     top: 13%;
     left: 3%;
   }
 
   .banner-hero-container .strawberry-leaf-top-mid {
-    width: 14px;
+    width: 22px;
     top: 6%;
     left: 24%;
   }
 
   .banner-hero-container .strawberry-top-right {
-    width: 25px;
+    width: 42px;
     top: 11%;
     right: 5%;
   }
 
   .banner-hero-container .strawberry-leaf-right-mid {
-    width: 13px;
+    width: 21px;
     top: 21%;
     right: 3%;
   }
 
   .banner-hero-container .strawberry-leaf-bottom-left {
-    width: 16px;
+    width: 25px;
     bottom: 24%;
     left: 0%;
   }
 
   .banner-hero-container .strawberry-bottom-mid {
-    width: 21px;
+    width: 37px;
     bottom: 13%;
     left: 57%;
   }
 
   .banner-hero-container .strawberry-bottom-small {
-    width: 14px;
+    width: 24px;
     bottom: 15%;
     left: 53%;
   }
 
   .banner-hero-container .strawberry-leaf-cluster {
-    width: 15px;
+    width: 24px;
     bottom: 16%;
     right: 3%;
   }
