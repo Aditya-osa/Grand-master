@@ -36,82 +36,153 @@ export default function BannerHero() {
     };
 
     const ctx = gsap.context(() => {
-      // 1. Initial Page Entrance Animation with customized directions & easing per element
+      // Ambient subtle floating loop for decor items & bottle
+      const startIdleFloat = () => {
+        if (currentFlavourRef.current !== 0) return;
+        gsap.to(".orange-top-left", {
+          y: "+=10",
+          x: "+=5",
+          rotate: "+=3",
+          duration: 3.6,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+        gsap.to(".orange-top-right", {
+          y: "-=12",
+          x: "-=6",
+          rotate: "-=4",
+          duration: 4.0,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.2,
+        });
+        gsap.to(".leaf-left-1", {
+          y: "+=8",
+          rotate: "+=5",
+          duration: 3.2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.3,
+        });
+        gsap.to(".leaf-left-2", {
+          y: "+=10",
+          rotate: "-=4",
+          duration: 3.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.4,
+        });
+        gsap.to(".leaf-right-1", {
+          y: "-=7",
+          x: "+=4",
+          rotate: "+=4",
+          duration: 2.8,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.1,
+        });
+        gsap.to(".orange-bottom-right", {
+          y: "-=12",
+          rotate: "+=3",
+          duration: 4.2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.3,
+        });
+        gsap.to(".leaf-bottom-mid", {
+          y: "+=8",
+          rotate: "-=4",
+          duration: 3.4,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 0.5,
+        });
+      };
+
+      // 1. Initial Page Entrance Animation with ultra-smooth cinematic easing & organic offsets
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
+          startIdleFloat();
         },
       });
 
       entryTlRef.current = entryTl;
 
       entryTl.from("#fanta", {
-        y: "-100vh",
+        y: "-65vh",
         opacity: 0,
-        rotate: 14,
-        duration: 1.4,
+        rotate: 12,
+        duration: 1.5,
         ease: "power3.out",
+        force3D: true,
       })
       .from(".bottle-ground-shadow", {
-        scale: 0.3,
+        scale: 0.4,
         opacity: 0,
-        duration: 1.2,
+        duration: 1.4,
         ease: "power3.out",
-      }, "-=1.2")
-      // ORANGE title: Left -> Center (Large text reveals/slides from left)
+      }, "-=1.3")
+      // ORANGE title: Left -> Center (Large text reveals/slides smoothly from left)
       .fromTo("#orange-text",
-        { x: "-100vw", opacity: 0 },
-        { x: "0vw", opacity: 1, duration: 1.3, ease: "power3.out" },
-        "-=1.1"
+        { x: "-50vw", opacity: 0 },
+        { x: "0vw", opacity: 1, duration: 1.4, ease: "power3.out", force3D: true },
+        "-=1.25"
       )
       // 🍊 Large orange — top-left: Left -> Right (Slight floating movement)
       .fromTo(".orange-top-left",
-        { x: "-70vw", y: -20, rotate: -12, opacity: 0 },
-        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.4, ease: "power3.out" },
-        "-=1.1"
+        { x: "-28vw", y: -20, rotate: -12, opacity: 0 },
+        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.5, ease: "power3.out", force3D: true },
+        "-=1.25"
       )
       // 🍊 Orange + leaf — top-right: Right -> Left (Soft slide + rotation)
       .fromTo(".orange-top-right",
-        { x: "70vw", rotate: 40, opacity: 0 },
-        { x: 0, rotate: 0, opacity: 1, duration: 1.4, ease: "power3.out" },
-        "-=1.1"
+        { x: "28vw", y: -15, rotate: 35, opacity: 0 },
+        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.5, ease: "power3.out", force3D: true },
+        "-=1.25"
       )
       // 🌿 Mint — left side: Left -> Right (Small diagonal movement)
       .fromTo(".leaf-left-1",
-        { x: "-50vw", y: -40, rotate: -10, opacity: 0 },
-        { x: 0, y: 0, rotate: 25, opacity: 1, duration: 1.2, ease: "power2.out" },
-        "-=1.05"
+        { x: "-22vw", y: -30, rotate: 0, opacity: 0 },
+        { x: 0, y: 0, rotate: 25, opacity: 1, duration: 1.4, ease: "power2.out", force3D: true },
+        "-=1.2"
       )
       // 🌿 Mint — top-center: Top -> Down (Drop in gently)
       .fromTo(".leaf-left-2",
-        { y: "-80vh", rotate: -45, opacity: 0 },
-        { y: 0, rotate: -15, opacity: 1, duration: 1.3, ease: "power3.out" },
-        "-=1.1"
+        { y: "-35vh", rotate: -35, opacity: 0 },
+        { y: 0, rotate: -15, opacity: 1, duration: 1.45, ease: "power3.out", force3D: true },
+        "-=1.25"
       )
       // 🌿 Small mint — right: Right -> Left (Fast, subtle movement)
       .fromTo(".leaf-right-1",
-        { x: "45vw", rotate: 95, opacity: 0 },
-        { x: 0, rotate: 70, opacity: 1, duration: 0.85, ease: "power2.out" },
-        "-=1.0"
+        { x: "22vw", y: -10, rotate: 90, opacity: 0 },
+        { x: 0, y: 0, rotate: 70, opacity: 1, duration: 1.1, ease: "power2.out", force3D: true },
+        "-=1.2"
       )
       // 🍊 Orange slices — bottom-right: Bottom-right -> Up/Left (Larger movement, slight rotation)
       .fromTo(".orange-bottom-right",
-        { x: "60vw", y: "50vh", rotate: -45, opacity: 0 },
-        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
-        "-=1.15"
+        { x: "28vw", y: "25vh", rotate: -35, opacity: 0 },
+        { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1.6, ease: "power3.out", force3D: true },
+        "-=1.3"
       )
       // 🌿 Mint — bottom-center-left: Bottom -> Up (Gentle float)
       .fromTo(".leaf-bottom-mid",
-        { y: "50vh", rotate: 10, opacity: 0 },
-        { y: 0, rotate: -25, opacity: 1, duration: 1.3, ease: "power2.out" },
-        "-=1.0"
+        { y: "25vh", rotate: 5, opacity: 0 },
+        { y: 0, rotate: -25, opacity: 1, duration: 1.4, ease: "power2.out", force3D: true },
+        "-=1.2"
       )
-      .from("#info-orange", {
-        y: "100vh",
-        opacity: 0,
-        duration: 1.0,
-        ease: "power3.out",
-      }, "-=0.8");
+      .fromTo("#info-orange",
+        { y: "30vh", opacity: 0 },
+        { y: "0vh", opacity: 1, duration: 1.2, ease: "power3.out", force3D: true },
+        "-=1.0"
+      );
 
       // 2. Master Timeline for 4 Flavour Transitions
       // Stage 0: Orange (0.0s)

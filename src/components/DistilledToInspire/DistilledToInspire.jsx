@@ -31,24 +31,26 @@ export default function DistilledToInspire() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=90%',
+          end: '+=100%',
           pin: true,
           anticipatePin: 1,
-          scrub: 0.6,
+          scrub: 1.0,
           invalidateOnRefresh: true,
           onUpdate: () => {
             const p = state.p;
-            if (p >= 92) {
-              // When scrolled through, all text is completely solid black
+            if (p >= 96) {
+              // When scrolled through, all text is solid black
               textEl.style.backgroundImage = 'none';
               textEl.style.color = '#000000';
               textEl.style.webkitTextFillColor = '#000000';
             } else {
               textEl.style.color = 'transparent';
               textEl.style.webkitTextFillColor = 'transparent';
-              const progressPoint = Math.min(100, Math.max(0, p * 1.2));
-              const fadePoint = Math.min(100, progressPoint + 14);
-              textEl.style.backgroundImage = `linear-gradient(to bottom, #000000 0%, #000000 ${progressPoint}%, rgba(0, 0, 0, 0.25) ${fadePoint}%, rgba(0, 0, 0, 0.25) 100%)`;
+              const p1 = Math.max(0, p * 1.05 - 4);
+              const p2 = Math.min(100, p1 + 10);
+              const p3 = Math.min(100, p1 + 22);
+              const p4 = Math.min(100, p1 + 36);
+              textEl.style.backgroundImage = `linear-gradient(to bottom, #000000 0%, #000000 ${p1}%, rgba(0, 0, 0, 0.82) ${p2}%, rgba(0, 0, 0, 0.48) ${p3}%, rgba(0, 0, 0, 0.25) ${p4}%, rgba(0, 0, 0, 0.25) 100%)`;
             }
           },
         },

@@ -281,6 +281,9 @@
   object-fit: contain;
   filter: brightness(1.06) saturate(1.18) drop-shadow(0 18px 28px rgba(0, 0, 0, 0.3));
   transition: filter 0.3s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Top Left Half Orange */
