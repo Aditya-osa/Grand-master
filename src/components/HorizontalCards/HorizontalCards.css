@@ -18,22 +18,22 @@
 }
 
 /* --------------------------------------------------------------------------
-   Pinned Viewport Container (Locks 100vh during GSAP Pin)
+   Pinned Viewport Container (Locks 100vh during GSAP Pin, 100% Full Width)
    -------------------------------------------------------------------------- */
 
 .stack-cards-viewport {
   position: relative;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   height: 100vh;
   min-height: 100svh;
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
-  padding: clamp(20px, 3.5vh, 40px) clamp(16px, 4vw, 56px);
+  padding: clamp(20px, 3.5vh, 40px) 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -49,6 +49,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  padding: 0 clamp(20px, 4.5vw, 64px);
   margin-bottom: clamp(12px, 2.2vh, 24px);
   z-index: 50;
   box-sizing: border-box;
@@ -102,13 +103,14 @@
 }
 
 /* --------------------------------------------------------------------------
-   Horizontal Cards Stage & Scrolling Track
+   Horizontal Cards Stage & Scrolling Track (Edge to Edge)
    -------------------------------------------------------------------------- */
 
 .stack-cards-stage {
   position: relative;
   flex: 1;
   width: 100%;
+  max-width: 100%;
   height: 100%;
   margin: 0;
   display: flex;
@@ -116,15 +118,15 @@
   overflow: hidden;
   z-index: 10;
   box-sizing: border-box;
-  padding-left: 0;
+  padding: 0;
 }
 
 .horizontal-cards-track {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 2.8vw, 36px);
+  gap: clamp(20px, 2.5vw, 36px);
   width: max-content;
-  padding: 12px 0;
+  padding: 12px clamp(20px, 4.5vw, 64px);
   will-change: transform;
 }
 
@@ -242,7 +244,15 @@
 
 @media (max-width: 1024px) {
   .stack-cards-viewport {
-    padding: clamp(18px, 3vh, 32px) 24px;
+    padding: clamp(18px, 3vh, 32px) 0;
+  }
+
+  .stack-cards-top-header {
+    padding: 0 24px;
+  }
+
+  .horizontal-cards-track {
+    padding: 12px 24px;
   }
 
   .stack-cards-top-title {
@@ -257,11 +267,17 @@
 
 @media (max-width: 768px) {
   .stack-cards-viewport {
-    padding: 16px 14px;
+    padding: 16px 0;
   }
 
   .stack-cards-top-header {
+    padding: 0 16px;
     margin-bottom: 12px;
+  }
+
+  .horizontal-cards-track {
+    padding: 10px 16px;
+    gap: 14px;
   }
 
   .stack-cards-top-title {
@@ -274,10 +290,6 @@
 
   .stack-cards-progress-track {
     width: 80px;
-  }
-
-  .horizontal-cards-track {
-    gap: 14px;
   }
 
   .stack-card {
@@ -304,7 +316,15 @@
 
 @media (max-width: 480px) {
   .stack-cards-viewport {
-    padding: 14px 10px;
+    padding: 14px 0;
+  }
+
+  .stack-cards-top-header {
+    padding: 0 12px;
+  }
+
+  .horizontal-cards-track {
+    padding: 8px 12px;
   }
 
   .stack-cards-top-title {

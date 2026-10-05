@@ -110,7 +110,7 @@ export default function HorizontalCards() {
       const getScrollAmount = () => {
         const trackWidth = track.scrollWidth;
         const stageWidth = stage.clientWidth;
-        return Math.max(0, trackWidth - stageWidth + 60);
+        return Math.max(0, trackWidth - stageWidth);
       };
 
       const tl = gsap.timeline({
