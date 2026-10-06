@@ -8,6 +8,14 @@ import {
   strawberrySmall,
   strawberryLeafCluster,
 } from '../../assets/STRAWBERRY';
+import {
+  chocolateSquares,
+  mintLeavesPair1,
+  mintLeavesPair2,
+  chocolateShavings,
+  mintLeafSingle,
+  coffeeBeans,
+} from '../../assets/CHOCOLATE';
 
 const Decorations = () => {
   return (
@@ -30,6 +38,14 @@ const Decorations = () => {
       <img className="decor decor-strawberry strawberry-bottom-mid" src={strawberryRipe} alt="Ripe Strawberry Bottom" />
       <img className="decor decor-strawberry strawberry-bottom-small" src={strawberrySmall} alt="Small Strawberry Bottom" />
       <img className="decor decor-strawberry strawberry-leaf-cluster" src={strawberryLeafCluster} alt="Strawberry Leaf Cluster" />
+
+      {/* 🍫 Chocolate Stage Floating Decor (Matching Reference Layout) */}
+      <img className="decor decor-chocolate chocolate-top-left" src={chocolateSquares} alt="Chocolate Squares Stack" />
+      <img className="decor decor-chocolate chocolate-mint-top" src={mintLeavesPair1} alt="Top Mint Leaves" />
+      <img className="decor decor-chocolate chocolate-coffee-beans" src={coffeeBeans} alt="Coffee Beans Cluster" />
+      <img className="decor decor-chocolate chocolate-mint-single" src={mintLeafSingle} alt="Single Mint Leaf Left" />
+      <img className="decor decor-chocolate chocolate-shavings" src={chocolateShavings} alt="Chocolate Shavings and Chunks" />
+      <img className="decor decor-chocolate chocolate-mint-bottom" src={mintLeavesPair2} alt="Bottom Right Mint Leaves" />
     </>
   );
 };

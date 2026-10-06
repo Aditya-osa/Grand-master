@@ -21,8 +21,10 @@ export default function BannerHero() {
     if (!heroEl) return;
 
     // Reset state on mount
-    currentFlavourRef.current = 0;
-    isAnimatingRef.current = true; // Lock interactions until entrance animation completes
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFlavour = parseInt(urlParams.get('flavour') || '0', 10);
+    currentFlavourRef.current = isNaN(initialFlavour) ? 0 : initialFlavour;
+    isAnimatingRef.current = initialFlavour === 0; // Lock interactions until entrance animation completes
 
     // Prevent Lenis interference while inside Hero flavour stages
     heroEl.setAttribute('data-lenis-prevent', 'true');
@@ -153,31 +155,83 @@ export default function BannerHero() {
       // =======================================================================
       // STAGE 2 -> STAGE 3: STRAWBERRY -> CHOCOLATE
       // =======================================================================
-      tl.to("#fanta2", { y: "100vh", opacity: 0, rotate: 14, duration: 0.6, ease: "power2.in" }, 2.00)
-        .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.6, ease: "power2.in" }, 2.00)
-        .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.6, ease: "power2.in" }, 2.00)
-        .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.6, ease: "power2.in" }, 2.00)
+      tl.to("#fanta2", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 2.00)
+        .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.00)
+        .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.00)
+        .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.00)
         .to(".bg-strawberry", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 2.00)
-        .to(".bg-chocolate", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 2.00)
-        .fromTo("#fanta3", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50)
-        .fromTo("#chocolate-text", { x: "-100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50)
-        .fromTo("#info-chocolate", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50);
+        .to(".bg-chocolate", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 2.00);
 
-      tl.addLabel('flavour-2', 3.20);
+      // Chocolate Elements Enter Simultaneously (Matching Reference Layout)
+      const CHOCOLATE_START_DESK = 2.45;
+      tl.fromTo("#fanta3", 
+          { y: "-65vh", opacity: 0, rotate: -8 }, 
+          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo("#chocolate-text", 
+          { x: "-100vw", opacity: 0 }, 
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo(".chocolate-top-left", 
+          { x: "-30vw", y: -20, rotate: -25, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo(".chocolate-mint-top", 
+          { y: "-40vh", rotate: -10, opacity: 0 }, 
+          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo(".chocolate-coffee-beans", 
+          { x: "30vw", y: -15, rotate: 25, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo(".chocolate-mint-single", 
+          { x: "-25vw", y: 20, rotate: -15, opacity: 0 }, 
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo(".chocolate-shavings", 
+          { x: "25vw", y: "30vh", rotate: -15, opacity: 0 }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo(".chocolate-mint-bottom", 
+          { x: "25vw", y: "25vh", rotate: -10, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        )
+        .fromTo("#info-chocolate", 
+          { y: "35vh", opacity: 0 }, 
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_DESK
+        );
+
+      tl.addLabel('flavour-2', 4.00);
 
       // =======================================================================
       // STAGE 3 -> STAGE 4: CHOCOLATE -> MELON
       // =======================================================================
-      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.6, ease: "power2.in" }, 3.20)
-        .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.6, ease: "power2.in" }, 3.20)
-        .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.20)
-        .to(".bg-chocolate", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 3.20)
-        .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 3.20)
-        .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.7, ease: "power2.out", immediateRender: false }, 3.70)
-        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 3.70)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 3.70);
+      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.6, ease: "power2.in" }, 4.00)
+        .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.6, ease: "power2.in" }, 4.00)
+        .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 4.00)
+        .to(".decor-chocolate", { y: "100vh", opacity: 0, duration: 0.6, ease: "power2.in" }, 4.00)
+        .to(".bg-chocolate", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 4.00)
+        .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 4.00)
+        .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50);
 
-      tl.addLabel('flavour-3', 4.40);
+      tl.addLabel('flavour-3', 5.20);
+
+      if (initialFlavour > 0) {
+        entryTl.progress(1);
+        tl.seek(`flavour-${initialFlavour}`);
+        isAnimatingRef.current = false;
+      }
     });
 
     // =========================================================================
@@ -291,23 +345,74 @@ export default function BannerHero() {
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to(".bg-strawberry", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 1.75)
-        .to(".bg-chocolate", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 1.75)
-        .fromTo("#fanta3", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25)
-        .fromTo("#chocolate-text", { x: "-100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25)
-        .fromTo("#info-chocolate", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25);
+        .to(".bg-chocolate", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 1.75);
 
-      tl.addLabel('flavour-2', 2.95);
+      const CHOCOLATE_START_TAB = 2.15;
+      tl.fromTo("#fanta3", 
+          { y: "-55vh", opacity: 0, rotate: -8 }, 
+          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo("#chocolate-text", 
+          { x: "-100vw", opacity: 0 }, 
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".chocolate-top-left", 
+          { x: "-20vw", y: -15, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".chocolate-mint-top", 
+          { y: "-30vh", opacity: 0 }, 
+          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".chocolate-coffee-beans", 
+          { x: "20vw", y: -10, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".chocolate-mint-single", 
+          { x: "-18vw", y: 15, opacity: 0 }, 
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".chocolate-shavings", 
+          { x: "20vw", y: "20vh", opacity: 0 }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".chocolate-mint-bottom", 
+          { x: "18vw", y: "18vh", opacity: 0 }, 
+          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        )
+        .fromTo("#info-chocolate", 
+          { y: "28vh", opacity: 0 }, 
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_TAB
+        );
 
-      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 2.95)
-        .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.95)
-        .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.95)
-        .to(".bg-chocolate", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 2.95)
-        .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 2.95)
-        .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 3.45)
-        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 3.45)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 3.45);
+      tl.addLabel('flavour-2', 3.60);
 
-      tl.addLabel('flavour-3', 4.15);
+      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 3.60)
+        .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.60)
+        .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.60)
+        .to(".decor-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.60)
+        .to(".bg-chocolate", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 3.60)
+        .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 3.60)
+        .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10);
+
+      tl.addLabel('flavour-3', 4.80);
+
+      if (initialFlavour > 0) {
+        entryTl.progress(1);
+        tl.seek(`flavour-${initialFlavour}`);
+        isAnimatingRef.current = false;
+      }
     });
 
     // =========================================================================
@@ -420,23 +525,74 @@ export default function BannerHero() {
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to(".bg-strawberry", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 1.50)
-        .to(".bg-chocolate", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 1.50)
-        .fromTo("#fanta3", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 2.05)
-        .fromTo("#chocolate-text", { x: "-100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 2.05)
-        .fromTo("#info-chocolate", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 2.05);
+        .to(".bg-chocolate", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 1.50);
 
-      tl.addLabel('flavour-2', 2.65);
+      const CHOCOLATE_START_MOB = 1.85;
+      tl.fromTo("#fanta3", 
+          { y: "-45vh", opacity: 0, rotate: -8 }, 
+          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo("#chocolate-text", 
+          { x: "-100vw", opacity: 0 }, 
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".chocolate-top-left", 
+          { x: "-15vw", y: -10, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".chocolate-mint-top", 
+          { y: "-20vh", opacity: 0 }, 
+          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".chocolate-coffee-beans", 
+          { x: "15vw", y: -10, opacity: 0 }, 
+          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".chocolate-mint-single", 
+          { x: "-12vw", y: 10, opacity: 0 }, 
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".chocolate-shavings", 
+          { x: "15vw", y: "15vh", opacity: 0 }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".chocolate-mint-bottom", 
+          { x: "12vw", y: "12vh", opacity: 0 }, 
+          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        )
+        .fromTo("#info-chocolate", 
+          { y: "20vh", opacity: 0 }, 
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          CHOCOLATE_START_MOB
+        );
 
-      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" }, 2.65)
-        .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 2.65)
-        .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 2.65)
-        .to(".bg-chocolate", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 2.65)
-        .to(".bg-melon", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 2.65)
-        .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.15)
-        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.15)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.15);
+      tl.addLabel('flavour-2', 3.20);
 
-      tl.addLabel('flavour-3', 3.80);
+      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" }, 3.20)
+        .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.20)
+        .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.20)
+        .to(".decor-chocolate", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.20)
+        .to(".bg-chocolate", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 3.20)
+        .to(".bg-melon", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 3.20)
+        .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70);
+
+      tl.addLabel('flavour-3', 4.35);
+
+      if (initialFlavour > 0) {
+        entryTl.progress(1);
+        tl.seek(`flavour-${initialFlavour}`);
+        isAnimatingRef.current = false;
+      }
     });
 
     const gotoNextFlavour = () => {

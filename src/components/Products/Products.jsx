@@ -6,7 +6,7 @@ import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnima
 import './Products.css';
 
 import bottle1 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
-import bottle2 from '../../assets/bottles/all-flav/2.png'; // Chocolate
+import bottle2 from '../../assets/bottles/chocolate-bottle.png'; // Chocolate (Transparent Cutout)
 import bottle3 from '../../assets/bottles/all-flav/3.png'; // Mango
 import bottle4 from '../../assets/bottles/all-flav/4.png'; // Melon
 import bottle5 from '../../assets/bottles/all-flav/5.png'; // Blue Berry
@@ -133,7 +133,7 @@ export default function Products() {
 
       {/* Bottom Center: Scroll Prompt */}
       <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
-        <span className="ag-scroll-prompt">SCROLL TO DISCOVER</span>
+        <span className="ag-scroll-prompt">SCROLL T DISCOER</span>
       </div>
     </section>
   );

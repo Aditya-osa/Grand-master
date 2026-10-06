@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoBox from './InfoBox';
 import Decorations from './Decorations';
-import chocolateBottle from '../../assets/bottles/all-flav/2.png';
+import chocolateBottle from '../../assets/bottles/chocolate-bottle.png';
 import melonBottle from '../../assets/bottles/all-flav/4.png';
 
 const MainSection = () => {

@@ -14,6 +14,7 @@ const InfoBox = () => {
       <div className="info-box" id="info-chocolate">
         <h2>CHOCOLATE</h2>
         <p>Decadent dark cocoa notes, crafted for an indulgent refined palate</p>
+        <button className="pill-btn" aria-label="Explore Chocolate" />
       </div>
       <div className="info-box" id="info-melon">
         <h2>MELON</h2>
