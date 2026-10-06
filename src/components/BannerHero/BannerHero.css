@@ -177,13 +177,13 @@
 .banner-hero-container .one h1 {
   position: absolute;
 
-  top: 11%;
+  top: 8%;
 
   /*
      Percentage/viewport based sizing.
      15vw gives a large responsive heading without clamp().
   */
-  font-size: 40vh;
+  font-size: 36vh;
 
   font-family: 'Anton', sans-serif;
 
