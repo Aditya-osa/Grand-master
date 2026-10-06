@@ -11,7 +11,7 @@
   min-height: 100vh;
   min-height: 100svh;
   height: 100dvh;
-  background: radial-gradient(circle at 48% 44%, #e21b24 0%, #ce141d 50%, #b30f16 100%);
+  background: radial-gradient(circle at 48% 44%, #e73e47 0%, #d4323a 50%, #bd2c33 100%);
   overflow: hidden;
   display: flex;
   align-items: center;

@@ -149,7 +149,7 @@
   background: #ffffff;
   border: 1px solid rgba(184, 134, 11, 0.28);
   border-radius: clamp(18px, 1.6vw, 24px);
-  padding: clamp(20px, 2.4vh, 28px);
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -174,40 +174,41 @@
   z-index: 2;
 }
 
-/* Archival Visual Aperture - Inset Warm Beige Illustration Box */
 .stack-card__visual {
   position: relative;
   width: 100%;
   height: clamp(210px, 28vh, 260px);
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   background: #faf0e4;
-  border-radius: clamp(14px, 1.2vw, 18px);
+  border-radius: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
   overflow: hidden;
   z-index: 1;
 }
 
 .stack-card__img-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 .stack-card__img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
   user-select: none;
   -webkit-user-drag: none;
-  filter: drop-shadow(0 8px 18px rgba(74, 11, 20, 0.08));
+  filter: none;
 }
 
 .stack-card__img--cover,
@@ -226,7 +227,8 @@
   gap: clamp(12px, 1.6vh, 16px);
   flex: 1;
   min-height: clamp(170px, 22vh, 220px);
-  padding: 0;
+  padding: 0 clamp(20px, 2.4vh, 28px) clamp(20px, 2.4vh, 28px);
+  box-sizing: border-box;
 }
 
 .stack-card__title {
@@ -272,12 +274,12 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
     height: clamp(510px, 64vh, 590px);
-    padding: clamp(22px, 2.6vh, 30px);
+    padding: 0;
     gap: clamp(16px, 2.2vh, 24px);
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 clamp(22px, 2.6vh, 30px) clamp(22px, 2.6vh, 30px);
     min-height: clamp(180px, 24vh, 230px);
   }
 
@@ -308,12 +310,12 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
     height: clamp(480px, 61vh, 550px);
-    padding: clamp(20px, 2.4vh, 28px);
+    padding: 0;
     gap: clamp(15px, 2vh, 22px);
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 clamp(20px, 2.4vh, 28px) clamp(20px, 2.4vh, 28px);
     min-height: clamp(170px, 22vh, 220px);
   }
 
@@ -360,12 +362,12 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - (2 * var(--card-gap))) / 2.5);
     height: clamp(440px, 58vh, 510px);
-    padding: clamp(18px, 2.2vh, 24px);
+    padding: 0;
     gap: clamp(14px, 1.8vh, 18px);
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 clamp(18px, 2.2vh, 24px) clamp(18px, 2.2vh, 24px);
     gap: 12px;
     min-height: clamp(160px, 22vh, 200px);
   }
@@ -414,12 +416,12 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 2.2);
     height: clamp(420px, 56vh, 480px);
-    padding: 18px 16px;
+    padding: 0;
     gap: 14px;
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 16px 18px;
     gap: 10px;
     min-height: clamp(150px, 20vh, 190px);
   }
@@ -468,12 +470,12 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.15);
     height: clamp(410px, 57vh, 465px);
-    padding: 16px 14px;
+    padding: 0;
     gap: 12px;
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 14px 16px;
     gap: 10px;
     min-height: clamp(140px, 20vh, 180px);
   }
@@ -522,12 +524,12 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.12);
     height: clamp(380px, 56vh, 430px);
-    padding: 14px 12px;
+    padding: 0;
     gap: 10px;
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 12px 14px;
     gap: 8px;
     min-height: clamp(130px, 18vh, 160px);
   }
@@ -565,12 +567,12 @@
 
   .stack-card {
     height: clamp(280px, 82vh, 350px);
-    padding: 12px 14px;
+    padding: 0;
     gap: 8px;
   }
 
   .stack-card__content {
-    padding: 0;
+    padding: 0 14px 12px;
     gap: 6px;
   }
 
