@@ -17,9 +17,24 @@ import {
   coffeeBeans,
 } from '../../assets/CHOCOLATE';
 
+// Melon Assets
+import melonWhole from '../../assets/MELON/Melon.png';
+import melonHalf from '../../assets/MELON/Half-melon.png';
+import melonSlice from '../../assets/MELON/half-melon-1.png';
+import melonLeaf1 from '../../assets/MELON/leaf-1.png';
+import melonLeaf2 from '../../assets/MELON/leaf-2.png';
+import melon3Leaf from '../../assets/MELON/3leaf.png';
+
 const Decorations = () => {
   return (
     <>
+      {/* 🍈 Melon Stage Floating Decor */}
+      <img className="decor decor-melon melon-top-left" src={melonWhole} alt="Melon" />
+      <img className="decor decor-melon melon-top-right" src={melonHalf} alt="Half Melon" />
+      <img className="decor decor-melon melon-bottom-right" src={melonSlice} alt="Melon Slice" />
+      <img className="decor decor-melon melon-leaf-top-mid" src={melonLeaf1} alt="Mint Leaf" />
+      <img className="decor decor-melon melon-leaf-mid-right" src={melon3Leaf} alt="Mint Leaves" />
+      <img className="decor decor-melon melon-leaf-bottom-mid" src={melonLeaf2} alt="Mint Leaf" />
       {/* 🍊 Orange Stage Floating Decor */}
       <img className="decor decor-orange orange-top-left" src="/Assets/Orange/1.png" alt="Orange Slice" />
       <img className="decor decor-orange orange-top-right" src="/Assets/Orange/2.png" alt="Orange" />

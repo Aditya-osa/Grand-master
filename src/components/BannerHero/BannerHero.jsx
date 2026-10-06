@@ -223,7 +223,13 @@ export default function BannerHero() {
         .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 4.00)
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
         .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50);
+        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo(".melon-top-left", { x: "-30vw", y: -20, rotate: -25, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo(".melon-top-right", { x: "30vw", y: -15, rotate: 35, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo(".melon-bottom-right", { x: "30vw", y: "30vh", rotate: -25, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo(".melon-leaf-top-mid", { y: "-40vh", rotate: -45, opacity: 0 }, { x: 0, y: 0, rotate: -20, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo(".melon-leaf-mid-right", { x: "25vw", y: -10, rotate: 85, opacity: 0 }, { x: 0, y: 0, rotate: -10, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50)
+        .fromTo(".melon-leaf-bottom-mid", { x: "-25vw", y: "20vh", rotate: -10, opacity: 0 }, { x: 0, y: 0, rotate: 15, opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 4.50);
 
       tl.addLabel('flavour-3', 5.20);
 
@@ -404,7 +410,13 @@ export default function BannerHero() {
         .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 3.60)
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
         .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10);
+        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo(".melon-top-left", { x: "-25vw", y: -15, rotate: -25, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo(".melon-top-right", { x: "25vw", y: -10, rotate: 35, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo(".melon-bottom-right", { x: "25vw", y: "25vh", rotate: -25, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo(".melon-leaf-top-mid", { y: "-30vh", rotate: -45, opacity: 0 }, { x: 0, y: 0, rotate: -20, opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo(".melon-leaf-mid-right", { x: "20vw", y: -5, rotate: 85, opacity: 0 }, { x: 0, y: 0, rotate: -10, opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10)
+        .fromTo(".melon-leaf-bottom-mid", { x: "-20vw", y: "15vh", rotate: -10, opacity: 0 }, { x: 0, y: 0, rotate: 15, opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 4.10);
 
       tl.addLabel('flavour-3', 4.80);
 
@@ -584,7 +596,13 @@ export default function BannerHero() {
         .to(".bg-melon", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 3.20)
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
         .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70);
+        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo(".melon-top-left", { x: "-20vw", y: -10, rotate: -25, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo(".melon-top-right", { x: "20vw", y: -10, rotate: 35, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo(".melon-bottom-right", { x: "20vw", y: "20vh", rotate: -25, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo(".melon-leaf-top-mid", { y: "-20vh", rotate: -45, opacity: 0 }, { x: 0, y: 0, rotate: -20, opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo(".melon-leaf-mid-right", { x: "15vw", y: 0, rotate: 85, opacity: 0 }, { x: 0, y: 0, rotate: -10, opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70)
+        .fromTo(".melon-leaf-bottom-mid", { x: "-15vw", y: "10vh", rotate: -10, opacity: 0 }, { x: 0, y: 0, rotate: 15, opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 3.70);
 
       tl.addLabel('flavour-3', 4.35);
 

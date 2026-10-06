@@ -153,17 +153,11 @@
 .banner-hero-container .bg-melon {
   background:
     radial-gradient(
-      ellipse 55% 50% at 50% 46%,
-      rgba(215, 255, 175, 0.38) 0%,
-      rgba(125, 235, 65, 0.22) 42%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 85% 82% at 50% 48%,
-      #64e340 0%,
-      #3db81b 28%,
-      #24840e 62%,
-      #104805 100%
+      ellipse 60% 60% at 50% 50%,
+      #b1c782 0%,
+      #a6bc7a 40%,
+      #9ab06f 75%,
+      #8e9f64 100%
     );
 
   opacity: 0;
@@ -245,9 +239,22 @@
 
   opacity: 0;
 
-  color: #ffffff;
+  color: #3b6e15;
 
   transform: translateX(100vw);
+}
+
+.banner-hero-container .banner-btn-pill {
+  width: 140px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 999px;
+  border: none;
+  margin-top: 15px;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  pointer-events: auto;
 }
 
 
@@ -557,6 +564,57 @@
   -webkit-backface-visibility: hidden;
 }
 
+
+/* ==========================================================================
+   MELON DECOR
+   ========================================================================== */
+
+.banner-hero-container .decor-melon {
+  position: absolute;
+  opacity: 0; /* Hidden initially, GSAP will animate */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.banner-hero-container .melon-top-left {
+  width: 19vw;
+  top: 13vh;
+  left: 8vw;
+}
+
+.banner-hero-container .melon-top-right {
+  width: 19vw;
+  top: 1vh;
+  right: 15vw;
+}
+
+.banner-hero-container .melon-bottom-right {
+  width: 22vw;
+  bottom: -4vh;
+  right: 10vw;
+}
+
+.banner-hero-container .melon-leaf-top-mid {
+  width: 8vw;
+  top: 5vh;
+  left: 28vw;
+  transform: rotate(-20deg);
+}
+
+.banner-hero-container .melon-leaf-mid-right {
+  width: 21vw;
+  top: 30vh;
+  right: 5vw;
+  transform: rotate(-10deg);
+}
+
+.banner-hero-container .melon-leaf-bottom-mid {
+width: 9vw;
+  bottom: 3vh;
+  left: 34vw;
+   transform: rotate(75deg);
+ 
+}
 
 /* ==========================================================================
    ORANGE DECOR
