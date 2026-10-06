@@ -564,8 +564,8 @@
 
 .banner-hero-container .orange-top-left {
   width: 28vw;
-  top: -9.5vh;
-  left: -1.5vw;
+  top: -3.5vh;
+  left: 1.5vw;
 }
 
 .banner-hero-container .orange-top-right {
@@ -577,7 +577,7 @@
 .banner-hero-container .orange-bottom-right {
   width: 31vw;
   bottom: -29vh;
-  right: 8vw;
+  right: 11vw;
 }
 
 
@@ -594,8 +594,8 @@
 
 /* 5.png - Top-Center Mint Leaf */
 .banner-hero-container .leaf-left-2 {
-  width: 27vw;
-  top: -21vh;
+  width: 28vw;
+  top: -34vh;
   left: 25vw;
   transform: rotate(-15deg);
 }
@@ -610,10 +610,10 @@
 
 /* 7.png - Bottom-Center Mint Leaf */
 .banner-hero-container .leaf-bottom-mid {
-  width: 28vw;
-  bottom: -15.5vh;
+  width: 27vw;
+  bottom: -28.5vh;
   left: 18.5vw;
-  transform: rotate(-25deg);
+ 
 }
 
 
