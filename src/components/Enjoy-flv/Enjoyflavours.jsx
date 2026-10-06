@@ -28,7 +28,7 @@ export default function Enjoyflavours() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const mm = gsap.matchMedia(sectionRef);
+    const mm = gsap.matchMedia();
 
     // Desktop Timeline (Multi-layered 3D Parallax & Continuous Forward Camera Push-In)
     mm.add('(min-width: 769px)', () => {
@@ -149,7 +149,7 @@ export default function Enjoyflavours() {
     }, 200);
 
     return () => {
-      clearTimeout(refreshTimer);
+      mm.revert();
     };
   }, { scope: sectionRef });
 
