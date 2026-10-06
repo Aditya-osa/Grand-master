@@ -10,6 +10,9 @@ import bottle2 from '../../assets/bottles/chocolate-bottle.png'; // Chocolate (T
 import bottle3 from '../../assets/bottles/all-flav/3.png'; // Mango
 import bottle4 from '../../assets/bottles/all-flav/4.png'; // Melon
 import bottle5 from '../../assets/bottles/all-flav/5.png'; // Blue Berry
+import bottle6 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
+import bottle7 from '../../assets/bottles/all-flav/7.png'; // Orange
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +22,8 @@ export const PRODUCTS = [
   { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img: bottle3 },
   { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottle4 },
   { id: 'blueberry', name: "Grand Master's Blue Berry", tag: 'Platinum Vodka', img: bottle5 },
+  { id: 'strawberry-2', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle6 },
+  { id: 'orange', name: "Grand Master's Orange", tag: 'Platinum Vodka', img: bottle7 },
 ];
 
 export default function Products() {
@@ -107,6 +112,10 @@ export default function Products() {
                   loading={idx < 4 ? 'eager' : 'lazy'}
                   decoding="async"
                 />
+                <div className="ag-bottle-info">
+                  <span className="ag-bottle-name">{product.name}</span>
+                  <span className="ag-bottle-tag">{product.tag}</span>
+                </div>
               </div>
             ))}
           </div>

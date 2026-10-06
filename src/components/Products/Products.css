@@ -9,7 +9,7 @@
   height: 100vh;
   min-height: 100svh;
   height: 100dvh;
-  background: #ed1b24;
+  background: #d84249;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -229,6 +229,7 @@
 
 .ag-carousel-item {
   flex: 0 0 auto;
+  position: relative; /* Added for tooltip positioning */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,6 +252,52 @@
 
 .ag-carousel-item:hover .ag-carousel-img {
   transform: translateY(-8px) scale(1.03);
+}
+
+.ag-bottle-info {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, 15px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 246, 0, 0.3);
+  padding: 8px 14px;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.ag-bottle-name {
+  display: block;
+  font-family: "Anybody", var(--font-sans), sans-serif;
+  color: #ffffff;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.ag-bottle-tag {
+  display: block;
+  font-family: "Anybody", var(--font-sans), sans-serif;
+  color: #fff600;
+  font-size: clamp(9px, 0.7vw, 10px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ag-carousel-item:hover .ag-bottle-info,
+.ag-carousel-item:active .ag-bottle-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
 }
 
 /* ==========================================================================
@@ -304,7 +351,7 @@
 
 .ag-hero-title {
   margin: 0;
-  margin-top: 15px;
+  margin-top: 5px;
   font-family: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif;
   font-size: clamp(58px, 6.3vw, 104px);
   font-weight: 900;
