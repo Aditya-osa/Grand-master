@@ -165,7 +165,7 @@ export default function BannerHero() {
       // Chocolate Elements Enter Simultaneously (Matching Reference Layout)
       const CHOCOLATE_START_DESK = 2.45;
       tl.fromTo("#fanta3", 
-          { y: "-65vh", opacity: 0, rotate: -8 }, 
+          { y: "-65vh", opacity: 0, rotate: 12 }, 
           { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           CHOCOLATE_START_DESK
         )
@@ -215,7 +215,7 @@ export default function BannerHero() {
       // =======================================================================
       // STAGE 3 -> STAGE 4: CHOCOLATE -> MELON
       // =======================================================================
-      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.6, ease: "power2.in" }, 4.00)
+      tl.to("#fanta3", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 4.00)
         .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.6, ease: "power2.in" }, 4.00)
         .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 4.00)
         .to(".decor-chocolate", { y: "100vh", opacity: 0, duration: 0.6, ease: "power2.in" }, 4.00)
@@ -355,7 +355,7 @@ export default function BannerHero() {
 
       const CHOCOLATE_START_TAB = 2.15;
       tl.fromTo("#fanta3", 
-          { y: "-55vh", opacity: 0, rotate: -8 }, 
+          { y: "-55vh", opacity: 0, rotate: 12 }, 
           { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           CHOCOLATE_START_TAB
         )
@@ -541,7 +541,7 @@ export default function BannerHero() {
 
       const CHOCOLATE_START_MOB = 1.85;
       tl.fromTo("#fanta3", 
-          { y: "-45vh", opacity: 0, rotate: -8 }, 
+          { y: "-45vh", opacity: 0, rotate: 12 }, 
           { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           CHOCOLATE_START_MOB
         )

@@ -367,11 +367,11 @@
   transform: translateY(-100vh) rotate(14deg);
 
   filter:
-    brightness(1.05)
+    brightness(1.08)
     contrast(1.06)
-    saturate(1.08)
-    drop-shadow(0 22px 35px rgba(50, 25, 10, 0.38))
-    drop-shadow(0 6px 15px rgba(0, 0, 0, 0.22));
+    saturate(1.16)
+    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 55px rgba(255, 175, 45, 0.48));
 }
 
 
@@ -1654,59 +1654,44 @@ width: 9vw;
   }
 
 
-  /* CHOCOLATE */
+  /* ============================================================
+     CHOCOLATE - MOBILE 375px–599px
+     Matched visually closer to Orange scale
+     ============================================================ */
 
   .banner-hero-container .chocolate-top-left {
-
-    width: 22vw;
-
-    top: 9%;
-
-    left: 5%;
+    width: 32vw;
+    top: 10%;
+    left: 3%;
   }
 
   .banner-hero-container .chocolate-mint-top {
-
-    width: 12vw;
-
-    top: 1%;
-
+    width: 13vw;
+    top: 2%;
     left: 60%;
   }
 
   .banner-hero-container .chocolate-coffee-beans {
-
-    width: 23vw;
-
-    top: 16%;
-
+    width: 34vw;
+    top: 12%;
     right: 2%;
   }
 
   .banner-hero-container .chocolate-mint-single {
-
     width: 11vw;
-
     top: 58%;
-
     left: 0%;
   }
 
   .banner-hero-container .chocolate-shavings {
-
-    width: 28vw;
-
-    bottom: 10%;
-
-    left: 50%;
+    width: 35vw;
+    bottom: 8%;
+    left: 49%;
   }
 
   .banner-hero-container .chocolate-mint-bottom {
-
-    width: 13vw;
-
-    bottom: 11%;
-
+    width: 14vw;
+    bottom: 10%;
     right: 0%;
   }
 
@@ -1914,59 +1899,43 @@ width: 9vw;
   }
 
 
-  /* CHOCOLATE */
+  /* ============================================================
+     CHOCOLATE - SMALL MOBILE 320px–374px
+     ============================================================ */
 
   .banner-hero-container .chocolate-top-left {
-
-    width: 20vw;
-
-    top: 9%;
-
-    left: 5%;
+    width: 30vw;
+    top: 10%;
+    left: 3%;
   }
 
   .banner-hero-container .chocolate-mint-top {
-
-    width: 11vw;
-
-    top: 1%;
-
-    left: 60%;
+    width: 12vw;
+    top: 2%;
+    left: 59%;
   }
 
   .banner-hero-container .chocolate-coffee-beans {
-
-    width: 21vw;
-
-    top: 16%;
-
-    right: 2%;
+    width: 32vw;
+    top: 13%;
+    right: 1%;
   }
 
   .banner-hero-container .chocolate-mint-single {
-
     width: 10vw;
-
     top: 58%;
-
     left: 0%;
   }
 
   .banner-hero-container .chocolate-shavings {
-
-    width: 25vw;
-
-    bottom: 10%;
-
-    left: 50%;
+    width: 32vw;
+    bottom: 9%;
+    left: 49%;
   }
 
   .banner-hero-container .chocolate-mint-bottom {
-
-    width: 11vw;
-
-    bottom: 11%;
-
+    width: 13vw;
+    bottom: 10%;
     right: 0%;
   }
 

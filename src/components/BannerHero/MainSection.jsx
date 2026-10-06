@@ -25,7 +25,7 @@ const MainSection = () => {
       {/* Tilted Bottles for each flavour */}
       <img id="fanta" src="/Assets/7.png" alt="Grand Master Orange Vodka" />
       <img id="fanta2" src="/Assets/5.png" alt="Grand Master Strawberry Vodka" />
-      <img id="fanta3" src={chocolateBottle} alt="Grand Master Chocolate Vodka" />
+      <img id="fanta3" src="/Assets/chocolate.png" alt="Grand Master Chocolate Vodka" />
       <img id="fanta4" src={melonBottle} alt="Grand Master Melon Vodka" />
     
       {/* Bottom Left Info Boxes */}
