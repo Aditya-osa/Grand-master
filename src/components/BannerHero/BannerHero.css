@@ -563,30 +563,21 @@
    ========================================================================== */
 
 .banner-hero-container .orange-top-left {
-
-  width: 29%;
-
-  top: -8%;
-
-  left: 2%;
+  width: 28vw;
+  top: -9.5vh;
+  left: -1.5vw;
 }
 
 .banner-hero-container .orange-top-right {
-
-  width: 29%;
-
-  top: -14%;
-
-  right: 9%;
+  width: 29vw;
+  top: -12.5vh;
+  right: 9.5vw;
 }
 
 .banner-hero-container .orange-bottom-right {
-
-  width: 29%;
-
-  bottom: -16%;
-
-  right: 5%;
+  width: 31vw;
+  bottom: -29vh;
+  right: 8vw;
 }
 
 
@@ -595,46 +586,33 @@
    ========================================================================== */
 
 .banner-hero-container .leaf-left-1 {
-
-  width: %;
-
-  top: 33%;
-
-  left: 2%;
-
+  width: 26vw;
+  top: 29vh;
+  left: -1.8vw;
   transform: rotate(25deg);
 }
 
+/* 5.png - Top-Center Mint Leaf */
 .banner-hero-container .leaf-left-2 {
-
-  width: 7.5vw;
-
-  top: -3%;
-
-  left: 34%;
-
+  width: 27vw;
+  top: -21vh;
+  left: 25vw;
   transform: rotate(-15deg);
 }
 
+/* 6.png - Right Mint Leaf */
 .banner-hero-container .leaf-right-1 {
-
-  width: 6vw;
-
-  top: 32%;
-
-  right: 6%;
-
+  width: 28vw;
+  top: 12vh;
+  right: -2.5vw;
   transform: rotate(70deg);
 }
 
+/* 7.png - Bottom-Center Mint Leaf */
 .banner-hero-container .leaf-bottom-mid {
-
-  width: 6vw;
-
-  bottom: 7%;
-
-  left: 28%;
-
+  width: 28vw;
+  bottom: -15.5vh;
+  left: 18.5vw;
   transform: rotate(-25deg);
 }
 
@@ -932,7 +910,7 @@
 
   .banner-hero-container .orange-bottom-right {
     width: 31vw;
-    bottom: -14.2vh;
+    bottom: -19.5vh;
     right: 13vw;
   }
 
@@ -946,21 +924,21 @@
   }
 
   .banner-hero-container .leaf-left-2 {
-    width: 19vw;
-    top: -15.5vh;
-    left: 28vw;
+    width: 27vw;
+    top: -21vh;
+    left: 25vw;
   }
 
   .banner-hero-container .leaf-right-1 {
-    width: 21vw;
-    top: 17.2vh;
-    right: -0.4vw;
+    width: 28vw;
+    top: 12vh;
+    right: -2.5vw;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-    width: 21vw;
-    bottom: -10.3vh;
-    left: 21.4vw;
+    width: 28vw;
+    bottom: -15.5vh;
+    left: 18.5vw;
   }
 
 
@@ -1186,7 +1164,7 @@
 
   .banner-hero-container .orange-bottom-right {
     width: 30vw;
-    bottom: -11vh;
+    bottom: -15vh;
     right: 11vw;
   }
 
@@ -1200,21 +1178,21 @@
   }
 
   .banner-hero-container .leaf-left-2 {
-    width: 19vw;
-    top: -12vh;
-    left: 27vw;
+    width: 27vw;
+    top: -16vh;
+    left: 24vw;
   }
 
   .banner-hero-container .leaf-right-1 {
-    width: 21vw;
-    top: 20vh;
-    right: -0.5vw;
+    width: 28vw;
+    top: 15vh;
+    right: -2.5vw;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-    width: 21vw;
-    bottom: -8vh;
-    left: 21vw;
+    width: 28vw;
+    bottom: -12vh;
+    left: 18.5vw;
   }
 
 
@@ -1521,21 +1499,21 @@
   }
 
   .banner-hero-container .leaf-left-2 {
-    width: 19vw;
+    width: 27vw;
     top: 2%;
-    left: 26%;
+    left: 24%;
   }
 
   .banner-hero-container .leaf-right-1 {
-    width: 17vw;
+    width: 26vw;
     top: 32%;
-    right: 2%;
+    right: 1%;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-    width: 17vw;
+    width: 26vw;
     bottom: 8%;
-    left: 22%;
+    left: 20%;
   }
 
 
@@ -1781,21 +1759,21 @@
   }
 
   .banner-hero-container .leaf-left-2 {
-    width: 19vw;
+    width: 27vw;
     top: 2%;
-    left: 24%;
+    left: 22%;
   }
 
   .banner-hero-container .leaf-right-1 {
-    width: 17vw;
+    width: 26vw;
     top: 34%;
-    right: 2%;
+    right: 1%;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-    width: 17vw;
+    width: 26vw;
     bottom: 8%;
-    left: 20%;
+    left: 18%;
   }
 
 
