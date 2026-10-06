@@ -1,16 +1,16 @@
 /* ==========================================================================
-   Grand Master - Centered Minimalist Luxury Dark Footer
+   Grand Master - Centered Minimalist Luxury Footer
    ========================================================================== */
 
 .gm-footer-wrapper {
   position: relative;
   width: 100%;
-  background-color: #090a0f;
-  color: #a2a4b0;
+  background-color: #ffffff;
+  color: #000000;
   font-family: 'Anybody', sans-serif;
   overflow: hidden;
   box-sizing: border-box;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(118, 37, 48, 0.08);
 }
 
 .gm-footer-container {
@@ -55,7 +55,7 @@
 
 .gm-footer-logo-link:hover {
   transform: scale(1.03);
-  opacity: 0.95;
+  opacity: 0.92;
 }
 
 .gm-footer-logo-img {
@@ -94,7 +94,7 @@
   font-size: clamp(14px, 1.05vw, 15.5px);
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #e5e3dc;
+  color: #2b1a18;
   text-decoration: none;
   position: relative;
   padding: 4px 0;
@@ -109,13 +109,13 @@
   left: 50%;
   width: 0%;
   height: 1.5px;
-  background: #e6c88b;
+  background: #c93a0e;
   transform: translateX(-50%);
   transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gm-footer-nav-link:hover {
-  color: #e6c88b;
+  color: #c93a0e;
   transform: translateY(-1px);
 }
 
@@ -138,17 +138,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  color: #e6c88b;
+  background: rgba(118, 37, 48, 0.06);
+  color: #4a0b14;
   text-decoration: none;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gm-footer-social-btn:hover {
-  background: #c5a059;
-  color: #090a0f;
+  background: #4a0b14;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 4px 12px rgba(74, 11, 20, 0.2);
 }
 
 /* --------------------------------------------------------------------------
@@ -158,7 +158,7 @@
 .gm-footer-divider {
   width: 100%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(118, 37, 48, 0.10);
   margin: clamp(28px, 4vh, 40px) 0 clamp(18px, 2.5vh, 24px);
 }
 
@@ -173,7 +173,7 @@
   justify-content: space-between;
   gap: 16px;
   font-size: clamp(12.5px, 0.95vw, 14px);
-  color: #8a8d98;
+  color: #72625f;
   line-height: 1.5;
   box-sizing: border-box;
 }
@@ -185,7 +185,7 @@
   font-weight: 400;
   display: inline-flex;
   align-items: center;
-  color: #8a8d98;
+  color: #6e5e5b;
 }
 
 .gm-footer-meta {
@@ -199,17 +199,17 @@
 }
 
 .gm-footer-tag {
-  color: #6f7282;
+  color: #8c7875;
 }
 
 .gm-footer-bullet {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(118, 37, 48, 0.35);
   font-size: 10px;
   line-height: 1;
 }
 
 .gm-footer-creator-link {
-  color: #e6c88b;
+  color: #4a0b14;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease, border-color 0.2s ease;
@@ -217,8 +217,8 @@
 }
 
 .gm-footer-creator-link:hover {
-  color: #ffffff;
-  border-bottom-color: #ffffff;
+  color: #c93a0e;
+  border-bottom-color: #c93a0e;
 }
 
 /* ==========================================================================

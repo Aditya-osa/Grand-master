@@ -73,7 +73,7 @@
    -------------------------------------------------------------------------- */
 
 .distilled-to-inspire__title {
-  font-family: 'Anton', 'Anybody', sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(38px, 4.2vw, 68px);
   font-weight: 900;
   line-height: 1.05;
