@@ -595,17 +595,17 @@
 }
 
 .banner-hero-container .melon-leaf-top-mid {
-  width: 8vw;
-  top: 5vh;
-  left: 28vw;
-  transform: rotate(-20deg);
+  width: 11vw;
+  top: -7vh;
+  left: 30vw;
+  transform: none !important;
 }
 
 .banner-hero-container .melon-leaf-mid-right {
   width: 21vw;
-  top: 30vh;
-  right: 5vw;
-  transform: rotate(-10deg);
+  top: 22vh;
+  right: 0vw;
+  transform: rotate(310deg) !important;
 }
 
 .banner-hero-container .melon-leaf-bottom-mid {
