@@ -64,7 +64,7 @@ export default function BannerHero() {
         .fromTo(".leaf-left-2", { y: "-40vh", rotate: -35, opacity: 0 }, { y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".leaf-right-1", { x: "25vw", y: -10, rotate: 90, opacity: 0 }, { x: 0, y: 0, rotate: 70, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".orange-bottom-right", { x: "30vw", y: "30vh", rotate: -35, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
-        .fromTo(".leaf-bottom-mid", { y: "30vh", rotate: 5, opacity: 0 }, { y: 0, rotate: -25, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
+        .fromTo(".leaf-bottom-mid", { y: "30vh", rotate: 5, opacity: 0 }, { y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo("#info-orange", { y: "35vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0);
 
       const tl = gsap.timeline({ paused: true });
