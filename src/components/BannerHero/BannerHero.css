@@ -563,9 +563,9 @@
    ========================================================================== */
 
 .banner-hero-container .orange-top-left {
-  width: 28vw;
-  top: -3.5vh;
-  left: 1.5vw;
+  width: 25vw;
+  top: -6.5vh;
+  left: 6.5vw;
 }
 
 .banner-hero-container .orange-top-right {
@@ -575,9 +575,9 @@
 }
 
 .banner-hero-container .orange-bottom-right {
-  width: 31vw;
-  bottom: -29vh;
-  right: 11vw;
+  width: 27vw;
+  bottom: -22vh;
+  right: 14vw;
 }
 
 
@@ -602,10 +602,10 @@
 
 /* 6.png - Right Mint Leaf */
 .banner-hero-container .leaf-right-1 {
-  width: 28vw;
-  top: 12vh;
-  right: -2.5vw;
-  transform: rotate(70deg);
+  width: 26vw;
+  top: 23vh;
+  right: -8.5vw;
+  transform: none !important;
 }
 
 /* 7.png - Bottom-Center Mint Leaf */
