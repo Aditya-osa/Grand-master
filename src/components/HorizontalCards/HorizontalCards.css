@@ -177,7 +177,7 @@
 .stack-card__visual {
   position: relative;
   width: 100%;
-  height: clamp(210px, 28vh, 260px);
+ height: clamp(190px, 26vh, 240px);
   flex-shrink: 0;
   display: block;
   background: #faf0e4;
@@ -237,7 +237,7 @@
   font-weight: 800;
   line-height: 1.22;
   color: #4a0b14;
-  margin: 0;
+  margin-top: 40px;
   letter-spacing: -0.015em;
 }
 
@@ -247,7 +247,7 @@
   font-weight: 400;
   line-height: 1.55;
   color: #5e4c48;
-  margin: 0;
+  margin-top: -25px;
 }
 
 /* ==========================================================================

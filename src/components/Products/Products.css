@@ -1,608 +1,632 @@
 /* ==========================================================================
-   Grand Master Product Showcase - Recreating Reference Layout & Composition
-   Strictly Bottles Only, No Leaves or Splashes
+   Hero Section Container (100vh Full Screen)
    ========================================================================== */
 
-/* 1. SECTION CONTAINER (Full-Width, Vibrant Crimson Stage) */
-.gm-product-showcase {
+.ag-hero {
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   min-height: 100svh;
   height: 100dvh;
-  background: radial-gradient(circle at 48% 44%, #e73e47 0%, #d4323a 50%, #bd2c33 100%);
+  background-color: var(--color-white);
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
   isolation: isolate;
   user-select: none;
 }
 
-/* Subtle background vignette for added depth */
-.gm-product-showcase::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(120, 8, 14, 0.45) 100%);
-  pointer-events: none;
-  z-index: 2;
-}
-
 /* ==========================================================================
-   2. CONTENT BLOCK (Top-Left Composition matching Reference Screenshot)
+   Header (Language Switcher, Logo, Menu)
    ========================================================================== */
 
-.gm-showcase-content {
+.ag-header {
   position: absolute;
-  top: clamp(35px, 9vh, 100px);
-  left: clamp(24px, 6.5vw, 100px);
-  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  max-width: clamp(320px, 34vw, 490px);
+  justify-content: space-between;
+  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 3.2vw, 48px);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Top-Left: Language Switcher */
+.ag-lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   pointer-events: auto;
 }
 
-/* Arched Badge: "Alcohol Infused" curved above the title */
-.gm-arc-badge {
-  position: relative;
-  width: clamp(200px, 17vw, 280px);
-  height: auto;
-  margin-bottom: -14px;
-  margin-left: 2px;
-  pointer-events: none;
-}
-
-.gm-arc-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.gm-arc-text {
-  font-family: 'Anton', 'Impact', sans-serif;
-  font-size: 27px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  fill: #ce141d;
-  stroke: #eeff00;
-  stroke-width: 2.2px;
-  paint-order: stroke fill;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
-}
-
-/* Main Display Title: "FRUIT VODKA" in Bold Condensed Neon Yellow */
-.gm-showcase-title {
-  font-family: 'Anton', 'Impact', sans-serif;
-  font-size: clamp(52px, 6.6vw, 102px);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: 0.02em;
-  color: #eeff00;
-  text-transform: uppercase;
-  margin: 0 0 16px 0;
-  user-select: none;
-  white-space: nowrap;
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.28));
-}
-
-/* Description Subtitle in Crisp White */
-.gm-showcase-desc {
-  font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
-  font-size: clamp(14px, 1.15vw, 17.5px);
-  font-weight: 500;
-  line-height: 1.48;
-  color: #ffffff;
-  margin: 0 0 26px 0;
-  max-width: 320px;
-  opacity: 0.96;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-/* 3D Yellow Shadow Pill Button ("SHOP NOW") */
-.gm-showcase-btn {
+.ag-lang-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #cf141d;
-  color: #eeff00;
-  font-family: 'Anton', 'Impact', sans-serif;
-  font-size: clamp(14px, 1.1vw, 16px);
-  font-weight: 700;
-  letter-spacing: 0.09em;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 13px 38px;
-  border-radius: 9999px;
-  border: 2px solid #b30f16;
-  box-shadow: 4px 5px 0px #eeff00;
-  text-decoration: none;
   cursor: pointer;
-  outline: none;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.2s ease,
-              background-color 0.2s ease;
+  padding: 0;
+  transition: all 0.25s var(--ease-soft);
 }
 
-.gm-showcase-btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 3px 0px #eeff00;
-  background-color: #b80f17;
+.ag-lang-btn:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
 }
 
-.gm-showcase-btn:active {
-  transform: translate(4px, 5px);
-  box-shadow: 0px 0px 0px #eeff00;
+.ag-lang-btn.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
 }
 
-/* ==========================================================================
-   3. BOTTLE STAGE & ARRANGEMENT (The Exact 3-Bottle Triangle Constellation)
-   ========================================================================== */
+.ag-lang-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
 
-.gm-bottles-stage {
+/* Top-Center: Logo */
+.ag-brand-logo-wrap {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  left: 50%;
+  top: clamp(20px, 2.5vw, 32px);
+  transform: translateX(-50%);
+  pointer-events: auto;
   z-index: 10;
 }
 
-/* Individual Bottle Container */
-.gm-bottle-wrapper {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  cursor: pointer;
-  transform-origin: center bottom;
-  will-change: transform;
-}
-
-/* Inner container executing the continuous floating oscillation */
-.gm-bottle-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  will-change: transform;
-  transform-origin: center bottom;
-}
-
-/* Bottle Cutout Image */
-.gm-bottle-img {
-  height: clamp(290px, 44vh, 480px);
-  width: auto;
-  max-width: none;
+.ag-brand-link {
   display: block;
-  object-fit: contain;
-  user-select: none;
-  -webkit-user-drag: none;
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.42))
-          drop-shadow(0 8px 14px rgba(0, 0, 0, 0.28));
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              filter 0.35s ease;
-  transform-origin: center bottom;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-/* Realistic Floating Ground Shadow Beneath Bottle Base */
-.gm-bottle-shadow {
-  position: absolute;
-  bottom: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 58%;
-  height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.22) 55%, transparent 75%);
-  filter: blur(10px);
-  pointer-events: none;
-  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+.ag-brand-logo-img {
+  display: block;
+  width: clamp(122px, 9.8vw, 150px);
+  height: auto;
+  color: var(--color-border);
+  transition: transform 0.3s var(--ease-soft);
 }
 
-/* --------------------------------------------------------------------------
-   POSITION 1: TOP-RIGHT (Strawberry Bottle, Tilted -14deg, Floating High)
-   -------------------------------------------------------------------------- */
-.gm-bottle-pos-top-right {
-  top: clamp(25px, 6.5vh, 85px);
-  right: clamp(35px, 12.5vw, 190px);
-  z-index: 12;
+.ag-brand-logo-img:hover {
+  transform: scale(1.02);
 }
 
-.gm-bottle-pos-top-right .gm-bottle-inner {
-  animation: gmFloatTopRight 5.4s ease-in-out infinite;
+/* Top-Right: Menu Toggle */
+.ag-menu-toggle-wrap {
+  pointer-events: auto;
 }
 
-@keyframes gmFloatTopRight {
-  0%, 100% {
-    transform: translateY(0px) rotate(-14deg);
-  }
-  50% {
-    transform: translateY(-16px) rotate(-12.5deg);
-  }
-}
-
-/* --------------------------------------------------------------------------
-   POSITION 2: BOTTOM-LEFT (Orange Bottle, Tilted +5deg, Under Text Block)
-   -------------------------------------------------------------------------- */
-.gm-bottle-pos-bottom-left {
-  bottom: clamp(20px, 5.5vh, 65px);
-  left: clamp(30px, 19vw, 260px);
-  z-index: 14;
-}
-
-.gm-bottle-pos-bottom-left .gm-bottle-inner {
-  animation: gmFloatBottomLeft 6s ease-in-out infinite 0.8s;
-}
-
-@keyframes gmFloatBottomLeft {
-  0%, 100% {
-    transform: translateY(0px) rotate(5deg);
-  }
-  50% {
-    transform: translateY(-14px) rotate(6.5deg);
-  }
-}
-
-/* --------------------------------------------------------------------------
-   POSITION 3: BOTTOM-RIGHT / MID-RIGHT (Chocolate/Mango Bottle, Tilted -10deg)
-   -------------------------------------------------------------------------- */
-.gm-bottle-pos-bottom-right {
-  bottom: clamp(28px, 7.5vh, 85px);
-  left: clamp(360px, 53vw, 760px);
-  z-index: 13;
-}
-
-.gm-bottle-pos-bottom-right .gm-bottle-inner {
-  animation: gmFloatBottomRight 6.6s ease-in-out infinite 1.6s;
-}
-
-@keyframes gmFloatBottomRight {
-  0%, 100% {
-    transform: translateY(0px) rotate(-10deg);
-  }
-  50% {
-    transform: translateY(-18px) rotate(-8.5deg);
-  }
-}
-
-/* ==========================================================================
-   4. HOVER & INTERACTION EFFECTS (Premium Feel)
-   ========================================================================== */
-
-.gm-bottle-wrapper:hover {
-  z-index: 25;
-}
-
-.gm-bottle-wrapper:hover .gm-bottle-inner {
-  animation-play-state: paused;
-}
-
-.gm-bottle-wrapper:hover .gm-bottle-img {
-  transform: translateY(-14px) scale(1.06);
-  filter: drop-shadow(0 35px 50px rgba(0, 0, 0, 0.58))
-          drop-shadow(0 14px 22px rgba(0, 0, 0, 0.38))
-          brightness(1.05);
-}
-
-.gm-bottle-wrapper:hover .gm-bottle-shadow {
-  transform: translateX(-50%) scale(1.2);
-  opacity: 0.9;
-  filter: blur(14px);
-}
-
-/* Sleek Minimal Flavor Badge Tooltip on Hover */
-.gm-bottle-badge {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px) scale(0.9);
-  background: rgba(15, 15, 15, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(238, 255, 0, 0.3);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
-  border-radius: 9999px;
-  padding: 8px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-  z-index: 30;
-}
-
-.gm-bottle-badge.is-active,
-.gm-bottle-wrapper:hover .gm-bottle-badge {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
-}
-
-.gm-badge-tag {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #eeff00;
-}
-
-.gm-badge-name {
-  font-family: 'Anton', 'Impact', sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-}
-
-.gm-badge-vol {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
-}
-
-/* ==========================================================================
-   5. MINIMAL QUICK FLAVOR DOCK (Bottom Corner Pill Switcher)
-   ========================================================================== */
-
-.gm-flavor-dock {
-  position: absolute;
-  bottom: clamp(16px, 3vh, 28px);
-  right: clamp(16px, 3.5vw, 48px);
+.ag-menu-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(20, 10, 12, 0.45);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 6px 12px;
-  border-radius: 9999px;
-  z-index: 20;
-  pointer-events: auto;
-}
-
-.gm-dock-label {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  padding-right: 4px;
-}
-
-.gm-dock-btn {
+  gap: 2px;
   background: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-  font-family: var(--font-sans);
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 4px 10px;
-  border-radius: 9999px;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.gm-dock-btn:hover {
-  background: rgba(238, 255, 0, 0.15);
-  color: #eeff00;
+.ag-menu-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+  min-width: 90px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s var(--ease-soft);
 }
 
-.gm-dock-btn.is-current {
-  background: #eeff00;
-  color: #111111;
-  font-weight: 700;
+.ag-menu-btn:hover .ag-menu-pill {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.ag-menu-disc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  transition: transform 0.3s var(--ease-soft), background 0.3s ease;
+}
+
+.ag-menu-btn:hover .ag-menu-disc {
+  transform: scale(1.06);
+}
+
+.ag-menu-diamond {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: var(--color-white);
+  border-radius: 1px;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease-soft);
+}
+
+.ag-menu-diamond.is-close {
+  transform: rotate(135deg) scale(1.15);
+}
+
+.ag-menu-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+  border-radius: 999px;
 }
 
 /* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
+   Visual Stage & Layering
    ========================================================================== */
 
-/* Large Desktop screens (> 1600px) */
-@media (min-width: 1600px) {
-  .gm-bottle-img {
-    height: clamp(380px, 48vh, 560px);
-  }
-  .gm-showcase-title {
-    font-size: 104px;
-  }
+.ag-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* Standard Laptop / Smaller Desktop (1024px – 1366px) */
-@media (max-width: 1366px) {
-  .gm-showcase-content {
-    top: clamp(30px, 8vh, 80px);
-    left: clamp(20px, 5vw, 60px);
-    max-width: 380px;
-  }
-  .gm-showcase-title {
-    font-size: clamp(48px, 5.8vw, 76px);
-  }
-  .gm-showcase-desc {
-    font-size: 14px;
-    max-width: 290px;
-  }
-  .gm-bottle-img {
-    height: clamp(260px, 40vh, 420px);
-  }
-  .gm-bottle-pos-top-right {
-    right: clamp(20px, 8vw, 120px);
-  }
-  .gm-bottle-pos-bottom-left {
-    left: clamp(20px, 15vw, 180px);
-    bottom: clamp(15px, 4vh, 50px);
-  }
-  .gm-bottle-pos-bottom-right {
-    left: clamp(340px, 50vw, 640px);
-    bottom: clamp(20px, 5vh, 60px);
-  }
+/* Layer B: Angled 10-degree Marquee Stage for Bottles */
+.ag-marquee-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 100%;
+  height: clamp(380px, 58vh, 620px);
+  transform: translate(-50%, -50%) rotate(10deg);
+  z-index: 5;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
 }
 
-/* Tablet Landscape & Portrait (768px – 1023px) */
-@media (max-width: 1023px) {
-  .gm-product-showcase {
-    min-height: 100vh;
-    padding: 30px 20px;
-  }
-  .gm-showcase-content {
-    top: 40px;
-    left: 30px;
-    max-width: 320px;
-  }
-  .gm-arc-badge {
-    width: 190px;
-  }
-  .gm-showcase-title {
-    font-size: 52px;
-  }
-  .gm-showcase-desc {
-    font-size: 13px;
-    max-width: 260px;
-    margin-bottom: 20px;
-  }
-  .gm-showcase-btn {
-    padding: 11px 30px;
-    font-size: 13px;
-  }
-  .gm-bottle-img {
-    height: clamp(230px, 34vh, 340px);
-  }
-  .gm-bottle-pos-top-right {
-    top: 40px;
-    right: 40px;
-  }
-  .gm-bottle-pos-bottom-left {
-    bottom: 30px;
-    left: 80px;
-  }
-  .gm-bottle-pos-bottom-right {
-    bottom: 35px;
-    left: 55vw;
-  }
-  .gm-flavor-dock {
-    bottom: 16px;
-    right: 16px;
-  }
+.ag-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(45px, 7vw, 130px);
+  padding-left: 50vw;
+  padding-right: 50vw;
+  pointer-events: auto;
+  will-change: transform;
 }
 
-/* Mobile Devices (< 768px) */
-@media (max-width: 767px) {
-  .gm-product-showcase {
-    height: auto;
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 85px 16px 50px;
-    overflow: visible;
-  }
+.ag-carousel-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform-origin: center center;
+  will-change: transform, filter;
+  transition: filter 0.2s ease;
+}
 
-  .gm-showcase-content {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 30px;
-  }
+.ag-carousel-img {
+  height: clamp(280px, 48vh, 580px);
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.25s var(--ease-soft);
+}
 
-  .gm-arc-badge {
-    width: 180px;
-    margin-left: 0;
-  }
+.ag-carousel-item:hover .ag-carousel-img {
+  transform: translateY(-8px) scale(1.03);
+}
 
-  .gm-showcase-title {
-    font-size: clamp(38px, 11vw, 54px);
-    white-space: normal;
-    text-align: center;
-    margin-bottom: 12px;
-  }
+/* ==========================================================================
+   Hero Info Block (VODKA DRINKS, Description, Shop Now CTA)
+   ========================================================================== */
 
-  .gm-showcase-desc {
+.ag-hero-info {
+  position: absolute;
+  /* Left positioning scales relative to viewport */
+  left: clamp(32px, 5.5vw, 92px);
+  /* Bottom positioning scales relatively */
+  bottom: clamp(65px, 14vh, 135px);
+  z-index: 15;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* CRITICAL: Enforce safe zone. Width must never cross into Mango bottle area */
+  width: min(390px, 32vw);
+  max-width: 390px;
+  user-select: none;
+}
+
+.ag-hero-title {
+  font-family: 'Impact', 'Anton', 'Anybody', sans-serif;
+  font-size: clamp(32px, 4.2vw, 64px);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  color: #c52d28;
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  /* Ensure title wraps cleanly inside safe zone on smaller desktops if needed */
+  white-space: nowrap;
+  user-select: none;
+}
+
+.ag-hero-desc {
+  font-family: 'Anybody', var(--font-sans), sans-serif;
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 500;
+  line-height: 1.38;
+  color: #2c2723;
+  margin: 0 0 24px 0;
+  max-width: 270px;
+  opacity: 0.95;
+}
+
+.ag-shop-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e01b27 0%, #b30f16 100%);
+  color: #ffffff;
+  font-family: 'Anybody', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+ 
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(230, 255, 0, 0.25), 0 2px 4px rgba(224, 27, 39, 0.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+/* Stylish shine sweep effect */
+.ag-shop-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-25deg);
+  transition: left 0s; /* No transition when returning to original position */
+}
+
+.ag-shop-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(230, 255, 0, 0.45), 0 6px 12px rgba(224, 27, 39, 0.3);
+}
+
+.ag-shop-btn:hover::before {
+  left: 200%;
+  transition: left 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ag-shop-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(230, 255, 0, 0.3);
+}
+
+/* Bottom Right Sparkle Star */
+.ag-sparkle-wrap {
+  position: absolute;
+  right: clamp(24px, 8vw, 120px);
+  bottom: clamp(60px, 14vh, 140px);
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.ag-sparkle-star {
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Bottom Legal */
+.ag-bottom-legal {
+  position: absolute;
+  bottom: clamp(16px, 3vh, 32px);
+  left: clamp(20px, 3.2vw, 48px);
+  z-index: 20;
+}
+
+.ag-legal-link {
+  font-family: var(--font-sans);
+  font-size: clamp(11px, 0.9vw, 13px);
+  color: var(--color-border);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.ag-legal-link:hover {
+  opacity: 1;
+  color: var(--color-orange);
+}
+
+/* ==========================================================================
+   Bottom Scroll Prompt
+   ========================================================================== */
+
+.ag-scroll-prompt-wrap {
+  position: absolute;
+  bottom: clamp(14px, 2.5vh, 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.ag-scroll-prompt {
+  font-family: var(--font-sans);
+  font-size: clamp(9.5px, 0.9vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-border);
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* Smaller Desktop: 1280px - 1440px */
+@media (max-width: 1440px) {
+  .ag-hero-info {
+    width: min(340px, 30vw);
+    max-width: 340px;
+  }
+  .ag-hero-title {
+    font-size: clamp(32px, 4vw, 58px);
+  }
+  .ag-hero-desc {
     font-size: 13.5px;
-    max-width: 320px;
-    text-align: center;
-    margin: 0 auto 20px auto;
-  }
-
-  .gm-showcase-btn {
-    margin: 0 auto;
-    padding: 11px 32px;
-  }
-
-  /* Bottles on mobile: dynamic overlapping trio showcase */
-  .gm-bottles-stage {
-    position: relative;
-    width: 100%;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-  }
-
-  .gm-bottle-img {
-    height: 250px;
-  }
-
-  /* Position 1: Center-Left Strawberry */
-  .gm-bottle-pos-top-right {
-    top: auto;
-    right: auto;
-    left: 10%;
-    bottom: 30px;
-    z-index: 12;
-  }
-  .gm-bottle-pos-top-right .gm-bottle-inner {
-    transform: rotate(-12deg);
-  }
-
-  /* Position 2: Center Orange (front) */
-  .gm-bottle-pos-bottom-left {
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-    z-index: 15;
-  }
-  .gm-bottle-pos-bottom-left .gm-bottle-img {
-    height: 270px;
-  }
-
-  /* Position 3: Center-Right Chocolate/Mango */
-  .gm-bottle-pos-bottom-right {
-    top: auto;
-    left: auto;
-    right: 10%;
-    bottom: 30px;
-    z-index: 12;
-  }
-  .gm-bottle-pos-bottom-right .gm-bottle-inner {
-    transform: rotate(12deg);
-  }
-
-  .gm-flavor-dock {
-    position: relative;
-    bottom: 0;
-    right: 0;
-    margin-top: 20px;
-    align-self: center;
+    max-width: 240px;
   }
 }
+
+@media (max-width: 1280px) {
+  .ag-marquee-stage {
+    height: clamp(380px, 52vh, 550px);
+  }
+  .ag-carousel-img {
+    height: clamp(260px, 42vh, 480px);
+  }
+  .ag-carousel-track {
+    gap: clamp(40px, 6vw, 100px);
+  }
+  .ag-hero-info {
+    left: clamp(20px, 4vw, 60px);
+    bottom: clamp(50px, 10vh, 100px);
+    width: min(310px, 28vw);
+    max-width: 310px;
+  }
+  .ag-hero-title {
+    font-size: clamp(28px, 3.8vw, 52px);
+  }
+  .ag-hero-desc {
+    font-size: 13px;
+    max-width: 220px;
+  }
+  .ag-shop-btn {
+    padding: 10px 28px;
+    font-size: 12.5px;
+  }
+}
+
+/* Laptop & Tablet Landscape: 768px–1023px */
+@media (max-width: 1023px) {
+  .ag-marquee-stage {
+    height: clamp(340px, 50vh, 500px);
+  }
+
+  .ag-carousel-img {
+    height: clamp(250px, 40vh, 440px);
+  }
+
+  .ag-carousel-track {
+    gap: clamp(32px, 5.5vw, 75px);
+  }
+
+  .ag-hero-info {
+    left: clamp(20px, 4vw, 40px);
+    bottom: clamp(40px, 8vh, 75px);
+    max-width: 320px;
+  }
+}
+
+/* Tablet Portrait: 600px–767px */
+@media (max-width: 767px) {
+  .ag-header {
+    padding: 18px 16px;
+  }
+
+  .ag-brand-logo-wrap {
+    top: 16px;
+  }
+
+  .ag-brand-logo-img {
+    width: 110px;
+  }
+
+  .ag-marquee-stage {
+    height: clamp(310px, 46vh, 420px);
+    transform: translate(-50%, -50%) rotate(8deg);
+  }
+
+  .ag-carousel-img {
+    height: clamp(230px, 36vh, 360px);
+  }
+
+  .ag-carousel-track {
+    gap: clamp(24px, 4.5vw, 50px);
+  }
+
+  .ag-menu-pill {
+    min-width: 75px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+
+  .ag-hero-info {
+    left: 20px;
+    bottom: 45px;
+    max-width: 260px;
+  }
+
+  .ag-vodka-infused-wrap {
+    width: 160px;
+    margin-bottom: -6px;
+  }
+
+  .ag-vodka-infused-text {
+    font-size: 24px;
+  }
+
+  .ag-hero-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .ag-hero-desc {
+    font-size: 13px;
+    margin-bottom: 16px;
+    max-width: 230px;
+  }
+
+  .ag-shop-btn {
+    padding: 9px 24px;
+    font-size: 12px;
+  }
+}
+
+/* Mobile: 375px–599px */
+@media (max-width: 599px) {
+  .ag-header {
+    padding: 14px 12px;
+  }
+
+  .ag-brand-logo-img {
+    width: 96px;
+  }
+
+  .ag-marquee-stage {
+    height: clamp(280px, 42vh, 340px);
+    transform: translate(-50%, -50%) rotate(7deg);
+  }
+
+  .ag-carousel-img {
+    height: clamp(200px, 34vh, 290px);
+  }
+
+  .ag-carousel-track {
+    gap: 22px;
+  }
+
+  .ag-scroll-prompt {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .ag-hero-info {
+    left: 16px;
+    bottom: 40px;
+    max-width: 220px;
+  }
+
+  .ag-vodka-infused-wrap {
+    width: 140px;
+    margin-bottom: -4px;
+  }
+
+  .ag-hero-title {
+    font-size: 30px;
+  }
+
+  .ag-hero-desc {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .ag-shop-btn {
+    padding: 8px 20px;
+    font-size: 11.5px;
+  }
+}
+
+/* Small Mobile: 320px–374px */
+@media (max-width: 374px) {
+  .ag-header {
+    padding: 12px 10px;
+  }
+
+  .ag-brand-logo-img {
+    width: 88px;
+  }
+
+  .ag-marquee-stage {
+    height: 260px;
+    transform: translate(-50%, -50%) rotate(6deg);
+  }
+
+  .ag-carousel-img {
+    height: 185px;
+  }
+
+  .ag-carousel-track {
+    gap: 18px;
+  }
+
+  .ag-scroll-prompt {
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
+
+  .ag-hero-title {
+    font-size: 26px;
+  }
+}
+

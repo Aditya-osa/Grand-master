@@ -1,216 +1,140 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnimations';
 import './Products.css';
 
-import bottleStrawberry from '../../assets/bottles/strawberry-bottle.png';
-import bottleOrange from '../../assets/bottles/all-flav/7.png';
-import bottleChocolate from '../../assets/bottles/chocolate-bottle.png';
-import bottleMango from '../../assets/bottles/all-flav/3.png';
+import bottle1 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
+import bottle2 from '../../assets/bottles/chocolate-bottle.png'; // Chocolate (Transparent Cutout)
+import bottle3 from '../../assets/bottles/all-flav/3.png'; // Mango
+import bottle4 from '../../assets/bottles/all-flav/4.png'; // Melon
+import bottle5 from '../../assets/bottles/all-flav/5.png'; // Blue Berry
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const PRODUCTS = [
-  {
-    id: 'mango',
-    name: "Grand Master's Mango",
-    flavor: 'Mango',
-    tag: 'Platinum Fruit Vodka',
-    volume: '750ml • 40% ABV',
-    accentColor: '#eeff00',
-    img: bottleMango,
-    positionClass: 'gm-bottle-pos-top-right',
-  },
-  {
-    id: 'strawberry',
-    name: "Grand Master's Strawberry",
-    flavor: 'Wild Strawberry',
-    tag: 'Platinum Fruit Vodka',
-    volume: '750ml • 40% ABV',
-    accentColor: '#eeff00',
-    img: bottleStrawberry,
-    positionClass: 'gm-bottle-pos-top-right',
-  },
-  {
-    id: 'orange',
-    name: "Grand Master's Orange",
-    flavor: 'Sicilian Orange',
-    tag: 'Platinum Citrus Vodka',
-    volume: '750ml • 40% ABV',
-    accentColor: '#ffa500',
-    img: bottleOrange,
-    positionClass: 'gm-bottle-pos-bottom-left',
-  },
-  {
-    id: 'chocolate',
-    name: "Grand Master's Chocolate",
-    flavor: 'Artisan Chocolate',
-    tag: 'Platinum Infused Vodka',
-    volume: '750ml • 40% ABV',
-    accentColor: '#d4af37',
-    img: bottleChocolate,
-    positionClass: 'gm-bottle-pos-bottom-right',
-  },
-];
-
-// All available flavours for quick switching if desired
-const ALL_FLAVORS = [
-  { id: 'strawberry', name: 'Strawberry', img: bottleStrawberry },
-  { id: 'orange', name: 'Orange', img: bottleOrange },
-  { id: 'chocolate', name: 'Chocolate', img: bottleChocolate },
-  { id: 'mango', name: 'Mango', img: bottleMango },
+  { id: 'strawberry', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle1 },
+  { id: 'chocolate', name: "Grand Master's Chocolate", tag: 'Platinum Vodka', img: bottle2 },
+  { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img: bottle3 },
+  { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottle4 },
+  { id: 'blueberry', name: "Grand Master's Blue Berry", tag: 'Platinum Vodka', img: bottle5 },
 ];
 
 export default function Products() {
-  const sectionRef = useRef(null);
-  const contentRef = useRef(null);
-  const [selectedThirdBottle, setSelectedThirdBottle] = useState('chocolate');
-  const [activeTooltip, setActiveTooltip] = useState(null);
+  // Refs
+  const containerRef = useRef(null);
+  const trackRef = useRef(null);
+  const promptRef = useRef(null);
+  const infoRef = useRef(null);
+  const bottleRefs = useRef([]);
 
-  // Smooth scroll trigger entrance animation
+  const setBottleRef = (el, i) => {
+    if (el) bottleRefs.current[i] = el;
+  };
+
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+    // 1. Lenis Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
 
-    const ctx = gsap.context(() => {
-      // Content fade & slide in
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, x: -40 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 75%',
-          },
-        }
-      );
+    lenis.on('scroll', ScrollTrigger.update);
 
-      // Bottles stagger entrance
-      gsap.fromTo(
-        '.gm-bottle-wrapper',
-        { opacity: 0, scale: 0.88, y: 40 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 1.2,
-          stagger: 0.18,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 75%',
-          },
-        }
-      );
-    }, sectionRef);
+    const tickerCallback = (time) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(tickerCallback);
+    gsap.ticker.lagSmoothing(0);
 
-    return () => ctx.revert();
+    // 2. Entrance Animation
+    const bottleEls = bottleRefs.current.filter(Boolean);
+    const entranceCtx = initHeroEntrance({
+      containerRef,
+      promptRef,
+      infoRef,
+      bottleEls,
+    });
+
+    // 3. Carousel Scroll with Real-time Center Magnification
+    const carouselCtx = initCarouselScroll({
+      containerRef,
+      trackRef,
+      getBottleEls: () => bottleRefs.current.filter(Boolean),
+    });
+
+    // Ensure ScrollTriggers are properly sorted by DOM order and refreshed
+    const refreshTimer = setTimeout(() => {
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    }, 150);
+
+    const handleImgLoad = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener('load', handleImgLoad);
+
+    return () => {
+      clearTimeout(refreshTimer);
+      window.removeEventListener('load', handleImgLoad);
+      entranceCtx?.revert();
+      carouselCtx?.revert();
+      gsap.ticker.remove(tickerCallback);
+      lenis.destroy();
+    };
   }, []);
 
-  // Determine bottle 3 image (Chocolate or Mango)
-  const thirdBottleData =
-    selectedThirdBottle === 'mango'
-      ? {
-          id: 'mango',
-          name: "Grand Master's Mango",
-          flavor: 'Alphonso Mango',
-          tag: 'Platinum Tropical Vodka',
-          volume: '750ml • 40% ABV',
-          accentColor: '#ffaa00',
-          img: bottleMango,
-          positionClass: 'gm-bottle-pos-bottom-right',
-        }
-      : PRODUCTS[2];
-
-  const showcaseBottles = [PRODUCTS[0], PRODUCTS[1], thirdBottleData];
-
   return (
-    <section
-      id="products"
-      ref={sectionRef}
-      className="gm-product-showcase"
-      aria-label="Grand Master Fruit Vodka Showcase"
-    >
-      {/* 1. SECTION CONTENT (Top-Left Composition matching reference) */}
-      <div ref={contentRef} className="gm-showcase-content">
-        {/* Arched "Alcohol Infused" Badge */}
-        <div className="gm-arc-badge" aria-hidden="true">
-          <svg
-            viewBox="0 0 320 85"
-            className="gm-arc-svg"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              id="gm-alcohol-curve"
-              d="M 12 70 Q 115 8 285 40"
-              fill="transparent"
-            />
-            <text className="gm-arc-text">
-              <textPath href="#gm-alcohol-curve" startOffset="0%">
-                Alcohol Infused
-              </textPath>
-            </text>
-          </svg>
+    <section ref={containerRef} className="ag-hero" aria-label="Grand Master Products">
+      {/* Visual Stage: Bottles */}
+      <div className="ag-stage">
+        {/* Angled 10-degree Marquee Stage for Bottles */}
+        <div className="ag-marquee-stage">
+          <div ref={trackRef} className="ag-carousel-track">
+            {PRODUCTS.map((product, idx) => (
+              <div
+                key={product.id}
+                ref={(el) => setBottleRef(el, idx)}
+                className="ag-carousel-item"
+                data-index={idx}
+              >
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="ag-carousel-img"
+                  loading={idx < 4 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
 
-        {/* Main Bold Display Headline */}
-        <h2 className="gm-showcase-title">FRUIT VODKA</h2>
-
-        {/* Description Subtext */}
-        <p className="gm-showcase-desc">
-          An amazing, all natural, organic vodka crafted for parties and celebrations.
+      {/* Bottom Left: Vodka Drinks Hero Info Block matching screenshot */}
+      <div ref={infoRef} className="ag-hero-info">
+        <h2 className="ag-hero-title">VODKA DRINKS</h2>
+        <p className="ag-hero-desc">
+          Amazing, smooth, premium<br />vodkas for all occasions.
         </p>
-
-        {/* 3D Offset Yellow Shadow Pill Button */}
-        <a href="#flavours" className="gm-showcase-btn">
-          SHOP NOW
+        <a href="#shop" className="ag-shop-btn">
+         View More
         </a>
       </div>
 
-      {/* 2. THE THREE-BOTTLE COMPOSITION (Strictly NO leaves, only bottles) */}
-      <div className="gm-bottles-stage" aria-label="Product Bottles Arrangement">
-        {showcaseBottles.map((bottle, index) => (
-          <div
-            key={bottle.id}
-            className={`gm-bottle-wrapper ${bottle.positionClass}`}
-            onMouseEnter={() => setActiveTooltip(bottle.id)}
-            onMouseLeave={() => setActiveTooltip(null)}
-          >
-            {/* Animated floating container */}
-            <div className="gm-bottle-inner">
-              {/* Floating ambient ground shadow */}
-              <div className="gm-bottle-shadow" aria-hidden="true" />
-
-              {/* Bottle Cutout Image */}
-              <img
-                src={bottle.img}
-                alt={bottle.name}
-                className="gm-bottle-img"
-                loading={index === 0 ? 'eager' : 'lazy'}
-                decoding="async"
-              />
-
-              {/* Sleek Minimal Flavor Badge */}
-              <div
-                className={`gm-bottle-badge ${
-                  activeTooltip === bottle.id ? 'is-active' : ''
-                }`}
-                aria-hidden="true"
-              >
-                <span className="gm-badge-tag">{bottle.tag}</span>
-                <span className="gm-badge-name">{bottle.name}</span>
-                <span className="gm-badge-vol">{bottle.volume}</span>
-              </div>
-            </div>
-          </div>
-        ))}
+      {/* Subtle Star Sparkle Decoration */}
+      <div className="ag-sparkle-wrap" aria-hidden="true">
+        <svg className="ag-sparkle-star" viewBox="0 0 24 24" width="30" height="30">
+          <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" fill="#ffffff" opacity="0.8" />
+        </svg>
       </div>
 
-     
+      {/* Bottom Center: Scroll Prompt */}
+      <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
+        <span className="ag-scroll-prompt">SCROLL T DISCOER</span>
+      </div>
     </section>
   );
 }
