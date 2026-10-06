@@ -596,7 +596,7 @@
 
 .banner-hero-container .leaf-left-1 {
 
-  width: 29%;
+  width: %;
 
   top: 33%;
 
@@ -919,69 +919,48 @@
   /* ORANGE */
 
   .banner-hero-container .orange-top-left {
-
-    width: 29%;
-
-    top: 11%;
-
-    left: 5%;
+    width: 28vw;
+    top: -9.5vh;
+    left: -1.5vw;
   }
 
   .banner-hero-container .orange-top-right {
-
-    width: 29%;
-
-    top: 8%;
-
-    right: 10%;
+    width: 29vw;
+    top: -12.5vh;
+    right: 9.5vw;
   }
 
   .banner-hero-container .orange-bottom-right {
-
-    width: 13.5vw;
-
-    bottom: 2%;
-
-    right: 8%;
+    width: 31vw;
+    bottom: -14.2vh;
+    right: 13vw;
   }
 
 
   /* LEAVES */
 
   .banner-hero-container .leaf-left-1 {
-
-    width: 9.5vw;
-
-    top: 38%;
-
-    left: 2%;
+    width: 25vw;
+    top: 29.5vh;
+    left: -1.7vw;
   }
 
   .banner-hero-container .leaf-left-2 {
-
-    width: 5.2vw;
-
-    top: 0%;
-
-    left: 32%;
+    width: 19vw;
+    top: -15.5vh;
+    left: 28vw;
   }
 
   .banner-hero-container .leaf-right-1 {
-
-    width: 4.2vw;
-
-    top: 32%;
-
-    right: 5%;
+    width: 21vw;
+    top: 17.2vh;
+    right: -0.4vw;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-
-    width: 4.2vw;
-
-    bottom: 7%;
-
-    left: 26%;
+    width: 21vw;
+    bottom: -10.3vh;
+    left: 21.4vw;
   }
 
 
@@ -1194,69 +1173,48 @@
   /* ORANGE */
 
   .banner-hero-container .orange-top-left {
-
-    width: 18vw;
-
-    top: 12%;
-
-    left: 4%;
+    width: 28vw;
+    top: -6vh;
+    left: -1vw;
   }
 
   .banner-hero-container .orange-top-right {
-
-    width: 20vw;
-
-    top: 9%;
-
-    right: 7%;
+    width: 29vw;
+    top: -9vh;
+    right: 8vw;
   }
 
   .banner-hero-container .orange-bottom-right {
-
-    width: 22vw;
-
-    bottom: 2%;
-
-    right: 5%;
+    width: 30vw;
+    bottom: -11vh;
+    right: 11vw;
   }
 
 
   /* LEAVES */
 
   .banner-hero-container .leaf-left-1 {
-
-    width: 20vw;
-
-    top: 40%;
-
-    left: 2%;
+    width: 25vw;
+    top: 32vh;
+    left: -1.5vw;
   }
 
   .banner-hero-container .leaf-left-2 {
-
-    width: 8vw;
-
-    top: 1%;
-
-    left: 30%;
+    width: 19vw;
+    top: -12vh;
+    left: 27vw;
   }
 
   .banner-hero-container .leaf-right-1 {
-
-    width: 7vw;
-
-    top: 33%;
-
-    right: 4%;
+    width: 21vw;
+    top: 20vh;
+    right: -0.5vw;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-
-    width: 7vw;
-
-    bottom: 8%;
-
-    left: 25%;
+    width: 21vw;
+    bottom: -8vh;
+    left: 21vw;
   }
 
 
@@ -1536,29 +1494,20 @@
   /* ORANGE */
 
   .banner-hero-container .orange-top-left {
-
-    width: 25vw;
-
-    top: 12%;
-
-    left: 4%;
+    width: 32vw;
+    top: 11%;
+    left: 3%;
   }
 
   .banner-hero-container .orange-top-right {
-
-    width: 30vw;
-
-    top: 9%;
-
-    right: 5%;
+    width: 34vw;
+    top: 8%;
+    right: 4%;
   }
 
   .banner-hero-container .orange-bottom-right {
-
-    width: 31vw;
-
-    bottom: 2%;
-
+    width: 35vw;
+    bottom: 3%;
     right: 4%;
   }
 
@@ -1566,39 +1515,27 @@
   /* LEAVES */
 
   .banner-hero-container .leaf-left-1 {
-
-    width: 20vw;
-
-    top: 42%;
-
-    left: 2%;
+    width: 25vw;
+    top: 40%;
+    left: 1%;
   }
 
   .banner-hero-container .leaf-left-2 {
-
-    width: 13vw;
-
+    width: 19vw;
     top: 2%;
-
-    left: 28%;
+    left: 26%;
   }
 
   .banner-hero-container .leaf-right-1 {
-
-    width: 10.5vw;
-
-    top: 34%;
-
-    right: 3%;
+    width: 17vw;
+    top: 32%;
+    right: 2%;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-
-    width: 10.5vw;
-
+    width: 17vw;
     bottom: 8%;
-
-    left: 24%;
+    left: 22%;
   }
 
 
@@ -1817,29 +1754,20 @@
   /* ORANGE */
 
   .banner-hero-container .orange-top-left {
-
-    width: 23vw;
-
-    top: 13%;
-
+    width: 32vw;
+    top: 12%;
     left: 3%;
   }
 
   .banner-hero-container .orange-top-right {
-
-    width: 27vw;
-
-    top: 10%;
-
+    width: 34vw;
+    top: 9%;
     right: 4%;
   }
 
   .banner-hero-container .orange-bottom-right {
-
-    width: 28vw;
-
-    bottom: 2%;
-
+    width: 35vw;
+    bottom: 3%;
     right: 3%;
   }
 
@@ -1847,39 +1775,27 @@
   /* LEAVES */
 
   .banner-hero-container .leaf-left-1 {
-
-    width: 18vw;
-
-    top: 44%;
-
-    left: 2%;
+    width: 25vw;
+    top: 42%;
+    left: 1%;
   }
 
   .banner-hero-container .leaf-left-2 {
-
-    width: 12vw;
-
+    width: 19vw;
     top: 2%;
-
-    left: 26%;
+    left: 24%;
   }
 
   .banner-hero-container .leaf-right-1 {
-
-    width: 10vw;
-
-    top: 35%;
-
+    width: 17vw;
+    top: 34%;
     right: 2%;
   }
 
   .banner-hero-container .leaf-bottom-mid {
-
-    width: 10vw;
-
+    width: 17vw;
     bottom: 8%;
-
-    left: 22%;
+    left: 20%;
   }
 
 
