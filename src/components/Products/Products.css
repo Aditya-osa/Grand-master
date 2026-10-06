@@ -9,7 +9,7 @@
   height: 100vh;
   min-height: 100svh;
   height: 100dvh;
-  background-color: var(--color-white);
+  background: #ed1b24;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -207,7 +207,7 @@
   max-width: 100%;
   height: clamp(380px, 58vh, 620px);
   transform: translate(-50%, -50%) rotate(10deg);
-  z-index: 5;
+  z-index: 3;
   pointer-events: auto;
   display: flex;
   align-items: center;
@@ -216,6 +216,8 @@
 }
 
 .ag-carousel-track {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: clamp(45px, 7vw, 130px);
@@ -254,46 +256,75 @@
 /* ==========================================================================
    Hero Info Block (VODKA DRINKS, Description, Shop Now CTA)
    ========================================================================== */
+   
+
 
 .ag-hero-info {
   position: absolute;
-  /* Left positioning scales relative to viewport */
-  left: clamp(32px, 5.5vw, 92px);
-  /* Bottom positioning scales relatively */
-  bottom: clamp(65px, 14vh, 135px);
+  top: clamp(70px, 10vh, 120px);
+  right: clamp(32px, 5.5vw, 92px);
+  margin-top: clamp(20px, 5vh, 60px);
+  left: auto;
+  bottom: auto;
+  transform: none;
   z-index: 15;
-  pointer-events: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* CRITICAL: Enforce safe zone. Width must never cross into Mango bottle area */
-  width: min(390px, 32vw);
-  max-width: 390px;
+  width: min(470px, 42vw);
+  max-width: 470px;
   user-select: none;
+}
+
+.ag-vodka-infused-wrap {
+  width: clamp(220px, 23vw, 330px);
+  height: clamp(70px, 7vw, 105px);
+  margin-left: clamp(-55px, -4vw, -25px);
+  margin-bottom: -12px;
+  overflow: visible;
+}
+
+.ag-vodka-infused-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.ag-vodka-infused-text {
+  fill: #fff600;
+  font-family: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  paint-order: stroke fill;
+  stroke: #fff600;
+  stroke-width: 0.5px;
 }
 
 .ag-hero-title {
-  font-family: 'Impact', 'Anton', 'Anybody', sans-serif;
-  font-size: clamp(32px, 4.2vw, 64px);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: 0.02em;
-  color: #c52d28;
-  margin: 0 0 14px 0;
+  margin: 0;
+  margin-top: 15px;
+  font-family: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif;
+  font-size: clamp(58px, 6.3vw, 104px);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.055em;
   text-transform: uppercase;
-  /* Ensure title wraps cleanly inside safe zone on smaller desktops if needed */
+  color: #fff600;
   white-space: nowrap;
-  user-select: none;
+  max-width: none;
+  text-shadow: none;
 }
 
 .ag-hero-desc {
-  font-family: 'Anybody', var(--font-sans), sans-serif;
-  font-size: clamp(14px, 1.15vw, 17px);
+  font-family: "Anybody", var(--font-sans), sans-serif;
+  font-size: clamp(13px, 1.05vw, 16px);
   font-weight: 500;
-  line-height: 1.38;
-  color: #2c2723;
-  margin: 0 0 24px 0;
-  max-width: 270px;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 24px 0 20px 0;
+  max-width: 300px;
   opacity: 0.95;
 }
 
@@ -302,49 +333,34 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #e01b27 0%, #b30f16 100%);
-  color: #ffffff;
-  font-family: 'Anybody', sans-serif;
-  font-size: 13.5px;
+  min-width: 145px;
+  height: 42px;
+  padding: 0 30px;
+  background: #e91b23;
+  color: #fff600;
+  border: 2px solid #fff600;
+  border-radius: 14px;
+  font-family: "Anybody", var(--font-sans), sans-serif;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 12px 34px;
-  border-radius: 999px;
   text-decoration: none;
- 
   cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(230, 255, 0, 0.25), 0 2px 4px rgba(224, 27, 39, 0.2);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-
-/* Stylish shine sweep effect */
-.ag-shop-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-  transform: skewX(-25deg);
-  transition: left 0s; /* No transition when returning to original position */
+  box-shadow: 6px 6px 0 #fff600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .ag-shop-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(230, 255, 0, 0.45), 0 6px 12px rgba(224, 27, 39, 0.3);
-}
-
-.ag-shop-btn:hover::before {
-  left: 200%;
-  transition: left 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translate(3px, 3px);
+  background: #fff600;
+  color: #e91b23;
+  box-shadow: 3px 3px 0 #fff600;
 }
 
 .ag-shop-btn:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 0 2px 8px rgba(230, 255, 0, 0.3);
+  transform: translate(5px, 5px);
+  box-shadow: none;
 }
 
 /* Bottom Right Sparkle Star */
@@ -415,17 +431,7 @@
 
 /* Smaller Desktop: 1280px - 1440px */
 @media (max-width: 1440px) {
-  .ag-hero-info {
-    width: min(340px, 30vw);
-    max-width: 340px;
-  }
-  .ag-hero-title {
-    font-size: clamp(32px, 4vw, 58px);
-  }
-  .ag-hero-desc {
-    font-size: 13.5px;
-    max-width: 240px;
-  }
+  /* Retained for base spacing layout if any, but user logic replaces at 1280px */
 }
 
 @media (max-width: 1280px) {
@@ -438,22 +444,25 @@
   .ag-carousel-track {
     gap: clamp(40px, 6vw, 100px);
   }
+  
   .ag-hero-info {
-    left: clamp(20px, 4vw, 60px);
-    bottom: clamp(50px, 10vh, 100px);
-    width: min(310px, 28vw);
-    max-width: 310px;
+    top: clamp(60px, 8vh, 100px);
+    right: clamp(20px, 4vw, 60px);
+    margin-top: clamp(10px, 4vh, 40px);
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: min(430px, 44vw);
+    max-width: 430px;
   }
   .ag-hero-title {
-    font-size: clamp(28px, 3.8vw, 52px);
+    font-size: clamp(52px, 6vw, 82px);
   }
-  .ag-hero-desc {
-    font-size: 13px;
-    max-width: 220px;
+  .ag-vodka-infused-wrap {
+    width: clamp(210px, 22vw, 300px);
   }
-  .ag-shop-btn {
-    padding: 10px 28px;
-    font-size: 12.5px;
+  .ag-vodka-infused-text {
+    font-size: 25px;
   }
 }
 
@@ -462,19 +471,45 @@
   .ag-marquee-stage {
     height: clamp(340px, 50vh, 500px);
   }
-
   .ag-carousel-img {
     height: clamp(250px, 40vh, 440px);
   }
-
   .ag-carousel-track {
     gap: clamp(32px, 5.5vw, 75px);
   }
 
   .ag-hero-info {
-    left: clamp(20px, 4vw, 40px);
-    bottom: clamp(40px, 8vh, 75px);
-    max-width: 320px;
+    top: clamp(50px, 7vh, 80px);
+    right: clamp(20px, 4vw, 40px);
+    margin-top: clamp(10px, 3vh, 30px);
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 430px;
+    max-width: 55vw;
+  }
+  .ag-hero-title {
+    font-size: clamp(46px, 7vw, 70px);
+  }
+  .ag-vodka-infused-wrap {
+    width: 230px;
+    height: 80px;
+    margin-left: -25px;
+  }
+  .ag-vodka-infused-text {
+    font-size: 23px;
+  }
+  .ag-hero-desc {
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 18px;
+  }
+  .ag-shop-btn {
+    min-width: 130px;
+    height: 38px;
+    font-size: 11px;
+    padding: 0 25px;
+    box-shadow: 5px 5px 0 #fff600;
   }
 }
 
@@ -483,63 +518,69 @@
   .ag-header {
     padding: 18px 16px;
   }
-
   .ag-brand-logo-wrap {
     top: 16px;
   }
-
   .ag-brand-logo-img {
     width: 110px;
   }
-
   .ag-marquee-stage {
     height: clamp(310px, 46vh, 420px);
     transform: translate(-50%, -50%) rotate(8deg);
   }
-
   .ag-carousel-img {
     height: clamp(230px, 36vh, 360px);
   }
-
   .ag-carousel-track {
     gap: clamp(24px, 4.5vw, 50px);
   }
-
   .ag-menu-pill {
     min-width: 75px;
     padding: 0 14px;
     font-size: 12px;
   }
 
+  .ag-hero {
+    min-height: 100svh;
+  }
   .ag-hero-info {
-    left: 20px;
-    bottom: 45px;
-    max-width: 260px;
+    top: auto;
+    left: 50%;
+    bottom: 80px;
+    right: auto;
+    margin-top: 0;
+    width: calc(100% - 40px);
+    max-width: 360px;
+    transform: translateX(-50%);
   }
-
   .ag-vodka-infused-wrap {
-    width: 160px;
-    margin-bottom: -6px;
+    width: 190px;
+    height: 65px;
+    margin-left: -15px;
+    margin-bottom: -5px;
   }
-
   .ag-vodka-infused-text {
-    font-size: 24px;
+    font-size: 21px;
   }
-
   .ag-hero-title {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: clamp(42px, 13vw, 62px);
+    line-height: 0.88;
+    letter-spacing: -0.06em;
   }
-
   .ag-hero-desc {
-    font-size: 13px;
-    margin-bottom: 16px;
-    max-width: 230px;
-  }
-
-  .ag-shop-btn {
-    padding: 9px 24px;
     font-size: 12px;
+    line-height: 1.4;
+    margin-top: 18px;
+    margin-bottom: 17px;
+    max-width: 240px;
+  }
+  .ag-shop-btn {
+    min-width: 125px;
+    height: 36px;
+    padding: 0 22px;
+    font-size: 10.5px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 #fff600;
   }
 }
 
@@ -548,85 +589,75 @@
   .ag-header {
     padding: 14px 12px;
   }
-
   .ag-brand-logo-img {
     width: 96px;
   }
-
   .ag-marquee-stage {
     height: clamp(280px, 42vh, 340px);
     transform: translate(-50%, -50%) rotate(7deg);
   }
-
   .ag-carousel-img {
     height: clamp(200px, 34vh, 290px);
   }
-
   .ag-carousel-track {
     gap: 22px;
   }
-
   .ag-scroll-prompt {
     font-size: 9px;
     letter-spacing: 0.12em;
   }
+}
 
+/* Small Mobile: 320px–480px */
+@media (max-width: 480px) {
   .ag-hero-info {
-    left: 16px;
-    bottom: 40px;
-    max-width: 220px;
+    bottom: 65px;
+    width: calc(100% - 32px);
   }
-
   .ag-vodka-infused-wrap {
-    width: 140px;
-    margin-bottom: -4px;
+    width: 165px;
+    height: 58px;
   }
-
+  .ag-vodka-infused-text {
+    font-size: 18px;
+  }
   .ag-hero-title {
-    font-size: 30px;
+    font-size: clamp(37px, 12vw, 52px);
   }
-
   .ag-hero-desc {
-    font-size: 12px;
-    margin-bottom: 14px;
-  }
-
-  .ag-shop-btn {
-    padding: 8px 20px;
     font-size: 11.5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .ag-shop-btn {
+    min-width: 115px;
+    height: 34px;
+    padding: 0 18px;
+    font-size: 10px;
+    box-shadow: 3px 3px 0 #fff600;
   }
 }
 
-/* Small Mobile: 320px–374px */
 @media (max-width: 374px) {
   .ag-header {
     padding: 12px 10px;
   }
-
   .ag-brand-logo-img {
     width: 88px;
   }
-
   .ag-marquee-stage {
     height: 260px;
     transform: translate(-50%, -50%) rotate(6deg);
   }
-
   .ag-carousel-img {
     height: 185px;
   }
-
   .ag-carousel-track {
     gap: 18px;
   }
-
   .ag-scroll-prompt {
     font-size: 8.5px;
     letter-spacing: 0.1em;
-  }
-
-  .ag-hero-title {
-    font-size: 26px;
   }
 }
 

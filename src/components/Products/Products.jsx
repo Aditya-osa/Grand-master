@@ -115,21 +115,40 @@ export default function Products() {
 
       {/* Bottom Left: Vodka Drinks Hero Info Block matching screenshot */}
       <div ref={infoRef} className="ag-hero-info">
-        <h2 className="ag-hero-title">VODKA DRINKS</h2>
+        {/* Curved heading */}
+        <div className="ag-vodka-infused-wrap">
+          <svg
+            className="ag-vodka-infused-svg"
+            viewBox="0 0 360 120"
+            aria-hidden="true"
+          >
+            <defs>
+              <path id="vodkaArcHero" d="M 35,100 Q 180,-10 325,100" />
+            </defs>
+
+            <text className="ag-vodka-infused-text" textAnchor="middle">
+              <textPath href="#vodkaArcHero" startOffset="50%">
+                Alcohol Infused
+              </textPath>
+            </text>
+          </svg>
+        </div>
+
+        {/* Main title */}
+        <h2 className="ag-hero-title">VODKA <br/>DRINKS</h2>
+
+        {/* Description */}
         <p className="ag-hero-desc">
-          Amazing, smooth, premium<br />vodkas for all occasions.
+          Amazing, smooth, premium<br />
+          vodkas for all occasions.
         </p>
+
+        {/* Button */}
         <a href="#shop" className="ag-shop-btn">
-         View More
+          View More
         </a>
       </div>
 
-      {/* Subtle Star Sparkle Decoration */}
-      <div className="ag-sparkle-wrap" aria-hidden="true">
-        <svg className="ag-sparkle-star" viewBox="0 0 24 24" width="30" height="30">
-          <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" fill="#ffffff" opacity="0.8" />
-        </svg>
-      </div>
 
       {/* Bottom Center: Scroll Prompt */}
       <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
