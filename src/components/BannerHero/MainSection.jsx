@@ -2,7 +2,7 @@ import React from 'react';
 import InfoBox from './InfoBox';
 import Decorations from './Decorations';
 import chocolateBottle from '../../assets/bottles/chocolate-bottle.png';
-import melonBottle from '../../assets/bottles/all-flav/4.png';
+import melonBottle from '../../assets/bottles/all-flav/4_orig_1920.png';
 import mangoBottle from '../../assets/bottles/all-flav/3.png';
 import blueberryBottle from '../../assets/bottles/Blue berry bottle.png';
 
