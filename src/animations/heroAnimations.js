@@ -135,12 +135,14 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
     const track = trackRef.current;
     if (!track) return;
 
-    const INITIAL_FOCAL_INDEX = 2; // Index 2 (Cipolla in Agrodolce) starts centered as shown in screenshot
+    const INITIAL_FOCAL_INDEX = 2; // Index 2 (Mango) starts centered as shown in screenshot
 
     const getStartX = () => {
       const bottleEls = getBottleEls();
-      if (bottleEls.length > INITIAL_FOCAL_INDEX && bottleEls[INITIAL_FOCAL_INDEX] && bottleEls[0]) {
-        return -(bottleEls[INITIAL_FOCAL_INDEX].offsetLeft - bottleEls[0].offsetLeft);
+      if (bottleEls.length > INITIAL_FOCAL_INDEX && bottleEls[INITIAL_FOCAL_INDEX]) {
+        const focalEl = bottleEls[INITIAL_FOCAL_INDEX];
+        const focalCenter = focalEl.offsetLeft + (focalEl.offsetWidth || 180) / 2;
+        return (window.innerWidth / 2) - focalCenter;
       }
       return 0;
     };
@@ -149,10 +151,13 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
       const bottleEls = getBottleEls();
       const lastIndex = bottleEls.length - 1;
       if (bottleEls[lastIndex] && bottleEls[INITIAL_FOCAL_INDEX]) {
-        // Stop exactly when the last bottle reaches the center spotlight (zero empty space)
-        return bottleEls[lastIndex].offsetLeft - bottleEls[INITIAL_FOCAL_INDEX].offsetLeft;
+        const focalEl = bottleEls[INITIAL_FOCAL_INDEX];
+        const lastEl = bottleEls[lastIndex];
+        const focalCenter = focalEl.offsetLeft + (focalEl.offsetWidth || 180) / 2;
+        const lastCenter = lastEl.offsetLeft + (lastEl.offsetWidth || 180) / 2;
+        return Math.max(lastCenter - focalCenter, window.innerWidth * 0.5);
       }
-      return window.innerWidth * 0.45;
+      return window.innerWidth * 0.6;
     };
 
     // Real-time bottle center proximity & magnification engine
@@ -160,11 +165,13 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
       const isMobile = window.innerWidth <= 768;
       const isSmallMobile = window.innerWidth <= 480;
       const centerX = window.innerWidth / 2;
-      const maxDistance = isMobile ? window.innerWidth * 0.45 : Math.min(window.innerWidth * 0.38, 380);
+      const maxDistance = isMobile
+        ? window.innerWidth * 0.48
+        : Math.min(window.innerWidth * 0.36, 420);
       const bottleEls = getBottleEls();
 
       const baseScale = isSmallMobile ? 0.78 : isMobile ? 0.82 : 0.85;
-      const maxBoost = isSmallMobile ? 0.32 : isMobile ? 0.42 : 0.55;
+      const maxBoost = isSmallMobile ? 0.34 : isMobile ? 0.44 : 0.55;
 
       bottleEls.forEach((el) => {
         if (!el) return;
@@ -181,12 +188,13 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         const targetScale = baseScale + smoothCurve * maxBoost;
         const targetZIndex = smoothCurve > 0.55 ? 30 : smoothCurve > 0.2 ? 20 : 10;
         
-        // Counter-rotate when centered (+4deg) like the reference; tilt outwards when left (-16deg) or right (+14deg)
-        const baseTilt = bottleCenter < centerX ? -16 : 14;
-        const targetRotation = (1 - smoothCurve) * baseTilt + smoothCurve * 4;
+        // Continuous smooth 3D rotation: tilts outward on sides (-15deg left, +14deg right), stands proud (+4deg) at center
+        const offsetRatio = Math.max(-1, Math.min(1, (bottleCenter - centerX) / maxDistance));
+        const flankingTilt = offsetRatio < 0 ? -15 * Math.abs(offsetRatio) : 14 * offsetRatio;
+        const targetRotation = flankingTilt * (1 - smoothCurve * 0.75) + 4 * smoothCurve;
         
         // Subtle focus blur on flanking bottles for photographic depth of field
-        const blurAmount = Math.max(0, (1 - smoothCurve) * (isMobile ? 0.4 : 0.7));
+        const blurAmount = Math.max(0, (1 - smoothCurve) * (isMobile ? 0.35 : 0.65));
 
         gsap.set(el, {
           scale: targetScale,
@@ -211,9 +219,9 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: () => `+=${getTravelDistance()}`,
+          end: () => `+=${Math.max(getTravelDistance() * 1.25, window.innerHeight * 2)}`,
           pin: true,
-          scrub: 1,
+          scrub: 1.2,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: () => {

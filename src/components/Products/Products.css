@@ -220,7 +220,7 @@
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: clamp(45px, 7vw, 130px);
+  gap: clamp(160px, 16vw, 280px);
   padding-left: 50vw;
   padding-right: 50vw;
   pointer-events: auto;
@@ -229,14 +229,15 @@
 
 .ag-carousel-item {
   flex: 0 0 auto;
-  position: relative; /* Added for tooltip positioning */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  transform: translateY(190px);
   transform-origin: center center;
   will-change: transform, filter;
-  transition: filter 0.2s ease;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .ag-carousel-img {
@@ -489,7 +490,7 @@
     height: clamp(260px, 42vh, 480px);
   }
   .ag-carousel-track {
-    gap: clamp(40px, 6vw, 100px);
+    gap: clamp(130px, 14vw, 220px);
   }
   
   .ag-hero-info {
@@ -522,7 +523,7 @@
     height: clamp(250px, 40vh, 440px);
   }
   .ag-carousel-track {
-    gap: clamp(32px, 5.5vw, 75px);
+    gap: clamp(100px, 12vw, 170px);
   }
 
   .ag-hero-info {
@@ -579,7 +580,7 @@
     height: clamp(230px, 36vh, 360px);
   }
   .ag-carousel-track {
-    gap: clamp(24px, 4.5vw, 50px);
+    gap: clamp(75px, 11vw, 130px);
   }
   .ag-menu-pill {
     min-width: 75px;
@@ -647,7 +648,7 @@
     height: clamp(200px, 34vh, 290px);
   }
   .ag-carousel-track {
-    gap: 22px;
+    gap: clamp(55px, 13vw, 95px);
   }
   .ag-scroll-prompt {
     font-size: 9px;
@@ -707,7 +708,7 @@
     height: 185px;
   }
   .ag-carousel-track {
-    gap: 18px;
+    gap: clamp(45px, 12vw, 75px);
   }
   .ag-scroll-prompt {
     font-size: 8.5px;

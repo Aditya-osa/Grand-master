@@ -6,12 +6,12 @@ import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnima
 import './Products.css';
 
 import bottle1 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
-import bottle2 from '../../assets/bottles/chocolate-bottle.png'; // Chocolate (Transparent Cutout)
-import bottle3 from '../../assets/bottles/all-flav/3.png'; // Mango
-import bottle4 from '../../assets/bottles/all-flav/4.png'; // Melon
-import bottle5 from '../../assets/bottles/all-flav/5.png'; // Blue Berry
+import bottle2 from '../../assets/Products/1.png';
+import bottle3 from '../../assets/Products/6.png'; // Mango
+import bottle4 from '../../assets/Products/5.png'; // Melon
+import bottle5 from '../../assets/Products/4.png'; // Blue Berry
 import bottle6 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
-import bottle7 from '../../assets/bottles/all-flav/7.png'; // Orange
+import bottle7 from '../../assets/Products/3.png'; // Orange
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -109,8 +109,9 @@ export default function Products() {
                   src={product.img}
                   alt={product.name}
                   className="ag-carousel-img"
-                  loading={idx < 4 ? 'eager' : 'lazy'}
+                  loading="eager"
                   decoding="async"
+                  onLoad={() => ScrollTrigger.refresh()}
                 />
                 <div className="ag-bottle-info">
                   <span className="ag-bottle-name">{product.name}</span>
