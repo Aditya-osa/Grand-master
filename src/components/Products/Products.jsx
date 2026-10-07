@@ -161,7 +161,7 @@ export default function Products() {
 
       {/* Bottom Center: Scroll Prompt */}
       <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
-        <span className="ag-scroll-prompt">SCROLL T DISCOER</span>
+        <span className="ag-scroll-prompt">SCROLL To DISCOVER</span>
       </div>
     </section>
   );
