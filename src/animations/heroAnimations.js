@@ -55,11 +55,14 @@ export const initHeroEntrance = ({
       gsap.set(infoRef.current, { opacity: 0, y: 30 });
     }
 
-    // Set initial bottle states
+    const isMobile = window.innerWidth <= 768;
+    const initialBottleY = isMobile ? 260 : 380;
+
+    // Set initial bottle states: bottles start deep from low
     gsap.set(bottleEls, {
       opacity: 0,
-      y: 50,
-      scale: 0.8,
+      y: initialBottleY,
+      scale: 0.75,
     });
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -76,15 +79,15 @@ export const initHeroEntrance = ({
       tl.to(infoRef.current, { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, '-=0.7');
     }
 
-    // Stagger bottles into view
+    // Stagger bottles into view rising up smoothly from low
     tl.to(
       bottleEls,
       {
         opacity: 1,
         y: 0,
-        duration: 1.1,
-        stagger: 0.08,
-        ease: 'elastic.out(1, 0.85)',
+        duration: 1.25,
+        stagger: 0.09,
+        ease: 'power3.out',
       },
       '-=0.7'
     );
@@ -93,9 +96,10 @@ export const initHeroEntrance = ({
       tl.to(promptRef.current, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
     }
 
-    // Gentle ambient float on bottles
+    // Gentle ambient float on bottle images
     bottleEls.forEach((el, i) => {
-      gsap.to(el, {
+      const img = el.querySelector('.ag-carousel-img') || el;
+      gsap.to(img, {
         y: (i % 2 === 0 ? '-=' : '+=') + 8,
         duration: 3 + (i % 3) * 0.5,
         repeat: -1,
@@ -193,10 +197,14 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         const flankingTilt = offsetRatio < 0 ? -15 * Math.abs(offsetRatio) : 14 * offsetRatio;
         const targetRotation = flankingTilt * (1 - smoothCurve * 0.75) + 4 * smoothCurve;
         
+        // Bottles start lower on flanks and lift gracefully into center spotlight
+        const liftY = (1 - smoothCurve) * (isMobile ? 35 : 65);
+
         // Subtle focus blur on flanking bottles for photographic depth of field
         const blurAmount = Math.max(0, (1 - smoothCurve) * (isMobile ? 0.35 : 0.65));
 
         gsap.set(el, {
+          y: liftY,
           scale: targetScale,
           rotation: targetRotation,
           zIndex: targetZIndex,
