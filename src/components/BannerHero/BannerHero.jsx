@@ -16,6 +16,38 @@ export default function BannerHero() {
   const currentFlavourRef = useRef(0); // 0 = Orange, 1 = Mango, 2 = Strawberry, 3 = Chocolate, 4 = Melon, 5 = Blueberry
   const isAnimatingRef = useRef(false);
 
+  const handleSkipHero = () => {
+    const heroEl = heroRef.current;
+
+    // Stop current animations
+    if (entryTlRef.current) {
+      entryTlRef.current.pause();
+    }
+
+    if (tlRef.current) {
+      tlRef.current.pause();
+    }
+
+    // Mark hero as completed
+    currentFlavourRef.current = 5;
+    isAnimatingRef.current = false;
+
+    // Allow normal page scrolling
+    if (heroEl) {
+      heroEl.removeAttribute('data-lenis-prevent');
+    }
+
+    // Scroll to the section immediately after Hero
+    const nextSection = heroEl?.nextElementSibling;
+
+    if (nextSection) {
+      nextSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   useEffect(() => {
     const heroEl = heroRef.current;
     if (!heroEl) return;
@@ -1188,6 +1220,18 @@ export default function BannerHero() {
       aria-label="Grand Master Hero Banner"
     >
       <MainSection />
+
+      <button
+        type="button"
+        className="gm-skip-hero"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleSkipHero();
+        }}
+      >
+        <span>SKIP</span>
+        <span className="gm-skip-arrow">→</span>
+      </button>
     </section>
   );
 }

@@ -2529,3 +2529,89 @@ width: 19.5vw;
     line-height: 1.25;
   }
 }
+
+/* ==========================================================================
+   SKIP HERO BUTTON
+   ========================================================================== */
+
+.gm-skip-hero {
+  position: absolute;
+  left: 50%;
+  bottom: 3vh;
+  transform: translateX(-50%);
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+
+  color: #ffffff;
+
+  font-family: 'Anybody', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gm-skip-arrow {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.gm-skip-hero:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #ffffff;
+  transform: translate(-50%, -2px);
+}
+
+.gm-skip-hero:hover .gm-skip-arrow {
+  transform: translateX(4px);
+}
+
+.gm-skip-hero:active {
+  transform: translate(-50%, 0);
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  .gm-skip-hero {
+    left: 50%;
+    right: auto;
+    bottom: 18px;
+    transform: translateX(-50%);
+    padding: 8px 14px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .gm-skip-hero:hover {
+    transform: translate(-50%, -2px);
+  }
+
+  .gm-skip-hero:active {
+    transform: translate(-50%, 0);
+  }
+
+  .gm-skip-arrow {
+    font-size: 14px;
+  }
+}

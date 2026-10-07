@@ -12,18 +12,28 @@ import bottle4 from '../../assets/Products/5.png'; // Melon
 import bottle5 from '../../assets/Products/4.png'; // Blue Berry
 import bottle6 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
 import bottle7 from '../../assets/Products/3.png'; // Orange
-
+import bottle8 from '../../assets/Products/Blue curacao.png'; // Blue Curacao
+import bottle9 from '../../assets/Products/Plain.png';
+import bottle10 from '../../assets/Products/Green Apple.png';
+import bottle11 from '../../assets/Products/Cranberry.png';
+import bottle12 from '../../assets/Products/Zesty lemon.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const PRODUCTS = [
   { id: 'strawberry', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle1 },
   { id: 'chocolate', name: "Grand Master's Chocolate", tag: 'Platinum Vodka', img: bottle2 },
-  { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img: bottle3 },
+  { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img: bottle3 }, 
+  { id: 'cranberry', name: "Grand Master's Cranberry", tag: 'Platinum Vodka', img: bottle11 },
+  { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Platinum Vodka', img: bottle10 },
   { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottle4 },
+  { id: 'zesty-lemon', name: "Grand Master's Zesty Lemon", tag: 'Platinum Vodka', img: bottle12 },
   { id: 'blueberry', name: "Grand Master's Blue Berry", tag: 'Platinum Vodka', img: bottle5 },
   { id: 'strawberry-2', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle6 },
   { id: 'orange', name: "Grand Master's Orange", tag: 'Platinum Vodka', img: bottle7 },
+  { id: 'blue-curacao', name: "Grand Master's Blue Curacao", tag: 'Platinum Vodka', img: bottle8 },
+  { id: 'plain', name: "Grand Master's Plain", tag: 'Platinum Vodka', img: bottle9 },
+ 
 ];
 
 export default function Products() {
