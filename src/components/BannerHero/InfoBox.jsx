@@ -7,6 +7,10 @@ const InfoBox = () => {
         <h2>ORANGE</h2>
         <p>Pleasant citrus aroma, complemented by refreshing orange taste</p>
       </div>
+      <div className="info-box" id="info-mango">
+        <h2>MANGO</h2>
+        <p>Luscious tropical sweetness, complemented by juicy ripe mango aroma</p>
+      </div>
       <div className="info-box" id="info-strawberry">
         <h2>STRAWBERRY</h2>
         <p>Pleasant mild aroma, complemented by sweet strawberry taste</p>
@@ -19,7 +23,10 @@ const InfoBox = () => {
       <div className="info-box" id="info-melon">
         <h2>MELON</h2>
         <p>Pleasant mild aroma, complemented by sweet strawberry taste</p>
-      
+      </div>
+      <div className="info-box" id="info-blueberry">
+        <h2>BLUEBERRY</h2>
+        <p>Vibrant wild berry notes, complemented by rich aromatic sweetness</p>
       </div>
     </>
   );

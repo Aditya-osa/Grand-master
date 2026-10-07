@@ -34,17 +34,23 @@
    ========================================================================== */
 
 #fanta,
+#fanta-mango,
 #fanta2,
 #fanta3,
 #fanta4,
+#fanta-blueberry,
 #orange-text,
+#mango-text,
 #strawberry-text,
 #chocolate-text,
 #melon-text,
+#blueberry-text,
 #info-orange,
+#info-mango,
 #info-strawberry,
 #info-chocolate,
 #info-melon,
+#info-blueberry,
 #orange,
 #leaf,
 #leaf2,
@@ -118,6 +124,25 @@
   opacity: 1;
 }
 
+.banner-hero-container .bg-mango {
+  background:
+    radial-gradient(
+      ellipse 55% 50% at 50% 46%,
+      rgba(255, 245, 175, 0.42) 0%,
+      rgba(251, 191, 36, 0.22) 42%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 85% 82% at 50% 48%,
+      #ffb300 0%,
+      #f59e0b 28%,
+      #d97706 62%,
+      #9a3412 100%
+    );
+
+  opacity: 0;
+}
+
 .banner-hero-container .bg-strawberry {
   background:
     radial-gradient(
@@ -158,6 +183,19 @@
       #a6bc7a 40%,
       #9ab06f 75%,
       #8e9f64 100%
+    );
+
+  opacity: 0;
+}
+
+.banner-hero-container .bg-blueberry {
+  background:
+    radial-gradient(
+      ellipse 75% 70% at 50% 50%,
+      #a2c0fa 0%,
+      #93b3f7 40%,
+      #86a8f3 75%,
+      #7b9ee8 100%
     );
 
   opacity: 0;
@@ -212,6 +250,16 @@
   transform: translateX(0);
 }
 
+.banner-hero-container #mango-text {
+  z-index: 1;
+
+  opacity: 0;
+
+  color: #ffffff;
+
+  transform: translateX(100vw);
+}
+
 .banner-hero-container #strawberry-text {
   z-index: 1;
 
@@ -240,6 +288,18 @@
   opacity: 0;
 
   color: #3b6e15;
+
+  transform: translateX(100vw);
+}
+
+.banner-hero-container #blueberry-text {
+  z-index: 1;
+
+  opacity: 0;
+
+  color: #0047bb;
+
+  text-shadow: 0 4px 24px rgba(0, 40, 140, 0.16);
 
   transform: translateX(100vw);
 }
@@ -299,9 +359,11 @@
    ========================================================================== */
 
 .banner-hero-container #fanta,
+.banner-hero-container #fanta-mango,
 .banner-hero-container #fanta2,
 .banner-hero-container #fanta3,
-.banner-hero-container #fanta4 {
+.banner-hero-container #fanta4,
+.banner-hero-container #fanta-blueberry {
 
   /*
      Bottle size controlled by viewport height.
@@ -340,6 +402,20 @@
     saturate(1.16)
     drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
     drop-shadow(0 0 55px rgba(255, 175, 45, 0.48));
+}
+
+/* Mango bottle */
+.banner-hero-container #fanta-mango {
+  opacity: 0;
+
+  transform: translateY(-100vh) rotate(14deg);
+
+  filter:
+    brightness(1.08)
+    contrast(1.06)
+    saturate(1.16)
+    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 55px rgba(245, 158, 11, 0.5));
 }
 
 
@@ -388,6 +464,21 @@
     saturate(1.16)
     drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
     drop-shadow(0 0 55px rgba(110, 245, 50, 0.45));
+}
+
+/* Blueberry bottle */
+
+.banner-hero-container #fanta-blueberry {
+  opacity: 0;
+
+  transform: translateY(-100vh) rotate(14deg);
+
+  filter:
+    brightness(1.08)
+    contrast(1.06)
+    saturate(1.16)
+    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 55px rgba(37, 99, 235, 0.55));
 }
 
 
@@ -524,9 +615,11 @@
   pointer-events: auto;
 }
 
+.banner-hero-container #info-mango,
 .banner-hero-container #info-strawberry,
 .banner-hero-container #info-chocolate,
-.banner-hero-container #info-melon {
+.banner-hero-container #info-melon,
+.banner-hero-container #info-blueberry {
 
   opacity: 0;
 
@@ -562,6 +655,73 @@
   backface-visibility: hidden;
 
   -webkit-backface-visibility: hidden;
+}
+
+
+/* ==========================================================================
+   BLUEBERRY DECOR
+   Reference: 1600 x 900
+   ========================================================================== */
+
+.banner-hero-container .decor-blueberry {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Top-left blueberry cluster with leaves */
+.banner-hero-container .blueberry-top-left {
+     width: 20.5vw;
+    top: -1.5%;
+    left: 17.2%;
+    transform: rotate(0deg) !important;
+}
+
+/* Upper-right blueberry scatter (single berry + trio) */
+.banner-hero-container .blueberry-top-right {
+ width: 24vw;
+    top: -1.5%;
+    right: 17%;
+    transform: rotate(0deg) !important;
+}
+
+/* Bottom blueberry trio cluster */
+.banner-hero-container .blueberry-bottom-right {
+    width: 16vw;
+    bottom: -2%;
+    right: 34.5%;
+  transform: rotate(0deg) !important;
+}
+
+/* =========================
+   LEAVES
+   ========================= */
+
+/* Left middle leaf */
+.banner-hero-container .blueberry-leaf-left-1 {
+  width: 8vw;
+  top: 51.5%;
+  left: 2.5%;
+  transform: rotate(-15deg);
+}
+
+/* Top-right leaf */
+.banner-hero-container .blueberry-leaf-top-mid {
+  width: 10vw;
+  top: 10%;
+  right: -1%;
+  left: auto;
+  transform: rotate(8deg) !important;
+}
+
+/* Bottom-right leaf */
+.banner-hero-container .blueberry-leaf-bottom-mid {
+  width: 12vw;
+  bottom: 9%;
+  right: 7.5%;
+  left: auto;
+  transform: rotate(18deg) !important;
 }
 
 
@@ -676,6 +836,67 @@ width: 9vw;
 
 
 /* ==========================================================================
+   MANGO DECOR (Orange-like Layout & Structure)
+   ========================================================================== */
+
+.banner-hero-container .decor-mango {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.banner-hero-container .mango-top-left {
+  width: 25vw;
+  top: 1vh;
+  left: 6vw;
+  transform: rotate(25deg) !important;
+}
+
+.banner-hero-container .mango-top-right {
+  width: 27vw;
+    top: 56.5vh;
+    right: 20.5vw;
+     transform: none !important;
+}
+
+.banner-hero-container .mango-bottom-right {
+      width: 26vw;
+    bottom: 21vh;
+    right: -8vw;
+  transform: rotate(8deg);
+}
+
+.banner-hero-container .mango-leaf-left-1 {
+  width: 10vw;
+  top: 49vh;
+  left: 2.2vw;
+  transform: none !important;
+}
+
+.banner-hero-container .mango-leaf-top-mid {
+ width: 10vw;
+    top: -9vh;
+    left: 38vw;
+    transform: rotate(59deg) !important;
+}
+
+.banner-hero-container .mango-leaf-right-1 {
+  width: 25vw;
+  top: 23vh;
+  right: -8.5vw;
+  transform: rotate(65deg);
+}
+
+.banner-hero-container .mango-leaf-bottom-mid {
+ width: 11vw;
+    top: 10vh;
+    right: 16.5vw;
+    transform: rotate(247deg) !important;
+}
+
+
+/* ==========================================================================
    STRAWBERRY DECOR
    ========================================================================== */
 
@@ -688,31 +909,31 @@ width: 9vw;
 
 .banner-hero-container .strawberry-top-left {
 
-  width: 9.5vw;
+  width: 18.5vw;
 
-  top: 10%;
+  top: 3%;
 
-  left: 8%;
+  left: 17%;
 
   transform: rotate(-12deg);
 }
 
 .banner-hero-container .strawberry-leaf-top-mid {
 
-  width: 5.5vw;
+  width: 10.5vw;
 
-  top: 3%;
+  top: -9%;
 
-  left: 30%;
+  left: 41%;
 
-  transform: rotate(-25deg);
+  transform: rotate(1deg) !important;
 }
 
 .banner-hero-container .strawberry-top-right {
 
-  width: 11vw;
+  width: 16vw;
 
-  top: 8%;
+  top: 4%;
 
   right: 18%;
 
@@ -721,55 +942,42 @@ width: 9vw;
 
 .banner-hero-container .strawberry-leaf-right-mid {
 
-  width: 4.8vw;
+  width: 10.8vw;
 
-  top: 17%;
+  top: 11%;
 
-  right: 8%;
+  right: -4%;
 
-  transform: rotate(55deg);
+  transform: rotate(176deg) !important;
 }
 
 .banner-hero-container .strawberry-leaf-bottom-left {
 
-  width: 7.5vw;
-
-  bottom: 16%;
-
-  left: 0%;
-
-  transform: rotate(-35deg);
+  width: 8.5vw;
+    bottom: 0%;
+    left: -3%;
+    transform: rotate(-101deg) !important;
 }
 
 .banner-hero-container .strawberry-bottom-mid {
 
-  width: 9.5vw;
+  width: 14.5vw;
 
-  bottom: 9%;
+  bottom: 5%;
 
-  left: 60%;
+  left: 56%;
 
   transform: rotate(8deg);
 }
 
-.banner-hero-container .strawberry-bottom-small {
-
-  width: 4.5vw;
-
-  bottom: 11%;
-
-  left: 55.5%;
-
-  transform: rotate(-15deg);
-}
 
 .banner-hero-container .strawberry-leaf-cluster {
 
-  width: 6vw;
+  width: 15vw;
 
-  bottom: 12%;
+  bottom: 8%;
 
-  right: 7%;
+  right: -2%;
 
   transform: rotate(10deg);
 }
@@ -886,9 +1094,11 @@ width: 9vw;
   }
 
   .banner-hero-container #fanta,
+  .banner-hero-container #fanta-mango,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
-  .banner-hero-container #fanta4 {
+  .banner-hero-container #fanta4,
+  .banner-hero-container #fanta-blueberry {
 
     height: 76vh;
 
@@ -933,9 +1143,11 @@ width: 9vw;
   }
 
   .banner-hero-container #fanta,
+  .banner-hero-container #fanta-mango,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
-  .banner-hero-container #fanta4 {
+  .banner-hero-container #fanta4,
+  .banner-hero-container #fanta-blueberry {
 
     height: 68vh;
 
@@ -999,8 +1211,87 @@ width: 9vw;
     bottom: -28.5vh;
     left: 20.5vw;
     transform: rotate(25deg) !important;
+  }
 
-    
+  /* MANGO */
+  .banner-hero-container .mango-top-left {
+    width: 28vw;
+    top: -9.5vh;
+    left: -1.5vw;
+  }
+
+  .banner-hero-container .mango-top-right {
+    width: 29vw;
+    top: -12.5vh;
+    right: 9.5vw;
+  }
+
+  .banner-hero-container .mango-bottom-right {
+    width: 30vw;
+    bottom: -19.5vh;
+    right: 13vw;
+  }
+
+  .banner-hero-container .mango-leaf-left-1 {
+    width: 25vw;
+    top: 29.5vh;
+    left: -1.7vw;
+  }
+
+  .banner-hero-container .mango-leaf-top-mid {
+    width: 27vw;
+    top: -21vh;
+    left: 25vw;
+  }
+
+  .banner-hero-container .mango-leaf-right-1 {
+    width: 28vw;
+    top: 12vh;
+    right: -2.5vw;
+  }
+
+  .banner-hero-container .mango-leaf-bottom-mid {
+    width: 28vw;
+    bottom: -28.5vh;
+    left: 20.5vw;
+    transform: rotate(25deg) !important;
+  }
+
+  /* BLUEBERRY */
+  .banner-hero-container .blueberry-top-left {
+    width: 22vw;
+    top: 8vh;
+    left: 4vw;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 20vw;
+    top: 6vh;
+    right: 10vw;
+  }
+
+  .banner-hero-container .blueberry-bottom-right {
+    width: 24vw;
+    bottom: 5vh;
+    right: 8vw;
+  }
+
+  .banner-hero-container .blueberry-leaf-left-1 {
+    width: 16vw;
+    top: 40vh;
+    left: 1vw;
+  }
+
+  .banner-hero-container .blueberry-leaf-top-mid {
+    width: 15vw;
+    top: -5vh;
+    left: 33vw;
+  }
+
+  .banner-hero-container .blueberry-leaf-bottom-mid {
+    width: 15vw;
+    bottom: 4vh;
+    left: 24vw;
   }
 
 
@@ -1060,14 +1351,7 @@ width: 9vw;
     left: 59%;
   }
 
-  .banner-hero-container .strawberry-bottom-small {
-
-    width: 3.8vw;
-
-    bottom: 12%;
-
-    left: 55%;
-  }
+ 
 
   .banner-hero-container .strawberry-leaf-cluster {
 
@@ -1191,9 +1475,11 @@ width: 9vw;
   }
 
   .banner-hero-container #fanta,
+  .banner-hero-container #fanta-mango,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
-  .banner-hero-container #fanta4 {
+  .banner-hero-container #fanta4,
+  .banner-hero-container #fanta-blueberry {
 
     height: 62vh;
 
@@ -1255,6 +1541,81 @@ width: 9vw;
     width: 28vw;
     bottom: -12vh;
     left: 18.5vw;
+  }
+
+  /* MANGO */
+  .banner-hero-container .mango-top-left {
+    width: 28vw;
+    top: -6vh;
+    left: -1vw;
+  }
+
+  .banner-hero-container .mango-top-right {
+    width: 29vw;
+    top: -9vh;
+    right: 8vw;
+  }
+
+  .banner-hero-container .mango-bottom-right {
+    width: 30vw;
+    bottom: -15vh;
+    right: 11vw;
+  }
+
+  .banner-hero-container .mango-leaf-left-1 {
+    width: 25vw;
+    top: 32vh;
+    left: -1.5vw;
+  }
+
+  .banner-hero-container .mango-leaf-top-mid {
+    width: 27vw;
+    top: -16vh;
+    left: 24vw;
+  }
+
+
+  .banner-hero-container .mango-leaf-bottom-mid {
+    width: 28vw;
+    bottom: -12vh;
+    left: 18.5vw;
+  }
+
+  /* BLUEBERRY */
+  .banner-hero-container .blueberry-top-left {
+    width: 24vw;
+    top: 7vh;
+    left: 3vw;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 22vw;
+    top: 5vh;
+    right: 8vw;
+  }
+
+  .banner-hero-container .blueberry-bottom-right {
+    width: 26vw;
+    bottom: 4vh;
+    right: 6vw;
+  }
+
+  .banner-hero-container .blueberry-leaf-left-1 {
+    width: 18vw;
+    top: 38vh;
+    left: 0vw;
+  }
+
+  .banner-hero-container .blueberry-leaf-top-mid {
+    width: 17vw;
+    top: -4vh;
+    left: 30vw;
+  }
+
+  .banner-hero-container .blueberry-leaf-bottom-mid {
+    width: 17vw;
+    bottom: 3vh;
+    left: 22vw;
   }
 
 
@@ -1459,9 +1820,11 @@ width: 9vw;
 
   .banner-hero-container .one h1,
   .banner-hero-container #orange-text,
+  .banner-hero-container #mango-text,
   .banner-hero-container #strawberry-text,
   .banner-hero-container #chocolate-text,
-  .banner-hero-container #melon-text {
+  .banner-hero-container #melon-text,
+  .banner-hero-container #blueberry-text {
 
     position: absolute;
 
@@ -1482,9 +1845,11 @@ width: 9vw;
   /* BOTTLE */
 
   .banner-hero-container #fanta,
+  .banner-hero-container #fanta-mango,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
-  .banner-hero-container #fanta4 {
+  .banner-hero-container #fanta4,
+  .banner-hero-container #fanta-blueberry {
 
     position: absolute;
 
@@ -1519,9 +1884,11 @@ width: 9vw;
 
   .banner-hero-container .one h1,
   .banner-hero-container #orange-text,
+  .banner-hero-container #mango-text,
   .banner-hero-container #strawberry-text,
   .banner-hero-container #chocolate-text,
-  .banner-hero-container #melon-text {
+  .banner-hero-container #melon-text,
+  .banner-hero-container #blueberry-text {
 
     font-size: 26vw !important;
 
@@ -1577,6 +1944,101 @@ width: 9vw;
     bottom: 8%;
     left: 20%;
   }
+
+  /* MANGO */
+  .banner-hero-container .mango-top-left {
+    width: 32vw;
+    top: 11%;
+    left: 3%;
+  }
+
+  .banner-hero-container .mango-top-right {
+    width: 34vw;
+    top: 8%;
+    right: 4%;
+  }
+
+  .banner-hero-container .mango-bottom-right {
+    width: 35vw;
+    bottom: 3%;
+    right: 4%;
+  }
+
+  .banner-hero-container .mango-leaf-left-1 {
+    width: 25vw;
+    top: 40%;
+    left: 1%;
+  }
+
+  .banner-hero-container .mango-leaf-top-mid {
+    width: 27vw;
+    top: 2%;
+    left: 24%;
+  }
+
+ 
+
+  .banner-hero-container .mango-leaf-bottom-mid {
+    width: 26vw;
+    bottom: 8%;
+    left: 20%;
+  }
+  /* =========================
+     BLUEBERRY ELEMENTS - MOBILE
+     ========================= */
+
+  /* Top-left blueberry cluster */
+  .banner-hero-container .blueberry-top-left {
+    width: 28vw;
+    top: 10%;
+    left: 8%;
+  }
+
+  /* Upper-right blueberry cluster */
+  .banner-hero-container .blueberry-top-right {
+    width: 32vw;
+    top: 12%;
+    right: 5%;
+    transform: rotate(0deg);
+  }
+
+  /* Bottom blueberry cluster */
+  .banner-hero-container .blueberry-bottom-right {
+    width: 22vw;
+    bottom: 8%;
+    right: 28%;
+  }
+
+  /* =========================
+     LEAVES
+     ========================= */
+
+  /* Left middle leaf */
+  .banner-hero-container .blueberry-leaf-left-1 {
+    width: 14vw;
+    top: 48%;
+    left: 1%;
+    transform: rotate(-15deg);
+  }
+
+  /* Top-right leaf */
+  .banner-hero-container .blueberry-leaf-top-mid {
+    width: 13vw;
+    top: 6%;
+    right: -2%;
+    left: auto;
+    transform: rotate(8deg);
+  }
+
+  /* Bottom-right leaf */
+  .banner-hero-container .blueberry-leaf-bottom-mid {
+    width: 16vw;
+    bottom: 8%;
+    right: 4%;
+    left: auto;
+    transform: rotate(18deg);
+  }
+
 
 
   /* STRAWBERRY */
@@ -1753,9 +2215,11 @@ width: 9vw;
 
   .banner-hero-container .one h1,
   .banner-hero-container #orange-text,
+  .banner-hero-container #mango-text,
   .banner-hero-container #strawberry-text,
   .banner-hero-container #chocolate-text,
-  .banner-hero-container #melon-text {
+  .banner-hero-container #melon-text,
+  .banner-hero-container #blueberry-text {
 
     font-size: 20vw !important;
 
@@ -1766,9 +2230,11 @@ width: 9vw;
   /* BOTTLE */
 
   .banner-hero-container #fanta,
+  .banner-hero-container #fanta-mango,
   .banner-hero-container #fanta2,
   .banner-hero-container #fanta3,
-  .banner-hero-container #fanta4 {
+  .banner-hero-container #fanta4,
+  .banner-hero-container #fanta-blueberry {
 
     height: 68vh !important;
 
@@ -1821,6 +2287,86 @@ width: 9vw;
     width: 26vw;
     bottom: 8%;
     left: 18%;
+  }
+
+  /* MANGO */
+  .banner-hero-container .mango-top-left {
+    width: 32vw;
+    top: 12%;
+    left: 3%;
+  }
+
+  .banner-hero-container .mango-top-right {
+    width: 34vw;
+    top: 9%;
+    right: 4%;
+  }
+
+  .banner-hero-container .mango-bottom-right {
+    width: 35vw;
+    bottom: 3%;
+    right: 3%;
+  }
+
+  .banner-hero-container .mango-leaf-left-1 {
+    width: 25vw;
+    top: 42%;
+    left: 1%;
+  }
+
+  .banner-hero-container .mango-leaf-top-mid {
+    width: 27vw;
+    top: 2%;
+    left: 22%;
+  }
+
+  .banner-hero-container .mango-leaf-right-1 {
+    width: 26vw;
+    top: 34%;
+    right: 1%;
+  }
+
+  .banner-hero-container .mango-leaf-bottom-mid {
+    width: 26vw;
+    bottom: 8%;
+    left: 18%;
+  }
+
+  /* BLUEBERRY */
+  .banner-hero-container .blueberry-top-left {
+    width: 28vw;
+    top: 11%;
+    left: 4%;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 26vw;
+    top: 9%;
+    right: 5%;
+  }
+
+  .banner-hero-container .blueberry-bottom-right {
+    width: 30vw;
+    bottom: 5%;
+    right: 4%;
+  }
+
+  .banner-hero-container .blueberry-leaf-left-1 {
+    width: 20vw;
+    top: 44%;
+    left: 1%;
+  }
+
+  .banner-hero-container .blueberry-leaf-top-mid {
+    width: 18vw;
+    top: 2%;
+    left: 26%;
+  }
+
+  .banner-hero-container .blueberry-leaf-bottom-mid {
+    width: 18vw;
+    bottom: 7%;
+    left: 16%;
   }
 
 
