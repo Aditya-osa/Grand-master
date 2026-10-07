@@ -391,8 +391,11 @@
 
   will-change: transform, opacity, filter;
 }
-
-
+/* BLUEBERRY BOTTLE */
+.banner-hero-container #fanta-blueberry {
+  height: 90vh;
+  max-height: none;
+}
 /* Orange bottle */
 
 .banner-hero-container #fanta {
