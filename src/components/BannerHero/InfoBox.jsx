@@ -25,8 +25,8 @@ const InfoBox = () => {
         <p>Pleasant mild aroma, complemented by sweet strawberry taste</p>
       </div>
       <div className="info-box" id="info-blueberry">
-        <h2>BLUEBERRY</h2>
-        <p>Vibrant wild berry notes, complemented by rich aromatic sweetness</p>
+        <h2>BLUBERRY</h2>
+        <p>Pleasant mild aroma, complemented by sweet strawberry taste</p>
       </div>
     </>
   );

@@ -313,32 +313,32 @@ export default function BannerHero() {
         )
         .fromTo(".blueberry-top-left", 
           { x: "-30vw", y: -20, rotate: -25, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -10, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_DESK
         )
         .fromTo(".blueberry-top-right", 
           { x: "30vw", y: -15, rotate: 30, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_DESK
         )
         .fromTo(".blueberry-bottom-right", 
           { x: "30vw", y: "30vh", rotate: -20, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_DESK
         )
         .fromTo(".blueberry-leaf-left-1", 
           { x: "-25vw", y: -20, rotate: 0, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_DESK
         )
         .fromTo(".blueberry-leaf-top-mid", 
           { y: "-40vh", rotate: -40, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_DESK
         )
         .fromTo(".blueberry-leaf-bottom-mid", 
           { y: "30vh", rotate: 10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_DESK
         )
         .fromTo("#info-blueberry", 
@@ -614,32 +614,32 @@ export default function BannerHero() {
         )
         .fromTo(".blueberry-top-left", 
           { x: "-20vw", y: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -10, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_TAB
         )
         .fromTo(".blueberry-top-right", 
           { x: "20vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_TAB
         )
         .fromTo(".blueberry-bottom-right", 
           { x: "20vw", y: "20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_TAB
         )
         .fromTo(".blueberry-leaf-left-1", 
           { x: "-18vw", y: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_TAB
         )
         .fromTo(".blueberry-leaf-top-mid", 
           { y: "-30vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: -25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_TAB
         )
         .fromTo(".blueberry-leaf-bottom-mid", 
           { y: "20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_TAB
         )
         .fromTo("#info-blueberry", 
@@ -914,32 +914,32 @@ export default function BannerHero() {
         )
         .fromTo(".blueberry-top-left", 
           { x: "-15vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -10, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_MOB
         )
         .fromTo(".blueberry-top-right", 
           { x: "15vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_MOB
         )
         .fromTo(".blueberry-bottom-right", 
           { x: "15vw", y: "15vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_MOB
         )
         .fromTo(".blueberry-leaf-left-1", 
           { x: "-12vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_MOB
         )
         .fromTo(".blueberry-leaf-top-mid", 
           { y: "-20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: -25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_MOB
         )
         .fromTo(".blueberry-leaf-bottom-mid", 
           { y: "15vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
           BLUEBERRY_START_MOB
         )
         .fromTo("#info-blueberry", 
