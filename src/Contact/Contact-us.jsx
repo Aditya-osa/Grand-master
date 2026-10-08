@@ -22,7 +22,8 @@ const CITIES = [
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     comment: '',
   });
@@ -37,13 +38,13 @@ export default function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.email.trim()) return;
+    if (!formData.firstName.trim() || !formData.email.trim()) return;
 
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', comment: '' });
+      setFormData({ firstName: '', lastName: '', email: '', comment: '' });
     }, 700);
   };
 
@@ -184,21 +185,39 @@ export default function ContactUs() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="gm-simple-form" noValidate>
-                {/* Name* */}
-                <div className="gm-form-group">
-                  <label htmlFor="name" className="gm-form-label">
-                    Name*
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your name"
-                    className="gm-form-input"
-                    required
-                  />
+                {/* First Name & Last Name */}
+                <div className="gm-form-row">
+                  <div className="gm-form-group">
+                    <label htmlFor="firstName" className="gm-form-label">
+                      First Name*
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      placeholder="Enter first name"
+                      className="gm-form-input"
+                      required
+                    />
+                  </div>
+
+                  <div className="gm-form-group">
+                    <label htmlFor="lastName" className="gm-form-label">
+                      Last Name*
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="Enter last name"
+                      className="gm-form-input"
+                      required
+                    />
+                  </div>
                 </div>
 
                 {/* Email* */}

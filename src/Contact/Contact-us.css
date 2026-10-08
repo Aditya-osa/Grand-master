@@ -407,6 +407,13 @@
   color: var(--gm-text-dark);
 }
 
+/* 2-Column Row for First & Last Name */
+.gm-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 1.8vw, 24px);
+}
+
 /* Input Box with Increased Text Size */
 .gm-form-input {
   width: 100%;
@@ -538,6 +545,11 @@
 
   .gm-form-textarea {
     min-height: 20vh;
+  }
+
+  .gm-form-row {
+    grid-template-columns: 1fr;
+    gap: 3vh;
   }
 
   .gm-presence-grid {
