@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import bannerImg from '../assets/image.png';
 import './Contact-us.css';
 
 const COUNTRIES = [
@@ -61,11 +62,11 @@ export default function ContactUs() {
       <section className="gm-half-banner" aria-label="Grand Master Contact Banner">
         <div className="banner-bg-layer" aria-hidden="true" />
         <div className="banner-mesh-overlay" aria-hidden="true" />
-
-        {/* Giant Anton Typography matching Home Page */}
-        <h1 className="banner-giant-text">CONTACT US</h1>
-
-        <div className="banner-bottom-fade" aria-hidden="true" />
+        <img
+          src={bannerImg}
+          alt="Grand Master Spirits"
+          className="banner-bg-image"
+        />
       </section>
 
       {/* ====================================================================

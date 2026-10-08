@@ -65,65 +65,43 @@
   user-select: none;
 }
 
-/* Subtle classic warm linen gradient */
-.gm-half-banner .banner-bg-layer {
+/* Edge-to-Edge Banner Background Image */
+.gm-half-banner .banner-bg-image,
+.gm-half-banner img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(
-      ellipse 70% 60% at 50% 40%,
-      rgba(255, 255, 255, 0.75) 0%,
-      rgba(247, 238, 230, 0.5) 45%,
-      transparent 80%
-    ),
-    linear-gradient(180deg, #faf5f0 0%, #f0e6dc 100%);
+  object-fit: cover;
+  object-position: center;
+  display: block;
   z-index: 1;
 }
 
-/* Fine classic texture overlay */
-.gm-half-banner .banner-mesh-overlay {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(118, 37, 48, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(118, 37, 48, 0.03) 1px, transparent 1px);
-  background-size: 5vh 5vh;
-  opacity: 0.8;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Giant Anton Typography scaled with vh */
+/* Giant Anton Typography */
 .gm-half-banner .banner-giant-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Anybody', sans-serif;
-  font-size: 20vh;
+  font-size: clamp(48px, 14vh, 120px);
   line-height: 0.9;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(26, 18, 20, 0.14);
+  color: rgba(255, 255, 255, 0.22);
   white-space: nowrap;
   z-index: 2;
   margin: 0;
   pointer-events: none;
 }
 
-.gm-half-banner .banner-bottom-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 7vh;
-  background: linear-gradient(to bottom, transparent, var(--gm-white));
-  z-index: 4;
-  pointer-events: none;
-}
+
+
+
+
+
 
 /* ==========================================================================
    MAIN CONTENT AREA (Spacious Max-Width & vh Vertical Spacing)
@@ -154,7 +132,7 @@
 .raise-standard-title,
 .raise-standard h1 {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(26px, 3.8vh, 40px);
+  font-size: clamp(28px, 4vh, 38px);
   font-weight: 800;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -265,9 +243,9 @@
 .gm-presence-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: clamp(24px, 3.5vw, 36px);
-  margin-top: 2.5vh;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(16px, 2vw, 24px);
+  margin-top: 1.6vh;
   align-items: start;
 }
 
@@ -275,7 +253,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 1.8vh;
+  gap: 1.2vh;
 }
 
 /* Subheadings with exact matching height in vh */
@@ -289,9 +267,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-bottom: 1.2vh;
+  padding-bottom: 0.8vh;
   border-bottom: 1px solid var(--gm-border-subtle);
-  min-height: 4.5vh;
+  min-height: 3.8vh;
   box-sizing: border-box;
 }
 
@@ -307,7 +285,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.4vh;
+  gap: 0.9vh;
 }
 
 /* 2-Column Grid for Cities with vh spacing */
@@ -317,18 +295,18 @@
   margin: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.4vh 1.2vw;
+  gap: 0.9vh clamp(10px, 1vw, 16px);
 }
 
 .gm-presence-item,
 .gm-city-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 15.5px;
-  line-height: 1.5;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.45;
   color: var(--gm-text-body);
-  padding: 0.3vh 0;
+  padding: 0.15vh 0;
   white-space: nowrap;
 }
 
@@ -363,16 +341,16 @@
   background: var(--gm-card-bg);
   border: 1px solid var(--gm-border-light);
   border-radius: 18px;
-  padding: 4.5vh clamp(32px, 4.5vw, 64px);
+padding: 3vh clamp(24px, 3vw, 48px);
   box-sizing: border-box;
-  margin-top: -21vh;
+  margin-top: -17vh;
 
 }
 
 .gm-section-title-main {
   margin: 0 0 1.8vh;
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(28px, 4vh, 38px);
+  font-size: clamp(26px, 3vh, 36px);
   font-weight: 700;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -469,7 +447,7 @@
   width: 100%;
   padding: 2.2vh 3vw;
   min-height: 6.8vh;
-  background: var(--gm-classic-burgundy);
+  background: #e42329;
   border: 1px solid var(--gm-classic-burgundy);
   border-radius: 10px;
   color: var(--gm-white);
@@ -484,8 +462,8 @@
 }
 
 .gm-submit-button:hover {
-  background: #5c1c25;
-  border-color: #5c1c25;
+  background:#e42329;
+  border-color: #e42329;
 
 }
 
