@@ -7,6 +7,8 @@ const COUNTRIES = [
   'East Africa',
   'India',
   'Middle East',
+  'West Africa',
+  'Central Africa'
 ];
 
 const CITIES = [
