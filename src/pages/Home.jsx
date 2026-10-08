@@ -15,7 +15,7 @@ import Enjoyflavours from '../components/Enjoy-flv/Enjoyflavours';
  */
 export default function Home() {
   return (
-    <div className="gm-home-wrapper">
+    <div className="gm-home-wrapper" id="home">
       <Navbar />
       <main className="gm-home-page" role="main">
         <BannerHero />

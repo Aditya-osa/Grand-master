@@ -102,7 +102,8 @@ export default function Products() {
   }, []);
 
   return (
-    <section ref={containerRef} className="ag-hero" aria-label="Grand Master Products">
+    <section ref={containerRef} className="ag-hero" id="products" aria-label="Grand Master Products">
+      <span id="shop" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }} aria-hidden="true" />
       {/* Visual Stage: Bottles */}
       <div className="ag-stage">
         {/* Angled 10-degree Marquee Stage for Bottles */}

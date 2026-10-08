@@ -1,0 +1,553 @@
+/* ==========================================================================
+   Grand Master's Vodka - Contact Us Page Styles
+   Aesthetic: Simple, Classic, Timeless Luxury (White / Light Palette)
+   Structured with Responsive Viewport Height (vh) Units
+   ========================================================================== */
+
+:root {
+  --gm-white: #ffffff;
+  --gm-offwhite: #faf7f4;
+  --gm-banner-bg: #f5ede6;
+  --gm-card-bg: #ffffff;
+  --gm-border-light: #e6dfd8;
+  --gm-border-subtle: #eee7e0;
+  --gm-text-dark: #1a1214;
+  --gm-text-body: #4a3e41;
+  --gm-text-muted: #75686b;
+  --gm-classic-burgundy: #762530;
+  --gm-classic-gold: #96773e;
+  --font-anton: 'Anton', sans-serif;
+  --font-serif: 'Playfair Display', 'Anybody', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Base Wrapper - Pure Clean White */
+.gm-contact-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--gm-white);
+  color: var(--gm-text-dark);
+  font-family: 'Anybody', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   NAVBAR LIGHT OVERRIDE (For perfect contrast on light background)
+   ========================================================================== */
+.gm-contact-page-wrapper .gm-main-nav:not(.scrolled) .nav-logo {
+  filter: brightness(0) saturate(100%) !important;
+}
+
+.gm-contact-page-wrapper .gm-main-nav:not(.scrolled) .menu-toggle-btn,
+.gm-contact-page-wrapper .gm-main-nav:not(.scrolled) #menu-toggle {
+  color: var(--gm-text-dark) !important;
+  text-shadow: none !important;
+}
+
+
+
+/* ==========================================================================
+   HALF BANNER (Styled with Viewport Height vh)
+   ========================================================================== */
+.gm-half-banner {
+  position: relative;
+  width: 100%;
+  height: 48vh;
+  min-height: 32vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--gm-banner-bg);
+  border-bottom: 1px solid var(--gm-border-light);
+  user-select: none;
+}
+
+/* Subtle classic warm linen gradient */
+.gm-half-banner .banner-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      rgba(255, 255, 255, 0.75) 0%,
+      rgba(247, 238, 230, 0.5) 45%,
+      transparent 80%
+    ),
+    linear-gradient(180deg, #faf5f0 0%, #f0e6dc 100%);
+  z-index: 1;
+}
+
+/* Fine classic texture overlay */
+.gm-half-banner .banner-mesh-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(118, 37, 48, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(118, 37, 48, 0.03) 1px, transparent 1px);
+  background-size: 5vh 5vh;
+  opacity: 0.8;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Giant Anton Typography scaled with vh */
+.gm-half-banner .banner-giant-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Anybody', sans-serif;
+  font-size: 20vh;
+  line-height: 0.9;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26, 18, 20, 0.14);
+  white-space: nowrap;
+  z-index: 2;
+  margin: 0;
+  pointer-events: none;
+}
+
+.gm-half-banner .banner-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7vh;
+  background: linear-gradient(to bottom, transparent, var(--gm-white));
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA (Spacious Max-Width & vh Vertical Spacing)
+   ========================================================================== */
+.gm-contact-body {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  margin-top: 6vh;
+  padding: 6.5vh clamp(24px, 4.5vw, 48px);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   RAISE THE STANDARD - INTRO HEADER (Aligned with Cards Below)
+   ========================================================================== */
+/* ==========================================================================
+   RAISE THE STANDARD - INTRO HEADER
+   ========================================================================== */
+
+.raise-standard {
+  margin-bottom: clamp(30px, 4vh, 45px);
+  text-align: left;
+  max-width: 900px;
+}
+
+.raise-standard-title,
+.raise-standard h1 {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(26px, 3.8vh, 40px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--gm-text-dark);
+  line-height: 1.15;
+  margin: 0 0 clamp(8px, 1.2vh, 12px);
+}
+
+.raise-standard-desc,
+.raise-standard p {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(14px, 1.7vh, 16px);
+  line-height: 1.6;
+  color: var(--gm-text-body);
+  max-width: 760px;
+  margin: 0;
+}
+/* 2-Column Split: Contact & Presence (Left) | Wider Send Message Form (Right) */
+.gm-contact-split {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: stretch;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: CONTACT US & OUR PRESENCE
+   ========================================================================== */
+.gm-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5vh;
+  height: 100%;
+}
+
+/* Contact Details Card */
+.gm-contact-card {
+  background: var(--gm-card-bg);
+
+  box-sizing: border-box;
+ 
+}
+
+.gm-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8vh;
+  margin-top: 2.5vh;
+}
+
+.gm-info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.gm-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vh;
+}
+
+.gm-info-label {
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--gm-classic-burgundy);
+  margin: 0;
+}
+
+.gm-info-text {
+  font-family: 'Anybody', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gm-text-body);
+  margin: 0;
+  max-width: 440px;
+}
+
+.gm-info-link {
+  font-family: 'Anybody', sans-serif;
+  color: var(--gm-text-dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.gm-info-link:hover {
+  color: var(--gm-classic-burgundy);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   OUR PRESENCE CARD (Full Stretch & Perfect Alignment)
+   ========================================================================== */
+.gm-presence-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  
+ 
+}
+
+.gm-presence-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(24px, 3.5vw, 36px);
+  margin-top: 2.5vh;
+  align-items: start;
+}
+
+.gm-presence-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1.8vh;
+}
+
+/* Subheadings with exact matching height in vh */
+.gm-presence-subheading {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gm-text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 1.2vh;
+  border-bottom: 1px solid var(--gm-border-subtle);
+  min-height: 4.5vh;
+  box-sizing: border-box;
+}
+
+.gm-presence-subheading i {
+  font-size: 16px;
+  color: var(--gm-classic-burgundy);
+  flex-shrink: 0;
+}
+
+.gm-presence-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vh;
+}
+
+/* 2-Column Grid for Cities with vh spacing */
+.gm-cities-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4vh 1.2vw;
+}
+
+.gm-presence-item,
+.gm-city-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--gm-text-body);
+  padding: 0.3vh 0;
+  white-space: nowrap;
+}
+
+.gm-presence-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--gm-classic-burgundy);
+  flex-shrink: 0;
+}
+
+/* Legacy fallback support */
+.gm-cities-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4vh 1.2vw;
+}
+
+.gm-city-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15.5px;
+  color: var(--gm-text-body);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: SEND US A MESSAGE
+   ========================================================================== */
+.gm-message-card {
+  width: 100%;
+  background: var(--gm-card-bg);
+  border: 1px solid var(--gm-border-light);
+  border-radius: 18px;
+  padding: 4.5vh clamp(32px, 4.5vw, 64px);
+  box-sizing: border-box;
+  margin-top: -21vh;
+
+}
+
+.gm-section-title-main {
+  margin: 0 0 1.8vh;
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(28px, 4vh, 38px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--gm-text-dark);
+  line-height: 1.2;
+}
+
+.gm-message-desc {
+  margin: 0 0 4vh;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--gm-text-body);
+}
+
+/* Form Fields with vh Vertical Flow */
+.gm-simple-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.gm-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vh;
+}
+
+.gm-form-label {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--gm-text-dark);
+}
+
+/* Input Box with Increased Text Size */
+.gm-form-input {
+  width: 100%;
+  padding: 2vh 1.6vw;
+  min-height: 6.2vh;
+  background: var(--gm-white);
+  border: 1px solid var(--gm-border-light);
+  border-radius: 10px;
+  color: var(--gm-text-dark);
+  font-family: 'Anybody', sans-serif;
+  font-size: 18px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+/* Textarea Box with Increased Text Size */
+.gm-form-textarea {
+  width: 100%;
+  padding: 2.2vh 1.6vw;
+  min-height: 25vh;
+  background: var(--gm-white);
+  border: 1px solid var(--gm-border-light);
+  border-radius: 10px;
+  color: var(--gm-text-dark);
+  font-family: 'Anybody', sans-serif;
+  font-size: 18px;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical;
+  line-height: 1.7;
+  transition: border-color 0.2s ease;
+}
+
+.gm-form-input:focus,
+.gm-form-textarea:focus {
+  border-color: var(--gm-classic-burgundy);
+ 
+}
+
+.gm-form-input::placeholder,
+.gm-form-textarea::placeholder {
+  color: var(--gm-text-muted);
+  font-size: 17px;
+}
+
+/* Submit Button with Increased Text Size */
+.gm-submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 2.2vh 3vw;
+  min-height: 6.8vh;
+  background: var(--gm-classic-burgundy);
+  border: 1px solid var(--gm-classic-burgundy);
+  border-radius: 10px;
+  color: var(--gm-white);
+  font-family: "Anybody", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 1.2vh;
+}
+
+.gm-submit-button:hover {
+  background: #5c1c25;
+  border-color: #5c1c25;
+
+}
+
+.gm-submit-button:active {
+  transform: translateY(1px);
+}
+
+/* Success Message Alert */
+.gm-form-alert-success {
+  padding: 2.2vh 1.8vw;
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #166534;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  animation: gmFadeIn 0.3s ease;
+}
+
+.gm-form-alert-success i {
+  font-size: 24px;
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+@keyframes gmFadeIn {
+  from { opacity: 0; transform: translateY(0.8vh); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .gm-contact-split {
+    grid-template-columns: 1fr;
+    gap: 4vh;
+  }
+
+  .gm-message-card {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .gm-half-banner {
+    height: 35vh;
+    min-height: 240px;
+  }
+
+  .gm-half-banner .banner-giant-text {
+    font-size: 12vh;
+  }
+
+  .gm-form-textarea {
+    min-height: 20vh;
+  }
+
+  .gm-presence-grid {
+    grid-template-columns: 1fr;
+    gap: 3vh;
+  }
+
+  .gm-message-card,
+  .gm-contact-card,
+  .gm-presence-card {
+    padding: 3.5vh 20px;
+  }
+}

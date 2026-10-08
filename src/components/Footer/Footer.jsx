@@ -3,11 +3,11 @@ import logoImg from '../../assets/Logo.png';
 import './Footer.css';
 
 const FOOTER_NAV = [
-  { name: 'Home', href: '#main' },
+  { name: 'Home', href: '#home' },
   { name: 'About', href: '#distilled' },
   { name: 'Flavours', href: '#flavours' },
   { name: 'Process', href: '#distillation' },
-  { name: 'Contact', href: 'mailto:mail@Grandmasters.co' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 const SOCIAL_LINKS = [
