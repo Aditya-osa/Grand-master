@@ -23,9 +23,13 @@
   overflow: hidden;
 }
 
-.banner-hero-container * {
+.banner-hero-container *,
+.banner-hero-container *::before,
+.banner-hero-container *::after {
   box-sizing: border-box;
   font-family: 'Anybody', sans-serif;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
 
@@ -106,98 +110,32 @@
 }
 
 .banner-hero-container .bg-orange {
-  background:
-    radial-gradient(
-      ellipse 55% 50% at 50% 46%,
-      rgba(255, 235, 170, 0.42) 0%,
-      rgba(255, 175, 45, 0.22) 42%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 85% 82% at 50% 48%,
-      #ffa726 0%,
-      #ff7900 28%,
-      #f05200 62%,
-      #bf3600 100%
-    );
-
+  background-color: #ffffff;
   opacity: 1;
 }
 
 .banner-hero-container .bg-mango {
-  background:
-    radial-gradient(
-      ellipse 55% 50% at 50% 46%,
-      rgba(255, 245, 175, 0.42) 0%,
-      rgba(251, 191, 36, 0.22) 42%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 85% 82% at 50% 48%,
-      #ffb300 0%,
-      #f59e0b 28%,
-      #d97706 62%,
-      #9a3412 100%
-    );
-
+  background-color: #fcfbf9;
   opacity: 0;
 }
 
 .banner-hero-container .bg-strawberry {
-  background:
-    radial-gradient(
-      ellipse 55% 50% at 50% 46%,
-      rgba(255, 190, 200, 0.38) 0%,
-      rgba(255, 90, 95, 0.22) 42%,
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 85% 82% at 50% 48%,
-      #ff5a5f 0%,
-      #e63946 28%,
-      #c62828 62%,
-      #8e1b23 100%
-    );
-
+  background-color: #ffffff;
   opacity: 0;
 }
 
 .banner-hero-container .bg-chocolate {
-  background:
-    radial-gradient(
-      ellipse 65% 60% at 50% 48%,
-      #e8caa6 0%,
-      #dab48e 45%,
-      #cb9f74 80%,
-      #be9063 100%
-    );
-
+  background-color: #ffffff;
   opacity: 0;
 }
 
 .banner-hero-container .bg-melon {
-  background:
-    radial-gradient(
-      ellipse 60% 60% at 50% 50%,
-      #b1c782 0%,
-      #a6bc7a 40%,
-      #9ab06f 75%,
-      #8e9f64 100%
-    );
-
+  background-color: #ffffff;
   opacity: 0;
 }
 
 .banner-hero-container .bg-blueberry {
-  background:
-    radial-gradient(
-      ellipse 75% 70% at 50% 50%,
-      #a2c0fa 0%,
-      #93b3f7 40%,
-      #86a8f3 75%,
-      #7b9ee8 100%
-    );
-
+  background-color: #ffffff;
   opacity: 0;
 }
 
@@ -232,7 +170,7 @@
 
   color: #ffffff;
 
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+  text-shadow: none;
 }
 
 
@@ -243,7 +181,7 @@
 .banner-hero-container #orange-text {
   z-index: 1;
 
-  color: #ba5302;
+  color: #e1bbc2;
 
   text-shadow: none;
 
@@ -269,7 +207,7 @@
 
   opacity: 0;
 
-  color: #a82028;
+  color: #e1bbc2;
 
   text-shadow: none;
 
@@ -283,7 +221,7 @@
 
   color: #381d0c;
 
-  text-shadow: 0 6px 20px rgba(45, 20, 5, 0.12);
+  text-shadow: none;
 
   transform: translateX(-100vw);
 }
@@ -293,7 +231,7 @@
 
   opacity: 0;
 
-  color: #3b6e15;
+  color: #ecf2ea;
 
   transform: translateX(100vw);
 }
@@ -303,9 +241,9 @@
 
   opacity: 0;
 
-  color: #0047bb;
+  color: #dce7f5;
 
-  text-shadow: 0 4px 24px rgba(0, 40, 140, 0.16);
+  text-shadow: none;
 
   transform: translateX(100vw);
 }
@@ -319,7 +257,7 @@
   margin-top: 15px;
   display: inline-block;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: none;
   pointer-events: auto;
 }
 
@@ -329,34 +267,7 @@
    ========================================================================== */
 
 .banner-hero-container .bottle-ground-shadow {
-  position: absolute;
-
-  bottom: 6.5%;
-  left: 50%;
-
-  transform: translateX(-44%) rotate(-2deg);
-
-  width: 30vw;
-  height: 4.5vh;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.45) 0%,
-      rgba(0, 0, 0, 0.22) 45%,
-      rgba(0, 0, 0, 0.04) 68%,
-      transparent 75%
-    );
-
-  filter: blur(12px);
-
-  z-index: 3;
-
-  pointer-events: none;
-
-  will-change: transform, opacity;
+  display: none !important;
 }
 
 
@@ -397,15 +308,12 @@
 
   will-change: transform, opacity, filter;
 }
+
 /* Orange bottle */
 
 .banner-hero-container #fanta {
   filter:
-    brightness(1.08)
-    contrast(1.06)
-    saturate(1.16)
-    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 55px rgba(255, 175, 45, 0.48));
+    brightness(1.08) contrast(1.06) saturate(1.16);
 }
 
 /* Mango bottle */
@@ -415,11 +323,7 @@
   transform: translateY(-100vh) rotate(14deg);
 
   filter:
-    brightness(1.08)
-    contrast(1.06)
-    saturate(1.16)
-    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 55px rgba(245, 158, 11, 0.5));
+    brightness(1.08) contrast(1.06) saturate(1.16);
 }
 
 
@@ -431,11 +335,7 @@
   transform: translateY(-100vh) rotate(14deg);
 
   filter:
-    brightness(1.08)
-    contrast(1.06)
-    saturate(1.16)
-    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 55px rgba(255, 60, 100, 0.45));
+    brightness(1.08) contrast(1.06) saturate(1.16);
 }
 
 
@@ -447,11 +347,7 @@
   transform: translateY(-100vh) rotate(14deg);
 
   filter:
-    brightness(1.08)
-    contrast(1.06)
-    saturate(1.16)
-    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 55px rgba(255, 175, 45, 0.48));
+    brightness(1.08) contrast(1.06) saturate(1.16);
 }
 
 
@@ -463,11 +359,7 @@
   transform: translateY(-100vh) rotate(14deg);
 
   filter:
-    brightness(1.08)
-    contrast(1.06)
-    saturate(1.16)
-    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 55px rgba(110, 245, 50, 0.45));
+    brightness(1.08) contrast(1.06) saturate(1.16);
 }
 
 /* Blueberry bottle */
@@ -478,11 +370,7 @@
   transform: translateY(-100vh) rotate(14deg);
 
   filter:
-    brightness(1.08)
-    contrast(1.06)
-    saturate(1.16)
-    drop-shadow(0 26px 38px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 55px rgba(37, 99, 235, 0.55));
+    brightness(1.08) contrast(1.06) saturate(1.16);
 }
 
 
@@ -516,83 +404,70 @@
 }
 
 .banner-hero-container .info-box h2 {
-
-  font-size: 3.4vw;
-
-  font-family: 'Anybody', sans-serif;
-
-  font-weight: 900;
-
+  font-size: 3.8vw;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
-
-  letter-spacing: 0.04em;
-
-  margin: 0 0 1vh 0;
-
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6vh 0;
   color: #ffffff;
-
-  line-height: 1.05;
-
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
-
+  line-height: 0.95;
+  text-shadow: none !important;
   overflow-wrap: break-word;
 }
 
 .banner-hero-container .info-box p {
-
-  font-size: 1.3vw;
-
-  font-family: 'Anybody', sans-serif;
-
-  font-weight: 500;
-
-  line-height: 1.45;
-
+  font-size: 1.25vw;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
   letter-spacing: 0.01em;
-
   color: rgba(255, 255, 255, 0.96);
-
   margin: 0;
-
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
-
+  text-shadow: none !important;
   overflow-wrap: break-word;
 }
 
-.banner-hero-container #info-orange h2,
+.banner-hero-container #info-orange h2 {
+  color: #522409;
+}
 .banner-hero-container #info-orange p {
-  color: #522409;
-  text-shadow: none;
+  color: #7a4427;
 }
 
-.banner-hero-container #info-mango h2,
+.banner-hero-container #info-mango h2 {
+  color: #522409;
+}
 .banner-hero-container #info-mango p {
-  color: #522409;
-  text-shadow: none;
+  color: #7a4427;
 }
 
-.banner-hero-container #info-strawberry h2,
+.banner-hero-container #info-strawberry h2 {
+  color: #541520;
+}
 .banner-hero-container #info-strawberry p {
-  color: #4a0b14;
-  text-shadow: none;
+  color: #823340;
 }
 
-.banner-hero-container #info-chocolate h2,
-.banner-hero-container #info-chocolate p {
+.banner-hero-container #info-chocolate h2 {
   color: #2e1608;
-  text-shadow: none;
+}
+.banner-hero-container #info-chocolate p {
+  color: #5a3622;
 }
 
-.banner-hero-container #info-melon h2,
-.banner-hero-container #info-melon p {
+.banner-hero-container #info-melon h2 {
   color: #22380d;
-  text-shadow: none;
+}
+.banner-hero-container #info-melon p {
+  color: #426323;
 }
 
-.banner-hero-container #info-blueberry h2,
+.banner-hero-container #info-blueberry h2 {
+  color: #30438a;
+}
 .banner-hero-container #info-blueberry p {
-  color: #081e4a;
-  text-shadow: none;
+  color: #6e7fae;
 }
 
 
@@ -626,11 +501,10 @@
 
   margin-top: 1.8vh;
 
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  box-shadow: none;
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
     background-color 0.2s ease;
 }
 
@@ -638,7 +512,7 @@
 
   transform: translateY(-2px);
 
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  box-shadow: none;
 
   background-color: #ffffff;
 }
@@ -683,10 +557,7 @@
 
   object-fit: contain;
 
-  filter:
-    brightness(1.06)
-    saturate(1.18)
-    drop-shadow(0 18px 28px rgba(0, 0, 0, 0.3));
+  filter: none !important;
 
   transition: filter 0.3s ease;
 
@@ -699,8 +570,7 @@
 
 
 /* ==========================================================================
-   BLUEBERRY DECOR
-   Reference: 1600 x 900
+   BLUEBERRY DECOR (Matching Reference Layout Exactly)
    ========================================================================== */
 
 .banner-hero-container .decor-blueberry {
@@ -710,168 +580,291 @@
   z-index: 4;
 }
 
-/* Top-left blueberry cluster with leaves */
-.banner-hero-container .blueberry-top-left {
-     width: 20.5vw;
-    top: -1.5%;
-    left: 17.2%;
-    transform: rotate(0deg) !important;
+/* 1.png - Blueberry leaves peeking from bottom-left corner */
+.banner-hero-container .blueberry-leaf-bottom-left {
+  width: 20vw;
+  bottom: -17vh;
+  left: -10vw;
+  top: auto;
+  right: auto;
+  transform: rotate(359deg) !important;
 }
 
-/* Upper-right blueberry scatter (single berry + trio) */
-.banner-hero-container .blueberry-top-right {
- width: 24vw;
-    top: -1.5%;
-    right: 17%;
-    transform: rotate(0deg) !important;
+/* 2.png - Main cluster with reflection at top-left */
+.banner-hero-container .blueberry-top-left,
+.banner-hero-container .blueberry-cluster-left {
+  width: 20.5vw;
+  top: 1vh;
+  left: 0.5vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(0deg);
 }
 
-/* Bottom blueberry trio cluster */
-.banner-hero-container .blueberry-bottom-right {
-    width: 16vw;
-    bottom: -2%;
-    right: 34.5%;
-  transform: rotate(0deg) !important;
+/* 3.png - Mint leaf upper left of bottle */
+.banner-hero-container .blueberry-leaf-top-mid,
+.banner-hero-container .blueberry-mint-top-left {
+  width: 12.8vw;
+  top: 6vh;
+  left: 31vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(351deg) !important;
 }
 
-/* =========================
-   LEAVES
-   ========================= */
-
-/* Left middle leaf */
-.banner-hero-container .blueberry-leaf-left-1 {
-  width: 8vw;
-  top: 51.5%;
-  left: 2.5%;
-  transform: rotate(-15deg);
-}
-
-/* Top-right leaf */
-.banner-hero-container .blueberry-leaf-top-mid {
-  width: 10vw;
-  top: 10%;
-  right: -1%;
+/* 4.png - Blueberry trio with single leaf at lower-right */
+.banner-hero-container .blueberry-bottom-right,
+.banner-hero-container .blueberry-trio-right {
+  width: 13.5vw;
+  top: 60vh;
+  right: 12vw;
   left: auto;
-  transform: rotate(8deg) !important;
+  bottom: auto;
+  transform: rotate(0deg);
 }
 
-/* Bottom-right leaf */
-.banner-hero-container .blueberry-leaf-bottom-mid {
-  width: 12vw;
-  bottom: 9%;
-  right: 7.5%;
+/* 5.png - Mint leaf lower center-right near bottle */
+.banner-hero-container .blueberry-leaf-bottom-mid,
+.banner-hero-container .blueberry-mint-mid-right {
+  width: 11.2vw;
+  top: 65vh;
+  left: 54vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(350deg);
+}
+
+/* 6.png - Blueberry cluster with broad leaves at top-right */
+.banner-hero-container .blueberry-top-right,
+.banner-hero-container .blueberry-cluster-right {
+  width: 20vw;
+  top: -2vh;
+  right: 6vw;
   left: auto;
-  transform: rotate(18deg) !important;
+  bottom: auto;
+  transform: rotate(0deg);
+}
+
+/* 7.png - Foliage branch hanging from top-right corner */
+.banner-hero-container .blueberry-branch-top-right {
+  width: 19vw;
+  top: -17vh;
+  right: -12vw;
+  left: auto;
+  bottom: auto;
+  transform: scaleY(-1) rotate(23deg) !important;
+}
+
+/* 8.png - Mint leaf peeking from bottom-right corner */
+.banner-hero-container .blueberry-mint-bottom-right {
+  width: 11vw;
+  bottom: 2vh;
+  right: -4.5vw;
+  top: auto;
+  left: auto;
+  transform: rotate(179deg) !important;
 }
 
 
 /* ==========================================================================
-   MELON DECOR
+   MELON DECOR (Matching Reference Layout Exactly)
    ========================================================================== */
 
 .banner-hero-container .decor-melon {
   position: absolute;
-  opacity: 0; /* Hidden initially, GSAP will animate */
-  z-index: 2;
+  opacity: 0;
   pointer-events: none;
+  z-index: 4;
 }
 
-.banner-hero-container .melon-top-left {
-  width: 19vw;
-  top: 13vh;
-  left: 8vw;
+/* 1.png - Whole melon on upper left with curled stem */
+.banner-hero-container .melon-top-left,
+.banner-hero-container .melon-whole-left {
+  width: 18.5vw;
+  top: 9.5vh;
+  left: 9.5vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.08));
 }
 
-.banner-hero-container .melon-top-right {
-  width: 19vw;
-  top: 1vh;
-  right: 15vw;
+/* 2.png - Mint leaf upper left above "MELON" */
+.banner-hero-container .melon-leaf-top-mid,
+.banner-hero-container .melon-mint-top-left {
+  width: 10.8vw;
+  top: 12vh;
+  left: 31vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(10deg) !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
 }
 
-.banner-hero-container .melon-bottom-right {
-  width: 22vw;
-  bottom: -4vh;
-  right: 10vw;
+/* 3.png - Pointed green leaf peeking from bottom-left corner */
+.banner-hero-container .melon-leaf-bottom-left {
+  width: 13.5vw;
+  bottom: -13vh;
+  left: -5vw;
+  top: auto;
+  right: auto;
+  transform: rotate(24deg) !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
-.banner-hero-container .melon-leaf-top-mid {
+/* 4.png - Single sliced melon wedge with seeds on mid right */
+.banner-hero-container .melon-bottom-right,
+.banner-hero-container .melon-slice-mid-right {
+  width: 17.8vw;
+  top: 48.5vh;
+  right: 16.5vw;
+  left: auto;
+  bottom: auto;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.09));
+}
+
+/* 5.png - Whole melon + 2 slices cluster on upper right */
+.banner-hero-container .melon-top-right,
+.banner-hero-container .melon-cluster-right {
+  width: 21.5vw;
+  top: 1.5vh;
+  right: 11.5vw;
+  left: auto;
+  bottom: auto;
+  transform: rotate(0deg);
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.09));
+}
+
+/* Citrus branch hanging from top-right corner */
+.banner-hero-container .melon-branch-top-right {
+  width: 22.9vw;
+  top: -20vh;
+  right: -7vw;
+  left: auto;
+  bottom: auto;
+  transform: scaleY(-1) rotate(286deg) !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+/* 7.png - Mint leaf lower center-right of bottle */
+.banner-hero-container .melon-leaf-bottom-mid,
+.banner-hero-container .melon-mint-mid-right {
   width: 11vw;
-  top: -7vh;
-  left: 30vw;
-  transform: none !important;
+  top: 67vh;
+  left: 52.5vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(355deg) !important;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
 }
 
-.banner-hero-container .melon-leaf-mid-right {
-  width: 21vw;
-  top: 22vh;
-  right: 0vw;
-  transform: rotate(310deg) !important;
-}
-
-.banner-hero-container .melon-leaf-bottom-mid {
-width: 9vw;
-  bottom: 3vh;
-  left: 34vw;
-   transform: rotate(75deg);
- 
+/* 8.png - Mint leaf at bottom-right corner */
+.banner-hero-container .melon-mint-bottom-right {
+  width: 11.8vw;
+  bottom: -5vh;
+  right: -4.5vw;
+  top: auto;
+  left: auto;
+  transform: rotate(330deg);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
 }
 
 /* ==========================================================================
-   ORANGE DECOR
+   ORANGE DECOR (Matching Reference Layout Exactly)
    ========================================================================== */
 
-.banner-hero-container .orange-top-left {
-  width: 25vw;
-  top: -6.5vh;
-  left: 6.5vw;
+.banner-hero-container .decor-orange {
+  position: absolute;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 4;
 }
 
-.banner-hero-container .orange-top-right {
-  width: 29vw;
-  top: -12.5vh;
-  right: 9.5vw;
+/* 1.png - Left orange slice pair + leaf */
+.banner-hero-container .orange-top-left,
+.banner-hero-container .orange-slice-left {
+  width: 17.5vw;
+  top: 18vh;
+  left: 1.5vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(-3deg);
 }
 
-.banner-hero-container .orange-bottom-right {
-  width: 27vw;
-  bottom: -22vh;
-  right: 14vw;
+/* 2.png - Citrus leaves branch hanging from top-right corner */
+.banner-hero-container .leaf-right-1,
+.banner-hero-container .orange-branch-top-right {
+  width: 22.9vw;
+  top: -20vh;
+  right: -7vw;
+  left: auto;
+  bottom: auto;
+  transform: scaleY(-1) rotate(286deg) !important;
 }
 
-
-/* ==========================================================================
-   LEAVES
-   ========================================================================== */
-
-.banner-hero-container .leaf-left-1 {
-  width: 26vw;
-  top: 29vh;
-  left: -1.8vw;
-  transform: rotate(25deg);
+/* 3.png - Whole orange + sliced orange on upper right */
+.banner-hero-container .orange-top-right,
+.banner-hero-container .orange-whole-right {
+  width: 20.5vw;
+  top: 6vh;
+  right: 11.5vw;
+  left: auto;
+  bottom: auto;
+  transform: rotate(0deg);
 }
 
-/* 5.png - Top-Center Mint Leaf */
-.banner-hero-container .leaf-left-2 {
-  width: 28vw;
-  top: -34vh;
-  left: 25vw;
+/* 4.png - Single sliced orange wedge on lower right */
+.banner-hero-container .orange-bottom-right,
+.banner-hero-container .orange-wedge-bottom-right {
+  width: 20.1vw;
+  top: 50vh;
+  right: 12vw;
+  left: auto;
+  bottom: auto;
   transform: rotate(-15deg);
 }
 
-/* 6.png - Right Mint Leaf */
-.banner-hero-container .leaf-right-1 {
-  width: 26vw;
-  top: 23vh;
-  right: -8.5vw;
-  transform: none !important;
+/* 5.png - Citrus leaves branch peeking from bottom-left corner */
+.banner-hero-container .orange-branch-bottom-left {
+  width: 18.9vw;
+  bottom: -18vh;
+  left: -8vw;
+  top: auto;
+  right: auto;
+  transform: rotate(96deg);
 }
 
-/* 7.png - Bottom-Center Mint Leaf */
-.banner-hero-container .leaf-bottom-mid {
-  width: 28vw;
-  bottom: -28.5vh;
-  left: 20.5vw;
-  transform: rotate(25deg);
+/* 6.png - Mint leaf upper left of bottle */
+.banner-hero-container .leaf-left-1,
+.banner-hero-container .orange-mint-top-left {
+  width: 7.9vw;
+  top: 17vh;
+  left: 31vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(354deg);
+}
+
+/* 7.png - Mint leaf lower center-right of bottle */
+.banner-hero-container .leaf-bottom-mid,
+.banner-hero-container .orange-mint-mid-right {
+  width: 10.6vw;
+  top: 67vh;
+  left: 54.5vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(351deg);
+}
+
+/* 8.png - Mint leaf at bottom-right corner */
+.banner-hero-container .orange-mint-bottom-right {
+  width: 14.6vw;
+  bottom: -6vh;
+  right: -5.5vw;
+  top: auto;
+  left: auto;
+  transform: rotate(13deg);
 }
 
 
@@ -895,15 +888,15 @@ width: 9vw;
 
 .banner-hero-container .mango-top-right {
   width: 27vw;
-    top: 56.5vh;
-    right: 20.5vw;
-     transform: none !important;
+  top: 56.5vh;
+  right: 20.5vw;
+  transform: none !important;
 }
 
 .banner-hero-container .mango-bottom-right {
-      width: 26vw;
-    bottom: 21vh;
-    right: -8vw;
+  width: 26vw;
+  bottom: 21vh;
+  right: -8vw;
   transform: rotate(8deg);
 }
 
@@ -915,10 +908,10 @@ width: 9vw;
 }
 
 .banner-hero-container .mango-leaf-top-mid {
- width: 10vw;
-    top: -9vh;
-    left: 38vw;
-    transform: rotate(59deg) !important;
+  width: 10vw;
+  top: -9vh;
+  left: 38vw;
+  transform: rotate(59deg) !important;
 }
 
 .banner-hero-container .mango-leaf-right-1 {
@@ -929,97 +922,108 @@ width: 9vw;
 }
 
 .banner-hero-container .mango-leaf-bottom-mid {
- width: 11vw;
-    top: 10vh;
-    right: 16.5vw;
-    transform: rotate(247deg) !important;
+  width: 11vw;
+  top: 10vh;
+  right: 16.5vw;
+  transform: rotate(247deg) !important;
 }
 
 
 /* ==========================================================================
-   STRAWBERRY DECOR
+   STRAWBERRY DECOR (Matching Reference Layout Exactly)
    ========================================================================== */
 
 .banner-hero-container .decor-strawberry {
-
+  position: absolute;
   opacity: 0;
-
   pointer-events: none;
+  z-index: 4;
 }
 
-.banner-hero-container .strawberry-top-left {
-
-  width: 18.5vw;
-
-  top: 3%;
-
-  left: 17%;
-
-  transform: rotate(-12deg);
+/* 1.png - Left ripe single strawberry */
+.banner-hero-container .strawberry-top-left,
+.banner-hero-container .strawberry-single-left {
+  width: 21.2vw;
+  top: 8vh;
+  left: -1.5vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(358deg);
 }
 
-.banner-hero-container .strawberry-leaf-top-mid {
-
-  width: 10.5vw;
-
-  top: -9%;
-
-  left: 41%;
-
-  transform: rotate(1deg) !important;
+/* 2.png - Strawberry leaves peeking from bottom-left corner */
+.banner-hero-container .strawberry-leaf-bottom-left {
+  width: 13.5vw;
+  bottom: -6vh;
+  left: -1vw;
+  top: auto;
+  right: auto;
+  transform: rotate(-10deg);
 }
 
-.banner-hero-container .strawberry-top-right {
+/* 3.png - Mint leaf upper left of bottle */
+.banner-hero-container .strawberry-leaf-top-mid,
+.banner-hero-container .strawberry-mint-top-left {
+  width: 17vw;
+  top: 0vh;
+  left: 23vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(351deg);
+}
 
-  width: 16vw;
-
-  top: 4%;
-
-  right: 18%;
-
+/* 4.png - Single strawberry on lower right */
+.banner-hero-container .strawberry-bottom-right,
+.banner-hero-container .strawberry-single-right {
+  width: 21.2vw;
+  top: 59vh;
+  right: 9vw;
+  left: auto;
+  bottom: auto;
   transform: rotate(5deg);
 }
 
-.banner-hero-container .strawberry-leaf-right-mid {
-
-  width: 10.8vw;
-
-  top: 11%;
-
-  right: -4%;
-
-  transform: rotate(176deg) !important;
+/* 5.png - Strawberry pair with big leaf on upper right */
+.banner-hero-container .strawberry-top-right,
+.banner-hero-container .strawberry-pair-right {
+  width: 17.5vw;
+  top: -1vh;
+  right: -0.5vw;
+  left: auto;
+  bottom: auto;
+  transform: rotate(4deg);
 }
 
-.banner-hero-container .strawberry-leaf-bottom-left {
-
-  width: 8.5vw;
-    bottom: 0%;
-    left: -3%;
-    transform: rotate(-101deg) !important;
+/* 6.png - Strawberry leaf branch hanging from top-right corner */
+.banner-hero-container .strawberry-leaf-top-right,
+.banner-hero-container .strawberry-branch-top-right {
+  width: 10vw;
+  top: -7vh;
+  right: -3vw;
+  left: auto;
+  bottom: auto;
+  transform: rotate(5deg);
 }
 
-.banner-hero-container .strawberry-bottom-mid {
-
-  width: 14.5vw;
-
-  bottom: 5%;
-
-  left: 56%;
-
-  transform: rotate(8deg);
+/* 7.png - Mint leaf lower center-right of bottle */
+.banner-hero-container .strawberry-leaf-bottom-mid,
+.banner-hero-container .strawberry-mint-mid-right {
+  width: 18.4vw;
+  top: 66vh;
+  left: 55vw;
+  right: auto;
+  bottom: auto;
+  transform: rotate(350deg);
 }
 
-
-.banner-hero-container .strawberry-leaf-cluster {
-
-  width: 15vw;
-
-  bottom: 8%;
-
-  right: -2%;
-
-  transform: rotate(10deg);
+/* 8.png - Mint leaf at bottom-right corner */
+.banner-hero-container .strawberry-mint-bottom-right {
+  width: 15.2vw;
+  bottom: -4vh;
+  right: -6.5vw;
+  top: auto;
+  left: auto;
+  transform: rotate(15deg);
 }
 
 
@@ -1037,10 +1041,9 @@ width: 9vw;
 .banner-hero-container .chocolate-top-left {
 
   width: 14vw;
-    top: 10.5%;
-    left: 20.5%;
-    transform: rotate(-6deg);
-    filter: drop-shadow(0 16px 26px rgba(45, 20, 8, 0.32));
+  top: 10.5%;
+  left: 20.5%;
+  transform: rotate(-6deg);
 }
 
 .banner-hero-container .chocolate-mint-top {
@@ -1052,9 +1055,6 @@ width: 9vw;
   left: 65%;
 
   transform: rotate(20deg);
-
-  filter:
-    drop-shadow(0 10px 18px rgba(30, 25, 15, 0.25));
 }
 
 .banner-hero-container .chocolate-coffee-beans {
@@ -1066,25 +1066,21 @@ width: 9vw;
   right: -6.5%;
 
   transform: rotate(-5deg);
-
-  filter:
-    drop-shadow(0 14px 22px rgba(40, 18, 5, 0.3));
 }
 
 .banner-hero-container .chocolate-mint-single {
 
- width: 8.8vw;
-    top: 64%;
-    left: -2.5%;
-    transform: rotate(329deg) !important;
-    filter: drop-shadow(0 10px 16px rgba(30, 25, 15, 0.25));}
+  width: 8.8vw;
+  top: 64%;
+  left: -2.5%;
+  transform: rotate(329deg) !important;
+}
 
 .banner-hero-container .chocolate-shavings {
-width: 19.5vw;
-    bottom: 5.5%;
-    left: 54%;
-    transform: rotate(0deg);
-    filter: drop-shadow(0 14px 22px rgba(45, 20, 8, 0.28));
+  width: 19.5vw;
+  bottom: 5.5%;
+  left: 54%;
+  transform: rotate(0deg);
 }
 
 
@@ -1097,9 +1093,6 @@ width: 19.5vw;
   right: -0.5%;
 
   transform: rotate(-30deg);
-
-  filter:
-    drop-shadow(0 12px 18px rgba(30, 25, 15, 0.25));
 }
 
 
@@ -1178,63 +1171,50 @@ width: 19.5vw;
     max-height: 72vh;
   }
 
-  .banner-hero-container .bottle-ground-shadow {
-
-    width: 28vw;
-
-    height: 3.8vh;
-
-    bottom: 5%;
-  }
-
 
   /* ORANGE */
 
-  .banner-hero-container .orange-top-left {
-    width: 28vw;
-    top: -9.5vh;
-    left: -1.5vw;
+  .banner-hero-container .orange-top-left,
+  .banner-hero-container .orange-slice-left {
+    width: 22vw;
+    top: 18vh;
+    left: 2vw;
   }
 
-  .banner-hero-container .orange-top-right {
-    width: 29vw;
-    top: -12.5vh;
-    right: 9.5vw;
+  .banner-hero-container .orange-top-right,
+  .banner-hero-container .orange-whole-right {
+    width: 26vw;
+    top: 22vh;
+    right: 4vw;
   }
 
-  .banner-hero-container .orange-bottom-right {
-    width: 31vw;
-    bottom: -19.5vh;
-    right: 13vw;
+  .banner-hero-container .orange-bottom-right,
+  .banner-hero-container .orange-wedge-bottom-right {
+    width: 18vw;
+    top: 57vh;
+    right: 7vw;
+  }
+
+  .banner-hero-container .leaf-right-1,
+  .banner-hero-container .orange-branch-top-right {
+    width: 18vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .leaf-left-1,
+  .banner-hero-container .orange-mint-top-left {
+    width: 8vw;
+    top: 21vh;
+    left: 28vw;
   }
 
 
-  /* LEAVES */
-
-  .banner-hero-container .leaf-left-1 {
-    width: 25vw;
-    top: 29.5vh;
-    left: -1.7vw;
-  }
-
-  .banner-hero-container .leaf-left-2 {
-    width: 27vw;
-    top: -21vh;
-    left: 25vw;
-  }
-
-  .banner-hero-container .leaf-right-1 {
-    width: 28vw;
-    top: 12vh;
-    right: -2.5vw;
-    
-  }
-
-  .banner-hero-container .leaf-bottom-mid {
-    width: 28vw;
-    bottom: -28.5vh;
-    left: 20.5vw;
-    transform: rotate(25deg) !important;
+  .banner-hero-container .leaf-bottom-mid,
+  .banner-hero-container .orange-mint-mid-right {
+    width: 7vw;
+    top: 66vh;
+    left: 56vw;
   }
 
   /* MANGO */
@@ -1282,40 +1262,52 @@ width: 19.5vw;
   }
 
   /* BLUEBERRY */
+  .banner-hero-container .blueberry-leaf-bottom-left {
+    width: 15vw;
+    bottom: -4vh;
+    left: -2vw;
+  }
+
   .banner-hero-container .blueberry-top-left {
     width: 22vw;
-    top: 8vh;
+    top: 20vh;
     left: 4vw;
   }
 
-  .banner-hero-container .blueberry-top-right {
-    width: 20vw;
-    top: 6vh;
-    right: 10vw;
+  .banner-hero-container .blueberry-leaf-top-mid {
+    width: 8.5vw;
+    top: 18vh;
+    left: 30vw;
   }
 
   .banner-hero-container .blueberry-bottom-right {
-    width: 24vw;
-    bottom: 5vh;
-    right: 8vw;
-  }
-
-  .banner-hero-container .blueberry-leaf-left-1 {
-    width: 16vw;
-    top: 40vh;
-    left: 1vw;
-  }
-
-  .banner-hero-container .blueberry-leaf-top-mid {
-    width: 15vw;
-    top: -5vh;
-    left: 33vw;
+    width: 13vw;
+    top: 58vh;
+    right: 15vw;
   }
 
   .banner-hero-container .blueberry-leaf-bottom-mid {
-    width: 15vw;
-    bottom: 4vh;
-    left: 24vw;
+    width: 7vw;
+    top: 61vh;
+    left: 54vw;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 22vw;
+    top: 20vh;
+    right: 6vw;
+  }
+
+  .banner-hero-container .blueberry-branch-top-right {
+    width: 16vw;
+    top: -4vh;
+    right: -2vw;
+  }
+
+  .banner-hero-container .blueberry-mint-bottom-right {
+    width: 9vw;
+    bottom: -3vh;
+    right: -1vw;
   }
 
 
@@ -1330,60 +1322,54 @@ width: 19.5vw;
     left: 6%;
   }
 
-  .banner-hero-container .strawberry-leaf-top-mid {
+  /* STRAWBERRY */
 
-    width: 4.2vw;
-
-    top: 4%;
-
-    left: 28%;
-  }
-
-  .banner-hero-container .strawberry-top-right {
-
-    width: 8.2vw;
-
-    top: 9%;
-
-    right: 14%;
-  }
-
-  .banner-hero-container .strawberry-leaf-right-mid {
-
-    width: 3.6vw;
-
-    top: 18%;
-
-    right: 6%;
+  .banner-hero-container .strawberry-top-left {
+    width: 14vw;
+    top: 25vh;
+    left: 6vw;
   }
 
   .banner-hero-container .strawberry-leaf-bottom-left {
-
-    width: 5.2vw;
-
-    bottom: 18%;
-
-    left: 0%;
+    width: 13vw;
+    bottom: -4vh;
+    left: -1vw;
   }
 
-  .banner-hero-container .strawberry-bottom-mid {
-
-    width: 7.2vw;
-
-    bottom: 10%;
-
-    left: 59%;
+  .banner-hero-container .strawberry-leaf-top-mid {
+    width: 7vw;
+    top: 22vh;
+    left: 31vw;
   }
 
- 
+  .banner-hero-container .strawberry-bottom-right {
+    width: 12vw;
+    top: 63vh;
+    right: 15vw;
+  }
 
-  .banner-hero-container .strawberry-leaf-cluster {
+  .banner-hero-container .strawberry-top-right {
+    width: 18vw;
+    top: 23vh;
+    right: 8vw;
+  }
 
-    width: 4.5vw;
+  .banner-hero-container .strawberry-leaf-top-right {
+    width: 14vw;
+    top: -1vh;
+    right: 0vw;
+  }
 
-    bottom: 13%;
+  .banner-hero-container .strawberry-leaf-bottom-mid {
+    width: 18vh;
+    top: 67vh;
+    left: 55vw;
+  }
 
-    right: 6%;
+  .banner-hero-container .strawberry-mint-bottom-right {
+    width: 7vw;
+    bottom: -2vh;
+    right: -0.5vw;
   }
 
 
@@ -1456,9 +1442,8 @@ width: 19.5vw;
   }
 
   .banner-hero-container .info-box h2 {
-
-    font-size: 3vw;
-
+    font-size: 4.2vw;
+    line-height: 0.95;
     margin-bottom: 0.5vh;
   }
 
@@ -1510,61 +1495,49 @@ width: 19.5vw;
     max-height: 65vh;
   }
 
-  .banner-hero-container .bottle-ground-shadow {
-
-    width: 32vw;
-
-    height: 3.2vh;
-
-    bottom: 4%;
-  }
-
 
   /* ORANGE */
 
-  .banner-hero-container .orange-top-left {
-    width: 28vw;
-    top: -6vh;
-    left: -1vw;
-  }
-
-  .banner-hero-container .orange-top-right {
-    width: 29vw;
-    top: -9vh;
-    right: 8vw;
-  }
-
-  .banner-hero-container .orange-bottom-right {
-    width: 30vw;
-    bottom: -15vh;
-    right: 11vw;
-  }
-
-
-  /* LEAVES */
-
-  .banner-hero-container .leaf-left-1 {
+  .banner-hero-container .orange-top-left,
+  .banner-hero-container .orange-slice-left {
     width: 25vw;
-    top: 32vh;
-    left: -1.5vw;
+    top: 24vh;
+    left: 2vw;
   }
 
-  .banner-hero-container .leaf-left-2 {
-    width: 27vw;
-    top: -16vh;
-    left: 24vw;
-  }
-
-  .banner-hero-container .leaf-right-1 {
+  .banner-hero-container .orange-top-right,
+  .banner-hero-container .orange-whole-right {
     width: 28vw;
-    top: 15vh;
-    right: -2.5vw;
+    top: 21vh;
+    right: 3vw;
   }
 
-  .banner-hero-container .leaf-bottom-mid {
-    width: 28vw;
-    bottom: -12vh;
-    left: 18.5vw;
+  .banner-hero-container .orange-bottom-right,
+  .banner-hero-container .orange-wedge-bottom-right {
+    width: 20vw;
+    top: 58vh;
+    right: 6vw;
+  }
+
+  .banner-hero-container .leaf-right-1,
+  .banner-hero-container .orange-branch-top-right {
+    width: 20vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .leaf-left-1,
+  .banner-hero-container .orange-mint-top-left {
+    width: 9vw;
+    top: 20vh;
+    left: 26vw;
+  }
+
+  .banner-hero-container .leaf-bottom-mid,
+  .banner-hero-container .orange-mint-mid-right {
+    width: 8vw;
+    top: 66vh;
+    left: 57vw;
   }
 
   /* MANGO */
@@ -1606,115 +1579,103 @@ width: 19.5vw;
   }
 
   /* BLUEBERRY */
+  .banner-hero-container .blueberry-leaf-bottom-left {
+    width: 17vw;
+    bottom: -4vh;
+    left: -2vw;
+  }
+
   .banner-hero-container .blueberry-top-left {
     width: 24vw;
-    top: 7vh;
+    top: 20vh;
     left: 3vw;
   }
 
-  .banner-hero-container .blueberry-top-right {
-    width: 22vw;
-    top: 5vh;
-    right: 8vw;
+  .banner-hero-container .blueberry-leaf-top-mid {
+    width: 10vw;
+    top: 18vh;
+    left: 28vw;
   }
 
   .banner-hero-container .blueberry-bottom-right {
-    width: 26vw;
-    bottom: 4vh;
-    right: 6vw;
-  }
-
-  .banner-hero-container .blueberry-leaf-left-1 {
-    width: 18vw;
-    top: 38vh;
-    left: 0vw;
-  }
-
-  .banner-hero-container .blueberry-leaf-top-mid {
-    width: 17vw;
-    top: -4vh;
-    left: 30vw;
+    width: 15vw;
+    top: 58vh;
+    right: 14vw;
   }
 
   .banner-hero-container .blueberry-leaf-bottom-mid {
-    width: 17vw;
-    bottom: 3vh;
-    left: 22vw;
+    width: 8vw;
+    top: 61vh;
+    left: 53vw;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 24vw;
+    top: 20vh;
+    right: 5vw;
+  }
+
+  .banner-hero-container .blueberry-branch-top-right {
+    width: 18vw;
+    top: -4vh;
+    right: -2vw;
+  }
+
+  .banner-hero-container .blueberry-mint-bottom-right {
+    width: 10vw;
+    bottom: -3vh;
+    right: -1vw;
   }
 
 
   /* STRAWBERRY */
 
   .banner-hero-container .strawberry-top-left {
-
-    width: 14vw;
-
-    top: 12%;
-
-    left: 5%;
-  }
-
-  .banner-hero-container .strawberry-leaf-top-mid {
-
-    width: 6.5vw;
-
-    top: 5%;
-
-    left: 27%;
-  }
-
-  .banner-hero-container .strawberry-top-right {
-
-    width: 15vw;
-
-    top: 10%;
-
-    right: 10%;
-  }
-
-  .banner-hero-container .strawberry-leaf-right-mid {
-
-    width: 5.5vw;
-
-    top: 19%;
-
-    right: 5%;
+    width: 17vw;
+    top: 25vh;
+    left: 5vw;
   }
 
   .banner-hero-container .strawberry-leaf-bottom-left {
-
-    width: 7.5vw;
-
-    bottom: 20%;
-
-    left: 0%;
+    width: 15vw;
+    bottom: -4vh;
+    left: -1vw;
   }
 
-  .banner-hero-container .strawberry-bottom-mid {
-
-    width: 12vw;
-
-    bottom: 11%;
-
-    left: 58%;
+  .banner-hero-container .strawberry-leaf-top-mid {
+    width: 9vw;
+    top: 22vh;
+    left: 29vw;
   }
 
-  .banner-hero-container .strawberry-bottom-small {
-
-    width: 7vw;
-
-    bottom: 13%;
-
-    left: 54%;
+  .banner-hero-container .strawberry-bottom-right {
+    width: 15vw;
+    top: 63vh;
+    right: 12vw;
   }
 
-  .banner-hero-container .strawberry-leaf-cluster {
+  .banner-hero-container .strawberry-top-right {
+    width: 22vw;
+    top: 23vh;
+    right: 6vw;
+  }
 
-    width: 6.8vw;
+  .banner-hero-container .strawberry-leaf-top-right {
+    width: 16vw;
+    top: -1vh;
+    right: 0vw;
+  }
 
-    bottom: 14%;
+  .banner-hero-container .strawberry-leaf-bottom-mid {
+    width: 16vh;
+    top: 67vh;
+    left: 55vw;
+  }
 
-    right: 5%;
+  .banner-hero-container .strawberry-mint-bottom-right {
+    width: 9vw;
+    bottom: -2vh;
+    right: -0.5vw;
   }
 
 
@@ -1787,9 +1748,8 @@ width: 19.5vw;
   }
 
   .banner-hero-container .info-box h2 {
-
-    font-size: 6.4vw;
-
+    font-size: 7.5vw;
+    line-height: 0.95;
     margin-bottom: 0.4vh;
   }
 
@@ -1888,22 +1848,6 @@ width: 19.5vw;
   }
 
 
-  /* SHADOW */
-
-  .banner-hero-container .bottle-ground-shadow {
-
-    position: absolute;
-
-    z-index: 3;
-
-    width: 36vw;
-
-    height: 20px;
-
-    bottom: 3%;
-  }
-
-
   /* FLAVOUR HEADING */
 
   .banner-hero-container .one h1,
@@ -1924,49 +1868,47 @@ width: 19.5vw;
 
   /* ORANGE */
 
-  .banner-hero-container .orange-top-left {
+  .banner-hero-container .orange-top-left,
+  .banner-hero-container .orange-slice-left {
     width: 32vw;
-    top: 11%;
-    left: 3%;
+    top: 24%;
+    left: 2%;
   }
 
-  .banner-hero-container .orange-top-right {
+  .banner-hero-container .orange-top-right,
+  .banner-hero-container .orange-whole-right {
     width: 34vw;
-    top: 8%;
-    right: 4%;
+    top: 20%;
+    right: 2%;
   }
 
-  .banner-hero-container .orange-bottom-right {
-    width: 35vw;
-    bottom: 3%;
-    right: 4%;
-  }
-
-
-  /* LEAVES */
-
-  .banner-hero-container .leaf-left-1 {
+  .banner-hero-container .orange-bottom-right,
+  .banner-hero-container .orange-wedge-bottom-right {
     width: 25vw;
-    top: 40%;
-    left: 1%;
+    top: 60%;
+    right: 4%;
   }
 
-  .banner-hero-container .leaf-left-2 {
-    width: 27vw;
-    top: 2%;
+  .banner-hero-container .leaf-right-1,
+  .banner-hero-container .orange-branch-top-right {
+    width: 22vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .leaf-left-1,
+  .banner-hero-container .orange-mint-top-left {
+    width: 12vw;
+    top: 20%;
     left: 24%;
   }
 
-  .banner-hero-container .leaf-right-1 {
-    width: 26vw;
-    top: 32%;
-    right: 1%;
-  }
 
-  .banner-hero-container .leaf-bottom-mid {
-    width: 26vw;
-    bottom: 8%;
-    left: 20%;
+  .banner-hero-container .leaf-bottom-mid,
+  .banner-hero-container .orange-mint-mid-right {
+    width: 11vw;
+    top: 66%;
+    left: 56%;
   }
 
   /* MANGO */
@@ -2000,67 +1942,64 @@ width: 19.5vw;
     left: 24%;
   }
 
- 
+
 
   .banner-hero-container .mango-leaf-bottom-mid {
     width: 26vw;
     bottom: 8%;
     left: 20%;
   }
+
   /* =========================
      BLUEBERRY ELEMENTS - MOBILE
      ========================= */
 
-  /* Top-left blueberry cluster */
+  .banner-hero-container .blueberry-leaf-bottom-left {
+    width: 20vw;
+    bottom: -3%;
+    left: -2%;
+  }
+
   .banner-hero-container .blueberry-top-left {
     width: 28vw;
-    top: 10%;
-    left: 8%;
+    top: 22%;
+    left: 4%;
   }
 
-  /* Upper-right blueberry cluster */
-  .banner-hero-container .blueberry-top-right {
-    width: 32vw;
-    top: 12%;
-    right: 5%;
-    transform: rotate(0deg);
-  }
-
-  /* Bottom blueberry cluster */
-  .banner-hero-container .blueberry-bottom-right {
-    width: 22vw;
-    bottom: 8%;
-    right: 28%;
-  }
-
-  /* =========================
-     LEAVES
-     ========================= */
-
-  /* Left middle leaf */
-  .banner-hero-container .blueberry-leaf-left-1 {
-    width: 14vw;
-    top: 48%;
-    left: 1%;
-    transform: rotate(-15deg);
-  }
-
-  /* Top-right leaf */
   .banner-hero-container .blueberry-leaf-top-mid {
-    width: 13vw;
-    top: 6%;
-    right: -2%;
-    left: auto;
-    transform: rotate(8deg);
+    width: 12vw;
+    top: 20%;
+    left: 28%;
   }
 
-  /* Bottom-right leaf */
+  .banner-hero-container .blueberry-bottom-right {
+    width: 18vw;
+    top: 60%;
+    right: 12%;
+  }
+
   .banner-hero-container .blueberry-leaf-bottom-mid {
-    width: 16vw;
-    bottom: 8%;
+    width: 10vw;
+    top: 62%;
+    left: 54%;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 28vw;
+    top: 22%;
     right: 4%;
-    left: auto;
-    transform: rotate(18deg);
+  }
+
+  .banner-hero-container .blueberry-branch-top-right {
+    width: 20vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .blueberry-mint-bottom-right {
+    width: 12vw;
+    bottom: -2%;
+    right: 0;
   }
 
 
@@ -2068,75 +2007,51 @@ width: 19.5vw;
   /* STRAWBERRY */
 
   .banner-hero-container .strawberry-top-left {
-
-    width: 19vw;
-
-    top: 12%;
-
+    width: 26vw;
+    top: 24%;
     left: 4%;
   }
 
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: 24vw;
+    bottom: -3%;
+    left: -1%;
+  }
+
   .banner-hero-container .strawberry-leaf-top-mid {
+    width: 14vw;
+    top: 20%;
+    left: 26%;
+  }
 
-    width: 9.5vw;
-
-    top: 5%;
-
-    left: 25%;
+  .banner-hero-container .strawberry-bottom-right {
+    width: 22vw;
+    top: 62%;
+    right: 8%;
   }
 
   .banner-hero-container .strawberry-top-right {
-
-    width: 21vw;
-
-    top: 10%;
-
-    right: 7%;
-  }
-
-  .banner-hero-container .strawberry-leaf-right-mid {
-
-    width: 8vw;
-
+    width: 30vw;
     top: 20%;
-
     right: 4%;
   }
 
-  .banner-hero-container .strawberry-leaf-bottom-left {
-
-    width: 10.5vw;
-
-    bottom: 22%;
-
-    left: 0%;
+  .banner-hero-container .strawberry-leaf-top-right {
+    width: 24vw;
+    top: 0;
+    right: 0;
   }
 
-  .banner-hero-container .strawberry-bottom-mid {
-
-    width: 17vw;
-
-    bottom: 12%;
-
-    left: 58%;
+  .banner-hero-container .strawberry-leaf-bottom-mid {
+    width: 15vh;
+    top: 66%;
+    left: 55%;
   }
 
-  .banner-hero-container .strawberry-bottom-small {
-
-    width: 10vw;
-
-    bottom: 14%;
-
-    left: 54%;
-  }
-
-  .banner-hero-container .strawberry-leaf-cluster {
-
-    width: 9.5vw;
-
-    bottom: 15%;
-
-    right: 4%;
+  .banner-hero-container .strawberry-mint-bottom-right {
+    width: 13vw;
+    bottom: -1%;
+    right: 0;
   }
 
 
@@ -2268,49 +2183,47 @@ width: 19.5vw;
 
   /* ORANGE */
 
-  .banner-hero-container .orange-top-left {
+  .banner-hero-container .orange-top-left,
+  .banner-hero-container .orange-slice-left {
     width: 32vw;
-    top: 12%;
-    left: 3%;
+    top: 24%;
+    left: 2%;
   }
 
-  .banner-hero-container .orange-top-right {
+  .banner-hero-container .orange-top-right,
+  .banner-hero-container .orange-whole-right {
     width: 34vw;
-    top: 9%;
+    top: 20%;
+    right: 2%;
+  }
+
+  .banner-hero-container .orange-bottom-right,
+  .banner-hero-container .orange-wedge-bottom-right {
+    width: 25vw;
+    top: 60%;
     right: 4%;
   }
 
-  .banner-hero-container .orange-bottom-right {
-    width: 35vw;
-    bottom: 3%;
-    right: 3%;
+  .banner-hero-container .leaf-right-1,
+  .banner-hero-container .orange-branch-top-right {
+    width: 22vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .leaf-left-1,
+  .banner-hero-container .orange-mint-top-left {
+    width: 12vw;
+    top: 20%;
+    left: 24%;
   }
 
 
-  /* LEAVES */
-
-  .banner-hero-container .leaf-left-1 {
-    width: 25vw;
-    top: 42%;
-    left: 1%;
-  }
-
-  .banner-hero-container .leaf-left-2 {
-    width: 27vw;
-    top: 2%;
-    left: 22%;
-  }
-
-  .banner-hero-container .leaf-right-1 {
-    width: 26vw;
-    top: 34%;
-    right: 1%;
-  }
-
-  .banner-hero-container .leaf-bottom-mid {
-    width: 26vw;
-    bottom: 8%;
-    left: 18%;
+  .banner-hero-container .leaf-bottom-mid,
+  .banner-hero-container .orange-mint-mid-right {
+    width: 11vw;
+    top: 66%;
+    left: 56%;
   }
 
   /* MANGO */
@@ -2357,115 +2270,103 @@ width: 19.5vw;
   }
 
   /* BLUEBERRY */
+  .banner-hero-container .blueberry-leaf-bottom-left {
+    width: 22vw;
+    bottom: -3%;
+    left: -2%;
+  }
+
   .banner-hero-container .blueberry-top-left {
-    width: 28vw;
-    top: 11%;
-    left: 4%;
-  }
-
-  .banner-hero-container .blueberry-top-right {
-    width: 26vw;
-    top: 9%;
-    right: 5%;
-  }
-
-  .banner-hero-container .blueberry-bottom-right {
     width: 30vw;
-    bottom: 5%;
-    right: 4%;
-  }
-
-  .banner-hero-container .blueberry-leaf-left-1 {
-    width: 20vw;
-    top: 44%;
-    left: 1%;
+    top: 22%;
+    left: 3%;
   }
 
   .banner-hero-container .blueberry-leaf-top-mid {
-    width: 18vw;
-    top: 2%;
+    width: 14vw;
+    top: 20%;
     left: 26%;
   }
 
+  .banner-hero-container .blueberry-bottom-right {
+    width: 20vw;
+    top: 60%;
+    right: 10%;
+  }
+
   .banner-hero-container .blueberry-leaf-bottom-mid {
-    width: 18vw;
-    bottom: 7%;
-    left: 16%;
+    width: 12vw;
+    top: 62%;
+    left: 54%;
+  }
+
+  .banner-hero-container .blueberry-top-right {
+    width: 30vw;
+    top: 22%;
+    right: 3%;
+  }
+
+  .banner-hero-container .blueberry-branch-top-right {
+    width: 22vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .blueberry-mint-bottom-right {
+    width: 13vw;
+    bottom: -2%;
+    right: 0;
   }
 
 
   /* STRAWBERRY */
 
   .banner-hero-container .strawberry-top-left {
-
-    width: 17vw;
-
-    top: 13%;
-
+    width: 26vw;
+    top: 24%;
     left: 3%;
   }
 
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: 24vw;
+    bottom: -3%;
+    left: -1%;
+  }
+
   .banner-hero-container .strawberry-leaf-top-mid {
+    width: 14vw;
+    top: 20%;
+    left: 25%;
+  }
 
-    width: 9vw;
-
-    top: 6%;
-
-    left: 24%;
+  .banner-hero-container .strawberry-bottom-right {
+    width: 22vw;
+    top: 62%;
+    right: 8%;
   }
 
   .banner-hero-container .strawberry-top-right {
-
-    width: 18vw;
-
-    top: 11%;
-
-    right: 5%;
+    width: 30vw;
+    top: 20%;
+    right: 4%;
   }
 
-  .banner-hero-container .strawberry-leaf-right-mid {
-
-    width: 8vw;
-
-    top: 21%;
-
-    right: 3%;
+  .banner-hero-container .strawberry-leaf-top-right {
+    width: 24vw;
+    top: 0;
+    right: 0;
   }
 
-  .banner-hero-container .strawberry-leaf-bottom-left {
-
-    width: 10vw;
-
-    bottom: 24%;
-
-    left: 0%;
+  .banner-hero-container .strawberry-leaf-bottom-mid {
+    width: 15vh;
+    top: 66%;
+    left: 55%;
   }
 
-  .banner-hero-container .strawberry-bottom-mid {
-
-    width: 16vw;
-
-    bottom: 13%;
-
-    left: 57%;
-  }
-
-  .banner-hero-container .strawberry-bottom-small {
-
-    width: 10vw;
-
-    bottom: 15%;
-
-    left: 53%;
-  }
-
-  .banner-hero-container .strawberry-leaf-cluster {
-
-    width: 10vw;
-
-    bottom: 16%;
-
-    right: 3%;
+  .banner-hero-container .strawberry-mint-bottom-right {
+    width: 13vw;
+    bottom: -1%;
+    right: 0;
   }
 
 

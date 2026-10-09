@@ -10,7 +10,8 @@ const YOUTUBE_VIDEO_ID = '1z5FCi-XpHQ';
 
 /**
  * DistilledToInspire
- * Apple & Webflow scroll-driven gradient text reveal with interactive video player
+ * Editorial Brand & Craft Section with YouTube Video Player
+ * Matches reference image with pixel-perfect precision
  */
 export default function DistilledToInspire() {
   const sectionRef = useRef(null);
@@ -26,18 +27,18 @@ export default function DistilledToInspire() {
     if (prefersReduced) return;
 
     const renderGradient = (p) => {
-      if (p >= 96) {
+      if (p >= 75) {
         textEl.style.backgroundImage = 'none';
         textEl.style.color = '#000000';
         textEl.style.webkitTextFillColor = '#000000';
       } else {
         textEl.style.color = 'transparent';
         textEl.style.webkitTextFillColor = 'transparent';
-        const p1 = Math.max(0, p * 1.05 - 4);
+        const p1 = Math.max(0, p * 1.3 - 2);
         const p2 = Math.min(100, p1 + 10);
         const p3 = Math.min(100, p1 + 22);
-        const p4 = Math.min(100, p1 + 36);
-        textEl.style.backgroundImage = `linear-gradient(to bottom, #000000 0%, #000000 ${p1}%, rgba(0, 0, 0, 0.82) ${p2}%, rgba(0, 0, 0, 0.48) ${p3}%, rgba(0, 0, 0, 0.25) ${p4}%, rgba(0, 0, 0, 0.25) 100%)`;
+        const p4 = Math.min(100, p1 + 35);
+        textEl.style.backgroundImage = `linear-gradient(to bottom, #000000 0%, #000000 ${p1}%, rgba(0, 0, 0, 0.82) ${p2}%, rgba(0, 0, 0, 0.45) ${p3}%, rgba(0, 0, 0, 0.2) ${p4}%, rgba(0, 0, 0, 0.2) 100%)`;
       }
     };
 
@@ -51,9 +52,9 @@ export default function DistilledToInspire() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top 75%',
-          end: 'bottom 40%',
-          scrub: 0.8,
+          start: 'top 85%',
+          end: 'top 45%',
+          scrub: 0.5,
           invalidateOnRefresh: true,
           onUpdate: () => renderGradient(state.p),
         },
@@ -72,9 +73,9 @@ export default function DistilledToInspire() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top 75%',
-          end: 'bottom 40%',
-          scrub: 0.6,
+          start: 'top 85%',
+          end: 'top 45%',
+          scrub: 0.5,
           invalidateOnRefresh: true,
           onUpdate: () => renderGradient(state.p),
         },
@@ -93,8 +94,8 @@ export default function DistilledToInspire() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
-          end: 'bottom 45%',
+          start: 'top 90%',
+          end: 'top 50%',
           scrub: 0.4,
           invalidateOnRefresh: true,
           onUpdate: () => renderGradient(state.p),
@@ -140,35 +141,33 @@ export default function DistilledToInspire() {
   return (
     <section ref={sectionRef} className="distilled-to-inspire" id="distilled" aria-label="Distilled to Inspire">
       <div className="distilled-to-inspire__inner">
-        {/* Left Side: Brand Typography, Editorial Text with Scroll-Driven Reveal */}
+        {/* Left Side: Brand Typography, Editorial Text */}
         <div className="distilled-to-inspire__content">
           {/* Bold Heading */}
           <h2 className="distilled-to-inspire__title">
             DISTILLED TO INSPIRE
           </h2>
 
-         
-
-          {/* Inception Year Meta */}
+          {/* Inception Subtitle */}
           <p className="distilled-to-inspire__inception">
-            <strong>Crafted </strong> Since 2015
+            Crafted Since 2015
           </p>
 
           {/* Editorial Paragraph with Scroll Gradient Reveal */}
           <div className="distilled-to-inspire__text-wrapper">
             <p ref={textRef} className="distilled-to-inspire__paragraph">
-              Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master's includes flavoured vodka, and is more for the Youth because of the blended flavours and the variety of Vodka it has to offer &amp; also for people who want to start drinking and try new things.
+              Crafted by House of Deejay Distilleries, Grand Master’s<br className="desktop-br" /> brings together distinctive vodka flavours, contemporary <br className="desktop-br" />packaging and a spirit of experimentation.
             </p>
           </div>
 
-          {/* Discover Our Flavors Button */}
+          {/* Discover Our Story Button */}
           <a
             href="#products"
             onClick={handleDiscoverClick}
             className="distilled-to-inspire__btn"
-            id="discover-flavors-btn"
+            id="discover-story-btn"
           >
-            <span>Discover Our Flavors</span>
+            <span>Discover Our Story</span>
           </a>
         </div>
 
@@ -197,7 +196,11 @@ export default function DistilledToInspire() {
                 aria-label="Play Grand Master Distillery Video"
               >
                 <img
-                  src={`https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`}
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`;
+                  }}
                   alt="Grand Master Vodka Distillery Production Line"
                   className="distilled-to-inspire__poster-img"
                   loading="lazy"
@@ -217,7 +220,7 @@ export default function DistilledToInspire() {
                       className="distilled-to-inspire__play-svg"
                       aria-hidden="true"
                     >
-                      <polygon points="8 5 19 12 8 19 8 5" fill="currentColor" />
+                      <polygon points="9 6 18 12 9 18 9 6" fill="currentColor" />
                     </svg>
                   </div>
                 </button>

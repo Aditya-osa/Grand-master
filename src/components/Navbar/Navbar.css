@@ -12,9 +12,10 @@
   width: 100%;
   height: clamp(86px, 13vh, 122px);
   padding-top: env(safe-area-inset-top);
-  padding-right: max(clamp(72px, 10.5vw, 180px), env(safe-area-inset-right));
+  --nav-pad-x: max(clamp(72px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-right: var(--nav-pad-x);
   padding-bottom: 0.8vh;
-  padding-left: max(clamp(72px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-left: var(--nav-pad-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,19 +24,35 @@
   box-shadow: none;
   box-sizing: border-box;
   transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-bottom: 1px solid transparent;
+    backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header Horizontal Divider Line */
+.gm-main-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--nav-pad-x);
+  right: var(--nav-pad-x);
+  height: 1px;
+  background: #e5e5e5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 /* Scrolled Floating State (Smooth Frosted Glass) */
 .gm-main-nav.scrolled {
-  background: rgba(12, 12, 15, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(115, 47, 3, 0.08);
+  box-shadow: 0 4px 20px rgba(115, 47, 3, 0.06);
+}
+
+.gm-main-nav.scrolled::after {
+  opacity: 0;
 }
 
 /* Brand Logo */
@@ -53,20 +70,63 @@
 }
 
 /* =========================
-   LOGO - PERCENTAGE BASED
+   LOGO - CLEAN & UNFILTERED
    ========================= */
 
 .nav-logo {
-  margin-top: 1.5vh;
-  height: 9.5vh;
-  width: auto;
-  max-width: 25vw;
-  min-height: 58px;
+  margin-top: 1vh;
+  width: 12.5vw;
+  height: auto;
+  max-height: 9.5vh;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1)
-    drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
-  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: none !important;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* =========================
+   DESKTOP NAVIGATION LINKS
+   ========================= */
+
+.nav-desktop-links {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3.2vw, 44px);
+  margin-left: auto;
+}
+
+.nav-desktop-links .nav-link {
+  color: #732f03;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  padding: 6px 2px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.nav-desktop-links .nav-link:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+.nav-desktop-links .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #732f03;
+  transition: width 0.25s ease;
+}
+
+.nav-desktop-links .nav-link:hover::after {
+  width: 100%;
 }
 
 /* Actions Section */
@@ -75,6 +135,18 @@
   align-items: center;
   gap: 16px;
   z-index: 1001;
+}
+
+@media (min-width: 860px) {
+  .nav-actions {
+    display: none !important;
+  }
+}
+
+@media (max-width: 859px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
 }
 
 /* Hamburger Menu Toggle Button */
@@ -88,26 +160,23 @@
   justify-content: center;
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: #732f03;
   font-size: clamp(26px, 2.2vw, 34px);
   padding: 8px;
   outline: none;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.3s ease,
-              text-shadow 0.3s ease;
+    color 0.3s ease;
 }
 
 .menu-toggle-btn:hover,
 #menu-toggle:hover {
   transform: scale(1.1);
-  color: #ff6a00;
-  text-shadow: 0 0 15px rgba(255, 106, 0, 0.5);
+  color: #a04204;
 }
 
 .menu-toggle-btn i,
 #menu-toggle i {
-  color: #ffffff;
+  color: #732f03;
   font-size: 100%;
   line-height: 1;
 }
@@ -153,8 +222,8 @@
   visibility: hidden;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.35s ease,
-              visibility 0.4s ease;
+    opacity 0.35s ease,
+    visibility 0.4s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -194,10 +263,10 @@
   outline: none;
   z-index: 10010;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.25s ease,
-              color 0.25s ease,
-              border-color 0.25s ease,
-              box-shadow 0.25s ease;
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .menu-close-btn:hover,
@@ -268,7 +337,7 @@
   text-rendering: optimizeLegibility;
   transform: translateZ(0);
   transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 4px 0;
 }
 
@@ -350,10 +419,10 @@
   font-size: 18px;
   text-decoration: none;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.3s ease,
-              color 0.3s ease,
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -372,8 +441,9 @@
 @media (max-width: 1199px) {
   .gm-main-nav {
     height: clamp(80px, 12.5vh, 114px);
-    padding-left: max(clamp(56px, 8.5vw, 110px), env(safe-area-inset-left));
-    padding-right: max(clamp(56px, 8.5vw, 110px), env(safe-area-inset-right));
+    --nav-pad-x: max(clamp(56px, 8.5vw, 110px), env(safe-area-inset-left));
+    padding-left: var(--nav-pad-x);
+    padding-right: var(--nav-pad-x);
     padding-bottom: 0.8vh;
   }
 }
@@ -382,8 +452,9 @@
 @media (max-width: 1023px) {
   .gm-main-nav {
     height: clamp(76px, 12vh, 106px);
-    padding-left: max(clamp(48px, 7.5vw, 85px), env(safe-area-inset-left));
-    padding-right: max(clamp(48px, 7.5vw, 85px), env(safe-area-inset-right));
+    --nav-pad-x: max(clamp(48px, 7.5vw, 85px), env(safe-area-inset-left));
+    padding-left: var(--nav-pad-x);
+    padding-right: var(--nav-pad-x);
     padding-bottom: 0.6vh;
   }
 
@@ -396,12 +467,15 @@
 @media (max-width: 767px) {
   .gm-main-nav {
     height: 82px;
-    padding-left: max(clamp(36px, 6.5vw, 55px), env(safe-area-inset-left));
-    padding-right: max(clamp(36px, 6.5vw, 55px), env(safe-area-inset-right));
+    --nav-pad-x: max(clamp(36px, 6.5vw, 55px), env(safe-area-inset-left));
+    padding-left: var(--nav-pad-x);
+    padding-right: var(--nav-pad-x);
   }
 
   .nav-logo {
-    height: clamp(44px, 6.8vw, 54px);
+    width: 20vw;
+    height: auto;
+    max-height: 56px;
   }
 
   .menu-toggle-btn,
@@ -433,12 +507,15 @@
 @media (max-width: 599px) {
   .gm-main-nav {
     height: 74px;
-    padding-left: max(clamp(26px, 6vw, 40px), env(safe-area-inset-left));
-    padding-right: max(clamp(26px, 6vw, 40px), env(safe-area-inset-right));
+    --nav-pad-x: max(clamp(26px, 6vw, 40px), env(safe-area-inset-left));
+    padding-left: var(--nav-pad-x);
+    padding-right: var(--nav-pad-x);
   }
 
   .nav-logo {
-    height: 46px;
+    width: 25vw;
+    height: auto;
+    max-height: 48px;
   }
 
   .menu-toggle-btn,
@@ -477,12 +554,15 @@
 @media (max-width: 374px) {
   .gm-main-nav {
     height: 66px;
-    padding-left: max(20px, env(safe-area-inset-left));
-    padding-right: max(20px, env(safe-area-inset-right));
+    --nav-pad-x: max(20px, env(safe-area-inset-left));
+    padding-left: var(--nav-pad-x);
+    padding-right: var(--nav-pad-x);
   }
 
   .nav-logo {
-    height: 40px;
+    width: 28vw;
+    height: auto;
+    max-height: 42px;
   }
 
   .menu-overlay {

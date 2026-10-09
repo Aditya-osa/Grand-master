@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  strawberryWhole,
-  strawberryLeaf1,
-  strawberryCut,
-  strawberryLeaf2,
-  strawberryLeaf3,
-  strawberryRipe,
-  strawberrySmall,
-  strawberryLeafCluster,
-} from '../../assets/STRAWBERRY (1)';
+import strawberry1 from '../../assets/Strawberry (1)/1.png';
+import strawberry2 from '../../assets/Strawberry (1)/2.png';
+import strawberry3 from '../../assets/Strawberry (1)/3.png';
+import strawberry4 from '../../assets/Strawberry (1)/4.png';
+import strawberry5 from '../../assets/Strawberry (1)/5.png';
+import strawberry6 from '../../assets/Strawberry (1)/6.png';
+import strawberry7 from '../../assets/Strawberry (1)/7.png';
+import strawberry8 from '../../assets/Strawberry (1)/8.png';
 import {
   chocolateSquares,
   mintLeavesPair1,
@@ -27,34 +25,38 @@ import {
   mangoSlice,
 } from '../../assets/MANGO';
 
-// Melon Assets
-import melonWhole from '../../assets/MELON/Melon.png';
-import melonHalf from '../../assets/MELON/Half-melon.png';
-import melonSlice from '../../assets/MELON/half-melon-1.png';
-import melonLeaf1 from '../../assets/MELON/leaf-1.png';
-import melonLeaf2 from '../../assets/MELON/leaf-2.png';
-import melon3Leaf from '../../assets/MELON/3leaf.png';
+// Melon Assets (from src/assets/Melon copy)
+import melon1 from '../../assets/Melon copy/1.png';
+import melon2 from '../../assets/Melon copy/2.png';
+import melon3 from '../../assets/Melon copy/3.png';
+import melon4 from '../../assets/Melon copy/4.png';
+import melon5 from '../../assets/Melon copy/5.png';
+import melon6 from '../../assets/Melon copy/6.png';
+import melon7 from '../../assets/Melon copy/7.png';
+import melon8 from '../../assets/Melon copy/8.png';
 
 // Blueberry Assets
-import {
-  blueberryCluster,
-  blueberryLeaf1,
-  blueberryScatter,
-  blueberryLeaf2,
-  blueberryTrio,
-  blueberryLeaf3,
-} from '../../assets/BLUE BERRY (1)';
+import blueberry1 from '../../assets/BLUE BERRY/1.png';
+import blueberry2 from '../../assets/BLUE BERRY/2.png';
+import blueberry3 from '../../assets/BLUE BERRY/3.png';
+import blueberry4 from '../../assets/BLUE BERRY/4.png';
+import blueberry5 from '../../assets/BLUE BERRY/5.png';
+import blueberry6 from '../../assets/BLUE BERRY/6.png';
+import blueberry7 from '../../assets/BLUE BERRY/7.png';
+import blueberry8 from '../../assets/BLUE BERRY/8.png';
 
 const Decorations = () => {
   return (
     <>
       {/* 🫐 Blueberry Stage Floating Decor */}
-      <img className="decor decor-blueberry blueberry-top-left" src={blueberryCluster} alt="Blueberries with Leaves" />
-      <img className="decor decor-blueberry blueberry-top-right" src={blueberryScatter} alt="Scattered Blueberries" />
-      <img className="decor decor-blueberry blueberry-bottom-right" src={blueberryTrio} alt="Blueberries Trio" />
-      <img className="decor decor-blueberry blueberry-leaf-left-1" src={blueberryLeaf1} alt="Mint Leaf" />
-      <img className="decor decor-blueberry blueberry-leaf-top-mid" src={blueberryLeaf2} alt="Mint Leaf" />
-      <img className="decor decor-blueberry blueberry-leaf-bottom-mid" src={blueberryLeaf3} alt="Mint Leaf" />
+      <img className="decor decor-blueberry blueberry-top-left blueberry-cluster-left" src={blueberry2} alt="Blueberry Cluster Top Left" />
+      <img className="decor decor-blueberry blueberry-leaf-top-mid blueberry-mint-top-left" src={blueberry3} alt="Mint Leaf Top Left" />
+      <img className="decor decor-blueberry blueberry-top-right blueberry-cluster-right" src={blueberry6} alt="Blueberry Cluster Top Right" />
+      <img className="decor decor-blueberry blueberry-bottom-right blueberry-trio-right" src={blueberry4} alt="Blueberry Trio Bottom Right" />
+      <img className="decor decor-blueberry blueberry-leaf-bottom-mid blueberry-mint-mid-right" src={blueberry5} alt="Mint Leaf Mid Right" />
+      <img className="decor decor-blueberry blueberry-branch-top-right" src={blueberry7} alt="Blueberry Branch Top Right" />
+      <img className="decor decor-blueberry blueberry-leaf-bottom-left" src={blueberry1} alt="Blueberry Leaves Bottom Left" />
+      <img className="decor decor-blueberry blueberry-mint-bottom-right" src={blueberry8} alt="Mint Leaf Bottom Right" />
 
       {/* 🥭 Mango Stage Floating Decor (Orange-like layout and structure) */}
       <img className="decor decor-mango mango-top-left" src={mangoSlice} alt="Mango Sliced Cheek" />
@@ -63,31 +65,35 @@ const Decorations = () => {
       <img className="decor decor-mango mango-leaf-left-1" src={mangoLeaf1} alt="Mint Leaf" />
       <img className="decor decor-mango mango-leaf-top-mid" src={mangoLeaf2} alt="Mint Leaf" />
       <img className="decor decor-mango mango-leaf-bottom-mid" src={mangoLeaf2} alt="Mint Leaf" />
-      {/* 🍈 Melon Stage Floating Decor */}
-      <img className="decor decor-melon melon-top-left" src={melonWhole} alt="Melon" />
-      <img className="decor decor-melon melon-top-right" src={melonHalf} alt="Half Melon" />
-      <img className="decor decor-melon melon-bottom-right" src={melonSlice} alt="Melon Slice" />
-      <img className="decor decor-melon melon-leaf-top-mid" src={melonLeaf1} alt="Mint Leaf" />
-      <img className="decor decor-melon melon-leaf-mid-right" src={melon3Leaf} alt="Mint Leaves" />
-      <img className="decor decor-melon melon-leaf-bottom-mid" src={melonLeaf2} alt="Mint Leaf" />
-      {/* 🍊 Orange Stage Floating Decor */}
-      <img className="decor decor-orange orange-top-left" src="/Assets/Orange/1.png" alt="Orange Slice" />
-      <img className="decor decor-orange orange-top-right" src="/Assets/Orange/2.png" alt="Orange" />
-      <img className="decor decor-orange orange-bottom-right" src="/Assets/Orange/3.png" alt="Orange Slices" />
-      <img className="decor decor-orange leaf-left-1" src="/Assets/Orange/leaf1.png" alt="Mint Leaf" />
-      <img className="decor decor-orange leaf-left-2" src="/Assets/Orange/5.png" alt="Mint Leaf" />
-      <img className="decor decor-orange leaf-right-1" src="/Assets/Orange/6.png" alt="Mint Leaf" />
-      <img className="decor decor-orange leaf-bottom-mid" src="/Assets/Orange/7.png" alt="Mint Leaf" />
 
-      {/* 🍓 Strawberry Stage Floating Decor (Positioned & Scaled to Reference) */}
-      <img className="decor decor-strawberry strawberry-top-left" src={strawberryWhole} alt="Fresh Strawberry" />
-      <img className="decor decor-strawberry strawberry-leaf-top-mid" src={strawberryLeaf1} alt="Top Mint Leaf" />
-      <img className="decor decor-strawberry strawberry-top-right" src={strawberryCut} alt="Cut Strawberry Pair" />
-      <img className="decor decor-strawberry strawberry-leaf-right-mid" src={strawberryLeaf2} alt="Right Mint Leaf" />
-      <img className="decor decor-strawberry strawberry-leaf-bottom-left" src={strawberryLeaf3} alt="Bottom Left Mint Leaf" />
-      <img className="decor decor-strawberry strawberry-bottom-mid" src={strawberryRipe} alt="Ripe Strawberry Bottom" />
-      <img className="decor decor-strawberry strawberry-bottom-small" src={strawberrySmall} alt="Small Strawberry Bottom" />
-      <img className="decor decor-strawberry strawberry-leaf-cluster" src={strawberryLeafCluster} alt="Strawberry Leaf Cluster" />
+      {/* 🍈 Melon Stage Floating Decor (Matching Reference Image) */}
+      <img className="decor decor-melon melon-top-left melon-whole-left" src={melon1} alt="Whole Melon Top Left" />
+      <img className="decor decor-melon melon-leaf-top-mid melon-mint-top-left" src={melon2} alt="Mint Leaf Top Left" />
+      <img className="decor decor-melon melon-leaf-bottom-left" src={melon3} alt="Melon Leaf Bottom Left" />
+      <img className="decor decor-melon melon-bottom-right melon-slice-mid-right" src={melon4} alt="Melon Slice Mid Right" />
+      <img className="decor decor-melon melon-top-right melon-cluster-right" src={melon5} alt="Melon Cluster Top Right" />
+      <img className="decor decor-melon melon-branch-top-right" src="/Assets/Orange/2.png" alt="Melon Branch Top Right" />
+      <img className="decor decor-melon melon-leaf-bottom-mid melon-mint-mid-right" src={melon7} alt="Mint Leaf Mid Right" />
+      <img className="decor decor-melon melon-mint-bottom-right" src={melon8} alt="Mint Leaf Bottom Right" />
+      {/* 🍊 Orange Stage Floating Decor */}
+      <img className="decor decor-orange orange-top-left orange-slice-left" src="/Assets/Orange/1.png" alt="Orange Slices" />
+      <img className="decor decor-orange leaf-right-1 orange-branch-top-right" src="/Assets/Orange/2.png" alt="Orange Leaves Top Right" />
+      <img className="decor decor-orange orange-top-right orange-whole-right" src="/Assets/Orange/3.png" alt="Orange and Slice" />
+      <img className="decor decor-orange orange-bottom-right orange-wedge-bottom-right" src="/Assets/Orange/4.png" alt="Orange Slice Wedge" />
+      <img className="decor decor-orange orange-branch-bottom-left" src="/Assets/Orange/5.png" alt="Orange Leaves Bottom Left" />
+      <img className="decor decor-orange leaf-left-1 orange-mint-top-left" src="/Assets/Orange/6.png" alt="Mint Leaf Top Left" />
+      <img className="decor decor-orange leaf-bottom-mid orange-mint-mid-right" src="/Assets/Orange/7.png" alt="Mint Leaf Mid Right" />
+      <img className="decor decor-orange orange-mint-bottom-right" src="/Assets/Orange/8.png" alt="Mint Leaf Bottom Right" />
+
+      {/* 🍓 Strawberry Stage Floating Decor */}
+      <img className="decor decor-strawberry strawberry-top-left strawberry-single-left" src={strawberry1} alt="Fresh Strawberry Left" />
+      <img className="decor decor-strawberry strawberry-leaf-bottom-left" src={strawberry2} alt="Strawberry Leaves Bottom Left" />
+      <img className="decor decor-strawberry strawberry-leaf-top-mid strawberry-mint-top-left" src={strawberry3} alt="Mint Leaf Top Left" />
+      <img className="decor decor-strawberry strawberry-bottom-right strawberry-single-right" src={strawberry4} alt="Fresh Strawberry Bottom Right" />
+      <img className="decor decor-strawberry strawberry-top-right strawberry-pair-right" src={strawberry5} alt="Strawberry Pair Top Right" />
+      <img className="decor decor-strawberry strawberry-leaf-top-right" src={strawberry6} alt="Strawberry Leaves Top Right" />
+      <img className="decor decor-strawberry strawberry-leaf-bottom-mid strawberry-mint-mid-right" src={strawberry7} alt="Mint Leaf Mid Right" />
+      <img className="decor decor-strawberry strawberry-mint-bottom-right" src={strawberry8} alt="Mint Leaf Bottom Right" />
 
       {/* 🍫 Chocolate Stage Floating Decor (Matching Reference Layout) */}
       <img className="decor decor-chocolate chocolate-top-left" src={chocolateSquares} alt="Chocolate Squares Stack" />

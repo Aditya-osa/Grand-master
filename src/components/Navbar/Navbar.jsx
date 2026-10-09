@@ -91,12 +91,21 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       return;
     }
 
-    // For products, shop, or other anchor targets
+    // For products, shop, flavours, blogs, about
     const hash = '#' + target;
     window.location.hash = hash;
     window.dispatchEvent(new Event('hashchange'));
     setTimeout(() => {
-      const element = document.getElementById(target) || document.querySelector(hash);
+      let element = document.getElementById(target) || document.querySelector(hash);
+      if (!element && target === 'about') {
+        element = document.getElementById('distilled') || document.querySelector('.editorial-brand-section');
+      }
+      if (!element && (target === 'flavours' || target === 'flavour')) {
+        element = document.getElementById('products') || document.getElementById('flavours') || document.querySelector('.enjoy-flavour-section');
+      }
+      if (!element && (target === 'blogs' || target === 'blog')) {
+        element = document.getElementById('blogs') || document.querySelector('.blogs-section');
+      }
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
@@ -114,6 +123,38 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         >
           <img src="/Assets/logo1.png" alt="Grand Master Logo" className="nav-logo" />
         </a>
+
+        {/* Desktop Navigation Links */}
+        <div className="nav-desktop-links">
+          <a 
+            href="#about" 
+            className="nav-link" 
+            onClick={(e) => navigateTo('about', e)}
+          >
+            ABOUT US
+          </a>
+          <a 
+            href="#flavours" 
+            className="nav-link" 
+            onClick={(e) => navigateTo('flavours', e)}
+          >
+            FLAVOURS
+          </a>
+          <a 
+            href="#blogs" 
+            className="nav-link" 
+            onClick={(e) => navigateTo('blogs', e)}
+          >
+            BLOG
+          </a>
+          <a 
+            href="#contact" 
+            className="nav-link" 
+            onClick={(e) => navigateTo('contact', e)}
+          >
+            CONTACT US
+          </a>
+        </div>
 
         <div className="nav-actions">
           <button
