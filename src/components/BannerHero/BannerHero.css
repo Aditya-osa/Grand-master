@@ -181,7 +181,7 @@
 .banner-hero-container #orange-text {
   z-index: 1;
 
-  color: #e1bbc2;
+  color: #f5eee8;
 
   text-shadow: none;
 
@@ -431,6 +431,7 @@
 .banner-hero-container #info-orange h2 {
   color: #522409;
 }
+
 .banner-hero-container #info-orange p {
   color: #7a4427;
 }
@@ -438,6 +439,7 @@
 .banner-hero-container #info-mango h2 {
   color: #522409;
 }
+
 .banner-hero-container #info-mango p {
   color: #7a4427;
 }
@@ -445,6 +447,7 @@
 .banner-hero-container #info-strawberry h2 {
   color: #541520;
 }
+
 .banner-hero-container #info-strawberry p {
   color: #823340;
 }
@@ -452,6 +455,7 @@
 .banner-hero-container #info-chocolate h2 {
   color: #2e1608;
 }
+
 .banner-hero-container #info-chocolate p {
   color: #5a3622;
 }
@@ -459,6 +463,7 @@
 .banner-hero-container #info-melon h2 {
   color: #22380d;
 }
+
 .banner-hero-container #info-melon p {
   color: #426323;
 }
@@ -466,6 +471,7 @@
 .banner-hero-container #info-blueberry h2 {
   color: #30438a;
 }
+
 .banner-hero-container #info-blueberry p {
   color: #6e7fae;
 }
