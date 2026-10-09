@@ -1,18 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './DistilledToInspire.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// High-quality YouTube video specified by user
+const YOUTUBE_VIDEO_ID = '1z5FCi-XpHQ';
+
 /**
- * DistilledToInspire - Apple & Webflow scroll-driven gradient text reveal
- * Recreates https://gradient-text-scroll-effect.webflow.io/
- * Illuminates progressively from the start (top) of the paragraph to the bottom
+ * DistilledToInspire
+ * Apple & Webflow scroll-driven gradient text reveal with interactive video player
  */
 export default function DistilledToInspire() {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -48,10 +51,8 @@ export default function DistilledToInspire() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          anticipatePin: 1,
+          start: 'top 75%',
+          end: 'bottom 40%',
           scrub: 0.8,
           invalidateOnRefresh: true,
           onUpdate: () => renderGradient(state.p),
@@ -71,11 +72,9 @@ export default function DistilledToInspire() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: '+=85%',
-          pin: true,
-          anticipatePin: 1,
-          scrub: 0.5,
+          start: 'top 75%',
+          end: 'bottom 40%',
+          scrub: 0.6,
           invalidateOnRefresh: true,
           onUpdate: () => renderGradient(state.p),
         },
@@ -94,11 +93,9 @@ export default function DistilledToInspire() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
-          end: '+=75%',
-          pin: true,
-          anticipatePin: 1,
-          scrub: 0.35,
+          start: 'top 80%',
+          end: 'bottom 45%',
+          scrub: 0.4,
           invalidateOnRefresh: true,
           onUpdate: () => renderGradient(state.p),
         },
@@ -128,42 +125,104 @@ export default function DistilledToInspire() {
     };
   }, []);
 
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+  };
+
+  const handleDiscoverClick = (e) => {
+    e.preventDefault();
+    const target = document.getElementById('products') || document.querySelector('#products');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section ref={sectionRef} className="distilled-to-inspire" aria-label="Distilled to Inspire">
+    <section ref={sectionRef} className="distilled-to-inspire" id="distilled" aria-label="Distilled to Inspire">
       <div className="distilled-to-inspire__inner">
+        {/* Left Side: Brand Typography, Editorial Text with Scroll-Driven Reveal */}
         <div className="distilled-to-inspire__content">
           {/* Bold Heading */}
           <h2 className="distilled-to-inspire__title">
             DISTILLED TO INSPIRE
           </h2>
 
-          {/* Amber Wavy Underline */}
-          <svg
-            className="distilled-to-inspire__wave"
-            viewBox="0 0 56 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M2 7 C 6 2, 10 2, 14 7 C 18 12, 22 12, 26 7 C 30 2, 34 2, 38 7 C 42 12, 46 12, 50 7 C 52 4.5, 54 4.5, 54 7"
-              stroke="#F5A623"
-              strokeWidth="3.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+         
 
           {/* Inception Year Meta */}
           <p className="distilled-to-inspire__inception">
-            <strong>Inception year-</strong> Since 2015
+            <strong>Crafted </strong> Since 2015
           </p>
 
-          {/* Editorial Paragraph with Bottom-Up Reveal */}
+          {/* Editorial Paragraph with Scroll Gradient Reveal */}
           <div className="distilled-to-inspire__text-wrapper">
             <p ref={textRef} className="distilled-to-inspire__paragraph">
               Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master's includes flavoured vodka, and is more for the Youth because of the blended flavours and the variety of Vodka it has to offer &amp; also for people who want to start drinking and try new things.
             </p>
+          </div>
+
+          {/* Discover Our Flavors Button */}
+          <a
+            href="#products"
+            onClick={handleDiscoverClick}
+            className="distilled-to-inspire__btn"
+            id="discover-flavors-btn"
+          >
+            <span>Discover Our Flavors</span>
+          </a>
+        </div>
+
+        {/* Right Side: YouTube Video Player Container */}
+        <div className="distilled-to-inspire__video-side">
+          <div className="distilled-to-inspire__video-card">
+            {isPlaying ? (
+              <div className="distilled-to-inspire__iframe-wrapper">
+                <iframe
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                  title="Grand Master - Distilled to Inspire"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="distilled-to-inspire__iframe"
+                />
+              </div>
+            ) : (
+              <div
+                className="distilled-to-inspire__poster-wrapper"
+                onClick={handlePlayClick}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') handlePlayClick();
+                }}
+                aria-label="Play Grand Master Distillery Video"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`}
+                  alt="Grand Master Vodka Distillery Production Line"
+                  className="distilled-to-inspire__poster-img"
+                  loading="lazy"
+                />
+                <div className="distilled-to-inspire__poster-overlay" />
+
+                {/* Central Circular Play Button */}
+                <button
+                  type="button"
+                  className="distilled-to-inspire__play-btn"
+                  onClick={handlePlayClick}
+                  aria-label="Play video"
+                >
+                  <div className="distilled-to-inspire__play-circle">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="distilled-to-inspire__play-svg"
+                      aria-hidden="true"
+                    >
+                      <polygon points="8 5 19 12 8 19 8 5" fill="currentColor" />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

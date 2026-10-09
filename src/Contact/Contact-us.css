@@ -34,16 +34,21 @@
 }
 
 /* ==========================================================================
-   NAVBAR LIGHT OVERRIDE (For perfect contrast on light background)
+   NAVBAR HEADER (White Logo & Toggle Matching Home Page)
    ========================================================================== */
-.gm-contact-page-wrapper .gm-main-nav:not(.scrolled) .nav-logo {
-  filter: brightness(0) saturate(100%) !important;
+.gm-contact-page-wrapper .gm-main-nav .nav-logo {
+  filter: brightness(0) invert(1) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35)) !important;
 }
 
-.gm-contact-page-wrapper .gm-main-nav:not(.scrolled) .menu-toggle-btn,
-.gm-contact-page-wrapper .gm-main-nav:not(.scrolled) #menu-toggle {
-  color: var(--gm-text-dark) !important;
-  text-shadow: none !important;
+.gm-contact-page-wrapper .gm-main-nav .menu-toggle-btn,
+.gm-contact-page-wrapper .gm-main-nav #menu-toggle {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.gm-contact-page-wrapper .gm-main-nav .menu-toggle-btn i,
+.gm-contact-page-wrapper .gm-main-nav #menu-toggle i {
+  color: #ffffff !important;
 }
 
 
@@ -392,64 +397,66 @@ padding: 3vh clamp(24px, 3vw, 48px);
   gap: clamp(16px, 1.8vw, 24px);
 }
 
-/* Input Box with Increased Text Size */
+/* Input Box with Pill Shape and No Border matching screenshot */
 .gm-form-input {
   width: 100%;
-  padding: 2vh 1.6vw;
-  min-height: 6.2vh;
-  background: var(--gm-white);
-  border: 1px solid var(--gm-border-light);
-  border-radius: 10px;
+  padding: 1.8vh clamp(22px, 1.8vw, 28px);
+  min-height: 6vh;
+  background: #f4f4f6;
+  border: none;
+  border-radius: 9999px;
   color: var(--gm-text-dark);
   font-family: 'Anybody', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   outline: none;
   box-sizing: border-box;
-  transition: border-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Textarea Box with Increased Text Size */
+/* Textarea Box with Matching Soft Rounded Shape & No Border */
 .gm-form-textarea {
   width: 100%;
-  padding: 2.2vh 1.6vw;
-  min-height: 25vh;
-  background: var(--gm-white);
-  border: 1px solid var(--gm-border-light);
-  border-radius: 10px;
+  padding: 2.2vh clamp(22px, 1.8vw, 28px);
+  min-height: 22vh;
+  background: #f4f4f6;
+  border: none;
+  border-radius: 22px;
   color: var(--gm-text-dark);
   font-family: 'Anybody', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   outline: none;
   box-sizing: border-box;
   resize: vertical;
   line-height: 1.7;
-  transition: border-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gm-form-input:focus,
 .gm-form-textarea:focus {
-  border-color: var(--gm-classic-burgundy);
- 
+  background: #eaebee;
+  box-shadow: 0 0 0 2px rgba(118, 37, 48, 0.25);
+  outline: none;
 }
 
 .gm-form-input::placeholder,
 .gm-form-textarea::placeholder {
-  color: var(--gm-text-muted);
-  font-size: 17px;
+  color: #64748b;
+  font-size: 16px;
+  opacity: 1;
 }
 
-/* Submit Button with Increased Text Size */
+/* Submit Button with Matching Pill Shape */
 .gm-submit-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  padding: 2.2vh 3vw;
-  min-height: 6.8vh;
+  padding: 2vh 3vw;
+  min-height: 6.4vh;
   background: #e42329;
-  border: 1px solid var(--gm-classic-burgundy);
-  border-radius: 10px;
+  border: none;
+  border-radius: 9999px;
   color: var(--gm-white);
   font-family: "Anybody", sans-serif;
   font-size: 17px;
@@ -462,7 +469,7 @@ padding: 3vh clamp(24px, 3vw, 48px);
 }
 
 .gm-submit-button:hover {
-  background:#e42329;
+  background: #e42329;
   border-color: #e42329;
 
 }

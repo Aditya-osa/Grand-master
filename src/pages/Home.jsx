@@ -6,12 +6,11 @@ import DistilledToInspire from '../components/DistilledToInspire';
 import HorizontalCards from '../components/HorizontalCards';
 import Footer from '../components/Footer';
 import Enjoyflavours from '../components/Enjoy-flv/Enjoyflavours';
-
+import Blogs from '../components/Blogs/Blogs';
 
 /**
  * Home Page Component
- * Renders GM Navbar, Bannerinhtml Hero, Products, Distilled to Inspire, Horizontal Cards, and Footer.
- * Enjoy Flavours has been removed and replaced by BannerHero.
+ * Renders GM Navbar, BannerHero, Distilled to Inspire, Products, Enjoy Flavours, Horizontal Cards, Blog and Insights, and Footer.
  */
 export default function Home() {
   return (
@@ -20,11 +19,13 @@ export default function Home() {
       <main className="gm-home-page" role="main">
         <BannerHero />
         <DistilledToInspire />
-        <Products />
         <Enjoyflavours />
+        <Products />
         <HorizontalCards />
+        <Blogs />
         <Footer />
       </main>
     </div>
   );
 }
+

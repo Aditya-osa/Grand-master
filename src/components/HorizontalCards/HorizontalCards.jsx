@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import step1Img from '../../assets/process/step_1.png';
-import step2Img from '../../assets/process/step_2.png';
-import step3Img from '../../assets/process/step_3.png';
-import step4Img from '../../assets/process/step_4.png';
-import step5Img from '../../assets/process/step_5.png';
+import {
+  grainsImg,
+  distillationImg,
+  blendingImg,
+  filtrationImg,
+  bottlingImg,
+} from '../../assets/process';
 
 import './HorizontalCards.css';
 
@@ -15,74 +17,39 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const PROCESS_STEPS = [
   {
-    id: 'harvest',
+    id: 'grains',
     stepNumber: '01',
-    category: 'HARVEST & PURITY',
-    title: 'Pure Grain Selection',
-    subtitle: 'Finest Organic Winter Wheat',
-    description:
-      'Selected high-density winter wheat grains are triple-inspected for exceptional starch purity before milling, laying the flawless foundation for our spirit.',
-    badge: 'Stage 01',
-    spec: '100% Winter Grain',
-    param: 'Starch Purity 99.8%',
-    image: step1Img,
-    accent: '#b8860b',
-  },
-  {
-    id: 'mashing',
-    stepNumber: '02',
-    category: 'ENZYMATIC MASHING',
-    title: 'Slow Fermentation',
-    subtitle: 'Subterranean Spring Water',
-    description:
-      'Finely crushed grains marry natural subterranean spring water in temperature-calibrated vats, undergoing a slow 72-hour cool enzymatic fermentation.',
-    badge: 'Stage 02',
-    spec: 'Pure Spring Blend',
-    param: '72-Hour Ferment',
-    image: step2Img,
-    accent: '#e94e1b',
+    title: 'Grains',
+    description: 'From carefully selected grains, the finest ingredients are chosen.',
+    image: grainsImg,
   },
   {
     id: 'distillation',
+    stepNumber: '02',
+    title: 'Distillation',
+    description: 'The spirit undergoes a precise distillation process to achieve the desired character and quality.',
+    image: distillationImg,
+  },
+  {
+    id: 'blending',
     stepNumber: '03',
-    category: 'COPPER EXTRACTION',
-    title: 'Multi-Column Distillation',
-    subtitle: 'Continuous Fractional Still',
-    description:
-      'Fractional vapor distillation through continuous tall copper columns purges harsh congeners, capturing exclusively the crystal-clear spirit heart.',
-    badge: 'Stage 03',
-    spec: 'Triple Distilled',
-    param: 'Heart Cut Only',
-    image: step3Img,
-    accent: '#762530',
+    title: 'Blending',
+    description: 'Carefully selected ingredients are blended to create a smooth and balanced flavour.',
+    image: blendingImg,
   },
   {
     id: 'filtration',
-  
-    category: 'PURIFICATION',
-    title: 'Deep Carbon Filtration',
-    subtitle: 'Birch Charcoal & Platinum',
-    description:
-      'The spirit cascades under gravity through activated silver birch charcoal and micro-fine platinum media for unmatched crystalline smoothness.',
-    badge: 'Stage 04',
-    spec: 'Platinum Polished',
-    param: 'Sub-Micron Purity',
-    image: step4Img,
-    accent: '#c93a0e',
+    stepNumber: '04',
+    title: 'Filtration',
+    description: 'The spirit is thoroughly filtered to ensure clarity, smoothness, and consistent quality.',
+    image: filtrationImg,
   },
   {
     id: 'bottling',
-   
-    category: 'BOTTLING & QUALITY',
-    title: 'Master Batch Bottling',
-    subtitle: 'Certified Gold Standard',
-    description:
-      'Blended to optimal 40% ABV with demineralized spring water, each signature bottle is hermetically sealed and inspected to deliver Grand Master excellence.',
-    badge: 'Stage 05',
-    spec: 'Batch Certified',
-    param: '40% ABV Platinum',
-    image: step5Img,
-    accent: '#b8860b',
+    stepNumber: '05',
+    title: 'Bottling',
+    description: 'The finished spirit is carefully bottled and sealed to preserve its quality and freshness.',
+    image: bottlingImg,
   },
 ];
 
@@ -124,21 +91,9 @@ export default function HorizontalCards() {
     };
 
     const getScrollAmount = () => {
-      const cards = track.querySelectorAll('.stack-card');
-      if (!cards || cards.length === 0) {
-        return Math.max(0, track.scrollWidth - stage.clientWidth);
-      }
-      const lastCard = cards[cards.length - 1];
-      const stageWidth = stage.clientWidth;
-      const trackStyles = window.getComputedStyle(track);
-      const paddingRight =
-        parseFloat(trackStyles.paddingRight) ||
-        parseFloat(trackStyles.paddingLeft) ||
-        60;
-
-      // Exact right boundary of the 5th card + full right padding
-      const totalTrackEnd = lastCard.offsetLeft + lastCard.offsetWidth + paddingRight;
-      return Math.max(0, totalTrackEnd - stageWidth);
+      if (!track || !stage) return 0;
+      const scrollDistance = track.scrollWidth - stage.clientWidth;
+      return Math.max(0, scrollDistance);
     };
 
     // Use GSAP matchMedia for fully responsive scroll trigger calculations
@@ -150,7 +105,7 @@ export default function HorizontalCards() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${getScrollAmount() * 1.3 + 320}`,
+          end: () => `+=${Math.max(window.innerHeight * 1.2, getScrollAmount() * 1.35 + 350)}`,
           pin: true,
           scrub: 0.8,
           anticipatePin: 1,
@@ -166,7 +121,7 @@ export default function HorizontalCards() {
       });
 
       // Dwell period so the 5th card is comfortably viewed before unpinning
-      tl.to({}, { duration: 0.22 });
+      tl.to({}, { duration: 0.2 });
 
       return () => {
         tl.scrollTrigger?.kill();
@@ -180,7 +135,7 @@ export default function HorizontalCards() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${getScrollAmount() * 1.15 + 220}`,
+          end: () => `+=${Math.max(window.innerHeight, getScrollAmount() * 1.2 + 250)}`,
           pin: true,
           scrub: 0.6,
           anticipatePin: 1,
@@ -195,7 +150,7 @@ export default function HorizontalCards() {
         duration: 1,
       });
 
-      tl.to({}, { duration: 0.18 });
+      tl.to({}, { duration: 0.16 });
 
       return () => {
         tl.scrollTrigger?.kill();
@@ -209,9 +164,9 @@ export default function HorizontalCards() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${getScrollAmount() * 1.05 + 140}`,
+          end: () => `+=${Math.max(window.innerHeight * 0.9, getScrollAmount() * 1.1 + 180)}`,
           pin: true,
-          scrub: 0.35, // Snappier touch response for finger scrolling
+          scrub: 0.4,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => updateProgress(self.progress),
@@ -224,7 +179,7 @@ export default function HorizontalCards() {
         duration: 1,
       });
 
-      tl.to({}, { duration: 0.15 });
+      tl.to({}, { duration: 0.12 });
 
       return () => {
         tl.scrollTrigger?.kill();
@@ -242,7 +197,13 @@ export default function HorizontalCards() {
     // Refresh after layout and images settle
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 300);
+    }, 250);
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        ScrollTrigger.refresh();
+      });
+    }
 
     return () => {
       clearTimeout(timer);
@@ -251,6 +212,22 @@ export default function HorizontalCards() {
       mm.revert();
     };
   }, []);
+
+  const handleScroll = (direction) => {
+    const scrollStep = window.innerHeight * 0.6;
+    window.scrollBy({
+      top: direction === 'left' ? -scrollStep : scrollStep,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleExploreClick = (e) => {
+    e.preventDefault();
+    const section = sectionRef.current;
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section
@@ -262,14 +239,39 @@ export default function HorizontalCards() {
       <div className="stack-cards-viewport">
         {/* Top Header above Cards */}
         <header className="stack-cards-top-header">
-          <h2 className="stack-cards-top-title">PROCESS</h2>
-          <div className="stack-cards-header-progress">
-            <span ref={progressTextRef} className="stack-cards-counter">
-              STAGE 01 OF 05
-            </span>
-            <div className="stack-cards-progress-track">
-              <div ref={progressBarRef} className="stack-cards-progress-bar" />
+          <div className="stack-cards-header-left">
+            <h2 className="stack-cards-top-title">Process</h2>
+            <p className="stack-cards-top-desc">
+              It is the complete coordination among quality standards in an organization to ensure all the requirements.
+            </p>
+          </div>
+
+          <div className="stack-cards-header-right">
+            <div className="stack-cards-nav-controls" role="group" aria-label="Process Navigation">
+              <button
+                type="button"
+                className="stack-cards-nav-btn"
+                onClick={() => handleScroll('left')}
+                aria-label="Previous process step"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                className="stack-cards-nav-btn"
+                onClick={() => handleScroll('right')}
+                aria-label="Next process step"
+              >
+                →
+              </button>
             </div>
+            <a
+              href="#distillation"
+              className="stack-cards-explore-btn"
+              onClick={handleExploreClick}
+            >
+              View All Process
+            </a>
           </div>
         </header>
 
@@ -294,7 +296,8 @@ export default function HorizontalCards() {
                       src={step.image}
                       alt={step.title}
                       className={`stack-card__img ${step.id === 'harvest' ? 'stack-card__img--cover' : ''}`}
-                      loading="lazy"
+                      loading="eager"
+                      onLoad={() => ScrollTrigger.refresh()}
                     />
                   </motion.div>
                 </div>

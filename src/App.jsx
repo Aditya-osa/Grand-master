@@ -15,6 +15,7 @@ export default function App() {
       const pathname = (window.location.pathname || '').toLowerCase();
       if (hash === '#contact' || pathname === '/contact') {
         setCurrentView('contact');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
         if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#') {
@@ -57,3 +58,4 @@ export default function App() {
 
   return currentView === 'contact' ? <ContactUs /> : <Home />;
 }
+

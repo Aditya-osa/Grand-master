@@ -200,7 +200,7 @@ export default function ContactUs() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
-                      placeholder="Enter first name"
+                      placeholder="First Name"
                       className="gm-form-input"
                       required
                     />
@@ -216,7 +216,7 @@ export default function ContactUs() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
-                      placeholder="Enter last name"
+                      placeholder="Last Name"
                       className="gm-form-input"
                       required
                     />

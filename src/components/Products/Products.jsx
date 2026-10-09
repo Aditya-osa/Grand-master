@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnimations';
 import './Products.css';
+import bgImage from '../../assets/1.jpg';
 
 import bottle1 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
 import bottle2 from '../../assets/Products/1.png';
@@ -102,7 +103,20 @@ export default function Products() {
   }, []);
 
   return (
-    <section ref={containerRef} className="ag-hero" id="products" aria-label="Grand Master Products">
+    <section
+      ref={containerRef}
+      className="ag-hero"
+      id="products"
+      aria-label="Grand Master Products"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="brand-title">
+        Meet Grand Master's
+        <div className="explore-shell">
+          Explore Flavour's
+          <span className="explore-arrow">↗</span>
+        </div>
+      </div>
       <span id="shop" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }} aria-hidden="true" />
       {/* Visual Stage: Bottles */}
       <div className="ag-stage">
@@ -133,44 +147,6 @@ export default function Products() {
           </div>
         </div>
       </div>
-
-      {/* Bottom Left: Vodka Drinks Hero Info Block matching screenshot */}
-      <div ref={infoRef} className="ag-hero-info">
-        {/* Curved heading */}
-        <div className="ag-vodka-infused-wrap">
-          <svg
-            className="ag-vodka-infused-svg"
-            viewBox="0 0 360 120"
-            aria-hidden="true"
-          >
-            <defs>
-              <path id="vodkaArcHero" d="M 35,100 Q 180,-10 325,100" />
-            </defs>
-
-            <text className="ag-vodka-infused-text" textAnchor="middle">
-              <textPath href="#vodkaArcHero" startOffset="50%">
-                Alcohol Infused
-              </textPath>
-            </text>
-          </svg>
-        </div>
-
-        {/* Main title */}
-        <h2 className="ag-hero-title">VODKA <br/>DRINKS</h2>
-
-        {/* Description */}
-        <p className="ag-hero-desc">
-          Amazing, smooth, premium<br />
-          vodkas for all occasions.
-        </p>
-
-        {/* Button */}
-        <a href="#shop" className="ag-shop-btn">
-          View More
-        </a>
-      </div>
-
-
       {/* Bottom Center: Scroll Prompt */}
       <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
         <span className="ag-scroll-prompt">SCROLL To DISCOVER</span>

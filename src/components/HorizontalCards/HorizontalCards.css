@@ -4,19 +4,17 @@
    ========================================================================== */
 
 .stack-cards-section {
-  --track-pad: clamp(40px, 5vw, 84px);
-  --card-gap: clamp(20px, 2vw, 36px);
+  --track-pad: clamp(32px, 4vw, 64px);
+  --card-gap: clamp(14px, 1.5vw, 22px);
   position: relative;
   width: 100%;
-  background-color: #fcf9f4;
-  background-image: 
-    radial-gradient(circle at 30% 40%, #ffffff 0%, #f7eee2 55%, #eedfcc 100%);
+  background: radial-gradient(ellipse at 50% 20%, #FAF4ED 0%, #F5EAE0 50%, #ECE0D1 100%);
   color: #3b2f2d;
   overflow: hidden;
   box-sizing: border-box;
   isolation: isolate;
-  border-top: 1px solid rgba(118, 37, 48, 0.08);
-  border-bottom: 1px solid rgba(118, 37, 48, 0.08);
+  border-top: 1px solid rgba(74, 34, 19, 0.06);
+  border-bottom: 1px solid rgba(74, 34, 19, 0.06);
 }
 
 /* --------------------------------------------------------------------------
@@ -35,7 +33,7 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  padding: clamp(20px, 3.2vh, 44px) 0;
+  padding: clamp(14px, 2vh, 24px) 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -48,61 +46,118 @@
   position: relative;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
   padding: 0 var(--track-pad);
-  margin-top: clamp(20px, 6vh, 60px);
-  margin-bottom: clamp(16px, 3vh, 32px);
+  margin-top: clamp(8px, 1.2vh, 16px);
+  margin-bottom: clamp(16px, 2.2vh, 26px);
   z-index: 50;
   box-sizing: border-box;
   flex-shrink: 0;
 }
 
-.stack-cards-top-title {
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(28px, 3.8vw, 56px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #4a0b14;
-  margin: 0;
+.stack-cards-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: min(580px, 64vw);
 }
 
-/* Progress indicator on top right */
-.stack-cards-header-progress {
+.stack-cards-top-title {
+  font-family: "Arial Narrow", "Roboto Condensed", 'Anybody', sans-serif;
+  font-size: clamp(50px, 5.8vw, 78px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+  color: #000000;
+  margin: 0;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stack-cards-top-desc {
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 600;
+  line-height: 1.45;
+  color: #111111;
+  max-width: 480px;
+  margin: 6px 0 0 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header right: navigation controls & View All Process button */
+.stack-cards-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.stack-cards-nav-controls {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.5vw, 18px);
+  gap: 8px;
 }
 
-.stack-cards-counter {
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(12px, 1.1vw, 16px);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #762530;
+.stack-cards-nav-btn {
+  width: 48px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1.5px solid #000000;
+  background: transparent;
+  color: #000000;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  padding: 0;
+}
+
+.stack-cards-nav-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transform: scale(1.05);
+}
+
+.stack-cards-nav-btn:active {
+  transform: scale(0.96);
+}
+
+.stack-cards-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 20px;
+  border-radius: 999px;
+  border: 1.5px solid #4a2213;
+  background: transparent;
+  color: #3b1b10;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
-.stack-cards-progress-track {
-  width: clamp(80px, 9vw, 140px);
-  height: 3.5px;
-  background: rgba(118, 37, 48, 0.12);
-  border-radius: 999px;
-  overflow: hidden;
+.stack-cards-explore-btn:hover {
+  background: #4a2213;
+  color: #FAF4ED;
+  border-color: #4a2213;
+  transform: scale(1.03);
 }
 
-.stack-cards-progress-bar {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #762530 0%, #c93a0e 100%);
-  border-radius: 999px;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.08s linear;
+.stack-cards-explore-btn:active {
+  transform: scale(0.97);
 }
 
 /* --------------------------------------------------------------------------
@@ -117,19 +172,20 @@
   height: 100%;
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: visible;
   z-index: 10;
   box-sizing: border-box;
-  padding: 0;
+  padding: 4px 0 0 0;
 }
 
 .horizontal-cards-track {
+  position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--card-gap);
   width: max-content;
-  padding: 12px var(--track-pad);
+  padding: 0 var(--track-pad) 20px;
   will-change: transform;
 }
 
@@ -143,45 +199,44 @@
   left: auto;
   transform: none;
   flex-shrink: 0;
-  /* Exact formula: 3.5 cards visible in viewport width */
-  width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
-  height: clamp(480px, 62vh, 560px);
+  width: calc((100vw - var(--track-pad) - (3.5 * var(--card-gap))) / 3.8);
+  max-width: 360px;
+  min-width: 280px;
+  height: clamp(480px, 60vh, 560px);
   background: #ffffff;
-  border: 1px solid rgba(184, 134, 11, 0.28);
-  border-radius: clamp(18px, 1.6vw, 24px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
   padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: clamp(16px, 2vh, 22px);
   box-sizing: border-box;
   box-shadow: 
-    0 20px 48px -10px rgba(74, 11, 20, 0.12),
-    0 6px 18px -2px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    0 6px 24px rgba(0, 0, 0, 0.07),
+    0 1px 3px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   user-select: none;
   cursor: pointer;
-  transition: border-color 0.4s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: border-color 0.35s ease, box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stack-card:hover {
-  border-color: rgba(184, 134, 11, 0.85);
-  transform: translateY(-24px);
+  border-color: rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
   box-shadow: 
-    0 40px 80px -15px rgba(74, 11, 20, 0.25),
-    0 15px 35px -5px rgba(0, 0, 0, 0.1);
+    0 20px 48px -10px rgba(0, 0, 0, 0.16),
+    0 8px 20px -2px rgba(0, 0, 0, 0.06);
   z-index: 2;
 }
 
 .stack-card__visual {
   position: relative;
   width: 100%;
- height: clamp(190px, 26vh, 240px);
+  height: 58%;
   flex-shrink: 0;
   display: block;
-  background: #faf0e4;
-  border-radius: 0;
+  background: #f3ede4;
+  border-radius: 16px 16px 0 0;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -206,48 +261,64 @@
   margin: 0;
   padding: 0;
   object-fit: cover;
+  object-position: center center;
   user-select: none;
   -webkit-user-drag: none;
-  filter: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stack-card:hover .stack-card__img {
+  transform: scale(1.05);
 }
 
 .stack-card__img--cover,
-.stack-card[data-step="harvest"] .stack-card__img {
+.stack-card[data-step="harvest"] .stack-card__img,
+.stack-card[data-step="grains"] .stack-card__img {
   object-fit: cover;
-  filter: none;
 }
 
-/* Card Content & Text - Below Box */
+/* Card Content & Text - Below Box (White Area, Equal Top and Bottom Space) */
 .stack-card__content {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: clamp(12px, 1.6vh, 16px);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
   flex: 1;
-  min-height: clamp(170px, 22vh, 220px);
-  padding: 0 clamp(20px, 2.4vh, 28px) clamp(20px, 2.4vh, 28px);
+  width: 100%;
+  padding: 24px clamp(16px, 1.6vw, 22px);
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
   box-sizing: border-box;
 }
 
 .stack-card__title {
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(24px, 1.85vw, 30px);
+  font-family: 'Plus Jakarta Sans', 'Anybody', sans-serif;
+  font-size: clamp(20px, 1.5vw, 24px);
   font-weight: 800;
-  line-height: 1.22;
-  color: #4a0b14;
-  margin-top: 40px;
-  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: #080808;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stack-card__desc {
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(15px, 1.1vw, 17.5px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(14px, 1vw, 15px);
   font-weight: 400;
   line-height: 1.55;
-  color: #5e4c48;
-  margin-top: -25px;
+  color: #3c3c3c;
+  margin: 0;
+  text-align: center;
+  max-width: 252px;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -260,95 +331,61 @@
    6. Small Mobile: 320px–374px -> 1.12 Cards Visible
    ========================================================================== */
 
-/* 1. Large Desktop (1440px+): Exactly 3.5 cards */
+/* 1. Large Desktop (1440px+) */
 @media (min-width: 1440px) {
   .stack-cards-section {
-    --track-pad: clamp(48px, 5.5vw, 96px);
-    --card-gap: clamp(24px, 2.2vw, 38px);
+    --track-pad: clamp(40px, 4.5vw, 80px);
+    --card-gap: clamp(18px, 1.8vw, 28px);
   }
 
   .stack-cards-viewport {
-    padding: clamp(24px, 3.8vh, 48px) 0;
+    padding: clamp(20px, 3vh, 36px) 0;
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
-    height: clamp(510px, 64vh, 590px);
-    padding: 0;
-    gap: clamp(16px, 2.2vh, 24px);
-  }
-
-  .stack-card__content {
-    padding: 0 clamp(22px, 2.6vh, 30px) clamp(22px, 2.6vh, 30px);
-    min-height: clamp(180px, 24vh, 230px);
-  }
-
-  .stack-card__visual {
-    height: clamp(225px, 29vh, 275px);
-  }
-
-  .stack-card__title {
-    font-size: clamp(26px, 1.85vw, 32px);
-  }
-
-  .stack-card__desc {
-    font-size: clamp(16px, 1.1vw, 18.5px);
+    width: calc((100vw - var(--track-pad) - (3.5 * var(--card-gap))) / 3.8);
+    max-width: 375px;
+    min-width: 300px;
+    height: clamp(500px, 62vh, 580px);
   }
 }
 
-/* 2. Desktop & Laptop (1024px–1439px): Exactly 3.5 cards */
+/* 2. Desktop & Laptop (1024px–1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .stack-cards-section {
-    --track-pad: clamp(36px, 4.5vw, 64px);
-    --card-gap: clamp(20px, 1.8vw, 28px);
+    --track-pad: clamp(32px, 3.8vw, 56px);
+    --card-gap: clamp(16px, 1.6vw, 24px);
   }
 
   .stack-cards-viewport {
-    padding: clamp(18px, 3vh, 36px) 0;
+    padding: clamp(16px, 2.5vh, 30px) 0;
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.5);
-    height: clamp(480px, 61vh, 550px);
-    padding: 0;
-    gap: clamp(15px, 2vh, 22px);
-  }
-
-  .stack-card__content {
-    padding: 0 clamp(20px, 2.4vh, 28px) clamp(20px, 2.4vh, 28px);
-    min-height: clamp(170px, 22vh, 220px);
-  }
-
-  .stack-card__visual {
-    height: clamp(210px, 28vh, 255px);
-  }
-
-  .stack-card__title {
-    font-size: 25px;
-  }
-
-  .stack-card__desc {
-    font-size: 15.5px;
+    width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.2);
+    max-width: 350px;
+    min-width: 275px;
+    height: clamp(470px, 59vh, 530px);
   }
 }
 
-/* 3. Tablet Landscape (768px–1023px): Exactly 2.5 cards */
+/* 3. Tablet Landscape (768px–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .stack-cards-section {
     --track-pad: clamp(24px, 3.5vw, 36px);
-    --card-gap: clamp(16px, 2vw, 22px);
+    --card-gap: 18px;
   }
 
   .stack-cards-viewport {
-    padding: clamp(14px, 2.5vh, 26px) 0;
+    padding: clamp(14px, 2.2vh, 24px) 0;
   }
 
   .stack-cards-top-header {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .stack-cards-top-title {
-    font-size: clamp(26px, 4vw, 36px);
+    font-size: clamp(28px, 4.2vw, 38px);
   }
 
   .stack-cards-counter {
@@ -360,37 +397,16 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (2 * var(--card-gap))) / 2.5);
-    height: clamp(440px, 58vh, 510px);
-    padding: 0;
-    gap: clamp(14px, 1.8vh, 18px);
-  }
-
-  .stack-card__content {
-    padding: 0 clamp(18px, 2.2vh, 24px) clamp(18px, 2.2vh, 24px);
-    gap: 12px;
-    min-height: clamp(160px, 22vh, 200px);
-  }
-
-  .stack-card__visual {
-    height: clamp(185px, 25vh, 225px);
-  }
-
-  .stack-card__title {
-    font-size: 22.5px;
-  }
-
-  .stack-card__desc {
-    font-size: 14.8px;
-    line-height: 1.5;
+    width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 2.2);
+    height: clamp(440px, 56vh, 500px);
   }
 }
 
-/* 4. Tablet Portrait (600px–767px): Exactly 2.2 cards */
+/* 4. Tablet Portrait (600px–767px) */
 @media (min-width: 600px) and (max-width: 767px) {
   .stack-cards-section {
     --track-pad: 24px;
-    --card-gap: 18px;
+    --card-gap: 16px;
   }
 
   .stack-cards-viewport {
@@ -398,7 +414,7 @@
   }
 
   .stack-cards-top-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .stack-cards-top-title {
@@ -414,37 +430,16 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 2.2);
-    height: clamp(420px, 56vh, 480px);
-    padding: 0;
-    gap: 14px;
-  }
-
-  .stack-card__content {
-    padding: 0 16px 18px;
-    gap: 10px;
-    min-height: clamp(150px, 20vh, 190px);
-  }
-
-  .stack-card__visual {
-    height: clamp(170px, 24vh, 210px);
-  }
-
-  .stack-card__title {
-    font-size: 21.5px;
-  }
-
-  .stack-card__desc {
-    font-size: 14.2px;
-    line-height: 1.48;
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.7);
+    height: clamp(420px, 55vh, 480px);
   }
 }
 
-/* 5. Mobile (375px–599px): 1.15 cards peek */
+/* 5. Mobile (375px–599px) */
 @media (max-width: 599px) {
   .stack-cards-section {
     --track-pad: 20px;
-    --card-gap: 16px;
+    --card-gap: 14px;
   }
 
   .stack-cards-viewport {
@@ -452,49 +447,38 @@
   }
 
   .stack-cards-top-header {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .stack-cards-top-title {
-    font-size: 22px;
+    font-size: clamp(32px, 8.5vw, 42px);
   }
 
-  .stack-cards-counter {
+  .stack-cards-top-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+    max-width: 260px;
+    margin-top: 8px;
+  }
+
+  .stack-cards-nav-btn {
+    width: 38px;
+    height: 25px;
     font-size: 11px;
   }
 
-  .stack-cards-progress-track {
-    width: 70px;
+  .stack-cards-explore-btn {
+    padding: 5px 13px;
+    font-size: 10px;
   }
 
   .stack-card {
     width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.15);
-    height: clamp(410px, 57vh, 465px);
-    padding: 0;
-    gap: 12px;
-  }
-
-  .stack-card__content {
-    padding: 0 14px 16px;
-    gap: 10px;
-    min-height: clamp(140px, 20vh, 180px);
-  }
-
-  .stack-card__visual {
-    height: clamp(160px, 23vh, 200px);
-  }
-
-  .stack-card__title {
-    font-size: 20px;
-  }
-
-  .stack-card__desc {
-    font-size: 13.5px;
-    line-height: 1.44;
+    height: clamp(410px, 58vh, 460px);
   }
 }
 
-/* 6. Small Mobile (320px–374px): 1.12 cards peek */
+/* 6. Small Mobile (320px–374px) */
 @media (max-width: 374px) {
   .stack-cards-section {
     --track-pad: 14px;
@@ -506,11 +490,11 @@
   }
 
   .stack-cards-top-header {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .stack-cards-top-title {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .stack-cards-counter {
@@ -522,29 +506,8 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.12);
-    height: clamp(380px, 56vh, 430px);
-    padding: 0;
-    gap: 10px;
-  }
-
-  .stack-card__content {
-    padding: 0 12px 14px;
-    gap: 8px;
-    min-height: clamp(130px, 18vh, 160px);
-  }
-
-  .stack-card__visual {
-    height: clamp(145px, 23vh, 180px);
-  }
-
-  .stack-card__title {
-    font-size: 18.5px;
-  }
-
-  .stack-card__desc {
-    font-size: 12.8px;
-    line-height: 1.36;
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.1);
+    height: 380px;
   }
 }
 
@@ -572,8 +535,11 @@
   }
 
   .stack-card__content {
-    padding: 0 14px 12px;
-    gap: 6px;
+    padding: 12px 14px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .stack-card__visual {

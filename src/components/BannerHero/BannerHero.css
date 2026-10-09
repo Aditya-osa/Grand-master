@@ -243,7 +243,9 @@
 .banner-hero-container #orange-text {
   z-index: 1;
 
-  color: #ffffff;
+  color: #ba5302;
+
+  text-shadow: none;
 
   opacity: 1;
 
@@ -255,7 +257,9 @@
 
   opacity: 0;
 
-  color: #ffffff;
+  color: #b86800;
+
+  text-shadow: none;
 
   transform: translateX(100vw);
 }
@@ -265,7 +269,9 @@
 
   opacity: 0;
 
-  color: #ffffff;
+  color: #a82028;
+
+  text-shadow: none;
 
   transform: translateX(100vw);
 }
@@ -551,6 +557,42 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
 
   overflow-wrap: break-word;
+}
+
+.banner-hero-container #info-orange h2,
+.banner-hero-container #info-orange p {
+  color: #522409;
+  text-shadow: none;
+}
+
+.banner-hero-container #info-mango h2,
+.banner-hero-container #info-mango p {
+  color: #522409;
+  text-shadow: none;
+}
+
+.banner-hero-container #info-strawberry h2,
+.banner-hero-container #info-strawberry p {
+  color: #4a0b14;
+  text-shadow: none;
+}
+
+.banner-hero-container #info-chocolate h2,
+.banner-hero-container #info-chocolate p {
+  color: #2e1608;
+  text-shadow: none;
+}
+
+.banner-hero-container #info-melon h2,
+.banner-hero-container #info-melon p {
+  color: #22380d;
+  text-shadow: none;
+}
+
+.banner-hero-container #info-blueberry h2,
+.banner-hero-container #info-blueberry p {
+  color: #081e4a;
+  text-shadow: none;
 }
 
 
@@ -2536,9 +2578,9 @@ width: 19.5vw;
 
 .gm-skip-hero {
   position: absolute;
-  left: 50%;
+  left: 80% !important;
   bottom: 3vh;
-  transform: translateX(-50%);
+  transform: translateX(-90%);
 
   z-index: 9999;
 
@@ -2555,7 +2597,7 @@ width: 19.5vw;
   color: #ffffff;
 
   font-family: 'Anybody', sans-serif;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 1.5px;
 

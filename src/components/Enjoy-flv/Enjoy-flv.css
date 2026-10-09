@@ -1,259 +1,319 @@
 /* ==========================================================================
-   Enjoy-flv.css - Cinematic 3D Parallax & Depth Illusion Section
-   Tuned Typography for High Readability & Premium Brand Aesthetics
+   Enjoy-flv.css - Grand Master "Enjoy Unique Flavours" Showcase
+   Pixel-level match to reference mockup with 4 photo cards & dual header
    ========================================================================== */
 
 .enjoy-flavours-section {
   position: relative;
   width: 100%;
   max-width: 100%;
-
-  height: 100dvh;
-  min-height: 600px;
-
-  background-color: #0b0705;
-  overflow: hidden;
   box-sizing: border-box;
+  overflow: hidden;
   isolation: isolate;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* Luxurious warm champagne / sand background matching reference image */
+  background: radial-gradient(ellipse at 50% 20%, #FAF4ED 0%, #F5EAE0 50%, #ECE0D1 100%);
+  color: #4A2213;
+  padding: clamp(64px, 6vw, 100px) clamp(18px, 3.5vw, 54px);
+}
 
-  padding: 0 clamp(20px, 4vw, 48px);
+.enjoy-flavours-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   Visual Canvas Wrappers & Layers
+   Header Row: Left (Title + Narrative) & Right (Nav Controls + Explore)
    -------------------------------------------------------------------------- */
 
-.enjoy-flavours-bg-wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
+.enjoy-flavours-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(24px, 4vw, 56px);
+  margin-bottom: clamp(36px, 4.2vw, 54px);
+}
+
+.enjoy-flavours-header-left {
+  flex: 1 1 auto;
+  max-width: 760px;
+}
+
+.enjoy-flavours-title {
+  font-family: 'Anton', 'Anybody', sans-serif;
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  line-height: 1.05;
+  color: #4A2213;
+  margin: 0 0 16px 0;
+}
+
+.enjoy-flavours-description {
+  font-family: 'Plus Jakarta Sans', 'Anybody', sans-serif;
+  font-size: clamp(13px, 1.02vw, 15px);
+  font-weight: 500;
+  line-height: 1.62;
+  color: #5D3B2B;
+  max-width: 600px;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Header Right: Controls & Explore Button */
+.enjoy-flavours-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+/* Navigation Arrow Buttons */
+.enjoy-flavours-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enjoy-flavours-nav-btn {
+  width: 48px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1.5px solid #6E4430;
+  background: transparent;
+  color: #4A2213;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.enjoy-flavours-nav-btn:hover {
+  background: #4A2213;
+  color: #FAF4ED;
+  border-color: #4A2213;
+  transform: scale(1.05);
+}
+
+.enjoy-flavours-nav-btn:active {
+  transform: scale(0.96);
+}
+
+/* Explore All Flavours Pill Button */
+.enjoy-flavours-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 1.5px solid #6E4430;
+  background: transparent;
+  color: #4A2213;
+  font-family: 'Plus Jakarta Sans', 'Anybody', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.enjoy-flavours-explore-btn:hover {
+  background: #4A2213;
+  color: #FAF4ED;
+  border-color: #4A2213;
+  transform: translateY(-1px);
+}
+
+.enjoy-flavours-explore-arrow {
+  font-size: 15px;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.enjoy-flavours-explore-btn:hover .enjoy-flavours-explore-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   4 Cards Row Layout
+   -------------------------------------------------------------------------- */
+
+.enjoy-flavours-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.5vw, 22px);
+  width: 100%;
+}
+
+.enjoy-flavours-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5.7;
+  min-height: 480px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(74, 34, 19, 0.09);
+  background-color: #ECE0D1;
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  user-select: none;
+}
+
+.enjoy-flavours-card:hover,
+.enjoy-flavours-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 42px rgba(74, 34, 19, 0.18);
+  outline: none;
+}
+
+.enjoy-flavours-img-wrap {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-  transform: translateZ(0);
 }
 
-.enjoy-flavours-bg-image,
-.enjoy-flavours-fg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+.enjoy-flavours-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  will-change: transform, opacity;
-  transform-origin: center center;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   -webkit-user-drag: none;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  display: block;
 }
 
-/* Layer 1: Distant Vineyard Landscape */
-.enjoy-flavours-bg-image {
-  z-index: 1;
-}
-
-/* Layer 2: Foreground Archway & Chairs Frame */
-.enjoy-flavours-fg-image {
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Atmospheric Dark Overlay */
-.enjoy-flavours-dark-overlay {
-  position: absolute;
-  inset: 0;
-  background: #000000;
-  opacity: 0.42;
-  z-index: 3;
-  pointer-events: none;
-  will-change: opacity;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-/* --------------------------------------------------------------------------
-   Centered Typography Content
-   -------------------------------------------------------------------------- */
-
-.enjoy-flavours-container {
-  position: relative;
-  width: 100%;
-  max-width: 980px;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  pointer-events: auto;
-  z-index: 4;
-  transform: translateZ(0);
-}
-
-/* Hero Title */
-.enjoy-flavours-title {
-  grid-area: 1 / 1;
-  font-family: 'Anton', 'Anybody', sans-serif;
-  font-size: clamp(34px, 4.2vw, 68px);
-  font-weight: 900;
-  line-height: 1.08;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
-  margin: 0;
-  will-change: transform, opacity;
-  transform-origin: center center;
-  user-select: none;
-  text-align: center;
-}
-
-/* Story Narrative Paragraph */
-.enjoy-flavours-text {
-  grid-area: 1 / 1;
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(16px, 1.42vw, 22.5px);
-  font-weight: 700;
-  line-height: 1.76;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.98);
-  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-  margin: 0;
-  max-width: clamp(680px, 62vw, 840px);
-  will-change: transform, opacity;
-  transform-origin: center center;
-  user-select: none;
-  text-align: center;
+.enjoy-flavours-card:hover .enjoy-flavours-img,
+.enjoy-flavours-card:focus-visible .enjoy-flavours-img {
+  transform: scale(1.045);
 }
 
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
 
-/* Laptop & Tablet Landscape: 768px–1023px */
+/* Tablets Portrait & Medium Screens (768px to 1023px) */
 @media (max-width: 1023px) {
-  .enjoy-flavours-title {
-    font-size: clamp(30px, 4.2vw, 46px);
+  .enjoy-flavours-cards {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
   }
 
-  .enjoy-flavours-text {
-    font-size: clamp(14px, 1.8vw, 18px);
-    line-height: 1.68;
-    max-width: 720px;
+  .enjoy-flavours-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .enjoy-flavours-card {
+    flex: 0 0 calc((100% - 18px) / 2);
+    min-width: calc((100% - 18px) / 2);
+    aspect-ratio: 4 / 5.7;
+    min-height: 440px;
+    scroll-snap-align: start;
+  }
+
+  .enjoy-flavours-header {
+    gap: 32px;
   }
 }
 
-/* Tablet Portrait: 600px–767px */
+/* Mobile Devices (< 768px) */
 @media (max-width: 767px) {
   .enjoy-flavours-section {
-    padding: 0 20px;
+    padding: 48px 16px;
   }
 
-  .enjoy-flavours-bg-image,
-  .enjoy-flavours-fg-image {
-    object-position: center 68%;
+  .enjoy-flavours-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 28px;
   }
 
-  .enjoy-flavours-title {
-    font-size: clamp(26px, 4.8vw, 36px);
-    line-height: 1.15;
-    letter-spacing: 0.03em;
-  }
-
-  .enjoy-flavours-text {
-    font-size: clamp(13px, 2.4vw, 16px);
-    line-height: 1.62;
-    max-width: 88vw;
-  }
-}
-
-/* =========================================================
-   MOBILE: 375px–599px
-   Larger typography for phones
-   ========================================================= */
-
-@media (max-width: 599px) {
-
-  .enjoy-flavours-section {
-    padding: 0 12px;
-  }
-
-  .enjoy-flavours-bg-image,
-  .enjoy-flavours-fg-image {
-    object-position: center 68%;
-  }
-
-  .enjoy-flavours-container {
+  .enjoy-flavours-header-right {
     width: 100%;
-    max-width: 100%;
-    padding: 0 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
   }
 
   .enjoy-flavours-title {
-    font-size: clamp(30px, 9vw, 42px);
-    line-height: 1.1;
-    letter-spacing: 0.025em;
+    font-size: clamp(28px, 7.5vw, 38px);
+    margin-bottom: 12px;
   }
 
-  .enjoy-flavours-text {
-    font-size: clamp(16px, 4.5vw, 20px);
-    line-height: 1.55;
-    letter-spacing: 0.025em;
-    max-width: 94vw;
+  .enjoy-flavours-description {
+    font-size: 13.5px;
+    line-height: 1.58;
+  }
+
+  .enjoy-flavours-cards {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+
+  .enjoy-flavours-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .enjoy-flavours-card {
+    flex: 0 0 84%;
+    min-width: 84%;
+    aspect-ratio: 4 / 5.7;
+    min-height: 420px;
+    scroll-snap-align: start;
   }
 }
 
-
-/* =========================================================
-   SMALL PHONE: 320px–374px
-   ========================================================= */
-
-@media (max-width: 374px) {
-
-  .enjoy-flavours-section {
-    padding: 0 10px;
+/* Small Phones (< 400px) */
+@media (max-width: 399px) {
+  .enjoy-flavours-card {
+    flex: 0 0 88%;
+    min-width: 88%;
   }
 
-  .enjoy-flavours-container {
-    padding: 0 5px;
+  .enjoy-flavours-nav-btn {
+    width: 44px;
+    height: 30px;
   }
 
-  .enjoy-flavours-title {
-    font-size: 28px;
-    line-height: 1.1;
-    letter-spacing: 0.02em;
-  }
-
-  .enjoy-flavours-text {
-    font-size: 15px;
-    line-height: 1.5;
-    max-width: 94vw;
+  .enjoy-flavours-explore-btn {
+    padding: 7px 18px;
+    font-size: 12.5px;
   }
 }
 
 /* --------------------------------------------------------------------------
-   Accessibility: prefers-reduced-motion
+   Accessibility: Reduced Motion
    -------------------------------------------------------------------------- */
-
 @media (prefers-reduced-motion: reduce) {
-
-  .enjoy-flavours-title,
-  .enjoy-flavours-text {
-    transform: none !important;
-    opacity: 1 !important;
+  .enjoy-flavours-card,
+  .enjoy-flavours-img,
+  .enjoy-flavours-nav-btn,
+  .enjoy-flavours-explore-btn,
+  .enjoy-flavours-explore-arrow {
     transition: none !important;
+    transform: none !important;
   }
 }
