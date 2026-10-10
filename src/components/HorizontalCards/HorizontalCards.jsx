@@ -19,35 +19,35 @@ export const PROCESS_STEPS = [
   {
     id: 'grains',
     stepNumber: '01',
-    title: 'Grains',
+    title: '01 - Grains',
     description: 'From carefully selected grains, the finest ingredients are chosen.',
     image: grainsImg,
   },
   {
     id: 'distillation',
     stepNumber: '02',
-    title: 'Distillation',
+    title: '02 - Distillation',
     description: 'The spirit undergoes a precise distillation process to achieve the desired character and quality.',
     image: distillationImg,
   },
   {
     id: 'blending',
     stepNumber: '03',
-    title: 'Blending',
+    title: '03 - Blending',
     description: 'Carefully selected ingredients are blended to create a smooth and balanced flavour.',
     image: blendingImg,
   },
   {
     id: 'filtration',
     stepNumber: '04',
-    title: 'Filtration',
+    title: '04 - Filtration',
     description: 'The spirit is thoroughly filtered to ensure clarity, smoothness, and consistent quality.',
     image: filtrationImg,
   },
   {
     id: 'bottling',
     stepNumber: '05',
-    title: 'Bottling',
+    title: '05 - Bottling',
     description: 'The finished spirit is carefully bottled and sealed to preserve its quality and freshness.',
     image: bottlingImg,
   },
@@ -239,6 +239,7 @@ export default function HorizontalCards() {
       <div className="stack-cards-viewport">
         {/* Top Header above Cards */}
         <header className="stack-cards-top-header">
+          {/* Left: Heading and Narrative Story */}
           <div className="stack-cards-header-left">
             <h2 className="stack-cards-top-title">Process</h2>
             <p className="stack-cards-top-desc">
@@ -246,6 +247,7 @@ export default function HorizontalCards() {
             </p>
           </div>
 
+          {/* Right: Arrow Navigation centered horizontally over View All Product */}
           <div className="stack-cards-header-right">
             <div className="stack-cards-nav-controls" role="group" aria-label="Process Navigation">
               <button
@@ -254,7 +256,20 @@ export default function HorizontalCards() {
                 onClick={() => handleScroll('left')}
                 aria-label="Previous process step"
               >
-                ←
+                <svg
+                  width="20"
+                  height="13"
+                  viewBox="0 0 24 14"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="19" y1="7" x2="5" y2="7" />
+                  <polyline points="9.5 3 5 7 9.5 11" />
+                </svg>
               </button>
               <button
                 type="button"
@@ -262,15 +277,29 @@ export default function HorizontalCards() {
                 onClick={() => handleScroll('right')}
                 aria-label="Next process step"
               >
-                →
+                <svg
+                  width="20"
+                  height="13"
+                  viewBox="0 0 24 14"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="5" y1="7" x2="19" y2="7" />
+                  <polyline points="14.5 3 19 7 14.5 11" />
+                </svg>
               </button>
             </div>
+
             <a
-              href="#distillation"
+              href="#products"
               className="stack-cards-explore-btn"
               onClick={handleExploreClick}
             >
-              View All Process
+              <span>View All Product</span>
             </a>
           </div>
         </header>

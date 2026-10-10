@@ -81,7 +81,7 @@ export default function Enjoyflavours() {
               >
                 <svg
                   width="20"
-                  height="14"
+                  height="13"
                   viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
@@ -90,8 +90,8 @@ export default function Enjoyflavours() {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <line x1="20" y1="7" x2="4" y2="7" />
-                  <polyline points="9 2.5 4 7 9 11.5" />
+                  <line x1="19" y1="7" x2="5" y2="7" />
+                  <polyline points="9.5 3 5 7 9.5 11" />
                 </svg>
               </button>
               <button
@@ -102,7 +102,7 @@ export default function Enjoyflavours() {
               >
                 <svg
                   width="20"
-                  height="14"
+                  height="13"
                   viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
@@ -111,8 +111,8 @@ export default function Enjoyflavours() {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <line x1="4" y1="7" x2="20" y2="7" />
-                  <polyline points="15 2.5 20 7 15 11.5" />
+                  <line x1="5" y1="7" x2="19" y2="7" />
+                  <polyline points="14.5 3 19 7 14.5 11" />
                 </svg>
               </button>
             </div>
@@ -131,13 +131,13 @@ export default function Enjoyflavours() {
                 viewBox="0 0 16 12"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.75"
+                strokeWidth="1.6"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 aria-hidden="true"
               >
                 <line x1="2" y1="6" x2="14" y2="6" />
-                <polyline points="10 2 14 6 10 10" />
+                <polyline points="9.5 2.5 14 6 9.5 9.5" />
               </svg>
             </a>
           </div>

@@ -195,7 +195,7 @@
   width: 100%;
   height: clamp(350px, 44vh, 440px);
   min-height: 330px;
-  border-radius: 14px;
+  border-radius: 0;
   overflow: hidden;
   background-color: #111216;
   border: 1px solid rgba(0, 0, 0, 0.08);

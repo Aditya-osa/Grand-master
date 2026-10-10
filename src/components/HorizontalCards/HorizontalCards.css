@@ -48,9 +48,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
-  padding: 0 var(--track-pad);
-  margin-top: clamp(8px, 1.2vh, 16px);
+  gap: 24px;
+  padding: 0 var(--track-pad) 0 clamp(60px, 6.5vw, 130px);
+  margin-top: clamp(36px, 4.8vh, 64px);
   margin-bottom: clamp(16px, 2.2vh, 26px);
   z-index: 50;
   box-sizing: border-box;
@@ -66,13 +66,13 @@
 
 .stack-cards-top-title {
   font-family: 'Anton', sans-serif;
-  font-size: clamp(50px, 5.8vw, 78px);
+  font-size: clamp(48px, 5.5vw, 76px);
   font-weight: 400;
   line-height: 1.0;
   letter-spacing: 0.02em;
   color: #000000;
-  margin: 0;
-  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  text-transform: capitalize;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -84,48 +84,49 @@
   line-height: 1.5;
   color: #111111;
   max-width: 540px;
-  margin: 8px 0 0 0;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Header right: navigation controls & View All Process button */
+/* Header right: Navigation controls centered horizontally above View All Product, shifted more left */
 .stack-cards-header-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   flex-shrink: 0;
+  padding-top: 6px;
+  margin-right: clamp(70px, 9vw, 190px);
 }
 
 .stack-cards-nav-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 12px;
 }
 
 .stack-cards-nav-btn {
-  width: 48px;
+  width: 52px;
   height: 32px;
-  border-radius: 999px;
-  border: 1.5px solid #000000;
+  border-radius: 9999px;
+  border: 1.4px solid #23160f;
   background: transparent;
-  color: #000000;
-  font-size: 15px;
-  font-weight: 700;
+  color: #23160f;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s ease;
   outline: none;
   padding: 0;
 }
 
 .stack-cards-nav-btn:hover {
-  background: #000000;
-  color: #ffffff;
-  border-color: #000000;
-  transform: scale(1.05);
+  background: #23160f;
+  color: #FAF4ED;
+  border-color: #23160f;
+  transform: translateY(-1px);
 }
 
 .stack-cards-nav-btn:active {
@@ -136,29 +137,31 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 20px;
-  border-radius: 999px;
-  border: 1.5px solid #4a2213;
+  padding: 12px 26px;
+  border-radius: 9999px;
+  border: 1.5px solid #b85d19;
   background: transparent;
-  color: #3b1b10;
-  font-family: Arial, "Helvetica Neue", sans-serif;
-  font-size: 12px;
+  color: #b85d19;
+  font-family: 'Bricolage Grotesque 28', 'Bricolage Grotesque', sans-serif;
+  font-variation-settings: 'opsz' 28;
+  font-size: 14.5px;
   font-weight: 600;
+  letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s ease;
   white-space: nowrap;
 }
 
 .stack-cards-explore-btn:hover {
-  background: #4a2213;
+  background: #b85d19;
   color: #FAF4ED;
-  border-color: #4a2213;
-  transform: scale(1.03);
+  border-color: #b85d19;
+  transform: translateY(-1px);
 }
 
 .stack-cards-explore-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 /* --------------------------------------------------------------------------
@@ -186,7 +189,7 @@
   align-items: flex-start;
   gap: var(--card-gap);
   width: max-content;
-  padding: 0 var(--track-pad) 20px;
+  padding: 0 var(--track-pad) 20px clamp(60px, 6.5vw, 130px);
   will-change: transform;
 }
 
@@ -200,13 +203,13 @@
   left: auto;
   transform: none;
   flex-shrink: 0;
-  width: calc((100vw - var(--track-pad) - (3.5 * var(--card-gap))) / 3.8);
-  max-width: 360px;
-  min-width: 280px;
-  height: clamp(480px, 60vh, 560px);
+  width: calc((100vw - var(--track-pad) - (4 * var(--card-gap))) / 4.2);
+  max-width: 290px;
+  min-width: 230px;
+  height: clamp(380px, 48vh, 440px);
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border-radius: 0px;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -285,21 +288,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  gap: 12px;
+  gap: 8px;
   flex: 1;
   width: 100%;
-  padding: 24px clamp(16px, 1.6vw, 22px);
+  padding: clamp(16px, 2.2vh, 24px) clamp(14px, 1.4vw, 18px);
   background: #ffffff;
   border-radius: 0 0 16px 16px;
   box-sizing: border-box;
 }
 
 .stack-card__title {
-  font-family: 'Plus Jakarta Sans', 'Anybody', sans-serif;
-  font-size: clamp(20px, 1.5vw, 24px);
-  font-weight: 800;
+  font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
+  font-variation-settings: 'opsz' 28;
+  font-size: clamp(18px, 1.3vw, 21px);
+  font-weight: 700;
   line-height: 1.25;
   color: #080808;
   margin: 0;
@@ -311,43 +315,53 @@
 }
 
 .stack-card__desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(14px, 1vw, 15px);
+  font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
+  font-variation-settings: 'opsz' 28;
+  font-size: clamp(12.5px, 0.9vw, 14px);
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.48;
   color: #3c3c3c;
   margin: 0;
   text-align: center;
-  max-width: 252px;
+  max-width: 236px;
   width: 100%;
 }
 
 /* ==========================================================================
    Responsive Breakpoints System
-   1. Large Desktop: 1440px+ -> 3.5 Cards Visible
-   2. Desktop & Laptop: 1024px–1439px -> 3.5 Cards Visible
-   3. Tablet Landscape: 768px–1023px -> 2.5 Cards Visible
-   4. Tablet Portrait: 600px–767px -> 2.2 Cards Visible
-   5. Mobile: 375px–599px -> 1.15 Cards Visible
-   6. Small Mobile: 320px–374px -> 1.12 Cards Visible
+   1. Large Desktop: 1440px+ -> 4+ Cards Visible
+   2. Desktop & Laptop: 1024px–1439px -> 3.5+ Cards Visible
+   3. Tablet Landscape: 768px–1023px -> 2.6 Cards Visible
+   4. Tablet Portrait: 600px–767px -> 2 Cards Visible
+   5. Mobile: 375px–599px -> 1.35 Cards Visible
+   6. Small Mobile: 320px–374px -> 1.25 Cards Visible
    ========================================================================== */
 
 /* 1. Large Desktop (1440px+) */
 @media (min-width: 1440px) {
   .stack-cards-section {
     --track-pad: clamp(40px, 4.5vw, 80px);
-    --card-gap: clamp(18px, 1.8vw, 28px);
+    --card-gap: clamp(16px, 1.6vw, 24px);
   }
 
   .stack-cards-viewport {
-    padding: clamp(20px, 3vh, 36px) 0;
+    padding: clamp(16px, 2.5vh, 28px) 0;
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (3.5 * var(--card-gap))) / 3.8);
-    max-width: 375px;
-    min-width: 300px;
-    height: clamp(500px, 62vh, 580px);
+    width: calc((100vw - var(--track-pad) - (4 * var(--card-gap))) / 4.4);
+    max-width: 300px;
+    min-width: 240px;
+    height: clamp(390px, 50vh, 450px);
+  }
+
+  .horizontal-cards-track,
+  .stack-cards-top-header {
+    padding-left: clamp(72px, 7.5vw, 145px);
+  }
+
+  .stack-cards-header-right {
+    margin-right: clamp(90px, 11vw, 240px);
   }
 }
 
@@ -355,18 +369,18 @@
 @media (min-width: 1024px) and (max-width: 1439px) {
   .stack-cards-section {
     --track-pad: clamp(32px, 3.8vw, 56px);
-    --card-gap: clamp(16px, 1.6vw, 24px);
+    --card-gap: clamp(14px, 1.4vw, 20px);
   }
 
   .stack-cards-viewport {
-    padding: clamp(16px, 2.5vh, 30px) 0;
+    padding: clamp(14px, 2vh, 24px) 0;
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (3 * var(--card-gap))) / 3.2);
-    max-width: 350px;
-    min-width: 275px;
-    height: clamp(470px, 59vh, 530px);
+    width: calc((100vw - var(--track-pad) - (3.5 * var(--card-gap))) / 3.8);
+    max-width: 280px;
+    min-width: 220px;
+    height: clamp(370px, 46vh, 420px);
   }
 }
 
@@ -374,7 +388,7 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .stack-cards-section {
     --track-pad: clamp(24px, 3.5vw, 36px);
-    --card-gap: 18px;
+    --card-gap: 16px;
   }
 
   .stack-cards-viewport {
@@ -398,8 +412,9 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 2.2);
-    height: clamp(440px, 56vh, 500px);
+    width: calc((100vw - var(--track-pad) - (2 * var(--card-gap))) / 2.6);
+    max-width: 270px;
+    height: clamp(350px, 44vh, 400px);
   }
 }
 
@@ -431,8 +446,9 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.7);
-    height: clamp(420px, 55vh, 480px);
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.9);
+    max-width: 260px;
+    height: clamp(340px, 42vh, 380px);
   }
 }
 
@@ -474,8 +490,21 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.15);
-    height: clamp(410px, 58vh, 460px);
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.35);
+    max-width: 260px;
+    height: clamp(330px, 46vh, 370px);
+  }
+
+  .stack-cards-header-right {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0;
+  }
+
+  .horizontal-cards-track,
+  .stack-cards-top-header {
+    padding-left: var(--track-pad);
   }
 }
 
@@ -507,8 +536,9 @@
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.1);
-    height: 380px;
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.25);
+    max-width: 230px;
+    height: 320px;
   }
 }
 

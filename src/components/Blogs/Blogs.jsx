@@ -134,11 +134,7 @@ export default function Blogs() {
         </div>
 
         {/* 3-Column Grid */}
-        <div className="gm-blogs-insights-grid">
-          {displayedBlogs.map((blog) => (
-            <BlogCard key={blog.id || blog.title} blog={blog} />
-          ))}
-        </div>
+      
       </div>
     </section>
   );
