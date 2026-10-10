@@ -320,11 +320,11 @@
   align-items: center;
   z-index: 20;
 
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: clamp(46px, 4.6vw, 66px);
   font-weight: 900;
   line-height: 1.05;
-  letter-spacing: -1.5px;
+  letter-spacing: 2.5px;
   color: #552409;
   white-space: nowrap;
   text-align: center;

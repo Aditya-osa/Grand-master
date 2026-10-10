@@ -242,7 +242,7 @@ export default function HorizontalCards() {
           <div className="stack-cards-header-left">
             <h2 className="stack-cards-top-title">Process</h2>
             <p className="stack-cards-top-desc">
-              It is the complete coordination among quality standards in an organization to ensure all the requirements.
+              It is the perfect combination between quality distillate in an unique bottle shape and urban culture inspiration.
             </p>
           </div>
 
