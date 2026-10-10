@@ -7,18 +7,18 @@ const InfoBox = () => {
         <h2>FLAVOURS<br />FOR LIFE</h2>
         <p>Grand Master's Vodka</p>
       </div>
-      <div className="info-box" id="info-mango">
+      {/* <div className="info-box" id="info-mango">
         <h2>FLAVOURS<br />FOR LIFE</h2>
         <p>Grand Master's Vodka</p>
-      </div>
+      </div> */}
       <div className="info-box" id="info-strawberry">
         <h2>FLAVOURS<br />FOR LIFE</h2>
         <p>Grand Master's Vodka</p>
       </div>
-      <div className="info-box" id="info-chocolate">
+      {/* <div className="info-box" id="info-chocolate">
         <h2>FLAVOURS<br />FOR LIFE</h2>
         <p>Grand Master's Vodka</p>
-      </div>
+      </div> */}
       <div className="info-box" id="info-melon">
         <h2>FLAVOURS<br />FOR LIFE</h2>
         <p>Grand Master's Vodka</p>

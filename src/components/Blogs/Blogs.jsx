@@ -4,7 +4,7 @@ import blogImg1 from '../../assets/image copy.png';
 import blogImg2 from '../../assets/image copy 2.png';
 import blogImg3 from '../../assets/image.png';
 
-const blogs = [
+export const blogs = [
   {
     id: 1,
     category: 'NEWS',

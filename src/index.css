@@ -58,3 +58,39 @@ body::-webkit-scrollbar {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ==========================================================================
+   Bricolage Grotesque (18, 28) & Anton Optical Size & Font Aliases
+   ========================================================================== */
+@font-face {
+  font-family: 'Bricolage Grotesque 18';
+  src: local('Bricolage Grotesque 18'), local('Bricolage Grotesque');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'bricolage grotesque 18';
+  src: local('Bricolage Grotesque 18'), local('Bricolage Grotesque');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque 28';
+  src: local('Bricolage Grotesque 28'), local('Bricolage Grotesque');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'bricolage grotesque 28';
+  src: local('Bricolage Grotesque 28'), local('Bricolage Grotesque');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+

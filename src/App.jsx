@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import ContactUs from './Contact/Contact-us';
+import BlogPage from './Blogs/BlogPage';
 
 export default function App() {
   const [currentView, setCurrentView] = useState(() => {
     const hash = (window.location.hash || '').toLowerCase();
     const pathname = (window.location.pathname || '').toLowerCase();
-    return hash === '#contact' || pathname === '/contact' ? 'contact' : 'home';
+    if (hash === '#contact' || pathname === '/contact') return 'contact';
+    if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') return 'blogs';
+    return 'home';
   });
 
   useEffect(() => {
@@ -16,9 +19,12 @@ export default function App() {
       if (hash === '#contact' || pathname === '/contact') {
         setCurrentView('contact');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') {
+        setCurrentView('blogs');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
-        if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#') {
+        if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#' && hash !== '#blogs' && hash !== '#blog') {
           setTimeout(() => {
             const el = document.querySelector(hash);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -31,6 +37,9 @@ export default function App() {
       const target = (e.detail || '').replace('#', '').toLowerCase();
       if (target === 'contact') {
         setCurrentView('contact');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'blogs' || target === 'blog') {
+        setCurrentView('blogs');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
@@ -56,6 +65,8 @@ export default function App() {
     };
   }, []);
 
-  return currentView === 'contact' ? <ContactUs /> : <Home />;
+  if (currentView === 'contact') return <ContactUs />;
+  if (currentView === 'blogs') return <BlogPage />;
+  return <Home />;
 }
 

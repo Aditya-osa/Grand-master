@@ -7,6 +7,7 @@ import strawberry5 from '../../assets/STRAWBERRY (1)/5.png';
 import strawberry6 from '../../assets/STRAWBERRY (1)/6.png';
 import strawberry7 from '../../assets/STRAWBERRY (1)/7.png';
 import strawberry8 from '../../assets/STRAWBERRY (1)/8.png';
+/*
 import {
   chocolateSquares,
   mintLeavesPair1,
@@ -24,6 +25,7 @@ import {
   mangoLeaf2,
   mangoSlice,
 } from '../../assets/MANGO';
+*/
 
 // Melon Assets (from src/assets/Melon copy)
 import melon1 from '../../assets/Melon copy/1.png';
@@ -58,13 +60,14 @@ const Decorations = () => {
       <img className="decor decor-blueberry blueberry-leaf-bottom-left" src={blueberry1} alt="Blueberry Leaves Bottom Left" />
       <img className="decor decor-blueberry blueberry-mint-bottom-right" src={blueberry8} alt="Mint Leaf Bottom Right" />
 
-      {/* 🥭 Mango Stage Floating Decor (Orange-like layout and structure) */}
+      {/* 🥭 Mango Stage Floating Decor (Orange-like layout and structure) - Commented out
       <img className="decor decor-mango mango-top-left" src={mangoSlice} alt="Mango Sliced Cheek" />
       <img className="decor decor-mango mango-top-right" src={mangoWhole} alt="Whole Golden Mango" />
       <img className="decor decor-mango mango-bottom-right" src={mangoChunks} alt="Mango Chunks" />
       <img className="decor decor-mango mango-leaf-left-1" src={mangoLeaf1} alt="Mint Leaf" />
       <img className="decor decor-mango mango-leaf-top-mid" src={mangoLeaf2} alt="Mint Leaf" />
       <img className="decor decor-mango mango-leaf-bottom-mid" src={mangoLeaf2} alt="Mint Leaf" />
+      */}
 
       {/* 🍈 Melon Stage Floating Decor (Matching Reference Image) */}
       <img className="decor decor-melon melon-top-left melon-whole-left" src={melon1} alt="Whole Melon Top Left" />
@@ -95,13 +98,14 @@ const Decorations = () => {
       <img className="decor decor-strawberry strawberry-leaf-bottom-mid strawberry-mint-mid-right" src={strawberry7} alt="Mint Leaf Mid Right" />
       <img className="decor decor-strawberry strawberry-mint-bottom-right" src={strawberry8} alt="Mint Leaf Bottom Right" />
 
-      {/* 🍫 Chocolate Stage Floating Decor (Matching Reference Layout) */}
+      {/* 🍫 Chocolate Stage Floating Decor (Matching Reference Layout) - Commented out
       <img className="decor decor-chocolate chocolate-top-left" src={chocolateSquares} alt="Chocolate Squares Stack" />
       <img className="decor decor-chocolate chocolate-mint-top" src={mintLeavesPair1} alt="Top Mint Leaves" />
       <img className="decor decor-chocolate chocolate-coffee-beans" src={coffeeBeans} alt="Coffee Beans Cluster" />
       <img className="decor decor-chocolate chocolate-mint-single" src={mintLeafSingle} alt="Single Mint Leaf Left" />
       <img className="decor decor-chocolate chocolate-shavings" src={chocolateShavings} alt="Chocolate Shavings and Chunks" />
       <img className="decor decor-chocolate chocolate-mint-bottom" src={mintLeavesPair2} alt="Bottom Right Mint Leaves" />
+      */}
     </>
   );
 };

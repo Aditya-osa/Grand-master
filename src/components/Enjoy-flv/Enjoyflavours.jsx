@@ -80,18 +80,18 @@ export default function Enjoyflavours() {
                 aria-label="Previous flavours"
               >
                 <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="1.6"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <line x1="19" y1="12" x2="5" y2="12" />
-                  <polyline points="12 19 5 12 12 5" />
+                  <line x1="20" y1="7" x2="4" y2="7" />
+                  <polyline points="9 2.5 4 7 9 11.5" />
                 </svg>
               </button>
               <button
@@ -101,18 +101,18 @@ export default function Enjoyflavours() {
                 aria-label="Next flavours"
               >
                 <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
+                  width="20"
+                  height="14"
+                  viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="1.6"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <polyline points="15 2.5 20 7 15 11.5" />
                 </svg>
               </button>
             </div>
@@ -124,9 +124,21 @@ export default function Enjoyflavours() {
               aria-label="Explore all Grand Master flavours"
             >
               <span>Explore All Flavours</span>
-              <span className="enjoy-flavours-explore-arrow" aria-hidden="true">
-                &rarr;
-              </span>
+              <svg
+                className="enjoy-flavours-explore-arrow"
+                width="15"
+                height="11"
+                viewBox="0 0 16 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="2" y1="6" x2="14" y2="6" />
+                <polyline points="10 2 14 6 10 10" />
+              </svg>
             </a>
           </div>
         </div>
@@ -152,7 +164,7 @@ export default function Enjoyflavours() {
                   className="enjoy-flavours-img"
                   loading="lazy"
                 />
-h              </div>
+              </div>
             </article>
           ))}
         </div>

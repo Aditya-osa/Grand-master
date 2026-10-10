@@ -147,13 +147,13 @@
 .banner-hero-container .one h1 {
   position: absolute;
 
-  top: 8%;
+  top: 14%;
 
   /*
      Percentage/viewport based sizing.
      15vw gives a large responsive heading without clamp().
   */
-  font-size: 36vh;
+  font-size: 32vh;
 
   font-family: 'Anton', sans-serif;
 
@@ -419,7 +419,7 @@
 .banner-hero-container .info-box p {
   font-size: 1.25vw;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.96);
@@ -433,7 +433,7 @@
 }
 
 .banner-hero-container #info-orange p {
-  color: #7a4427;
+  color: #732F03;
 }
 
 .banner-hero-container #info-mango h2 {
@@ -445,11 +445,11 @@
 }
 
 .banner-hero-container #info-strawberry h2 {
-  color: #541520;
+  color: #CF173A;
 }
 
 .banner-hero-container #info-strawberry p {
-  color: #823340;
+  color: #CF173A;
 }
 
 .banner-hero-container #info-chocolate h2 {
@@ -588,9 +588,9 @@
 
 /* 1.png - Blueberry leaves peeking from bottom-left corner */
 .banner-hero-container .blueberry-leaf-bottom-left {
-  width: 20vw;
-  bottom: -17vh;
-  left: -10vw;
+  width: 19vw;
+  bottom: -13vh;
+  left: -9vw;
   top: auto;
   right: auto;
   transform: rotate(359deg) !important;
@@ -599,9 +599,9 @@
 /* 2.png - Main cluster with reflection at top-left */
 .banner-hero-container .blueberry-top-left,
 .banner-hero-container .blueberry-cluster-left {
-  width: 20.5vw;
-  top: 1vh;
-  left: 0.5vw;
+  width: 19.5vw;
+  top: 9vh;
+  left: -1.5vw;
   right: auto;
   bottom: auto;
   transform: rotate(0deg);
@@ -611,7 +611,7 @@
 .banner-hero-container .blueberry-leaf-top-mid,
 .banner-hero-container .blueberry-mint-top-left {
   width: 12.8vw;
-  top: 6vh;
+  top: 9vh;
   left: 31vw;
   right: auto;
   bottom: auto;
@@ -643,9 +643,9 @@
 /* 6.png - Blueberry cluster with broad leaves at top-right */
 .banner-hero-container .blueberry-top-right,
 .banner-hero-container .blueberry-cluster-right {
-  width: 20vw;
-  top: -2vh;
-  right: 6vw;
+  width: 19vw;
+  top: 9vh;
+  right: 4vw;
   left: auto;
   bottom: auto;
   transform: rotate(0deg);
@@ -653,9 +653,9 @@
 
 /* 7.png - Foliage branch hanging from top-right corner */
 .banner-hero-container .blueberry-branch-top-right {
-  width: 19vw;
-  top: -17vh;
-  right: -12vw;
+  width: 25vw;
+  top: -24vh;
+  right: -16vw;
   left: auto;
   bottom: auto;
   transform: scaleY(-1) rotate(23deg) !important;
@@ -686,9 +686,9 @@
 /* 1.png - Whole melon on upper left with curled stem */
 .banner-hero-container .melon-top-left,
 .banner-hero-container .melon-whole-left {
-  width: 18.5vw;
-  top: 9.5vh;
-  left: 9.5vw;
+  width: 16.5vw;
+  top: 14.5vh;
+  left: 11.5vw;
   right: auto;
   bottom: auto;
   transform: rotate(-3deg);
@@ -721,21 +721,21 @@
 /* 4.png - Single sliced melon wedge with seeds on mid right */
 .banner-hero-container .melon-bottom-right,
 .banner-hero-container .melon-slice-mid-right {
-  width: 17.8vw;
-  top: 48.5vh;
-  right: 16.5vw;
+  width: 18.8vw;
+  top: 50.5vh;
+  right: 13.5vw;
   left: auto;
   bottom: auto;
-  transform: rotate(-10deg);
+  transform: rotate(-10deg) !important;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.09));
 }
 
 /* 5.png - Whole melon + 2 slices cluster on upper right */
 .banner-hero-container .melon-top-right,
 .banner-hero-container .melon-cluster-right {
-  width: 21.5vw;
-  top: 1.5vh;
-  right: 11.5vw;
+  width: 25.5vw;
+  top: 3.5vh;
+  right: 7.5vw;
   left: auto;
   bottom: auto;
   transform: rotate(0deg);
@@ -744,12 +744,12 @@
 
 /* Citrus branch hanging from top-right corner */
 .banner-hero-container .melon-branch-top-right {
-  width: 22.9vw;
-  top: -20vh;
-  right: -7vw;
+  width: 30.9vw;
+  top: -29vh;
+  right: -18vw;
   left: auto;
   bottom: auto;
-  transform: scaleY(-1) rotate(286deg) !important;
+  transform: scaleY(-1) rotate(318deg) !important;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
@@ -757,7 +757,7 @@
 .banner-hero-container .melon-leaf-bottom-mid,
 .banner-hero-container .melon-mint-mid-right {
   width: 11vw;
-  top: 67vh;
+  top: 63vh;
   left: 52.5vw;
   right: auto;
   bottom: auto;
@@ -790,9 +790,9 @@
 /* 1.png - Left orange slice pair + leaf */
 .banner-hero-container .orange-top-left,
 .banner-hero-container .orange-slice-left {
-  width: 17.5vw;
-  top: 18vh;
-  left: 1.5vw;
+  width: 19.5vw;
+  top: 14vh;
+  left: 4.5vw;
   right: auto;
   bottom: auto;
   transform: rotate(-3deg);
@@ -802,8 +802,8 @@
 .banner-hero-container .leaf-right-1,
 .banner-hero-container .orange-branch-top-right {
   width: 22.9vw;
-  top: -20vh;
-  right: -7vw;
+  top: -18vh;
+  right: -8vw;
   left: auto;
   bottom: auto;
   transform: scaleY(-1) rotate(286deg) !important;
@@ -812,9 +812,9 @@
 /* 3.png - Whole orange + sliced orange on upper right */
 .banner-hero-container .orange-top-right,
 .banner-hero-container .orange-whole-right {
-  width: 20.5vw;
-  top: 6vh;
-  right: 11.5vw;
+  width: 22.5vw;
+  top: 9vh;
+  right: 5.5vw;
   left: auto;
   bottom: auto;
   transform: rotate(0deg);
@@ -825,20 +825,20 @@
 .banner-hero-container .orange-wedge-bottom-right {
   width: 20.1vw;
   top: 50vh;
-  right: 12vw;
+  right: 7vw;
   left: auto;
   bottom: auto;
-  transform: rotate(-15deg);
+  transform: rotate(9deg) !important;
 }
 
 /* 5.png - Citrus leaves branch peeking from bottom-left corner */
 .banner-hero-container .orange-branch-bottom-left {
   width: 18.9vw;
   bottom: -18vh;
-  left: -8vw;
+  left: -10vw;
   top: auto;
   right: auto;
-  transform: rotate(96deg);
+  transform: rotate(74deg);
 }
 
 /* 6.png - Mint leaf upper left of bottle */
@@ -949,9 +949,9 @@
 /* 1.png - Left ripe single strawberry */
 .banner-hero-container .strawberry-top-left,
 .banner-hero-container .strawberry-single-left {
-  width: 21.2vw;
+  width: 20.2vw;
   top: 8vh;
-  left: -3.5vw;
+  left: -1.5vw;
   right: auto;
   bottom: auto;
   transform: rotate(358deg);
@@ -959,9 +959,9 @@
 
 /* 2.png - Strawberry leaves peeking from bottom-left corner */
 .banner-hero-container .strawberry-leaf-bottom-left {
-  width: 13.5vw;
-  bottom: -6vh;
-  left: -1vw;
+  width: 15.5vw;
+  bottom: -13vh;
+  left: -6vw;
   top: auto;
   right: auto;
   transform: rotate(-10deg);
@@ -970,8 +970,8 @@
 /* 3.png - Mint leaf upper left of bottle */
 .banner-hero-container .strawberry-leaf-top-mid,
 .banner-hero-container .strawberry-mint-top-left {
-  width: 17vw;
-  top: 0vh;
+  width: 16vw;
+  top: 7vh;
   left: 23vw;
   right: auto;
   bottom: auto;
@@ -981,7 +981,7 @@
 /* 4.png - Single strawberry on lower right */
 .banner-hero-container .strawberry-bottom-right,
 .banner-hero-container .strawberry-single-right {
-  width: 21.2vw;
+  width: 16.2vw;
   top: 59vh;
   right: 9vw;
   left: auto;
@@ -992,9 +992,9 @@
 /* 5.png - Strawberry pair with big leaf on upper right */
 .banner-hero-container .strawberry-top-right,
 .banner-hero-container .strawberry-pair-right {
-  width: 17.5vw;
-  top: 3vh;
-  right: 1.5vw;
+  width: 18.5vw;
+  top: 10vh;
+  right: -2.5vw;
   left: auto;
   bottom: auto;
   transform: rotate(4deg);
@@ -1004,8 +1004,8 @@
 .banner-hero-container .strawberry-leaf-top-right,
 .banner-hero-container .strawberry-branch-top-right {
   width: 10vw;
-  top: -7vh;
-  right: -3vw;
+  top: -5vh;
+  right: -1vw;
   left: auto;
   bottom: auto;
   transform: rotate(5deg);
@@ -1014,9 +1014,9 @@
 /* 7.png - Mint leaf lower center-right of bottle */
 .banner-hero-container .strawberry-leaf-bottom-mid,
 .banner-hero-container .strawberry-mint-mid-right {
-  width: 18.4vw;
-  top: 66vh;
-  left: 55vw;
+  width: 10.4vw;
+  top: 63vh;
+  left: 52vw;
   right: auto;
   bottom: auto;
   transform: rotate(350deg);
@@ -2491,7 +2491,7 @@
   align-items: center;
   justify-content: center;
   gap: clamp(6px, 0.5vw, 10px);
-  padding: clamp(9px, 0.7vw, 12px) clamp(22px, 1.7vw, 30px);
+padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
   border: 1.5px solid #732f03;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.2);
@@ -2547,8 +2547,8 @@
 
 /* Explore Flavours Button: Positioned bottom-right */
 .gm-explore-hero {
-  right: clamp(40px, 17.5vw, 260px);
-  bottom: clamp(40px, 12.5vh, 110px);
+  right: 23%;
+  top:85%;
 }
 
 /* Tablet: 600px - 1023px */
