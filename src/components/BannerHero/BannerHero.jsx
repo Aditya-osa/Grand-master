@@ -434,7 +434,9 @@ export default function BannerHero() {
         .fromTo("#fanta", { y: "-55vh", opacity: 0, rotate: 12 }, { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo("#orange-text", { x: "-50vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".decor-orange", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03 }, 0)
-        .fromTo("#info-orange", { y: "28vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0);
+        .fromTo("#info-orange", { y: "28vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
+        .fromTo(".gm-skip-hero", { y: "25vh", xPercent: -50, opacity: 0 }, { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.15)
+        .fromTo(".gm-explore-hero", { y: "25vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.2);
 
       const tl = gsap.timeline({ paused: true });
       tlRef.current = tl;
@@ -446,6 +448,8 @@ export default function BannerHero() {
         .to("#orange-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to("#info-orange", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to(".decor-orange", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in", stagger: 0.02 }, 0.02)
+        .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
+        .to(".gm-explore-hero", { y: "15vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
         .to(".bg-orange", { opacity: 0, duration: 1.4, ease: "power2.inOut" }, 0)
         .to(".bg-mango", { opacity: 1, duration: 1.4, ease: "power2.inOut" }, 0);
 
@@ -496,6 +500,16 @@ export default function BannerHero() {
           { y: "28vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "25vh", xPercent: -50, opacity: 0 },
+          { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          MANGO_START_TAB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "25vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          MANGO_START_TAB
         );
 
       tl.addLabel('flavour-1', 1.75);
@@ -505,6 +519,8 @@ export default function BannerHero() {
         .to("#mango-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to("#info-mango", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to(".decor-mango", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
+        .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 1.75)
+        .to(".gm-explore-hero", { y: "15vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.75)
         .to(".bg-mango", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 1.75)
         .to(".bg-strawberry", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 1.75);
 
@@ -528,6 +544,16 @@ export default function BannerHero() {
           { y: "28vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_TAB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "25vh", xPercent: -50, opacity: 0 },
+          { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          STRAWBERRY_START_TAB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "25vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          STRAWBERRY_START_TAB
         );
 
       tl.addLabel('flavour-2', 3.50);
@@ -537,6 +563,8 @@ export default function BannerHero() {
         .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.50)
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.50)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.50)
+        .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 3.50)
+        .to(".gm-explore-hero", { y: "15vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.50)
         .to(".bg-strawberry", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 3.50)
         .to(".bg-chocolate", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 3.50);
 
@@ -585,6 +613,16 @@ export default function BannerHero() {
           { y: "28vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "25vh", xPercent: -50, opacity: 0 },
+          { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          CHOCOLATE_START_TAB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "25vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          CHOCOLATE_START_TAB
         );
 
       tl.addLabel('flavour-3', 5.25);
@@ -594,6 +632,8 @@ export default function BannerHero() {
         .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 5.25)
         .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 5.25)
         .to(".decor-chocolate", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 5.25)
+        .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 5.25)
+        .to(".gm-explore-hero", { y: "15vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 5.25)
         .to(".bg-chocolate", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 5.25)
         .to(".bg-melon", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 5.25)
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 5.75)
@@ -602,6 +642,16 @@ export default function BannerHero() {
         .fromTo(".decor-melon",
           { opacity: 0, scale: 0.9 },
           { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false },
+          5.75
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "25vh", xPercent: -50, opacity: 0 },
+          { y: "0vh", xPercent: -50, opacity: 1, duration: 0.65, ease: "power2.out", force3D: true, immediateRender: false },
+          5.75
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "25vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", force3D: true, immediateRender: false },
           5.75
         );
 
@@ -614,6 +664,8 @@ export default function BannerHero() {
         .to("#melon-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 6.50)
         .to("#info-melon", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 6.50)
         .to(".decor-melon", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 6.50)
+        .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 6.50)
+        .to(".gm-explore-hero", { y: "15vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 6.50)
         .to(".bg-melon", { opacity: 0, duration: 1.2, ease: "power2.inOut" }, 6.50)
         .to(".bg-blueberry", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 6.50);
 
@@ -635,6 +687,16 @@ export default function BannerHero() {
         )
         .fromTo("#info-blueberry",
           { y: "28vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          BLUEBERRY_START_TAB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "25vh", xPercent: -50, opacity: 0 },
+          { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          BLUEBERRY_START_TAB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "25vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_TAB
         );
@@ -666,7 +728,9 @@ export default function BannerHero() {
         .fromTo("#fanta", { y: "-45vh", opacity: 0, rotate: 12 }, { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo("#orange-text", { x: "-40vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".decor-orange", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03 }, 0)
-        .fromTo("#info-orange", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0);
+        .fromTo("#info-orange", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
+        .fromTo(".gm-skip-hero", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.15)
+        .fromTo(".gm-explore-hero", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.2);
 
       const tl = gsap.timeline({ paused: true });
       tlRef.current = tl;
@@ -678,6 +742,8 @@ export default function BannerHero() {
         .to("#orange-text", { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
         .to("#info-orange", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
         .to(".decor-orange", { y: "100vh", opacity: 0, duration: 0.45, ease: "power2.in", stagger: 0.02 }, 0.02)
+        .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 0)
+        .to(".gm-explore-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 0)
         .to(".bg-orange", { opacity: 0, duration: 1.3, ease: "power2.inOut" }, 0)
         .to(".bg-mango", { opacity: 1, duration: 1.3, ease: "power2.inOut" }, 0);
 
@@ -728,6 +794,16 @@ export default function BannerHero() {
           { y: "20vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          MANGO_START_MOB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          MANGO_START_MOB
         );
 
       tl.addLabel('flavour-1', 1.50);
@@ -737,6 +813,8 @@ export default function BannerHero() {
         .to("#mango-text", { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to("#info-mango", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to(".decor-mango", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
+        .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 1.50)
+        .to(".gm-explore-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 1.50)
         .to(".bg-mango", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 1.50)
         .to(".bg-strawberry", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 1.50);
 
@@ -761,6 +839,16 @@ export default function BannerHero() {
           { y: "20vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_MOB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          STRAWBERRY_START_MOB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          STRAWBERRY_START_MOB
         );
 
       tl.addLabel('flavour-2', 3.00);
@@ -770,6 +858,8 @@ export default function BannerHero() {
         .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.00)
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.00)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 3.00)
+        .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 3.00)
+        .to(".gm-explore-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 3.00)
         .to(".bg-strawberry", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 3.00)
         .to(".bg-chocolate", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 3.00);
 
@@ -818,6 +908,16 @@ export default function BannerHero() {
           { y: "20vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          CHOCOLATE_START_MOB
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          CHOCOLATE_START_MOB
         );
 
       tl.addLabel('flavour-3', 4.50);
@@ -827,6 +927,8 @@ export default function BannerHero() {
         .to("#chocolate-text", { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 4.50)
         .to("#info-chocolate", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 4.50)
         .to(".decor-chocolate", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 4.50)
+        .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 4.50)
+        .to(".gm-explore-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 4.50)
         .to(".bg-chocolate", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 4.50)
         .to(".bg-melon", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 4.50)
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 4.90)
@@ -835,6 +937,16 @@ export default function BannerHero() {
         .fromTo(".decor-melon",
           { opacity: 0, scale: 0.9 },
           { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false },
+          4.90
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", force3D: true, immediateRender: false },
+          4.90
+        )
+        .fromTo(".gm-explore-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", force3D: true, immediateRender: false },
           4.90
         );
 
@@ -845,6 +957,8 @@ export default function BannerHero() {
         .to("#melon-text", { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 5.60)
         .to("#info-melon", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 5.60)
         .to(".decor-melon", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 5.60)
+        .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 5.60)
+        .to(".gm-explore-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 5.60)
         .to(".bg-melon", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 5.60)
         .to(".bg-blueberry", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 5.60);
 
@@ -865,6 +979,16 @@ export default function BannerHero() {
           BLUEBERRY_START_MOB
         )
         .fromTo("#info-blueberry",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          BLUEBERRY_START_MOB
+        )
+        .fromTo(".gm-skip-hero",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          BLUEBERRY_START_MOB
+        )
+        .fromTo(".gm-explore-hero",
           { y: "20vh", opacity: 0 },
           { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_MOB
