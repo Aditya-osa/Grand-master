@@ -29,8 +29,8 @@ export default function DistilledToInspire() {
     const renderGradient = (p) => {
       if (p >= 75) {
         textEl.style.backgroundImage = 'none';
-        textEl.style.color = '#000000';
-        textEl.style.webkitTextFillColor = '#000000';
+        textEl.style.color = '#732f03';
+        textEl.style.webkitTextFillColor = '#732f03';
       } else {
         textEl.style.color = 'transparent';
         textEl.style.webkitTextFillColor = 'transparent';
@@ -38,7 +38,7 @@ export default function DistilledToInspire() {
         const p2 = Math.min(100, p1 + 10);
         const p3 = Math.min(100, p1 + 22);
         const p4 = Math.min(100, p1 + 35);
-        textEl.style.backgroundImage = `linear-gradient(to bottom, #000000 0%, #000000 ${p1}%, rgba(0, 0, 0, 0.82) ${p2}%, rgba(0, 0, 0, 0.45) ${p3}%, rgba(0, 0, 0, 0.2) ${p4}%, rgba(0, 0, 0, 0.2) 100%)`;
+        textEl.style.backgroundImage = `linear-gradient(to bottom, #732f03 0%, #732f03 ${p1}%, rgba(115, 47, 3, 0.82) ${p2}%, rgba(115, 47, 3, 0.45) ${p3}%, rgba(115, 47, 3, 0.2) ${p4}%, rgba(115, 47, 3, 0.2) 100%)`;
       }
     };
 

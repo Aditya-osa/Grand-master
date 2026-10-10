@@ -135,7 +135,7 @@
   font-weight: 400;
   line-height: 1.58;
   letter-spacing: -0.005em;
-  color: #000000;
+  color: #732f03;
   margin: 0;
   width: 100%;
   max-width: 100%;
@@ -144,8 +144,8 @@
 
   /* Scroll reveal initial state - illuminates smoothly as scrolled */
   background-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.25) 0%,
-      rgba(0, 0, 0, 0.25) 100%);
+      rgba(115, 47, 3, 0.25) 0%,
+      rgba(115, 47, 3, 0.25) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -369,7 +369,7 @@
 @media (prefers-reduced-motion: reduce) {
   .distilled-to-inspire__paragraph {
     background-image: none !important;
-    -webkit-text-fill-color: #000000 !important;
-    color: #000000 !important;
+    -webkit-text-fill-color: #732f03 !important;
+    color: #732f03 !important;
   }
 }

@@ -48,6 +48,41 @@ export default function BannerHero() {
     }
   };
 
+  const handleExploreFlavours = () => {
+    const heroEl = heroRef.current;
+
+    // Stop current animations
+    if (entryTlRef.current) {
+      entryTlRef.current.pause();
+    }
+
+    if (tlRef.current) {
+      tlRef.current.pause();
+    }
+
+    // Mark hero as completed
+    currentFlavourRef.current = 5;
+    isAnimatingRef.current = false;
+
+    // Allow normal page scrolling
+    if (heroEl) {
+      heroEl.removeAttribute('data-lenis-prevent');
+    }
+
+    // Scroll directly to Products section
+    const productsEl =
+      document.getElementById('products') ||
+      document.querySelector('.ag-hero') ||
+      document.querySelector('[aria-label="Grand Master Products"]');
+
+    if (productsEl) {
+      productsEl.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   useEffect(() => {
     const heroEl = heroRef.current;
     if (!heroEl) return;
@@ -105,57 +140,57 @@ export default function BannerHero() {
         .to("#orange-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to("#info-orange", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to(".decor-orange", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in", stagger: 0.02 }, 0.02)
-        
+
         // Background crossfade: Orange -> Mango
         .to(".bg-orange", { opacity: 0, duration: 1.5, ease: "power2.inOut" }, 0)
         .to(".bg-mango", { opacity: 1, duration: 1.5, ease: "power2.inOut" }, 0);
 
       // 2. All Mango Elements Enter (0.45s)
       const MANGO_START_DESK = 0.45;
-      tl.fromTo("#fanta-mango", 
-          { y: "-65vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta-mango",
+        { y: "-65vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        MANGO_START_DESK
+      )
+        .fromTo("#mango-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-        .fromTo("#mango-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-top-left",
+          { x: "-30vw", y: -20, rotate: -30, opacity: 0 },
+          { x: 0, y: 0, rotate: -12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-        .fromTo(".mango-top-left", 
-          { x: "-30vw", y: -20, rotate: -30, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-top-right",
+          { x: "30vw", y: -15, rotate: 35, opacity: 0 },
+          { x: 0, y: 0, rotate: 15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-        .fromTo(".mango-top-right", 
-          { x: "30vw", y: -15, rotate: 35, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-bottom-right",
+          { x: "30vw", y: "30vh", rotate: -25, opacity: 0 },
+          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-        .fromTo(".mango-bottom-right", 
-          { x: "30vw", y: "30vh", rotate: -25, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-leaf-left-1",
+          { x: "-25vw", y: -30, rotate: 0, opacity: 0 },
+          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-        .fromTo(".mango-leaf-left-1", 
-          { x: "-25vw", y: -30, rotate: 0, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-leaf-top-mid",
+          { y: "-40vh", rotate: -35, opacity: 0 },
+          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-        .fromTo(".mango-leaf-top-mid", 
-          { y: "-40vh", rotate: -35, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+
+        .fromTo(".mango-leaf-bottom-mid",
+          { y: "30vh", rotate: 5, opacity: 0 },
+          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         )
-       
-        .fromTo(".mango-leaf-bottom-mid", 
-          { y: "30vh", rotate: 5, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
-          MANGO_START_DESK
-        )
-        .fromTo("#info-mango", 
-          { y: "35vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-mango",
+          { y: "35vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_DESK
         );
 
@@ -174,24 +209,24 @@ export default function BannerHero() {
 
       // Strawberry Elements Enter At (2.45s)
       const STRAWBERRY_START_DESK = 2.45;
-      tl.fromTo("#fanta2", 
-          { y: "-65vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta2",
+        { y: "-65vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        STRAWBERRY_START_DESK
+      )
+        .fromTo("#strawberry-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_DESK
         )
-        .fromTo("#strawberry-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".decor-strawberry",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false },
           STRAWBERRY_START_DESK
         )
-        .fromTo(".decor-strawberry", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false }, 
-          STRAWBERRY_START_DESK
-        )
-        .fromTo("#info-strawberry", 
-          { y: "35vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-strawberry",
+          { y: "35vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_DESK
         );
 
@@ -210,49 +245,49 @@ export default function BannerHero() {
 
       // Chocolate Elements Enter Simultaneously (Matching Reference Layout)
       const CHOCOLATE_START_DESK = 4.45;
-      tl.fromTo("#fanta3", 
-          { y: "-65vh", opacity: 0, rotate: 12 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta3",
+        { y: "-65vh", opacity: 0, rotate: 12 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        CHOCOLATE_START_DESK
+      )
+        .fromTo("#chocolate-text",
+          { x: "-100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo("#chocolate-text", 
-          { x: "-100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-top-left",
+          { x: "-30vw", y: -20, rotate: -25, opacity: 0 },
+          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo(".chocolate-top-left", 
-          { x: "-30vw", y: -20, rotate: -25, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-top",
+          { y: "-40vh", rotate: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo(".chocolate-mint-top", 
-          { y: "-40vh", rotate: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-coffee-beans",
+          { x: "30vw", y: -15, rotate: 25, opacity: 0 },
+          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo(".chocolate-coffee-beans", 
-          { x: "30vw", y: -15, rotate: 25, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-single",
+          { x: "-25vw", y: 20, rotate: -15, opacity: 0 },
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo(".chocolate-mint-single", 
-          { x: "-25vw", y: 20, rotate: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-shavings",
+          { x: "25vw", y: "30vh", rotate: -15, opacity: 0 },
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo(".chocolate-shavings", 
-          { x: "25vw", y: "30vh", rotate: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-bottom",
+          { x: "25vw", y: "25vh", rotate: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         )
-        .fromTo(".chocolate-mint-bottom", 
-          { x: "25vw", y: "25vh", rotate: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
-          CHOCOLATE_START_DESK
-        )
-        .fromTo("#info-chocolate", 
-          { y: "35vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-chocolate",
+          { y: "35vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_DESK
         );
 
@@ -270,9 +305,9 @@ export default function BannerHero() {
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.7, ease: "power2.out", immediateRender: false }, 6.50)
         .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 6.50)
         .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 6.50)
-        .fromTo(".decor-melon", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false }, 
+        .fromTo(".decor-melon",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false },
           6.50
         );
 
@@ -289,24 +324,24 @@ export default function BannerHero() {
         .to(".bg-blueberry", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 7.20);
 
       const BLUEBERRY_START_DESK = 7.65;
-      tl.fromTo("#fanta-blueberry", 
-          { y: "-65vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta-blueberry",
+        { y: "-65vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        BLUEBERRY_START_DESK
+      )
+        .fromTo("#blueberry-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_DESK
         )
-        .fromTo("#blueberry-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".decor-blueberry",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false },
           BLUEBERRY_START_DESK
         )
-        .fromTo(".decor-blueberry", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false }, 
-          BLUEBERRY_START_DESK
-        )
-        .fromTo("#info-blueberry", 
-          { y: "35vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-blueberry",
+          { y: "35vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_DESK
         );
 
@@ -354,50 +389,50 @@ export default function BannerHero() {
 
       // Mango Elements Enter (0.40s)
       const MANGO_START_TAB = 0.40;
-      tl.fromTo("#fanta-mango", 
-          { y: "-55vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta-mango",
+        { y: "-55vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        MANGO_START_TAB
+      )
+        .fromTo("#mango-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        .fromTo("#mango-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-top-left",
+          { x: "-20vw", y: -15, opacity: 0 },
+          { x: 0, y: 0, rotate: -12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        .fromTo(".mango-top-left", 
-          { x: "-20vw", y: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-top-right",
+          { x: "20vw", y: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: 15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        .fromTo(".mango-top-right", 
-          { x: "20vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-bottom-right",
+          { x: "20vw", y: "20vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        .fromTo(".mango-bottom-right", 
-          { x: "20vw", y: "20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-leaf-left-1",
+          { x: "-18vw", y: -20, opacity: 0 },
+          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        .fromTo(".mango-leaf-left-1", 
-          { x: "-18vw", y: -20, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-leaf-top-mid",
+          { y: "-30vh", opacity: 0 },
+          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        .fromTo(".mango-leaf-top-mid", 
-          { y: "-30vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+
+        .fromTo(".mango-leaf-bottom-mid",
+          { y: "20vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         )
-        
-        .fromTo(".mango-leaf-bottom-mid", 
-          { y: "20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
-          MANGO_START_TAB
-        )
-        .fromTo("#info-mango", 
-          { y: "28vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-mango",
+          { y: "28vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_TAB
         );
 
@@ -412,24 +447,24 @@ export default function BannerHero() {
         .to(".bg-strawberry", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 1.75);
 
       const STRAWBERRY_START_TAB = 2.15;
-      tl.fromTo("#fanta2", 
-          { y: "-55vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta2",
+        { y: "-55vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        STRAWBERRY_START_TAB
+      )
+        .fromTo("#strawberry-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_TAB
         )
-        .fromTo("#strawberry-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".decor-strawberry",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false },
           STRAWBERRY_START_TAB
         )
-        .fromTo(".decor-strawberry", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false }, 
-          STRAWBERRY_START_TAB
-        )
-        .fromTo("#info-strawberry", 
-          { y: "28vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-strawberry",
+          { y: "28vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_TAB
         );
 
@@ -444,49 +479,49 @@ export default function BannerHero() {
         .to(".bg-chocolate", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 3.50);
 
       const CHOCOLATE_START_TAB = 3.90;
-      tl.fromTo("#fanta3", 
-          { y: "-55vh", opacity: 0, rotate: 12 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta3",
+        { y: "-55vh", opacity: 0, rotate: 12 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        CHOCOLATE_START_TAB
+      )
+        .fromTo("#chocolate-text",
+          { x: "-100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo("#chocolate-text", 
-          { x: "-100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-top-left",
+          { x: "-20vw", y: -15, opacity: 0 },
+          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo(".chocolate-top-left", 
-          { x: "-20vw", y: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-top",
+          { y: "-30vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo(".chocolate-mint-top", 
-          { y: "-30vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-coffee-beans",
+          { x: "20vw", y: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo(".chocolate-coffee-beans", 
-          { x: "20vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-single",
+          { x: "-18vw", y: 15, opacity: 0 },
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo(".chocolate-mint-single", 
-          { x: "-18vw", y: 15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-shavings",
+          { x: "20vw", y: "20vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo(".chocolate-shavings", 
-          { x: "20vw", y: "20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-bottom",
+          { x: "18vw", y: "18vh", opacity: 0 },
+          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         )
-        .fromTo(".chocolate-mint-bottom", 
-          { x: "18vw", y: "18vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
-          CHOCOLATE_START_TAB
-        )
-        .fromTo("#info-chocolate", 
-          { y: "28vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-chocolate",
+          { y: "28vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_TAB
         );
 
@@ -502,9 +537,9 @@ export default function BannerHero() {
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 5.75)
         .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 5.75)
         .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 5.75)
-        .fromTo(".decor-melon", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false }, 
+        .fromTo(".decor-melon",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false },
           5.75
         );
 
@@ -521,24 +556,24 @@ export default function BannerHero() {
         .to(".bg-blueberry", { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 6.50);
 
       const BLUEBERRY_START_TAB = 6.95;
-      tl.fromTo("#fanta-blueberry", 
-          { y: "-55vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta-blueberry",
+        { y: "-55vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        BLUEBERRY_START_TAB
+      )
+        .fromTo("#blueberry-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_TAB
         )
-        .fromTo("#blueberry-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".decor-blueberry",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false },
           BLUEBERRY_START_TAB
         )
-        .fromTo(".decor-blueberry", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false }, 
-          BLUEBERRY_START_TAB
-        )
-        .fromTo("#info-blueberry", 
-          { y: "28vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-blueberry",
+          { y: "28vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_TAB
         );
 
@@ -586,50 +621,50 @@ export default function BannerHero() {
 
       // Mango Elements Enter (0.35s)
       const MANGO_START_MOB = 0.35;
-      tl.fromTo("#fanta-mango", 
-          { y: "-45vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta-mango",
+        { y: "-45vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        MANGO_START_MOB
+      )
+        .fromTo("#mango-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        .fromTo("#mango-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-top-left",
+          { x: "-15vw", y: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: -12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        .fromTo(".mango-top-left", 
-          { x: "-15vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -12, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-top-right",
+          { x: "15vw", y: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: 15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        .fromTo(".mango-top-right", 
-          { x: "15vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-bottom-right",
+          { x: "15vw", y: "15vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        .fromTo(".mango-bottom-right", 
-          { x: "15vw", y: "15vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 8, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-leaf-left-1",
+          { x: "-12vw", y: -15, opacity: 0 },
+          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        .fromTo(".mango-leaf-left-1", 
-          { x: "-12vw", y: -15, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".mango-leaf-top-mid",
+          { y: "-20vh", opacity: 0 },
+          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        .fromTo(".mango-leaf-top-mid", 
-          { y: "-20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: -15, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+
+        .fromTo(".mango-leaf-bottom-mid",
+          { y: "15vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         )
-        
-        .fromTo(".mango-leaf-bottom-mid", 
-          { y: "15vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 25, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
-          MANGO_START_MOB
-        )
-        .fromTo("#info-mango", 
-          { y: "20vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-mango",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           MANGO_START_MOB
         );
 
@@ -645,24 +680,24 @@ export default function BannerHero() {
 
       // All Strawberry Elements Enter At The Exact Same Time (1.85s)
       const STRAWBERRY_START_MOB = 1.85;
-      tl.fromTo("#fanta2", 
-          { y: "-45vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta2",
+        { y: "-45vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        STRAWBERRY_START_MOB
+      )
+        .fromTo("#strawberry-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_MOB
         )
-        .fromTo("#strawberry-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".decor-strawberry",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false },
           STRAWBERRY_START_MOB
         )
-        .fromTo(".decor-strawberry", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false }, 
-          STRAWBERRY_START_MOB
-        )
-        .fromTo("#info-strawberry", 
-          { y: "20vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-strawberry",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_MOB
         );
 
@@ -677,49 +712,49 @@ export default function BannerHero() {
         .to(".bg-chocolate", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 3.00);
 
       const CHOCOLATE_START_MOB = 3.35;
-      tl.fromTo("#fanta3", 
-          { y: "-45vh", opacity: 0, rotate: 12 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta3",
+        { y: "-45vh", opacity: 0, rotate: 12 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        CHOCOLATE_START_MOB
+      )
+        .fromTo("#chocolate-text",
+          { x: "-100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo("#chocolate-text", 
-          { x: "-100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-top-left",
+          { x: "-15vw", y: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo(".chocolate-top-left", 
-          { x: "-15vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-top",
+          { y: "-20vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo(".chocolate-mint-top", 
-          { y: "-20vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-coffee-beans",
+          { x: "15vw", y: -10, opacity: 0 },
+          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo(".chocolate-coffee-beans", 
-          { x: "15vw", y: -10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-single",
+          { x: "-12vw", y: 10, opacity: 0 },
+          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo(".chocolate-mint-single", 
-          { x: "-12vw", y: 10, opacity: 0 }, 
-          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-shavings",
+          { x: "15vw", y: "15vh", opacity: 0 },
+          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo(".chocolate-shavings", 
-          { x: "15vw", y: "15vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".chocolate-mint-bottom",
+          { x: "12vw", y: "12vh", opacity: 0 },
+          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         )
-        .fromTo(".chocolate-mint-bottom", 
-          { x: "12vw", y: "12vh", opacity: 0 }, 
-          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
-          CHOCOLATE_START_MOB
-        )
-        .fromTo("#info-chocolate", 
-          { y: "20vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-chocolate",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           CHOCOLATE_START_MOB
         );
 
@@ -735,9 +770,9 @@ export default function BannerHero() {
         .fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 4.90)
         .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 4.90)
         .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 4.90)
-        .fromTo(".decor-melon", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false }, 
+        .fromTo(".decor-melon",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false },
           4.90
         );
 
@@ -752,24 +787,24 @@ export default function BannerHero() {
         .to(".bg-blueberry", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 5.60);
 
       const BLUEBERRY_START_MOB = 5.95;
-      tl.fromTo("#fanta-blueberry", 
-          { y: "-45vh", opacity: 0, rotate: -8 }, 
-          { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+      tl.fromTo("#fanta-blueberry",
+        { y: "-45vh", opacity: 0, rotate: -8 },
+        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+        BLUEBERRY_START_MOB
+      )
+        .fromTo("#blueberry-text",
+          { x: "100vw", opacity: 0 },
+          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_MOB
         )
-        .fromTo("#blueberry-text", 
-          { x: "100vw", opacity: 0 }, 
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo(".decor-blueberry",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false },
           BLUEBERRY_START_MOB
         )
-        .fromTo(".decor-blueberry", 
-          { opacity: 0, scale: 0.9 }, 
-          { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03, immediateRender: false }, 
-          BLUEBERRY_START_MOB
-        )
-        .fromTo("#info-blueberry", 
-          { y: "20vh", opacity: 0 }, 
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 
+        .fromTo("#info-blueberry",
+          { y: "20vh", opacity: 0 },
+          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_MOB
         );
 
@@ -1023,6 +1058,17 @@ export default function BannerHero() {
         }}
       >
         <span>SKIP</span>
+        <span className="gm-skip-arrow">→</span>
+      </button>
+      <button
+        type="button"
+        className="gm-explore-hero"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleSkipHero();
+        }}
+      >
+        <span>Explore Flavours</span>
         <span className="gm-skip-arrow">→</span>
       </button>
     </section>

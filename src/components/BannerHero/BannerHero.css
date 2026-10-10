@@ -951,7 +951,7 @@
 .banner-hero-container .strawberry-single-left {
   width: 21.2vw;
   top: 8vh;
-  left: -1.5vw;
+  left: -3.5vw;
   right: auto;
   bottom: auto;
   transform: rotate(358deg);
@@ -993,8 +993,8 @@
 .banner-hero-container .strawberry-top-right,
 .banner-hero-container .strawberry-pair-right {
   width: 17.5vw;
-  top: -1vh;
-  right: -0.5vw;
+  top: 3vh;
+  right: 1.5vw;
   left: auto;
   bottom: auto;
   transform: rotate(4deg);
@@ -1506,21 +1506,21 @@
 
   .banner-hero-container .orange-top-left,
   .banner-hero-container .orange-slice-left {
-    width: 25vw;
+    width: 28vw;
     top: 24vh;
     left: 2vw;
   }
 
   .banner-hero-container .orange-top-right,
   .banner-hero-container .orange-whole-right {
-    width: 28vw;
+    width: 30vw;
     top: 21vh;
     right: 3vw;
   }
 
   .banner-hero-container .orange-bottom-right,
   .banner-hero-container .orange-wedge-bottom-right {
-    width: 20vw;
+    width: 24vw;
     top: 58vh;
     right: 6vw;
   }

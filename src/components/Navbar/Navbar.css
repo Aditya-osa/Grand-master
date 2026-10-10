@@ -10,11 +10,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: clamp(86px, 13vh, 122px);
+  height: clamp(78px, 6.8vw, 122px);
   padding-top: env(safe-area-inset-top);
-  --nav-pad-x: max(clamp(72px, 10.5vw, 180px), env(safe-area-inset-left));
+  --nav-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
   padding-right: var(--nav-pad-x);
-  padding-bottom: 0.8vh;
+  padding-bottom: clamp(6px, 0.6vw, 12px);
   padding-left: var(--nav-pad-x);
   display: flex;
   align-items: center;
@@ -74,10 +74,10 @@
    ========================= */
 
 .nav-logo {
-  margin-top: 1vh;
-  width: 12.5vw;
+  margin-top: clamp(6px, 0.75vw, 14px);
+  width: clamp(120px, 12.5vw, 195px);
   height: auto;
-  max-height: 9.5vh;
+  max-height: clamp(50px, 5.2vw, 86px);
   object-fit: contain;
   display: block;
   filter: none !important;
@@ -89,23 +89,23 @@
    ========================= */
 
 .nav-desktop-links {
-  margin-top: 26px;
+  margin-top: clamp(14px, 1.7vw, 28px);
   display: flex;
   align-items: center;
-  gap: clamp(24px, 3.2vw, 44px);
+  gap: clamp(20px, 2.8vw, 44px);
   margin-left: auto;
 }
 
 .nav-desktop-links .nav-link {
   color: #732f03;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14.5px;
+  font-size: clamp(13px, 1.05vw, 17px);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   position: relative;
-  padding: 6px 2px;
+  padding: clamp(4px, 0.45vw, 8px) clamp(2px, 0.2vw, 4px);
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
@@ -120,7 +120,7 @@
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;
+  height: clamp(1.5px, 0.15vw, 2.5px);
   background-color: #732f03;
   transition: width 0.25s ease;
 }
@@ -133,7 +133,7 @@
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: clamp(10px, 1.1vw, 18px);
   z-index: 1001;
 }
 
@@ -161,8 +161,8 @@
   background: transparent;
   border: none;
   color: #732f03;
-  font-size: clamp(26px, 2.2vw, 34px);
-  padding: 8px;
+  font-size: clamp(24px, 2.2vw, 36px);
+  padding: clamp(6px, 0.6vw, 10px);
   outline: none;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.3s ease;
@@ -440,34 +440,34 @@
 /* Laptop: 1024px–1199px */
 @media (max-width: 1199px) {
   .gm-main-nav {
-    height: clamp(80px, 12.5vh, 114px);
-    --nav-pad-x: max(clamp(56px, 8.5vw, 110px), env(safe-area-inset-left));
+    height: clamp(74px, 7vw, 108px);
+    --nav-pad-x: max(clamp(44px, 8.5vw, 110px), env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
-    padding-bottom: 0.8vh;
+    padding-bottom: 0.6vw;
   }
 }
 
 /* Tablet Landscape: 768px–1023px */
 @media (max-width: 1023px) {
   .gm-main-nav {
-    height: clamp(76px, 12vh, 106px);
-    --nav-pad-x: max(clamp(48px, 7.5vw, 85px), env(safe-area-inset-left));
+    height: clamp(68px, 7.5vw, 98px);
+    --nav-pad-x: max(clamp(36px, 7.5vw, 85px), env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
-    padding-bottom: 0.6vh;
+    padding-bottom: 0.5vw;
   }
 
   .menu-overlay {
-    width: min(380px, 85vw);
+    width: min(380px, 50vw);
   }
 }
 
 /* Tablet Portrait: 600px–767px */
 @media (max-width: 767px) {
   .gm-main-nav {
-    height: 82px;
-    --nav-pad-x: max(clamp(36px, 6.5vw, 55px), env(safe-area-inset-left));
+    height: clamp(64px, 8.5vw, 82px);
+    --nav-pad-x: max(clamp(28px, 6.5vw, 55px), env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
   }
@@ -475,39 +475,39 @@
   .nav-logo {
     width: 20vw;
     height: auto;
-    max-height: 56px;
+    max-height: 7vw;
   }
 
   .menu-toggle-btn,
   #menu-toggle {
-    font-size: 26px;
+    font-size: clamp(24px, 4.2vw, 30px);
   }
 
   .menu-overlay {
-    width: min(340px, 88vw);
-    padding: 24px 20px;
+    width: min(340px, 80vw);
+    padding: clamp(20px, 3.5vw, 28px);
   }
 
   .cntr-nav {
-    gap: 20px;
+    gap: 3vw;
   }
 
   .cntr-nav a {
-    font-size: clamp(20px, 5.2vw, 24px);
+    font-size: clamp(20px, 4.5vw, 26px);
   }
 
   .social-icons a {
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
+    width: clamp(34px, 5.5vw, 42px);
+    height: clamp(34px, 5.5vw, 42px);
+    font-size: clamp(15px, 2.5vw, 18px);
   }
 }
 
 /* Mobile: 375px–599px */
 @media (max-width: 599px) {
   .gm-main-nav {
-    height: 74px;
-    --nav-pad-x: max(clamp(26px, 6vw, 40px), env(safe-area-inset-left));
+    height: clamp(58px, 12vw, 74px);
+    --nav-pad-x: max(clamp(20px, 6vw, 36px), env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
   }
@@ -515,46 +515,46 @@
   .nav-logo {
     width: 25vw;
     height: auto;
-    max-height: 48px;
+    max-height: 8.5vw;
   }
 
   .menu-toggle-btn,
   #menu-toggle {
-    font-size: 24px;
+    font-size: clamp(22px, 5vw, 28px);
   }
 
   .menu-overlay {
-    width: 92vw;
-    padding: 20px 16px;
+    width: 90vw;
+    padding: 4vw;
   }
 
   .cntr-nav {
-    gap: 16px;
+    gap: 3.5vw;
   }
 
   .cntr-nav a {
-    font-size: 19px;
+    font-size: clamp(18px, 4.8vw, 22px);
   }
 
   .nav-number {
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 12px);
   }
 
   .menu-close-btn,
   #menu-close {
-    width: 38px;
-    height: 38px;
-    font-size: 19px;
-    top: 18px;
-    right: 18px;
+    width: clamp(34px, 8vw, 42px);
+    height: clamp(34px, 8vw, 42px);
+    font-size: clamp(17px, 4.2vw, 21px);
+    top: 3.5vw;
+    right: 3.5vw;
   }
 }
 
 /* Small Mobile: 320px–374px */
 @media (max-width: 374px) {
   .gm-main-nav {
-    height: 66px;
-    --nav-pad-x: max(20px, env(safe-area-inset-left));
+    height: clamp(52px, 13vw, 66px);
+    --nav-pad-x: max(5vw, env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
   }
@@ -562,16 +562,16 @@
   .nav-logo {
     width: 28vw;
     height: auto;
-    max-height: 42px;
+    max-height: 9.5vw;
   }
 
   .menu-overlay {
-    width: 95vw;
-    padding: 18px 14px;
+    width: 92vw;
+    padding: 3.5vw;
   }
 
   .cntr-nav a {
     font-size: 17px;
-    gap: 10px;
+    gap: 2.5vw;
   }
 }
