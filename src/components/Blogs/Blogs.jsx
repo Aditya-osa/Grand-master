@@ -87,8 +87,25 @@ export const blogs = [
 export function BlogCard({ blog }) {
   const [imgError, setImgError] = useState(false);
 
+  const handleCardClick = () => {
+    window.location.hash = '#blogs';
+    window.dispatchEvent(new Event('hashchange'));
+    window.dispatchEvent(new CustomEvent('gm-navigate', { detail: 'blogs' }));
+  };
+
   return (
-    <article className="gm-insight-card">
+    <article
+      className="gm-insight-card"
+      onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCardClick();
+        }
+      }}
+    >
       <div className="gm-insight-img-wrap">
         {blog.image && !imgError ? (
           <img
@@ -115,6 +132,12 @@ export default function Blogs() {
 
   const displayedBlogs = showAll ? blogs : blogs.slice(0, 3);
 
+  const handleViewAll = () => {
+    window.location.hash = '#blogs';
+    window.dispatchEvent(new Event('hashchange'));
+    window.dispatchEvent(new CustomEvent('gm-navigate', { detail: 'blogs' }));
+  };
+
   return (
     <section className="gm-blogs-section" id="blogs" aria-label="Blog and Insights">
       <div className="gm-blogs-inner">
@@ -125,16 +148,20 @@ export default function Blogs() {
             type="button"
             className="gm-blogs-view-btn"
             id="view-all-insights-btn"
-            onClick={() => setShowAll((prev) => !prev)}
-            aria-label={showAll ? 'Show less insights' : 'View all insights'}
+            onClick={handleViewAll}
+            aria-label="View all insights"
           >
-            <span>{showAll ? 'Show Less' : 'View All Insights'}</span>
+            <span>View All Insights</span>
             <span className="gm-blogs-arrow" aria-hidden="true">&rarr;</span>
           </button>
         </div>
 
         {/* 3-Column Grid */}
-      
+        <div className="gm-blogs-insights-grid">
+          {displayedBlogs.map((blog) => (
+            <BlogCard key={blog.id || blog.title} blog={blog} />
+          ))}
+        </div>
       </div>
     </section>
   );
