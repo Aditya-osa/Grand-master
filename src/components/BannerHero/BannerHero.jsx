@@ -1051,22 +1051,24 @@ export default function BannerHero() {
 
       <button
         type="button"
-        className="gm-skip-hero"
+        className="gm-hero-action-btn gm-skip-hero"
         onClick={(e) => {
           e.stopPropagation();
           handleSkipHero();
         }}
+        aria-label="Skip Hero to next section"
       >
-        <span>SKIP</span>
+        <span>Skip</span>
         <span className="gm-skip-arrow">→</span>
       </button>
       <button
         type="button"
-        className="gm-explore-hero"
+        className="gm-hero-action-btn gm-explore-hero"
         onClick={(e) => {
           e.stopPropagation();
-          handleSkipHero();
+          handleExploreFlavours();
         }}
+        aria-label="Explore Flavours directly to products"
       >
         <span>Explore Flavours</span>
         <span className="gm-skip-arrow">→</span>
