@@ -1,74 +1,85 @@
 import React, { useState } from 'react';
 import './Blogs.css';
-import blogImg1 from '../../assets/image copy.png';
-import blogImg2 from '../../assets/image copy 2.png';
-import blogImg3 from '../../assets/image.png';
+import {
+  bottlesMasterFruit,
+  zestyLemonCocktail,
+  drinkDifferentColors,
+  tableSocialLounge,
+  podiumBottlesStudio,
+} from '../../assets/WhatsApp Unknown 2026-10-10 at 1.15.53 PM';
+import productionBottling from '../../assets/image copy 3.png';
 
 export const blogs = [
   {
     id: 1,
-    category: 'NEWS',
-    title: "Grandmaster's Vodka keeps the doctor away!",
+    category: 'MIXOLOGY & COCKTAILS',
+    title: 'The Golden Hour Spritz: A Masterclass in Citrus Mixology',
     description:
-      'Crafted with relentless precision, Grand Master delivers an uncompromising standard of purity and character for celebratory moments.',
-    image: blogImg1,
+      'Shaken over crystal ice, garnished with fresh mint sprigs, and topped with artisanal tonic. Inside our signature serve featuring Grand Master Zesty Lemon Platinum Vodka.',
+    image: zestyLemonCocktail,
     date: 'October 2026',
-    readTime: '4 min read',
+    readTime: '3 min read',
+    byline: 'Grand Master Mixology Lab',
     link: '#',
   },
   {
     id: 2,
-    category: 'NEWS',
-    title: 'All over the world eating and drinking.',
+    category: 'FLAVOUR CRAFT',
+    title: 'From Fresh Orchard to Copper Pot: The Anatomy of Real Infusions',
     description:
-      'Continuous fractional distillation through tall copper columns purges impurities to capture only the crystal-clear spirit heart.',
-    image: blogImg2,
-    date: 'September 2026',
-    readTime: '5 min read',
+      'Crisp green apple, sun-ripened strawberry, Alphonso mango, honeydew melon, and zesty lemon. Exploring how real fruit character elevates each platinum distillation run.',
+    image: bottlesMasterFruit,
+    date: 'October 2026',
+    readTime: '4 min read',
+    byline: 'House of Deejay Distillers',
     link: '#',
   },
   {
     id: 3,
-    category: 'NEWS',
-    title: "Grand Master's Cranberry Vodka",
+    category: 'CULTURE & CELEBRATIONS',
+    title: 'Drink A Little Different: Challenging the Ordinary Vodka Standard',
     description:
-      'A refined fusion of sun-ripened botanicals and vibrant fruits, crafted to elevate celebratory moments with unmatched distinction.',
-    image: blogImg3,
-    date: 'August 2026',
-    readTime: '6 min read',
+      'Vodka was never meant to be muted. Why Grand Master is championing vibrant palettes, bold flavor experimentation, and fearless celebration.',
+    image: drinkDifferentColors,
+    date: 'September 2026',
+    readTime: '5 min read',
+    byline: 'The Editorial Desk',
     link: '#',
   },
   {
     id: 4,
-    category: 'SPIRITS & CRAFT',
-    title: 'The Art of Fractional Column Distillation',
+    category: 'CULTURE & CELEBRATIONS',
+    title: 'After Dark: How Flavour-Forward Spirits Transform the Social Table',
     description:
-      'Explore how continuous multi-column copper extraction purges harsh congeners, capturing only the crystal-clear spirit heart for an extraordinarily smooth finish.',
-    image: '/Assets/7.png',
-    date: 'July 2026',
+      'From chilled coconut to bold mixberry, discovering how distinct flavour profiles are redefining table service, spirited pairings, and shared celebrations.',
+    image: tableSocialLounge,
+    date: 'September 2026',
     readTime: '4 min read',
+    byline: 'Grand Master Editorial',
     link: '#',
   },
   {
     id: 5,
-    category: 'PURITY & WATER',
-    title: 'Purity at the Source: Protecting Subterranean Springs',
+    category: 'BEHIND THE BOTTLE',
+    title: 'Sculpted for Distinction: The Story Behind Our Undulating Waves',
     description:
-      'Why mineral-calibrated subterranean spring water is the indispensable soul of Grand Master vodka, delivering unmatched softness with every pour.',
-    image: '/Assets/Blue-berry.png',
-    date: 'June 2026',
+      'Every curve reflects a wave of flavor. An inside look at the tactile design philosophy, radiant colourways, and bespoke bottle architecture of Grand Master.',
+    image: podiumBottlesStudio,
+    date: 'August 2026',
     readTime: '4 min read',
+    byline: 'Brand Design Atelier',
     link: '#',
   },
   {
     id: 6,
-    category: 'LIFESTYLE & TASTE',
-    title: 'Curating a Contemporary Spirit Experience',
+    category: 'BEHIND THE BOTTLE',
+    title: 'Crafted at House of Deejay: Continuous Purity on the Bottling Line',
     description:
-      'Blending timeless distillation discipline with contemporary flavor discovery, creating vibrant moments crafted for the modern luxury connoisseur.',
-    image: '/Assets/orange2.png',
-    date: 'May 2026',
+      'Inside our active distillery floor. Continuous fractional distillation purges harsh congeners, sealing pure platinum character into every single bottle.',
+    image: productionBottling,
+    date: 'August 2026',
     readTime: '5 min read',
+    byline: 'Master Distiller',
     link: '#',
   },
 ];

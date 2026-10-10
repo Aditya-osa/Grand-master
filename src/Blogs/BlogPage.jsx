@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { blogs } from '../components/Blogs/Blogs';
-import { distillationImg } from '../assets/process';
+import { bottlesMasterFruit } from '../assets/WhatsApp Unknown 2026-10-10 at 1.15.53 PM';
 import './BlogPage.css';
 
 const CATEGORIES = [
   'ALL',
-  'NEWS',
-  'SPIRITS & CRAFT',
-  'PURITY & WATER',
-  'LIFESTYLE & TASTE'
+  'MIXOLOGY & COCKTAILS',
+  'FLAVOUR CRAFT',
+  'CULTURE & CELEBRATIONS',
+  'BEHIND THE BOTTLE'
 ];
 
 export default function BlogPage() {
@@ -35,11 +35,6 @@ export default function BlogPage() {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredBlog = blogs[0];
-  const gridBlogs = selectedCategory === 'ALL' && !searchQuery.trim() 
-    ? filteredBlogs.slice(1) 
-    : filteredBlogs;
-
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (!newsletterEmail.trim()) return;
@@ -50,30 +45,30 @@ export default function BlogPage() {
 
   return (
     <div className="gm-blog-page-wrapper" id="blogs-page">
-      {/* Global Brand Navbar with Home Styling */}
+      {/* Global Brand Navbar */}
       <Navbar />
 
       {/* ====================================================================
-          HERO BANNER
+          HERO BANNER - Real Grand Master Craft Photography
           ==================================================================== */}
       <section className="gm-blog-banner" aria-label="Grand Master Journal & Insights">
         <div className="blog-banner-overlay" aria-hidden="true" />
         <img
-          src={distillationImg}
-          alt="Grand Master Copper Stills"
+          src={bottlesMasterFruit}
+          alt="Grand Master Platinum Vodka Flavours Lineup"
           className="blog-banner-bg"
         />
         <div className="blog-banner-content">
-          <span className="blog-banner-subtitle">THE DISTILLER'S CHRONICLES</span>
+          <span className="blog-banner-eyebrow">HOUSE OF DEEJAY DISTILLERIES</span>
           <h1 className="blog-banner-title">JOURNAL & INSIGHTS</h1>
           <p className="blog-banner-desc">
-            Explore tales of relentless craftsmanship, purity at the source, and contemporary spirit culture curated by Grand Master.
+            Stories of bold flavour craft, cocktail mixology, and contemporary spirit culture curated by Grand Master.
           </p>
         </div>
       </section>
 
       {/* ====================================================================
-          MAIN CONTENT AREA
+          MAIN CONTENT AREA - 2-COLUMN EDITORIAL GRID
           ==================================================================== */}
       <main className="gm-blog-main-content" role="main">
         {/* Category Filters Bar & Search */}
@@ -117,46 +112,12 @@ export default function BlogPage() {
         </div>
 
         {/* ====================================================================
-            FEATURED HERO ARTICLE (Only shown on "ALL" with no search query)
-            ==================================================================== */}
-        {selectedCategory === 'ALL' && !searchQuery.trim() && featuredBlog && (
-          <section className="gm-featured-story-section" aria-label="Featured Story">
-            <article className="gm-featured-card">
-              <div className="gm-featured-img-wrap">
-                <img
-                  src={featuredBlog.image}
-                  alt={featuredBlog.title}
-                  className="gm-featured-img"
-                  loading="lazy"
-                />
-                <span className="gm-featured-badge">FEATURED STORY</span>
-              </div>
-              <div className="gm-featured-info">
-                <div className="gm-featured-meta">
-                  <span className="gm-featured-tag">{featuredBlog.category}</span>
-                  <span className="gm-meta-divider">•</span>
-                  <span className="gm-featured-date">{featuredBlog.date}</span>
-                  <span className="gm-meta-divider">•</span>
-                  <span className="gm-featured-time">{featuredBlog.readTime}</span>
-                </div>
-                <h2 className="gm-featured-title">{featuredBlog.title}</h2>
-                <p className="gm-featured-desc">{featuredBlog.description}</p>
-                <a href="#blogs-page" className="gm-featured-read-link">
-                  <span>Read Full Story</span>
-                  <i className="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
-              </div>
-            </article>
-          </section>
-        )}
-
-        {/* ====================================================================
-            STORIES GRID
+            STORIES GRID (2-Column Layout)
             ==================================================================== */}
         <section className="gm-stories-grid-section" aria-label="Stories List">
           <div className="gm-stories-header">
             <h2 className="gm-stories-title">
-              {selectedCategory === 'ALL' ? 'Latest Stories' : `${selectedCategory}`}
+              {selectedCategory === 'ALL' ? 'Featured Stories' : `${selectedCategory}`}
             </h2>
             <span className="gm-stories-count">
               {filteredBlogs.length} {filteredBlogs.length === 1 ? 'Article' : 'Articles'}
@@ -181,7 +142,7 @@ export default function BlogPage() {
             </div>
           ) : (
             <div className="gm-stories-grid">
-              {gridBlogs.map((blog) => (
+              {filteredBlogs.map((blog) => (
                 <article key={blog.id || blog.title} className="gm-story-card">
                   <div className="gm-story-img-wrap">
                     <img
@@ -197,6 +158,12 @@ export default function BlogPage() {
                       <span className="gm-story-date">{blog.date}</span>
                       <span className="gm-meta-divider">•</span>
                       <span className="gm-story-time">{blog.readTime}</span>
+                      {blog.byline && (
+                        <>
+                          <span className="gm-meta-divider">•</span>
+                          <span className="gm-story-byline">{blog.byline}</span>
+                        </>
+                      )}
                     </div>
                     <h3 className="gm-story-title">{blog.title}</h3>
                     <p className="gm-story-excerpt">{blog.description}</p>
@@ -214,17 +181,17 @@ export default function BlogPage() {
         </section>
 
         {/* ====================================================================
-            NEWSLETTER / SUBSCRIPTION CTA
+            DISTILLERY NEWSLETTER DISPATCH
             ==================================================================== */}
         <section className="gm-blog-newsletter-section" aria-labelledby="newsletter-heading">
           <div className="gm-newsletter-card">
             <div className="gm-newsletter-content">
-              <span className="gm-newsletter-tag">EXCLUSIVE UPDATES</span>
+              <span className="gm-newsletter-tag">HOUSE OF DEEJAY DISPATCH</span>
               <h2 id="newsletter-heading" className="gm-newsletter-title">
-                STAY IN THE KNOW
+                THE DISTILLER'S TABLE
               </h2>
               <p className="gm-newsletter-desc">
-                Subscribe to receive private invitations to limited batch reserve releases, cocktail masterclasses, and tasting notes from our cellar.
+                Receive seasonal cocktail serves, private tasting notes, and first access to new flavour reserve releases.
               </p>
             </div>
 
@@ -245,7 +212,7 @@ export default function BlogPage() {
               </div>
               {subscribed && (
                 <p className="gm-newsletter-success" role="status">
-                  <i className="ri-checkbox-circle-fill"></i> Thank you for subscribing to Grand Master.
+                  <i className="ri-checkbox-circle-fill"></i> Welcome to the Grand Master Distiller's Table.
                 </p>
               )}
             </form>

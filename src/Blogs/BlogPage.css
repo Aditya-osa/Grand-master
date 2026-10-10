@@ -39,23 +39,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  opacity: 0.42;
-  transform: scale(1.03);
-  filter: contrast(1.1) saturate(1.15);
+  object-position: center 38%;
+  opacity: 0.55;
+  transform: scale(1.02);
+  filter: contrast(1.08) saturate(1.15);
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .blog-banner-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-      ellipse at center,
-      rgba(115, 47, 3, 0.35) 0%,
-      rgba(26, 18, 20, 0.78) 70%,
-      rgba(26, 18, 20, 0.94) 100%
-    ),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(26, 18, 20, 0.85) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(26, 18, 20, 0.82) 0%,
+    rgba(26, 18, 20, 0.42) 45%,
+    rgba(26, 18, 20, 0.94) 100%
+  );
   z-index: 1;
 }
 
@@ -67,19 +66,20 @@
   margin-top: clamp(40px, 4.5vh, 60px);
 }
 
+.blog-banner-eyebrow,
 .blog-banner-subtitle {
   display: inline-block;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(11px, 0.85vw, 13px);
+  font-size: clamp(11px, 0.85vw, 12.5px);
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #df9e67;
+  color: #e2a677;
   margin-bottom: clamp(10px, 1.2vh, 16px);
-  background: rgba(223, 158, 103, 0.12);
+  background: rgba(226, 166, 119, 0.12);
   padding: 6px 18px;
   border-radius: 9999px;
-  border: 1px solid rgba(223, 158, 103, 0.3);
+  border: 1px solid rgba(226, 166, 119, 0.28);
 }
 
 .blog-banner-title {
@@ -367,8 +367,8 @@
 
 .gm-stories-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.5vw, 32px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3vw, 40px);
 }
 
 /* Story Card */
@@ -437,14 +437,21 @@
   font-size: 12px;
   font-weight: 600;
   color: #8c7873;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.gm-story-byline {
+  color: #732f03;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .gm-story-title {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(17px, 1.35vw, 21px);
+  font-size: clamp(18px, 1.45vw, 23px);
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.25;
   color: #1a1214;
   margin: 0 0 12px 0;
   display: -webkit-box;
@@ -454,9 +461,9 @@
 }
 
 .gm-story-excerpt {
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.6;
-  color: #59474b;
+  color: #554448;
   margin: 0 0 20px 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
