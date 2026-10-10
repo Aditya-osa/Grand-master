@@ -1,12 +1,12 @@
 import React from 'react';
-import strawberry1 from '../../assets/Strawberry (1)/1.png';
-import strawberry2 from '../../assets/Strawberry (1)/2.png';
-import strawberry3 from '../../assets/Strawberry (1)/3.png';
-import strawberry4 from '../../assets/Strawberry (1)/4.png';
-import strawberry5 from '../../assets/Strawberry (1)/5.png';
-import strawberry6 from '../../assets/Strawberry (1)/6.png';
-import strawberry7 from '../../assets/Strawberry (1)/7.png';
-import strawberry8 from '../../assets/Strawberry (1)/8.png';
+import strawberry1 from '../../assets/STRAWBERRY (1)/1.png';
+import strawberry2 from '../../assets/STRAWBERRY (1)/2.png';
+import strawberry3 from '../../assets/STRAWBERRY (1)/3.png';
+import strawberry4 from '../../assets/STRAWBERRY (1)/4.png';
+import strawberry5 from '../../assets/STRAWBERRY (1)/5.png';
+import strawberry6 from '../../assets/STRAWBERRY (1)/6.png';
+import strawberry7 from '../../assets/STRAWBERRY (1)/7.png';
+import strawberry8 from '../../assets/STRAWBERRY (1)/8.png';
 import {
   chocolateSquares,
   mintLeavesPair1,
