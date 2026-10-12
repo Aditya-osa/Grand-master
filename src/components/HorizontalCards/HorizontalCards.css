@@ -27,13 +27,14 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
-  height: 955px;
+  height: min(100vh, 815px);
+  height: min(100dvh, 815px);
   max-height: 815px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  padding: clamp(14px, 2vh, 24px) 0;
+  padding: clamp(10px, 1.8vh, 22px) 0;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -206,7 +207,7 @@
   width: calc((100vw - var(--track-pad) - (4 * var(--card-gap))) / 4.2);
   max-width: 290px;
   min-width: 230px;
-  height: clamp(380px, 48vh, 440px);
+  height: clamp(370px, 47vh, 440px);
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px 10px 0 0;
@@ -236,7 +237,8 @@
 .stack-card__visual {
   position: relative;
   width: 100%;
-  height: 58%;
+  height: 52%;
+  min-height: 130px;
   flex-shrink: 0;
   display: block;
   background: #f3ede4;
@@ -291,12 +293,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
-  gap: 8px;
+  gap: 6px;
   flex: 1;
   width: 100%;
-  padding: clamp(16px, 2.2vh, 24px) clamp(14px, 1.4vw, 18px);
+  padding: clamp(10px, 1.6vh, 18px) clamp(12px, 1.4vw, 16px);
   background: #ffffff;
   border-radius: 0 0 16px 16px;
   box-sizing: border-box;
@@ -305,14 +307,13 @@
 .stack-card__title {
   font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
   font-variation-settings: 'opsz' 28;
-  font-size: clamp(18px, 1.3vw, 21px);
+  font-size: clamp(17px, 1.25vw, 21px);
   font-weight: 700;
   line-height: 1.25;
   color: #080808;
-  margin-top: 24px;
-  margin-bottom: 3px;;
-
-  letter-spacing: none;
+  margin-top: clamp(8px, 1.5vh, 18px);
+  margin-bottom: 4px;
+  letter-spacing: normal;
   text-align: center;
   display: flex;
   align-items: center;
@@ -322,13 +323,13 @@
 .stack-card__desc {
   font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
   font-variation-settings: 'opsz' 28;
-  font-size: clamp(12.5px, 0.9vw, 14px);
+  font-size: clamp(12px, 0.9vw, 14px);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.35;
   color: #3c3c3c;
   margin: 0;
   text-align: center;
-  max-width: 236px;
+  max-width: 240px;
   width: 100%;
 }
 
@@ -389,6 +390,21 @@
   }
 }
 
+/* Tablet & Mobile Container Adjustment (max-width: 1023px) */
+@media (max-width: 1023px) {
+  .stack-cards-section {
+    max-height: none;
+    height: auto;
+  }
+
+  .stack-cards-viewport {
+    height: 100vh;
+    min-height: 100svh;
+    height: 100dvh;
+    max-height: none;
+  }
+}
+
 /* 3. Tablet Landscape (768px–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .stack-cards-section {
@@ -397,29 +413,53 @@
   }
 
   .stack-cards-viewport {
-    padding: clamp(14px, 2.2vh, 24px) 0;
+    padding: clamp(12px, 2vh, 20px) 0;
   }
 
   .stack-cards-top-header {
-    margin-bottom: 24px;
+    margin-top: clamp(20px, 3vh, 32px);
+    margin-bottom: clamp(12px, 2vh, 18px);
+    padding-left: clamp(24px, 3.5vw, 36px);
+  }
+
+  .stack-cards-header-left {
+    max-width: 100%;
   }
 
   .stack-cards-top-title {
     font-size: clamp(28px, 4.2vw, 38px);
+    margin-bottom: 8px;
   }
 
-  .stack-cards-counter {
-    font-size: 13px;
+  .stack-cards-top-desc {
+    font-size: 13.5px;
+    max-width: 540px;
   }
 
-  .stack-cards-progress-track {
-    width: 90px;
+  .horizontal-cards-track {
+    padding-left: clamp(24px, 3.5vw, 36px);
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - (2 * var(--card-gap))) / 2.6);
-    max-width: 270px;
-    height: clamp(350px, 44vh, 400px);
+    width: calc((100vw - var(--track-pad) - (2.5 * var(--card-gap))) / 2.7);
+    max-width: 280px;
+    min-width: 220px;
+    height: clamp(340px, 44vh, 390px);
+  }
+
+  .stack-card__visual {
+    height: 50%;
+  }
+
+  .stack-card__title {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  .stack-card__desc {
+    font-size: 12.5px;
+    line-height: 1.35;
   }
 }
 
@@ -431,29 +471,53 @@
   }
 
   .stack-cards-viewport {
-    padding: 16px 0;
+    padding: 12px 0;
   }
 
   .stack-cards-top-header {
-    margin-bottom: 20px;
+    margin-top: clamp(18px, 2.5vh, 26px);
+    margin-bottom: clamp(10px, 1.8vh, 16px);
+    padding-left: 24px;
+  }
+
+  .stack-cards-header-left {
+    max-width: 100%;
   }
 
   .stack-cards-top-title {
-    font-size: 26px;
+    font-size: 28px;
+    margin-bottom: 6px;
   }
 
-  .stack-cards-counter {
-    font-size: 12px;
+  .stack-cards-top-desc {
+    font-size: 13px;
+    max-width: 100%;
   }
 
-  .stack-cards-progress-track {
-    width: 80px;
+  .horizontal-cards-track {
+    padding-left: 24px;
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.9);
-    max-width: 260px;
-    height: clamp(340px, 42vh, 380px);
+    width: calc((100vw - var(--track-pad) - (1.5 * var(--card-gap))) / 1.9);
+    max-width: 270px;
+    min-width: 210px;
+    height: clamp(330px, 44vh, 375px);
+  }
+
+  .stack-card__visual {
+    height: 48%;
+  }
+
+  .stack-card__title {
+    font-size: 17px;
+    margin-top: 8px;
+    margin-bottom: 3px;
+  }
+
+  .stack-card__desc {
+    font-size: 12px;
+    line-height: 1.35;
   }
 }
 
@@ -465,52 +529,62 @@
   }
 
   .stack-cards-viewport {
-    padding: 14px 0;
+    padding: 10px 0;
   }
 
   .stack-cards-top-header {
-    margin-bottom: 18px;
+    margin-top: clamp(14px, 2.2vh, 22px);
+    margin-bottom: clamp(10px, 1.5vh, 14px);
+    padding-left: var(--track-pad);
+    padding-right: var(--track-pad);
+  }
+
+  .stack-cards-header-left {
+    max-width: 100%;
   }
 
   .stack-cards-top-title {
-    font-size: clamp(28px, 7.5vw, 38px);
-    margin-bottom: 12px;
+    font-size: clamp(26px, 7vw, 34px);
+    margin-bottom: 4px;
   }
 
   .stack-cards-top-desc {
     font-size: 12.5px;
-    line-height: 1.45;
-    max-width: 260px;
-    margin-top: 8px;
+    line-height: 1.38;
+    max-width: 100%;
+    margin-top: 0;
   }
 
-  .stack-cards-nav-btn {
-    width: 38px;
-    height: 25px;
-    font-size: 11px;
-  }
-
-  .stack-cards-explore-btn {
-    padding: 5px 13px;
-    font-size: 10px;
+  .horizontal-cards-track {
+    padding-left: var(--track-pad);
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.35);
-    max-width: 260px;
-    height: clamp(330px, 46vh, 370px);
+    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.32);
+    max-width: 275px;
+    min-width: 220px;
+    height: clamp(310px, 46vh, 360px);
   }
 
-  .stack-cards-header-right {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    padding-top: 0;
+  .stack-card__visual {
+    height: 48%;
+    min-height: 130px;
   }
 
-  .horizontal-cards-track,
-  .stack-cards-top-header {
-    padding-left: var(--track-pad);
+  .stack-card__content {
+    padding: 10px 12px;
+  }
+
+  .stack-card__title {
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 3px;
+  }
+
+  .stack-card__desc {
+    font-size: 11.5px;
+    line-height: 1.32;
+    max-width: 100%;
   }
 }
 
@@ -518,33 +592,58 @@
 @media (max-width: 374px) {
   .stack-cards-section {
     --track-pad: 14px;
-    --card-gap: 12px;
+    --card-gap: 10px;
   }
 
   .stack-cards-viewport {
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .stack-cards-top-header {
-    margin-bottom: 14px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .stack-cards-top-title {
-    font-size: 22px;
+    font-size: 24px;
+    margin-bottom: 4px;
   }
 
-  .stack-cards-counter {
-    font-size: 10.5px;
+  .stack-cards-top-desc {
+    font-size: 11px;
+    line-height: 1.3;
   }
 
-  .stack-cards-progress-track {
-    width: 60px;
+  .horizontal-cards-track {
+    padding-left: 14px;
   }
 
   .stack-card {
-    width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.25);
-    max-width: 230px;
-    height: 320px;
+    width: calc(100vw - 28px - 10px);
+    max-width: 245px;
+    height: clamp(290px, 50vh, 330px);
+  }
+
+  .stack-card__visual {
+    height: 46%;
+    min-height: 120px;
+  }
+
+  .stack-card__content {
+    padding: 8px 10px;
+  }
+
+  .stack-card__title {
+    font-size: 15px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+  }
+
+  .stack-card__desc {
+    font-size: 11px;
+    line-height: 1.28;
   }
 }
 

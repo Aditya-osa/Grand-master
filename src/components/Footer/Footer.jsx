@@ -79,20 +79,7 @@ export default function Footer() {
           </nav>
 
           {/* Centered Social Channels */}
-          <div className="gm-footer-socials" role="list" aria-label="Social Links">
-            {SOCIAL_LINKS.map((item) => (
-              <a
-                key={item.name}
-                href={item.url}
-                className="gm-footer-social-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit Grand Master on ${item.name}`}
-              >
-                {item.icon}
-              </a>
-            ))}
-          </div>
+        
         </div>
 
         {/* Subtle Horizontal Divider */}

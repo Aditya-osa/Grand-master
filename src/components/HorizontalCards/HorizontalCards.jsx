@@ -213,22 +213,6 @@ export default function HorizontalCards() {
     };
   }, []);
 
-  const handleScroll = (direction) => {
-    const scrollStep = window.innerHeight * 0.6;
-    window.scrollBy({
-      top: direction === 'left' ? -scrollStep : scrollStep,
-      behavior: 'smooth',
-    });
-  };
-
-  const handleExploreClick = (e) => {
-    e.preventDefault();
-    const section = sectionRef.current;
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       ref={sectionRef}
