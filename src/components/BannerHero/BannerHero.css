@@ -280,9 +280,9 @@
      Bottle size controlled by viewport height.
      80vh = 80% of screen height.
   */
-  height: 80vh;
+  height: 75vh;
 
-  max-height: 90vh;
+  max-height: 85vh;
 
   position: absolute;
 
