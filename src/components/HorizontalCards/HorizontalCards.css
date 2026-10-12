@@ -309,8 +309,10 @@
   font-weight: 700;
   line-height: 1.25;
   color: #080808;
-  margin: 0;
-  letter-spacing: -0.01em;
+  margin-top: 24px;
+  margin-bottom: 3px;;
+
+  letter-spacing: none;
   text-align: center;
   display: flex;
   align-items: center;
@@ -322,7 +324,7 @@
   font-variation-settings: 'opsz' 28;
   font-size: clamp(12.5px, 0.9vw, 14px);
   font-weight: 400;
-  line-height: 1.48;
+  line-height: 1.2;
   color: #3c3c3c;
   margin: 0;
   text-align: center;

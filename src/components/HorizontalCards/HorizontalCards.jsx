@@ -20,7 +20,7 @@ export const PROCESS_STEPS = [
     id: 'grains',
     stepNumber: '01',
     title: '01 - Grains',
-    description: 'From carefully selected grains, the finest ingredients are chosen.',
+    description: 'From carefully selected grains,<br/> the finest ingredients<br/> are chosen.',
     image: grainsImg,
   },
   {
@@ -247,61 +247,7 @@ export default function HorizontalCards() {
             </p>
           </div>
 
-          {/* Right: Arrow Navigation centered horizontally over View All Product */}
-          <div className="stack-cards-header-right">
-            <div className="stack-cards-nav-controls" role="group" aria-label="Process Navigation">
-              <button
-                type="button"
-                className="stack-cards-nav-btn"
-                onClick={() => handleScroll('left')}
-                aria-label="Previous process step"
-              >
-                <svg
-                  width="26"
-                  height="15"
-                  viewBox="0 0 24 14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="19" y1="7" x2="5" y2="7" />
-                  <polyline points="9.5 3 5 7 9.5 11" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                className="stack-cards-nav-btn"
-                onClick={() => handleScroll('right')}
-                aria-label="Next process step"
-              >
-                <svg
-                  width="26"
-                  height="15"
-                  viewBox="0 0 24 14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="5" y1="7" x2="19" y2="7" />
-                  <polyline points="14.5 3 19 7 14.5 11" />
-                </svg>
-              </button>
-            </div>
-
-            <a
-              href="#products"
-              className="stack-cards-explore-btn"
-              onClick={handleExploreClick}
-            >
-              <span>View All Product</span>
-            </a>
-          </div>
+         
         </header>
 
         {/* Right Stage: Horizontal Cards Track */}
@@ -334,7 +280,10 @@ export default function HorizontalCards() {
                 {/* Card Editorial Content */}
                 <div className="stack-card__content">
                   <h3 className="stack-card__title">{step.title}</h3>
-                  <p className="stack-card__desc">{step.description}</p>
+                  <p
+                    className="stack-card__desc"
+                    dangerouslySetInnerHTML={{ __html: step.description }}
+                  />
                 </div>
               </article>
             ))}
