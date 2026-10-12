@@ -189,16 +189,25 @@
 
 .banner-hero-container #strawberry-text {
   z-index: 1;
-
   opacity: 0;
 
-  color: #e1bbc2;
+  background: linear-gradient(
+    90deg,
+    #e94b68 0%,
+    #e94b68 25%,
+    #efefef 50%,
+    #e94b68 75%,
+    #e94b68 100%
+  );
 
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   text-shadow: none;
-
   transform: translateX(100vw);
 }
-
 .banner-hero-container #chocolate-text {
   z-index: 1;
 
@@ -226,7 +235,7 @@
 
   opacity: 0;
 
-  color: #dce7f5;
+  color: #cdcef5;
 
   text-shadow: none;
 
@@ -414,50 +423,63 @@
 }
 
 .banner-hero-container #info-orange h2 {
+  font-family: 'DM Serif Display', serif;
   color: #522409;
 }
 
 .banner-hero-container #info-orange p {
+  font-family: 'DM Serif Display', serif;
+
   color: #732F03;
 }
 
 .banner-hero-container #info-mango h2 {
+  font-family: 'DM Serif Display', serif;
   color: #522409;
 }
 
 .banner-hero-container #info-mango p {
+  font-family: 'DM Serif Display', serif;
   color: #7a4427;
 }
 
 .banner-hero-container #info-strawberry h2 {
+  font-family: 'DM Serif Display', serif;
   color: #CF173A;
 }
 
 .banner-hero-container #info-strawberry p {
+  font-family: 'DM Serif Display', serif;
   color: #CF173A;
 }
 
 .banner-hero-container #info-chocolate h2 {
+  font-family: 'DM Serif Display', serif;
   color: #2e1608;
 }
 
 .banner-hero-container #info-chocolate p {
+  font-family: 'DM Serif Display', serif;
   color: #5a3622;
 }
 
 .banner-hero-container #info-melon h2 {
+  font-family: 'DM Serif Display', serif;
   color: #22380d;
 }
 
 .banner-hero-container #info-melon p {
+  font-family: 'DM Serif Display', serif;
   color: #426323;
 }
 
 .banner-hero-container #info-blueberry h2 {
+  font-family: 'DM Serif Display', serif;
   color: #30438a;
 }
 
 .banner-hero-container #info-blueberry p {
+  font-family: 'DM Serif Display', serif;
   color: #6e7fae;
 }
 

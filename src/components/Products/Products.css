@@ -420,7 +420,7 @@
   align-items: center;
   z-index: 20;
 
-  font-family: "Anton", sans-serif;
+  font-family: "DM Serif Display", serif;
   font-size: clamp(46px, 4.6vw, 66px);
   font-weight: 900;
   line-height: 1.05;
