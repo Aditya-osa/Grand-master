@@ -46,31 +46,36 @@
 .gm-blogs-view-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 8px 22px;
-  border: 1.5px solid #d4b896;
+  padding: 15px 28px;
   border-radius: 9999px;
+  border: 1.5px solid #7c340f;
   background: transparent;
-  color: #8c6838;
-  font-family: 'Anybody', sans-serif;
-  font-size: 13.5px;
+  color: #7c340f;
+  font-family: 'Bricolage Grotesque 28', 'Bricolage Grotesque', sans-serif;
+  font-variation-settings: 'opsz' 28;
+  font-size: 17.5px;
   font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
 .gm-blogs-arrow {
-  font-size: 15px;
-  transition: transform 0.25s ease;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.22s ease;
 }
 
 .gm-blogs-view-btn:hover {
-  background: #8c6838;
+  background: #7c340f;
   color: #ffffff;
-  border-color: #8c6838;
+  border-color: #7c340f;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(140, 104, 56, 0.2);
+  box-shadow: 0 4px 14px rgba(124, 52, 15, 0.25);
 }
 
 .gm-blogs-view-btn:hover .gm-blogs-arrow {
