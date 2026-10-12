@@ -21,6 +21,8 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  z-index: 10;
+  isolation: isolate;
 }
 
 .banner-hero-container *,
@@ -85,7 +87,7 @@
 
   overflow: hidden;
 
-  background-color: #ff7900;
+  background-color: #ffffff;
 }
 
 
@@ -107,35 +109,33 @@
   pointer-events: none;
 
   will-change: opacity;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .banner-hero-container .bg-orange {
-  background-color: #ffffff;
   opacity: 1;
 }
 
 .banner-hero-container .bg-mango {
-  background-color: #fcfbf9;
   opacity: 0;
 }
 
 .banner-hero-container .bg-strawberry {
-  background-color: #ffffff;
   opacity: 0;
 }
 
 .banner-hero-container .bg-chocolate {
-  background-color: #ffffff;
   opacity: 0;
 }
 
 .banner-hero-container .bg-melon {
-  background-color: #ffffff;
   opacity: 0;
 }
 
 .banner-hero-container .bg-blueberry {
-  background-color: #ffffff;
   opacity: 0;
 }
 
@@ -2484,14 +2484,19 @@
    Matches Reference Design: Pill shape with #732f03 border & text
    ========================================================================== */
 
+.banner-hero-container .gm-hero-action-btn,
 .gm-hero-action-btn {
+  white-space: nowrap;
   position: absolute;
-  z-index: 9999;
+  box-sizing: border-box;
+  max-width: calc(50% - 12px);
+  flex-shrink: 0;
+  z-index: 100;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: clamp(6px, 0.5vw, 10px);
-padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
+  padding: clamp(9px, 0.7vw, 12px) clamp(14px, 1.4vw, 20px);
   border: 1.5px solid #732f03;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.2);
@@ -2504,7 +2509,7 @@ padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
   cursor: pointer;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 4px 14px rgba(115, 47, 3, 0.08);
 }
 
@@ -2515,10 +2520,10 @@ padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
   transition: transform 0.25s ease;
 }
 
+.banner-hero-container .gm-hero-action-btn:hover,
 .gm-hero-action-btn:hover {
   background: #732f03;
   color: #ffffff;
-  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(115, 47, 3, 0.25);
 }
 
@@ -2526,8 +2531,9 @@ padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
   transform: translateX(4px);
 }
 
+.banner-hero-container .gm-hero-action-btn:active,
 .gm-hero-action-btn:active {
-  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(115, 47, 3, 0.2);
 }
 
 /* Skip Button: Positioned below bottle base */
@@ -2537,18 +2543,15 @@ padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
   transform: translateX(-50%);
 }
 
-.gm-skip-hero:hover {
-  transform: translate(-50%, -2px);
-}
-
+.gm-skip-hero:hover,
 .gm-skip-hero:active {
-  transform: translate(-50%, 0);
+  /* Keep transform controlled by GSAP */
 }
 
 /* Explore Flavours Button: Positioned bottom-right */
 .gm-explore-hero {
   right: 23%;
-  top:85%;
+  top: 85%;
 }
 
 /* Tablet: 600px - 1023px */
@@ -2566,6 +2569,7 @@ padding: clamp(9px, 0.7vw, 12px) clamp(17px, 1.7vw, 15px);
 
 /* Mobile: 320px - 599px */
 @media (max-width: 599px) {
+  .banner-hero-container .gm-hero-action-btn,
   .gm-hero-action-btn {
     padding: 7px 14px;
     font-size: 12px;

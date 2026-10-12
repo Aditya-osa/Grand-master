@@ -5,19 +5,24 @@ import chocolateBottle from '../../assets/bottles/chocolate-bottle.png';
 import melonBottle from '../../assets/bottles/all-flav/melon-bottle-hd.png';
 import mangoBottle from '../../assets/bottles/all-flav/3.png';
 import blueberryBottle from '../../assets/bottles/Blue berry bottle.png';
+import bgOrange from '../../assets/Background Banner/1.jpg';
+import bgStrawberry from '../../assets/Background Banner/2.jpg';
+import bgMelon from '../../assets/Background Banner/4.jpg';
+import bgBlueberry from '../../assets/Background Banner/3.jpg';
 
 const MainSection = () => {
   return (
     <div className="one">
       {/* Background Flavour Gradients for smooth GPU-accelerated transitions */}
-      <div className="hero-bg bg-orange" />
+      <div className="hero-bg bg-orange" style={{ backgroundImage: `url(${bgOrange})` }} />
       {/* <div className="hero-bg bg-mango" /> */}
-      <div className="hero-bg bg-strawberry" />
+      <div className="hero-bg bg-strawberry" style={{ backgroundImage: `url(${bgStrawberry})` }} />
       {/* <div className="hero-bg bg-chocolate" /> */}
-      <div className="hero-bg bg-melon" />
-      <div className="hero-bg bg-blueberry" />
+      <div className="hero-bg bg-melon" style={{ backgroundImage: `url(${bgMelon})` }} />
+      <div className="hero-bg bg-blueberry" style={{ backgroundImage: `url(${bgBlueberry})` }} />
 
       {/* Background Giant Text */}
+      
       <h1 id="orange-text">ORANGE</h1>
       {/* <h1 id="mango-text">MANGO</h1> */}
       <h1 id="strawberry-text">STRAWBERRY</h1>

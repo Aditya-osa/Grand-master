@@ -38,6 +38,8 @@ export default function BannerHero() {
       heroEl.removeAttribute('data-lenis-prevent');
     }
 
+    gsap.to('.gm-hero-action-btn', { opacity: 0, duration: 0.25, overwrite: 'auto' });
+
     // Scroll to the section immediately after Hero
     const nextSection = heroEl?.nextElementSibling;
 
@@ -69,6 +71,8 @@ export default function BannerHero() {
     if (heroEl) {
       heroEl.removeAttribute('data-lenis-prevent');
     }
+
+    gsap.to('.gm-hero-action-btn', { opacity: 0, duration: 0.25, overwrite: 'auto' });
 
     // Scroll directly to Products section
     const productsEl =
@@ -1019,10 +1023,14 @@ export default function BannerHero() {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
       if (scrollY > 15) {
+        if (!wasScrolledDown) {
+          gsap.to('.gm-hero-action-btn', { opacity: 0, duration: 0.2, overwrite: 'auto' });
+        }
         wasScrolledDown = true;
       } else if (scrollY <= 8 && wasScrolledDown) {
         wasScrolledDown = false;
         topArrivalTimestamp = Date.now();
+        gsap.to('.gm-hero-action-btn', { opacity: 1, duration: 0.3, overwrite: 'auto' });
       }
     };
 
