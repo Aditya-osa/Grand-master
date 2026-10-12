@@ -15,9 +15,14 @@
 
 .gm-footer-container {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(44px, 6.5vh, 68px) clamp(20px, 4vw, 48px) clamp(24px, 3.5vh, 36px);
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  --footer-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-top: clamp(22px, 2.8vh, 34px);
+  padding-bottom: clamp(12px, 1.6vh, 18px);
+  padding-left: var(--footer-pad-x);
+  padding-right: var(--footer-pad-x);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +31,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Top Centered Section (Logo + Nav Links + Socials)
+   Top Centered Section (Logo + Nav Links)
    -------------------------------------------------------------------------- */
 
 .gm-footer-main {
@@ -35,10 +40,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(20px, 3vh, 32px);
+  gap: clamp(12px, 1.8vh, 18px);
 }
 
-/* Brand / Logo */
+/* Brand / Logo (Sizing Unchanged) */
 .gm-footer-brand {
   display: flex;
   align-items: center;
@@ -78,7 +83,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(20px, 3.5vw, 42px);
+  gap: clamp(16px, 2.2vw, 36px);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -89,6 +94,7 @@
   padding: 0;
 }
 
+/* Nav Link (Sizing Unchanged) */
 .gm-footer-nav-link {
   font-family: 'Anybody', sans-serif;
   font-size: 2.4vh;
@@ -123,7 +129,7 @@
   width: 100%;
 }
 
-/* Centered Social Icons */
+/* Centered Social Icons (Sizing Unchanged) */
 .gm-footer-socials {
   display: flex;
   align-items: center;
@@ -159,11 +165,11 @@
   width: 100%;
   height: 1px;
   background: rgba(118, 37, 48, 0.10);
-  margin: clamp(28px, 4vh, 40px) 0 clamp(18px, 2.5vh, 24px);
+  margin: clamp(14px, 1.8vh, 20px) 0 clamp(10px, 1.3vh, 14px);
 }
 
 /* --------------------------------------------------------------------------
-   Bottom Bar (Left Copyright, Right Legal/Attribution)
+   Bottom Bar (Left Copyright, Right Legal/Attribution - Sizing Unchanged)
    -------------------------------------------------------------------------- */
 
 .gm-footer-bottom {
@@ -222,23 +228,42 @@
 }
 
 /* ==========================================================================
-   Responsive Adaptations
+   Responsive Adaptations (Aligned with Header Spacing Breakpoints)
    ========================================================================== */
 
-@media (max-width: 768px) {
+/* Laptop: 1024px–1199px */
+@media (max-width: 1199px) {
   .gm-footer-container {
-    padding: clamp(36px, 5vh, 48px) 20px 24px;
+    --footer-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+  }
+}
+
+/* Tablet Landscape: 768px–1023px */
+@media (max-width: 1023px) {
+  .gm-footer-container {
+    --footer-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+    padding-top: clamp(18px, 2.4vh, 28px);
+    padding-bottom: clamp(10px, 1.4vh, 16px);
+  }
+}
+
+/* Tablet Portrait & Large Phones: 600px–767px */
+@media (max-width: 767px) {
+  .gm-footer-container {
+    --footer-pad-x: max(20px, env(safe-area-inset-left));
+    padding-top: 18px;
+    padding-bottom: 14px;
   }
 
   .gm-footer-nav-list {
-    gap: 18px 24px;
+    gap: 12px 18px;
   }
 
   .gm-footer-bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 8px;
+    gap: 6px;
   }
 
   .gm-footer-copyright {
@@ -251,8 +276,24 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile Phones: 375px–599px */
+@media (max-width: 599px) {
+  .gm-footer-container {
+    --footer-pad-x: max(16px, env(safe-area-inset-left));
+    padding-top: 16px;
+    padding-bottom: 12px;
+  }
+
   .gm-footer-nav-list {
-    gap: 12px 18px;
+    gap: 10px 16px;
+  }
+}
+
+/* Small Screen Mobile: <= 374px */
+@media (max-width: 374px) {
+  .gm-footer-container {
+    --footer-pad-x: max(12px, env(safe-area-inset-left));
+    padding-top: 14px;
+    padding-bottom: 10px;
   }
 }
