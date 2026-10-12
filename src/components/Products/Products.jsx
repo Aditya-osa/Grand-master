@@ -4,7 +4,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnimations';
 import './Products.css';
-import bgImage from '../../assets/1.jpg';
+import bgLeft from '../../assets/Bg (2)/1.png';
+import bgRight from '../../assets/Bg (2)/2.png';
 
 import bottle1 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry (Transparent Cutout)
 import bottle2 from '../../assets/Products/1.png';
@@ -22,19 +23,18 @@ import bottle12 from '../../assets/Products/Zesty lemon.png';
 gsap.registerPlugin(ScrollTrigger);
 
 export const PRODUCTS = [
+  { id: 'blueberry', name: "Grand Master's Blue Berry", tag: 'Platinum Vodka', img: bottle5 },
+  { id: 'cranberry', name: "Grand Master's Cranberry", tag: 'Platinum Vodka', img: bottle11 },
+  { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottle4 },
+  { id: 'blue-curacao', name: "Grand Master's Blue Curacao", tag: 'Platinum Vodka', img: bottle8 },
+  { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Platinum Vodka', img: bottle10 },
   { id: 'strawberry', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle1 },
   { id: 'chocolate', name: "Grand Master's Chocolate", tag: 'Platinum Vodka', img: bottle2 },
   { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img: bottle3 }, 
-  { id: 'cranberry', name: "Grand Master's Cranberry", tag: 'Platinum Vodka', img: bottle11 },
-  { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Platinum Vodka', img: bottle10 },
-  { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottle4 },
-  { id: 'zesty-lemon', name: "Grand Master's Zesty Lemon", tag: 'Platinum Vodka', img: bottle12 },
-  { id: 'blueberry', name: "Grand Master's Blue Berry", tag: 'Platinum Vodka', img: bottle5 },
-  { id: 'strawberry-2', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle6 },
   { id: 'orange', name: "Grand Master's Orange", tag: 'Platinum Vodka', img: bottle7 },
-  { id: 'blue-curacao', name: "Grand Master's Blue Curacao", tag: 'Platinum Vodka', img: bottle8 },
   { id: 'plain', name: "Grand Master's Plain", tag: 'Platinum Vodka', img: bottle9 },
- 
+  { id: 'zesty-lemon', name: "Grand Master's Zesty Lemon", tag: 'Platinum Vodka', img: bottle12 },
+  { id: 'strawberry-2', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottle6 },
 ];
 
 export default function Products() {
@@ -108,12 +108,29 @@ export default function Products() {
       className="ag-hero"
       id="products"
       aria-label="Grand Master Products"
-      style={{ backgroundImage: `url(${bgImage})` }}
     >
+      {/* Bg (2) Background Stripes Layer */}
+      <div className="ag-hero-bg-backdrop" aria-hidden="true">
+        <img
+          src={bgLeft}
+          alt=""
+          className="ag-hero-bg-stripe ag-hero-bg-left"
+          loading="eager"
+          decoding="async"
+        />
+        <img
+          src={bgRight}
+          alt=""
+          className="ag-hero-bg-stripe ag-hero-bg-right"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+
       <div className="brand-title">
         Meet Grand Master's
         <div className="explore-shell">
-          Explore Flavour's
+          Explore All Flavours
           <span className="explore-arrow">↗</span>
         </div>
       </div>
@@ -129,6 +146,7 @@ export default function Products() {
                 ref={(el) => setBottleRef(el, idx)}
                 className="ag-carousel-item"
                 data-index={idx}
+                data-id={product.id}
               >
                 <img
                   src={product.img}

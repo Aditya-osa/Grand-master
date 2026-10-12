@@ -11,7 +11,9 @@
   min-height: auto;
 
   background-color: #ffffff;
-  background-image: url('./3.jpg');
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
+    url('./3.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -136,7 +138,7 @@
   font-variation-settings: 'opsz' 18;
   font-size: clamp(17px, 1.35vw, 22px);
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.2;
   letter-spacing: 0;
   color: #000000 !important;
   -webkit-text-fill-color: #000000 !important;
@@ -152,23 +154,22 @@
    Pill Action Button: Discover Our Flavors
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 11px 28px;
-  border: 1.5px solid #b4561c;
-  border-radius: 9999px;
-  background: transparent;
-  color: #b4561c;
-  font-family: 'bricolage grotesque 18', 'Bricolage Grotesque', sans-serif;
-  font-variation-settings: 'opsz' 18;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    border: 1.5px solid #b4561c;
+    border-radius: 9999px;
+    background: transparent;
+    color: #b4561c;
+    font-family: 'bricolage grotesque 18', 'Bricolage Grotesque', sans-serif;
+    font-variation-settings: 'opsz' 18;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: none !important;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
 .distilled-to-inspire__btn:hover {

@@ -66,7 +66,9 @@ export default function Enjoyflavours() {
           <div className="enjoy-flavours-header-left">
             <h2 className="enjoy-flavours-title">ENJOY UNIQUE FLAVOURS</h2>
             <p className="enjoy-flavours-description">
-              It is the perfect combination between quality distillate in an unique bottle shape and urban culture inspiration. GRAND MASTER’S represents the stubborn eager free spirits of the young generation. Its exquisite nature shines through limits and cultural dogmas.
+              It is the perfect combination between quality distillate in an unique bottle shape and urban culture inspiration.<br />
+              GRAND MASTER’S represents the stubborn eager, free spirits of the young generation. It’s exquisite nature<br />
+              drives through limits and cultural dogmas.
             </p>
           </div>
 
@@ -80,12 +82,12 @@ export default function Enjoyflavours() {
                 aria-label="Previous flavours"
               >
                 <svg
-                  width="20"
-                  height="13"
+                  width="26"
+                  height="15"
                   viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.6"
+                  strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
@@ -101,12 +103,12 @@ export default function Enjoyflavours() {
                 aria-label="Next flavours"
               >
                 <svg
-                  width="20"
-                  height="13"
+                  width="26"
+                  height="15"
                   viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.6"
+                  strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"

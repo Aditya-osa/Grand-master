@@ -257,12 +257,12 @@ export default function HorizontalCards() {
                 aria-label="Previous process step"
               >
                 <svg
-                  width="20"
-                  height="13"
+                  width="26"
+                  height="15"
                   viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.6"
+                  strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
@@ -278,12 +278,12 @@ export default function HorizontalCards() {
                 aria-label="Next process step"
               >
                 <svg
-                  width="20"
-                  height="13"
+                  width="26"
+                  height="15"
                   viewBox="0 0 24 14"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.6"
+                  strokeWidth="1.7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"

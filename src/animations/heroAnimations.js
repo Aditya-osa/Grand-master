@@ -139,7 +139,7 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
     const track = trackRef.current;
     if (!track) return;
 
-    const INITIAL_FOCAL_INDEX = 2; // Index 2 (Mango) starts centered as shown in screenshot
+    const INITIAL_FOCAL_INDEX = 2; // Index 2 (Melon) starts centered as shown in reference screenshot
 
     const getStartX = () => {
       const bottleEls = getBottleEls();
@@ -200,20 +200,17 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         // Bottles start lower on flanks and lift gracefully into center spotlight
         const liftY = (1 - smoothCurve) * (isMobile ? 35 : 65);
 
-        // Subtle focus blur on flanking bottles for photographic depth of field
-        const blurAmount = Math.max(0, (1 - smoothCurve) * (isMobile ? 0.35 : 0.65));
-
         gsap.set(el, {
           y: liftY,
           scale: targetScale,
           rotation: targetRotation,
           zIndex: targetZIndex,
-          filter: blurAmount > 0.05 ? `blur(${blurAmount}px)` : 'none',
+          filter: 'none',
         });
       });
     };
 
-    // Set initial position with Mango in the center
+    // Set initial position with Melon in the center
     gsap.set(track, { x: getStartX() });
     updateBottleScales();
 
