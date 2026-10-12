@@ -471,7 +471,8 @@
   }
 
   .stack-cards-top-title {
-    font-size: clamp(32px, 8.5vw, 42px);
+    font-size: clamp(28px, 7.5vw, 38px);
+    margin-bottom: 12px;
   }
 
   .stack-cards-top-desc {
