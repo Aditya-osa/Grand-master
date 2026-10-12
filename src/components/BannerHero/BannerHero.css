@@ -143,34 +143,19 @@
 /* ==========================================================================
    FLAVOUR HEADING
    ========================================================================== */
-
 .banner-hero-container .one h1 {
-  position: absolute;
-
-  top: 14%;
-
-  /*
-     Percentage/viewport based sizing.
-     15vw gives a large responsive heading without clamp().
-  */
-  font-size: 32vh;
-
-  font-family: 'Anton', sans-serif;
-
-  white-space: nowrap;
-  user-select: none;
-
-  text-transform: uppercase;
-
-  line-height: 0.95;
-
-  letter-spacing: 0.15vw;
-
-  text-align: center;
-
-  color: #ffffff;
-
-  text-shadow: none;
+    position: absolute;
+    top: 17%;
+    font-size: 29vh;
+    font-family: 'Anton', sans-serif;
+    white-space: nowrap;
+    user-select: none;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: 0.15vw;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: none;
 }
 
 
@@ -181,7 +166,7 @@
 .banner-hero-container #orange-text {
   z-index: 1;
 
-  color: #f5eee8;
+  color: #f1bc92;
 
   text-shadow: none;
 

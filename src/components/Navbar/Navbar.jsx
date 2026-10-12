@@ -79,19 +79,17 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
     const target = (page || '').replace('#', '').toLowerCase();
 
+    // Do not redirect for contact or blogs
+    if (target === 'contact' || target === 'blogs' || target === 'blog') {
+      return;
+    }
+
     // Notify listeners via custom event with clean target
     window.dispatchEvent(
       new CustomEvent('gm-navigate', {
         detail: target || 'home',
       })
     );
-
-    if (target === 'contact') {
-      window.location.hash = '#contact';
-      window.dispatchEvent(new Event('hashchange'));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
 
     if (target === 'home' || target === '') {
       if (window.location.hash) {
@@ -101,13 +99,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           window.location.hash = '';
         }
       }
-      window.dispatchEvent(new Event('hashchange'));
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (target === 'blogs' || target === 'blog') {
-      window.location.hash = '#blogs';
       window.dispatchEvent(new Event('hashchange'));
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -124,9 +115,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       }
       if (!element && (target === 'flavours' || target === 'flavour')) {
         element = document.getElementById('products') || document.getElementById('flavours') || document.querySelector('.enjoy-flavours-section') || document.querySelector('.enjoy-flavour-section');
-      }
-      if (!element && (target === 'blogs' || target === 'blog')) {
-        element = document.getElementById('blogs') || document.querySelector('.blogs-section');
       }
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -163,16 +151,16 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             FLAVOURS
           </a>
           <a 
-            href="#blogs" 
+            href="#" 
             className="nav-link" 
-            onClick={(e) => navigateTo('blogs', e)}
+            onClick={(e) => e.preventDefault()}
           >
             BLOG
           </a>
           <a 
-            href="#contact" 
+            href="#" 
             className="nav-link" 
-            onClick={(e) => navigateTo('contact', e)}
+            onClick={(e) => e.preventDefault()}
           >
             CONTACT US
           </a>
@@ -251,15 +239,21 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <span className="nav-text">Products</span>
             </a>
             <a 
-              href="#blogs" 
-              onClick={(e) => navigateTo('blogs', e)} 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+              }} 
               data-text="Blog"
             >
               <span className="nav-text">Blog</span>
             </a>
             <a 
-              href="#contact" 
-              onClick={(e) => navigateTo('contact', e)} 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+              }} 
               data-text="Contact"
             >
               <span className="nav-text">Contact Us</span>
