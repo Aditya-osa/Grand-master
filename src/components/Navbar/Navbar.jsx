@@ -15,6 +15,21 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     setInternalMenuOpen(nextVal);
   };
 
+  // Prevent background scroll when mobile drawer is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [open]);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
@@ -91,7 +106,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       return;
     }
 
-    // For products, shop, flavours, blogs, about
+    if (target === 'blogs' || target === 'blog') {
+      window.location.hash = '#blogs';
+      window.dispatchEvent(new Event('hashchange'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // For products, shop, flavours, about
     const hash = '#' + target;
     window.location.hash = hash;
     window.dispatchEvent(new Event('hashchange'));
@@ -101,7 +123,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         element = document.getElementById('distilled') || document.querySelector('.editorial-brand-section');
       }
       if (!element && (target === 'flavours' || target === 'flavour')) {
-        element = document.getElementById('products') || document.getElementById('flavours') || document.querySelector('.enjoy-flavour-section');
+        element = document.getElementById('products') || document.getElementById('flavours') || document.querySelector('.enjoy-flavours-section') || document.querySelector('.enjoy-flavour-section');
       }
       if (!element && (target === 'blogs' || target === 'blog')) {
         element = document.getElementById('blogs') || document.querySelector('.blogs-section');
@@ -208,6 +230,20 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <span className="nav-text">Home</span>
             </a>
             <a 
+              href="#about" 
+              onClick={(e) => navigateTo('about', e)} 
+              data-text="About Us"
+            >
+              <span className="nav-text">About Us</span>
+            </a>
+            <a 
+              href="#flavours" 
+              onClick={(e) => navigateTo('flavours', e)} 
+              data-text="Flavours"
+            >
+              <span className="nav-text">Flavours</span>
+            </a>
+            <a 
               href="#products" 
               onClick={(e) => navigateTo('products', e)} 
               data-text="Products"
@@ -215,18 +251,18 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <span className="nav-text">Products</span>
             </a>
             <a 
-              href="#shop" 
-              onClick={(e) => navigateTo('products', e)} 
-              data-text="Shop"
+              href="#blogs" 
+              onClick={(e) => navigateTo('blogs', e)} 
+              data-text="Blog"
             >
-              <span className="nav-text">Shop</span>
+              <span className="nav-text">Blog</span>
             </a>
             <a 
               href="#contact" 
               onClick={(e) => navigateTo('contact', e)} 
               data-text="Contact"
             >
-              <span className="nav-text">Contact</span>
+              <span className="nav-text">Contact Us</span>
             </a>
           </div>
 

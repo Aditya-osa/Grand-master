@@ -137,19 +137,19 @@
   z-index: 1001;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 992px) {
   .nav-actions {
     display: none !important;
   }
 }
 
-@media (max-width: 859px) {
+@media (max-width: 991px) {
   .nav-desktop-links {
     display: none !important;
   }
 }
 
-/* Hamburger Menu Toggle Button */
+/* Hamburger Menu Toggle Button (Clean icon without circle) */
 .menu-toggle-btn,
 #menu-toggle {
   position: relative;
@@ -158,36 +158,47 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: none;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   color: #732f03;
-  font-size: clamp(24px, 2.2vw, 36px);
-  padding: clamp(6px, 0.6vw, 10px);
+  font-size: 28px;
+  padding: 6px;
   outline: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.3s ease;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.gm-main-nav.scrolled .menu-toggle-btn {
+  background: transparent !important;
+  border: none !important;
 }
 
 .menu-toggle-btn:hover,
 #menu-toggle:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
   color: #a04204;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .menu-toggle-btn i,
 #menu-toggle i {
-  color: #732f03;
-  font-size: 100%;
+  color: inherit;
+  font-size: 28px;
   line-height: 1;
 }
 
-/* Fullscreen Dimming Backdrop (Sits behind menu drawer) */
+/* Fullscreen Dimming Backdrop */
 .menu-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 9998;
   opacity: 0;
   visibility: hidden;
@@ -201,22 +212,22 @@
   pointer-events: auto;
 }
 
-/* Sliding Menu Drawer (Sits in front of backdrop with crisp, sharp text) */
+/* Sliding Menu Drawer (Clean White, No Black) */
 .menu-overlay {
   position: fixed;
   top: 0;
   right: 0;
-  width: clamp(320px, 86vw, 440px);
+  width: min(440px, 100%);
   height: 100vh;
   height: 100dvh;
-  background: linear-gradient(180deg, #111216 0%, #0a0b0e 100%);
-  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  background: #ffffff;
+  border-left: 1px solid rgba(115, 47, 3, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(28px, 4.5vh, 48px) clamp(24px, 4vw, 44px);
   z-index: 9999;
-  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.6);
+  box-shadow: -15px 0 45px rgba(115, 47, 3, 0.1);
   transform: translateX(100%);
   opacity: 0;
   visibility: hidden;
@@ -249,12 +260,12 @@
   position: absolute;
   top: clamp(24px, 3.5vh, 36px);
   right: clamp(24px, 3.5vw, 36px);
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: rgba(115, 47, 3, 0.05);
+  border: 1.5px solid rgba(115, 47, 3, 0.2);
+  color: #732f03;
   font-size: 22px;
   cursor: pointer;
   display: inline-flex;
@@ -262,20 +273,18 @@
   justify-content: center;
   outline: none;
   z-index: 10010;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     background 0.25s ease,
     color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    border-color 0.25s ease;
 }
 
 .menu-close-btn:hover,
 #menu-close:hover {
   transform: rotate(90deg) scale(1.08);
-  background: rgba(235, 45, 85, 0.2);
-  border-color: rgba(235, 45, 85, 0.45);
-  color: #ff4d6d;
-  box-shadow: 0 0 20px rgba(235, 45, 85, 0.3);
+  background: rgba(115, 47, 3, 0.1);
+  border-color: #a04204;
+  color: #a04204;
 }
 
 /* Menu Content Container */
@@ -299,7 +308,7 @@
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #732f03;
   display: block;
   margin-bottom: 14px;
 }
@@ -316,20 +325,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(20px, 3vh, 32px);
+  gap: clamp(18px, 2.8vh, 28px);
   margin: auto 0;
 }
 
 .cntr-nav a {
   display: inline-flex;
-  align-items: baseline;
-  gap: 14px;
+  align-items: center;
   font-family: 'Anybody', sans-serif;
   font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 700;
   text-decoration: none;
-  color: #f5f5f7;
-  letter-spacing: 0.08em;
+  color: #732f03;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -338,18 +346,7 @@
   transform: translateZ(0);
   transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 4px 0;
-}
-
-.nav-number {
-  font-family: 'Anybody', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: #ff6a00;
-  opacity: 0.7;
-  font-feature-settings: "tnum";
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 6px 0;
 }
 
 .nav-text {
@@ -360,8 +357,8 @@
 .cntr-nav a::after {
   content: '';
   position: absolute;
-  left: 28px;
-  bottom: -2px;
+  left: 0;
+  bottom: 0px;
   width: 0%;
   height: 2px;
   background: linear-gradient(90deg, #ff6a00, #eb2d55);
@@ -370,17 +367,12 @@
 }
 
 .cntr-nav a:hover {
-  color: #ffffff;
+  color: #a04204;
   transform: translateX(8px);
 }
 
-.cntr-nav a:hover .nav-number {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
 .cntr-nav a:hover::after {
-  width: calc(100% - 28px);
+  width: 100%;
 }
 
 /* Menu Footer & Social Links */
@@ -397,7 +389,8 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: #732f03;
+  opacity: 0.65;
 }
 
 .social-icons {
@@ -413,9 +406,9 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(115, 47, 3, 0.05);
+  border: 1px solid rgba(115, 47, 3, 0.18);
+  color: #732f03;
   font-size: 18px;
   text-decoration: none;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -440,138 +433,191 @@
 /* Laptop: 1024px–1199px */
 @media (max-width: 1199px) {
   .gm-main-nav {
-    height: clamp(74px, 7vw, 108px);
-    --nav-pad-x: max(clamp(44px, 8.5vw, 110px), env(safe-area-inset-left));
+    height: clamp(74px, 7vw, 100px);
+    --nav-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
-    padding-bottom: 0.6vw;
   }
 }
 
 /* Tablet Landscape: 768px–1023px */
 @media (max-width: 1023px) {
   .gm-main-nav {
-    height: clamp(68px, 7.5vw, 98px);
-    --nav-pad-x: max(clamp(36px, 7.5vw, 85px), env(safe-area-inset-left));
-    padding-left: var(--nav-pad-x);
-    padding-right: var(--nav-pad-x);
-    padding-bottom: 0.5vw;
-  }
-
-  .menu-overlay {
-    width: min(380px, 50vw);
-  }
-}
-
-/* Tablet Portrait: 600px–767px */
-@media (max-width: 767px) {
-  .gm-main-nav {
-    height: clamp(64px, 8.5vw, 82px);
-    --nav-pad-x: max(clamp(28px, 6.5vw, 55px), env(safe-area-inset-left));
+    height: 72px;
+    --nav-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
   }
 
   .nav-logo {
-    width: 20vw;
-    height: auto;
-    max-height: 7vw;
-  }
-
-  .menu-toggle-btn,
-  #menu-toggle {
-    font-size: clamp(24px, 4.2vw, 30px);
+    margin-top: 0;
+    width: clamp(140px, 16vw, 175px);
+    max-height: 44px;
   }
 
   .menu-overlay {
-    width: min(340px, 80vw);
-    padding: clamp(20px, 3.5vw, 28px);
+    width: min(400px, 65vw);
+  }
+}
+
+/* Tablet Portrait & Large Phones: 600px–767px */
+@media (max-width: 767px) {
+  .gm-main-nav {
+    height: 66px;
+    --nav-pad-x: max(20px, env(safe-area-inset-left));
+    padding-left: var(--nav-pad-x);
+    padding-right: var(--nav-pad-x);
+  }
+
+  .nav-logo {
+    margin-top: 0;
+    width: clamp(135px, 28vw, 160px);
+    height: auto;
+    max-height: 40px;
+  }
+
+  .menu-overlay {
+    width: min(380px, 85vw);
+    padding: clamp(24px, 4vw, 36px);
+    padding-top: max(28px, calc(env(safe-area-inset-top) + 16px));
+    padding-bottom: max(24px, calc(env(safe-area-inset-bottom) + 16px));
   }
 
   .cntr-nav {
-    gap: 3vw;
+    gap: clamp(16px, 2.5vh, 26px);
   }
 
   .cntr-nav a {
-    font-size: clamp(20px, 4.5vw, 26px);
+    font-size: clamp(22px, 4.8vw, 26px);
   }
 
   .social-icons a {
-    width: clamp(34px, 5.5vw, 42px);
-    height: clamp(34px, 5.5vw, 42px);
-    font-size: clamp(15px, 2.5vw, 18px);
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
   }
 }
 
-/* Mobile: 375px–599px */
+/* Mobile Phones: 375px–599px */
 @media (max-width: 599px) {
   .gm-main-nav {
-    height: clamp(58px, 12vw, 74px);
-    --nav-pad-x: max(clamp(20px, 6vw, 36px), env(safe-area-inset-left));
+    height: 62px;
+    --nav-pad-x: max(16px, env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
   }
 
   .nav-logo {
-    width: 25vw;
+    margin-top: 0;
+    width: clamp(125px, 36vw, 150px);
     height: auto;
-    max-height: 8.5vw;
+    max-height: 38px;
   }
 
   .menu-toggle-btn,
   #menu-toggle {
-    font-size: clamp(22px, 5vw, 28px);
+    font-size: 26px;
+    padding: 4px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .menu-overlay {
-    width: 90vw;
-    padding: 4vw;
-  }
-
-  .cntr-nav {
-    gap: 3.5vw;
-  }
-
-  .cntr-nav a {
-    font-size: clamp(18px, 4.8vw, 22px);
-  }
-
-  .nav-number {
-    font-size: clamp(10px, 2.5vw, 12px);
+    width: 100%;
+    background: #ffffff;
+    padding: 24px 20px;
+    padding-top: max(24px, calc(env(safe-area-inset-top) + 16px));
+    padding-bottom: max(24px, calc(env(safe-area-inset-bottom) + 16px));
+    padding-left: max(20px, calc(env(safe-area-inset-left) + 16px));
+    padding-right: max(20px, calc(env(safe-area-inset-right) + 16px));
+    border-left: none;
   }
 
   .menu-close-btn,
   #menu-close {
-    width: clamp(34px, 8vw, 42px);
-    height: clamp(34px, 8vw, 42px);
-    font-size: clamp(17px, 4.2vw, 21px);
-    top: 3.5vw;
-    right: 3.5vw;
+    top: max(18px, calc(env(safe-area-inset-top) + 12px));
+    right: max(18px, calc(env(safe-area-inset-right) + 12px));
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    font-size: 20px;
+  }
+
+  .menu-header {
+    margin-bottom: 20px;
+  }
+
+  .menu-tagline {
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+    color: #732f03;
+  }
+
+  .cntr-nav {
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .cntr-nav a {
+    font-size: 21px;
+    letter-spacing: 0.05em;
+    gap: 12px;
+    padding: 6px 0;
+    color: #732f03;
+  }
+
+  .menu-footer {
+    margin-top: 24px;
+    gap: 12px;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
 }
 
-/* Small Mobile: 320px–374px */
+/* Small Screen Mobile: <= 374px */
 @media (max-width: 374px) {
   .gm-main-nav {
-    height: clamp(52px, 13vw, 66px);
-    --nav-pad-x: max(5vw, env(safe-area-inset-left));
+    height: 58px;
+    --nav-pad-x: max(12px, env(safe-area-inset-left));
     padding-left: var(--nav-pad-x);
     padding-right: var(--nav-pad-x);
   }
 
   .nav-logo {
-    width: 28vw;
-    height: auto;
-    max-height: 9.5vw;
+    margin-top: 0;
+    width: 115px;
+    max-height: 34px;
   }
 
-  .menu-overlay {
-    width: 92vw;
-    padding: 3.5vw;
+  .menu-toggle-btn,
+  #menu-toggle {
+    font-size: 24px;
+    padding: 4px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .cntr-nav {
+    gap: 12px;
   }
 
   .cntr-nav a {
-    font-size: 17px;
-    gap: 2.5vw;
+    font-size: 19px;
+    gap: 10px;
+    padding: 4px 0;
+  }
+
+  .social-icons a {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
   }
 }

@@ -130,8 +130,22 @@ export default function Products() {
       <div className="brand-title">
         Meet Grand Master's
         <div className="explore-shell">
-          Explore All Flavours
-          <span className="explore-arrow">↗</span>
+          <span>Explore All Flavours</span>
+          <svg
+            className="explore-arrow"
+            width="15"
+            height="11"
+            viewBox="0 0 16 12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="2" y1="6" x2="14" y2="6" />
+            <polyline points="9.5 2.5 14 6 9.5 9.5" />
+          </svg>
         </div>
       </div>
       <span id="shop" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }} aria-hidden="true" />

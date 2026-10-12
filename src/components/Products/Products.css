@@ -491,14 +491,15 @@
 }
 
 .explore-arrow {
-  font-size: 15px;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
-  transition: transform 0.25s ease;
+  transition: transform 0.22s ease;
 }
 
 .explore-shell:hover .explore-arrow {
-  transform: translate(2px, -2px);
+  transform: translateX(3px);
 }
 
 .ag-vodka-infused-wrap {
