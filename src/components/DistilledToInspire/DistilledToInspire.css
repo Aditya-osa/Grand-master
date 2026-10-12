@@ -108,11 +108,12 @@
 .distilled-to-inspire__inception {
     font-family: 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
     font-variation-settings: 'opsz' 28;
-    font-size: clamp(16.5px, 3.15vw, 39px);
-    line-height: 1.5;
+    margin-top:-10px;
+    font-size: clamp(16.5px, 3.15vw, 24px);
+    line-height: 0.5;
     color: #000000;
     font-weight: 400;
-    margin: 0 0 clamp(18px, 2.2vh, 26px) 0;
+    
     letter-spacing: 0.01em;
     max-width: 100%;
 }
@@ -154,6 +155,7 @@
    Pill Action Button: Discover Our Flavors
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__btn {
+  margin-top: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +201,7 @@
   border-radius: 0;
   overflow: hidden;
   background-color: #111216;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.14);
   transition: box-shadow 0.3s ease;
 }
@@ -287,20 +289,25 @@
   box-shadow: 0 8px 24px rgba(233, 78, 27, 0.4);
 }
 
-/* Embedded YouTube Iframe */
+/* Embedded Video Player & YouTube Fallback */
+.distilled-to-inspire__video-wrapper,
 .distilled-to-inspire__iframe-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
+  background-color: #000000;
 }
 
+.distilled-to-inspire__video-element,
 .distilled-to-inspire__iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border: none;
+  background-color: #000000;
 }
 
 /* ==========================================================================

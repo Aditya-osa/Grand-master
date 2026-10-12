@@ -125,7 +125,7 @@ export default function Enjoyflavours() {
               onClick={handleExploreClick}
               aria-label="Explore all Grand Master flavours"
             >
-              <span>Explore All Flavours</span>
+              <span>Explore </span>
               <svg
                 className="enjoy-flavours-explore-arrow"
                 width="15"

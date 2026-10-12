@@ -2555,10 +2555,14 @@
   /* Keep transform controlled by GSAP */
 }
 
-/* Explore Flavours Button: Positioned bottom-right */
+/* Explore Flavours Button: Positioned bottom-right with increased height */
+.banner-hero-container .gm-explore-hero,
 .gm-explore-hero {
   right: 23%;
   top: 85%;
+  padding-top: clamp(14px, 1.2vw, 18px);
+  padding-bottom: clamp(14px, 1.2vw, 18px);
+  min-height: clamp(48px, 4.5vh, 56px);
 }
 
 /* Tablet: 600px - 1023px */
@@ -2598,11 +2602,15 @@
     transform: translateY(0);
   }
 
+  .banner-hero-container .gm-explore-hero,
   .gm-explore-hero {
     right: auto;
     left: calc(50% + 6px);
     bottom: 16px;
     transform: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 42px;
   }
 
   .gm-explore-hero:hover {

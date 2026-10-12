@@ -130,7 +130,7 @@ export default function Products() {
       <div className="brand-title">
         Meet Grand Master's
         <div className="explore-shell">
-          <span>Explore All Flavours</span>
+          <span>All Flavours</span>
           <svg
             className="explore-arrow"
             width="15"

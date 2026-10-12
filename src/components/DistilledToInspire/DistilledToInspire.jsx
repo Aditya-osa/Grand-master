@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import videoPoster from '../../assets/image copy 3.png';
+import distilleryVideo from '../../assets/1791798325702656.mov';
 import './DistilledToInspire.css';
-
-// High-quality YouTube video specified by user
-const YOUTUBE_VIDEO_ID = '1z5FCi-XpHQ';
 
 /**
  * DistilledToInspire
- * Editorial Brand & Craft Section with YouTube Video Player
+ * Editorial Brand & Craft Section with Video Player
  * Matches reference image with pixel-perfect precision
  */
 export default function DistilledToInspire() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
 
   const handlePlayClick = () => {
     setIsPlaying(true);
   };
+
+  useEffect(() => {
+    if (isPlaying && videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.warn('Playback error:', err);
+      });
+    }
+  }, [isPlaying]);
 
   const handleDiscoverClick = (e) => {
     e.preventDefault();
@@ -43,7 +50,9 @@ export default function DistilledToInspire() {
           {/* Editorial Paragraph */}
           <div className="distilled-to-inspire__text-wrapper">
             <p className="distilled-to-inspire__paragraph">
-              Crafted by House of Deejay Distilleries, Grand Master’s<br className="desktop-br" /> brings together distinctive vodka flavours, contemporary <br className="desktop-br" />packaging and a spirit of experimentation.
+            Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master’s includes flavoured Vodka.
+<br/><br/>
+Grand Master’s is more for the Youth because of the blended flavours and the variety of Vodka it has to offer & also for people who want to start drinking and try new things.
             </p>
           </div>
 
@@ -53,23 +62,29 @@ export default function DistilledToInspire() {
             onClick={handleDiscoverClick}
             className="distilled-to-inspire__btn"
             id="discover-story-btn"
-          >
-            <span>Discover Our Story</span>
+          ><br/>
+            <span> Our Story</span>
           </a>
         </div>
 
-        {/* Right Side: YouTube Video Player Container */}
+        {/* Right Side: Video Player Container */}
         <div className="distilled-to-inspire__video-side">
           <div className="distilled-to-inspire__video-card">
             {isPlaying ? (
-              <div className="distilled-to-inspire__iframe-wrapper">
-                <iframe
-                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-                  title="Grand Master - Distilled to Inspire"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="distilled-to-inspire__iframe"
-                />
+              <div className="distilled-to-inspire__video-wrapper">
+                <video
+                  ref={videoRef}
+                  src={distilleryVideo}
+                  poster={videoPoster}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="distilled-to-inspire__video-element"
+                >
+                  <source src={distilleryVideo} type="video/mp4" />
+                  <source src={distilleryVideo} type="video/quicktime" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             ) : (
               <div
