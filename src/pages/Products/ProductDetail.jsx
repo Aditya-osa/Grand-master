@@ -92,9 +92,6 @@ export default function ProductDetail({
                     className={`gm-detail-bottle-img ${is180 ? 'gm-bottle-180ml' : 'gm-bottle-750ml'}`}
                     loading="eager"
                   />
-
-                  {/* Size Indicator Badge on Stage */}
-                 
                 </div>
               </div>
 

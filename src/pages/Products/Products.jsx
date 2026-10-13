@@ -224,10 +224,13 @@ export default function Products() {
        
           {/* Foreground Hero Content Lockup */}
           <div className="gm-products-banner-content">
-          
-           
-
-          
+            <span className="gm-products-banner-badge">
+              <span className="badge-star">★</span> PLATINUM SPIRITS COLLECTION <span className="badge-star">★</span>
+            </span>
+            <h1 className="gm-products-banner-title">OUR PRODUCTS</h1>
+            <p className="gm-products-banner-desc">
+              Quadruple-distilled handcrafted vodkas infused with pure botanical &amp; natural fruit essences.
+            </p>
           </div>
         </section>
 
