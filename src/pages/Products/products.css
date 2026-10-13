@@ -43,9 +43,8 @@
 .gm-products-banner {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 60vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,8 +56,9 @@
   padding-top: clamp(80px, 8vw, 120px);
 }
 
-/* Edge-to-Edge Banner Background Image */
-.gm-products-banner-image {
+/* Edge-to-Edge Banner Background Video & Image */
+.gm-products-banner-image,
+.gm-products-banner-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -68,33 +68,13 @@
   object-position: center;
   display: block;
   z-index: 1;
-  filter: brightness(0.92);
-}
-
-/* Background Gradients & Mesh Overlays matching Contact Us */
-.gm-products-banner-bg-layer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0.15) 45%,
-    rgba(26, 18, 20, 0.52) 100%
-  );
-  z-index: 2;
   pointer-events: none;
 }
 
+/* Overlays removed to show clean, unobstructed banner video */
+.gm-products-banner-bg-layer,
 .gm-products-banner-mesh-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(0, 0, 0, 0.32) 100%
-  );
-  z-index: 2;
-  pointer-events: none;
+  display: none !important;
 }
 
 /* Giant Watermark Typography matching Contact Us .banner-giant-text */
@@ -231,9 +211,9 @@
 
 .gm-products-container {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 0 clamp(24px, 4vw, 56px);
+  padding: 0 clamp(20px, 3vw, 48px);
   box-sizing: border-box;
 }
 
@@ -288,12 +268,12 @@
 
 /* ==========================================================================
    PRODUCT CARDS GRID
-   Clean, Generous Spacing, Bottle-Centric Luxury Presentation
+   Clean, Generous Spacing, Bottle-Centric Luxury Presentation (4 in a row)
    ========================================================================== */
 .gm-products-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 3.5vw, 44px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 1.8vw, 28px);
   width: 100%;
 }
 
@@ -302,7 +282,7 @@
   background: #ffffff;
   border: 1px solid var(--gm-border-subtle);
   border-radius: 20px;
-  padding: clamp(32px, 3.5vw, 48px) clamp(20px, 2.2vw, 32px);
+  padding: clamp(24px, 2.2vw, 36px) clamp(16px, 1.4vw, 24px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -323,11 +303,11 @@
 .gm-product-stage {
   position: relative;
   width: 100%;
-  height: clamp(320px, 34vw, 400px);
+  height: clamp(280px, 24vw, 360px);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: clamp(20px, 2.5vh, 28px);
+  margin-bottom: clamp(16px, 2vh, 22px);
   cursor: pointer;
 }
 
@@ -526,19 +506,20 @@
 /* Large Desktop (>= 1440px) */
 @media (min-width: 1440px) {
   .gm-products-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
   }
 }
 
 /* Medium Desktop / Laptop (1025px - 1439px) */
 @media (max-width: 1439px) {
   .gm-products-container {
-    max-width: 1240px;
+    max-width: 100%;
   }
 
   .gm-products-grid {
-    gap: 36px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 }
 

@@ -4,14 +4,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import bannerImg from '../../assets/image.png';
+import bannerVideo from '../../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
 import { PRODUCTS_DATA as ALL_PRODUCTS } from './productData';
 import ProductDetail from './ProductDetail';
 import './products.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const INITIAL_BATCH = 6;
-const INCREMENT_BATCH = 6;
+const INITIAL_BATCH = 8;
+const INCREMENT_BATCH = 4;
 
 export default function Products() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
@@ -201,13 +202,22 @@ export default function Products() {
           className="gm-products-banner"
           aria-label="Grand Master Spirits Collection Banner"
         >
-          <div className="gm-products-banner-bg-layer" aria-hidden="true" />
-          <div className="gm-products-banner-mesh-overlay" aria-hidden="true" />
-          <img
-            src={bannerImg}
-            alt="Grand Master Spirits Heritage Collection"
-            className="gm-products-banner-image"
-          />
+          <video
+            className="gm-products-banner-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster={bannerImg}
+          >
+            <source src={bannerVideo} type="video/mp4" />
+            <img
+              src={bannerImg}
+              alt="Grand Master Spirits Heritage Collection"
+              className="gm-products-banner-image"
+            />
+          </video>
 
           {/* Giant Background Watermark Text matching Contact Us */}
        

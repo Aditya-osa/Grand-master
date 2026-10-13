@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import bannerImg from '../assets/image.png';
+import bannerVideo from '../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
 import './Contact-us.css';
 
 const COUNTRIES = [
@@ -60,13 +61,22 @@ export default function ContactUs() {
           HALF BANNER (SIMPLE & CLASSIC LIGHT PALETTE)
           ==================================================================== */}
       <section className="gm-half-banner" aria-label="Grand Master Contact Banner">
-        <div className="banner-bg-layer" aria-hidden="true" />
-        <div className="banner-mesh-overlay" aria-hidden="true" />
-        <img
-          src={bannerImg}
-          alt="Grand Master Spirits"
-          className="banner-bg-image"
-        />
+        <video
+          className="banner-bg-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={bannerImg}
+        >
+          <source src={bannerVideo} type="video/mp4" />
+          <img
+            src={bannerImg}
+            alt="Grand Master Spirits"
+            className="banner-bg-image"
+          />
+        </video>
       </section>
 
       {/* ====================================================================

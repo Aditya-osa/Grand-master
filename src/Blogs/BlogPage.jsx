@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { blogs } from '../components/Blogs/Blogs';
 import blogBannerImg from '../assets/daa4059b-45b0-48df-a1d7-8655210f3760.png';
+import bannerVideo from '../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
 import './BlogPage.css';
 
 
@@ -33,14 +34,25 @@ export default function BlogPage() {
       <Navbar />
 
       {/* ====================================================================
-          HERO BANNER - Real Grand Master Craft Photography
+          HERO BANNER - Clean Video Presentation
           ==================================================================== */}
       <section className="gm-blog-banner" aria-label="Grand Master Journal & Insights">
-        <img
-          src={blogBannerImg}
-          alt="Grand Master Blue Curacao Vodka Mixology Experience"
-          className="blog-banner-bg"
-        />
+        <video
+          className="blog-banner-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={blogBannerImg}
+        >
+          <source src={bannerVideo} type="video/mp4" />
+          <img
+            src={blogBannerImg}
+            alt="Grand Master Vodka Journal Experience"
+            className="blog-banner-bg"
+          />
+        </video>
       </section>
 
       {/* ====================================================================

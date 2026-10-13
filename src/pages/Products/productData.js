@@ -2,7 +2,7 @@
 const bottle1 = '/Assets/5.png'; // Strawberry (Banner)
 import bottle2 from '../../assets/bottles/chocolate-bottle.png'; // Chocolate (Banner)
 import bottle3 from '../../assets/bottles/all-flav/3.png'; // Mango (Banner)
-import bottle4 from '../../assets/bottles/all-flav/melon-bottle-hd.png'; // Melon (Banner)
+import bottle4 from '../../assets/Products/5.png'; // Melon
 import bottle5 from '../../assets/bottles/Blue berry bottle.png'; // Blueberry (Banner)
 const bottle6 = '/Assets/5.png'; // Strawberry Reserve (Banner)
 const bottle7 = '/Assets/7.png'; // Orange (Banner)
