@@ -207,66 +207,151 @@
 }
 
 /* --------------------------------------------------------------------------
-   Right Column: Video Card Player
+/* --------------------------------------------------------------------------
+   Right Column: Video Card Player (Orynex-Inspired Viewport)
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__video-side {
   height: auto;
   width: 100%;
+  position: relative;
+}
+
+.distilled-video-pin-stage {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .distilled-to-inspire__video-card {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   height: clamp(350px, 44vh, 440px);
-  min-height: 330px;
+  min-height: 280px;
   border-radius: 0;
   overflow: hidden;
-  background-color: #111216;
-  
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.14);
-  transition: box-shadow 0.3s ease;
+  background-color: #0d0e12;
+  border: none;
+  box-shadow: 0 16px 44px rgba(74, 34, 19, 0.14);
+  cursor: pointer;
+  transform-origin: center center;
+  will-change: transform, width, max-width;
+  -webkit-mask-image: none;
+  transition: box-shadow 0.35s ease;
 }
 
 .distilled-to-inspire__video-card:hover {
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 20px 52px rgba(74, 34, 19, 0.2);
 }
 
-/* Poster Preview State */
-.distilled-to-inspire__poster-wrapper {
+/* Embedded Video Wrapper & Element */
+.distilled-to-inspire__video-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #000000;
+  overflow: hidden;
 }
 
-.distilled-to-inspire__poster-img {
+.distilled-to-inspire__video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border: none;
+  background-color: #000000;
   display: block;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
-.distilled-to-inspire__poster-wrapper:hover .distilled-to-inspire__poster-img {
-  transform: scale(1.03);
+/* Subtle Dark Gradient Overlay at Bottom (matches Orynex .vedio-layner) */
+.distilled-video-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.28) 28%,
+    rgba(0, 0, 0, 0.06) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
 }
 
+/* Minimal Circular Play/Pause Button at Bottom-Right (matches Orynex .large-vedio-play-button) */
+.distilled-video-play-btn {
+  position: absolute;
+  bottom: clamp(16px, 2.4vw, 24px);
+  right: clamp(16px, 2.4vw, 26px);
+  width: clamp(38px, 3.2vw, 44px);
+  height: clamp(38px, 3.2vw, 44px);
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  outline: none;
+  padding: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.distilled-video-play-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(233, 78, 27, 0.9);
+  border-color: #ffffff;
+  box-shadow: 0 6px 22px rgba(115, 47, 3, 0.5);
+}
+
+.distilled-video-play-btn:active {
+  transform: scale(0.96);
+}
+
+.distilled-video-btn-icon {
+  width: 15px;
+  height: 15px;
+  fill: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.distilled-video-btn-icon.icon-play--offset {
+  margin-left: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Center Circular Play Button for Home Page (Original Styling)
+   -------------------------------------------------------------------------- */
 .distilled-to-inspire__poster-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.18);
-  transition: background 0.3s ease;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.distilled-to-inspire__poster-wrapper:hover .distilled-to-inspire__poster-overlay {
-  background: rgba(0, 0, 0, 0.1);
+.distilled-to-inspire__poster-overlay--hidden {
+  opacity: 0;
 }
 
-/* Circular Play Button matching screenshot */
 .distilled-to-inspire__play-btn {
   position: absolute;
   top: 50%;
@@ -276,8 +361,19 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 2;
+  z-index: 3;
   outline: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.distilled-to-inspire__play-btn--playing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.distilled-to-inspire__video-card:hover .distilled-to-inspire__play-btn--playing {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .distilled-to-inspire__play-circle {
@@ -303,32 +399,15 @@
   fill: #ffffff;
 }
 
-.distilled-to-inspire__poster-wrapper:hover .distilled-to-inspire__play-circle {
+.distilled-to-inspire__play-svg.icon-pause {
+  margin-left: 0;
+}
+
+.distilled-to-inspire__video-card:hover .distilled-to-inspire__play-circle {
   transform: scale(1.1);
   background: rgba(233, 78, 27, 0.88);
   border-color: #ffffff;
   box-shadow: 0 8px 24px rgba(233, 78, 27, 0.4);
-}
-
-/* Embedded Video Player & YouTube Fallback */
-.distilled-to-inspire__video-wrapper,
-.distilled-to-inspire__iframe-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-}
-
-.distilled-to-inspire__video-element,
-.distilled-to-inspire__iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: none;
-  background-color: #000000;
 }
 
 /* ==========================================================================
@@ -445,71 +524,257 @@
 }
 
 /* ==========================================================================
-   Centered Variant for About Us Page
-   Content centered on top, video card placed below text
+   About Us Page Variant: Left-Aligned Video Layout (Matching Orynex Reference)
+   Left: "✦ OUR STORY" + Video Player Card (width ~440px)
+   Right: Bold Editorial Headline + Two Metric Cards (98% & 35K+)
    ========================================================================== */
-.distilled-to-inspire--centered {
-  padding-top: clamp(100px, 13vh, 150px);
+.distilled-to-inspire--about-layout {
+  padding-top: clamp(80px, 10vh, 120px);
   padding-bottom: clamp(60px, 8vh, 100px);
-  background: radial-gradient(
-    circle at 50% 20%,
-    rgba(255, 255, 255, 0.8) 0%,
-    #faf7f4 70%
-  );
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
+    url('./3.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: visible !important;
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__inner {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  max-width: 1360px !important;
-  grid-template-columns: none !important;
-  gap: 0 !important;
+.distilled-about-track {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__content {
-  text-align: center !important;
-  max-width: 860px !important;
-  margin: 0 auto !important;
-  align-items: center !important;
-  display: flex !important;
-  flex-direction: column !important;
+@media (min-width: 992px) {
+  .distilled-about-track {
+    min-height: 180vh;
+  }
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__title {
-  text-align: center !important;
-  margin: 0 0 clamp(10px, 1.4vh, 16px) 0 !important;
+.distilled-about-grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(36px, 4vw, 64px);
+  position: relative;
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__inception {
-  text-align: center !important;
-  margin-bottom: clamp(14px, 1.8vh, 22px) !important;
+/* Left Column: Eyebrow + Left-Aligned Video */
+.distilled-about-col-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 440px;
+  min-width: 440px;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__text-wrapper {
-  text-align: center !important;
-  max-width: 780px !important;
+.distilled-about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a1214;
+  margin-bottom: clamp(36px, 4.5vh, 56px);
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__paragraph {
-  text-align: center !important;
-  font-family: 'Anybody', sans-serif !important;
-  color: #554448 !important;
-  line-height: 1.2 !important;
+.distilled-about-star {
+  width: 13px;
+  height: 13px;
+  color: #e74240; /* Coral Red Accent from Reference */
+  flex-shrink: 0;
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__video-side {
-  width: 100% !important;
-  max-width: 1040px !important;
-  margin-top: clamp(36px, 4.8vh, 56px) !important;
+/* Video Card in Left Slot */
+.distilled-about-video-card {
+  position: relative;
+  width: 440px;
+  height: 295px;
+  min-height: 250px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #0c0d12;
+  border: 1px solid rgba(115, 47, 3, 0.14);
+  box-shadow: 0 16px 40px rgba(74, 34, 19, 0.14);
+  cursor: pointer;
+  transform-origin: top left;
+  will-change: width, height, border-radius, transform;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  transition: box-shadow 0.35s ease;
+  z-index: 10;
 }
 
-.distilled-to-inspire--centered .distilled-to-inspire__video-card {
-  aspect-ratio: 16 / 9 !important;
-  height: auto !important;
-  max-height: 560px !important;
-  min-height: 260px !important;
-  border-radius: 20px !important;
-  box-shadow: 0 20px 50px rgba(74, 34, 19, 0.15) !important;
-  border: 1px solid rgba(115, 47, 3, 0.15) !important;
+.distilled-about-video-card:hover {
+  box-shadow: 0 22px 55px rgba(74, 34, 19, 0.22);
+}
+
+/* Right Column: Sticky Text, Title & Paragraphs (Same Position, Left-Aligned with Original Styling) */
+.distilled-about-col-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+  .distilled-about-sticky-col {
+    position: sticky;
+    top: clamp(80px, 12vh, 120px);
+    align-self: flex-start;
+    z-index: 5;
+  }
+}
+
+.distilled-about-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(34px, 4.2vw, 66px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.08;
+  color: #4A2213;
+  margin: 0 0 16px 0;
+  text-align: left;
+  align-self: flex-start;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-wrap: break-word;
+}
+
+.distilled-about-subtitle {
+  font-family: 'Anybody', sans-serif;
+  margin-top: -10px;
+  margin-bottom: 24px;
+  font-size: clamp(16.5px, 3.15vw, 24px);
+  line-height: 1.2;
+  color: #000000;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-align: left;
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.distilled-about-text-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: clamp(22px, 2.8vh, 32px);
+  text-align: left;
+  align-self: flex-start;
+}
+
+.distilled-about-paragraph {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(17px, 1.35vw, 22px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: normal;
+  background-image: none !important;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1199px) {
+  .distilled-about-col-left {
+    width: 390px;
+    min-width: 390px;
+  }
+
+  .distilled-about-video-card {
+    width: 390px;
+    height: 270px;
+  }
+
+  .distilled-about-title {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 991px) {
+  .distilled-about-track {
+    min-height: auto !important;
+  }
+
+  .distilled-about-grid {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .distilled-about-col-left {
+    order: 2;
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+    align-items: flex-start;
+  }
+
+  .distilled-about-col-right {
+    order: 1;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .distilled-about-title,
+  .distilled-about-subtitle,
+  .distilled-about-text-wrapper,
+  .distilled-about-paragraph {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .distilled-about-title {
+    white-space: normal;
+  }
+
+  .distilled-about-eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .distilled-about-video-card {
+    width: 100%;
+    max-width: 640px;
+    height: 360px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .distilled-about-video-card {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    min-height: 220px;
+  }
+
+  .distilled-about-title {
+    font-size: clamp(28px, 7.5vw, 38px);
+    margin-bottom: 12px;
+  }
 }
