@@ -138,26 +138,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 28px;
+  gap: clamp(6px, 0.5vw, 10px);
+  padding: clamp(9px, 0.7vw, 12px) clamp(16px, 1.4vw, 22px);
+  border: 1.5px solid #732f03;
   border-radius: 9999px;
-  border: 1.5px solid #b85d19;
-  background: transparent;
-  color: #b85d19;
+  background: rgba(255, 255, 255, 0.2);
+  color: #732f03;
   font-family: 'Anybody', sans-serif;
-  font-variation-settings: 'opsz' 28;
-  font-size: 14.5px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: clamp(13px, 1.05vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.22s ease;
   white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(115, 47, 3, 0.08);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .stack-cards-explore-btn:hover {
-  background: #b85d19;
-  color: #FAF4ED;
-  border-color: #b85d19;
+  background: #732f03;
+  color: #ffffff;
+  border-color: #732f03;
+  box-shadow: 0 6px 20px rgba(115, 47, 3, 0.25);
   transform: translateY(-1px);
 }
 

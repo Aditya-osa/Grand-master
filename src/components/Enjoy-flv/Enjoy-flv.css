@@ -113,32 +113,35 @@
   transform: scale(0.96);
 }
 
-/* Explore All Flavours Pill Button */
+/* Explore All Flavours Pill Button (Styled matching gm-hero-action-btn) */
 .enjoy-flavours-explore-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 15px 28px;
+  gap: clamp(6px, 0.5vw, 10px);
+  padding: clamp(9px, 0.7vw, 12px) clamp(16px, 1.4vw, 22px);
+  border: 1.5px solid #732f03;
   border-radius: 9999px;
-  border: 1.5px solid #7c340f;
-  background: transparent;
-  color: #7c340f;
+  background: rgba(255, 255, 255, 0.2);
+  color: #732f03;
   font-family: 'Anybody', sans-serif;
-  font-variation-settings: 'opsz' 28;
-  font-size: 14.5px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: clamp(13px, 1.05vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(115, 47, 3, 0.08);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .enjoy-flavours-explore-btn:hover {
-  background: #7c340f;
-  color: #FAF4ED;
-  border-color: #7c340f;
+  background: #732f03;
+  color: #ffffff;
+  border-color: #732f03;
+  box-shadow: 0 6px 20px rgba(115, 47, 3, 0.25);
   transform: translateY(-1px);
 }
 
@@ -150,11 +153,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.22s ease;
+  font-size: clamp(14px, 1.1vw, 18px);
+  line-height: 1;
+  transition: transform 0.25s ease;
 }
 
 .enjoy-flavours-explore-btn:hover .enjoy-flavours-explore-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
 /* --------------------------------------------------------------------------
