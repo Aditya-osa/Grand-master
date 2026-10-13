@@ -88,9 +88,9 @@ export function BlogCard({ blog }) {
   const [imgError, setImgError] = useState(false);
 
   const handleCardClick = () => {
-    window.location.hash = '#blogs';
+    window.location.hash = `#blog-detail-${blog.id}`;
     window.dispatchEvent(new Event('hashchange'));
-    window.dispatchEvent(new CustomEvent('gm-navigate', { detail: 'blogs' }));
+    window.dispatchEvent(new CustomEvent('gm-navigate', { detail: `blog-detail-${blog.id}` }));
   };
 
   return (

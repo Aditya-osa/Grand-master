@@ -1,0 +1,896 @@
+/* ==========================================================================
+   Grand Master's Vodka - Products Showcase Page Styles
+   Aesthetic: Premium, Timeless Luxury, Cinematic Bottle Presentation
+   Matches Contact Us Design Language & Palette
+   ========================================================================== */
+
+:root {
+  --gm-white: #ffffff;
+  --gm-offwhite: #faf7f4;
+  --gm-banner-bg: #f5ede6;
+  --gm-card-bg: #ffffff;
+  --gm-border-light: #e6dfd8;
+  --gm-border-subtle: #eee7e0;
+  --gm-text-dark: #1a1214;
+  --gm-text-body: #4a3e41;
+  --gm-text-muted: #75686b;
+  --gm-brand-accent: #732f03;
+  --gm-coral-accent: #e74240;
+}
+
+/* Base Wrapper */
+.gm-products-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--gm-white);
+  color: var(--gm-text-dark);
+  font-family: 'Anybody', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.gm-products-main {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+/* ==========================================================================
+   1. FULL-SCREEN PRODUCTS BANNER (min-height: 100svh / 100vh)
+   Consistent with Contact Us Banner Structure & Visual Hierarchy
+   ========================================================================== */
+.gm-products-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--gm-banner-bg);
+  border-bottom: 1px solid var(--gm-border-light);
+  user-select: none;
+  box-sizing: border-box;
+  padding-top: clamp(80px, 8vw, 120px);
+}
+
+/* Edge-to-Edge Banner Background Image */
+.gm-products-banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 1;
+  filter: brightness(0.92);
+}
+
+/* Background Gradients & Mesh Overlays matching Contact Us */
+.gm-products-banner-bg-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(26, 18, 20, 0.52) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gm-products-banner-mesh-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Giant Watermark Typography matching Contact Us .banner-giant-text */
+.gm-products-banner-giant-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(52px, 14vw, 150px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  white-space: nowrap;
+  z-index: 2;
+  margin: 0;
+  pointer-events: none;
+}
+
+/* Foreground Hero Content Lockup */
+.gm-products-banner-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 920px;
+  padding: 0 clamp(20px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+.gm-products-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(115, 47, 3, 0.22);
+  border-radius: 9999px;
+  font-family: 'Anybody', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+  margin-bottom: clamp(16px, 2.4vh, 26px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.badge-star {
+  color: var(--gm-coral-accent);
+  font-size: 11px;
+}
+
+.gm-products-banner-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(38px, 6.5vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.05;
+  margin: 0 0 clamp(16px, 2.2vh, 24px) 0;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.4);
+}
+
+.gm-products-banner-desc {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(15px, 1.35vw, 18.5px);
+  line-height: 1.58;
+  color: rgba(255, 255, 255, 0.96);
+  max-width: 680px;
+  margin: 0 0 clamp(28px, 4vh, 40px) 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.gm-products-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(11px, 1.1vw, 14px) clamp(24px, 2.2vw, 34px);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(12.5px, 0.95vw, 14.5px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gm-products-banner-cta:hover {
+  background: var(--gm-brand-accent);
+  border-color: var(--gm-brand-accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(115, 47, 3, 0.45);
+}
+
+.scroll-arrow {
+  display: inline-block;
+  font-size: 15px;
+  transition: transform 0.3s ease;
+}
+
+.gm-products-banner-cta:hover .scroll-arrow {
+  transform: translateY(3px);
+}
+
+/* ==========================================================================
+   2. PRODUCTS COLLECTION SECTION
+   Dedicated Product Grid Directly Below Banner
+   ========================================================================== */
+.gm-products-collection {
+  position: relative;
+  width: 100%;
+  background-color: var(--gm-white);
+  padding-top: clamp(60px, 8vh, 100px);
+  padding-bottom: clamp(70px, 10vh, 120px);
+  box-sizing: border-box;
+}
+
+.gm-products-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 56px);
+  box-sizing: border-box;
+}
+
+/* Collection Header Lockup */
+.gm-collection-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(40px, 6vh, 64px) auto;
+}
+
+.gm-collection-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Anybody', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+  margin-bottom: clamp(12px, 1.8vh, 18px);
+}
+
+.eyebrow-accent {
+  color: var(--gm-coral-accent);
+  font-size: 11px;
+}
+
+.gm-collection-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--gm-text-dark);
+  line-height: 1.12;
+  margin: 0 0 clamp(12px, 1.8vh, 18px) 0;
+}
+
+.gm-collection-subtitle {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(15px, 1.15vw, 17px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gm-text-body);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ==========================================================================
+   PRODUCT CARDS GRID
+   Clean, Generous Spacing, Bottle-Centric Luxury Presentation
+   ========================================================================== */
+.gm-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 3.5vw, 44px);
+  width: 100%;
+}
+
+.gm-product-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--gm-border-subtle);
+  border-radius: 20px;
+  padding: clamp(32px, 3.5vw, 48px) clamp(20px, 2.2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  box-shadow: none !important;
+}
+
+.gm-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: none !important;
+  border-color: rgba(115, 47, 3, 0.3);
+}
+
+/* Bottle Presentation Stage */
+.gm-product-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 34vw, 400px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(20px, 2.5vh, 28px);
+  cursor: pointer;
+}
+
+.gm-product-stage:focus-visible {
+  outline: 2px solid var(--gm-brand-accent);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+.gm-product-bottle-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  z-index: 2;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: none !important;
+}
+
+.gm-product-card:hover .gm-product-bottle-img {
+  transform: translateY(-8px) scale(1.04);
+  filter: none !important;
+}
+
+/* Product Metadata */
+.gm-product-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+}
+
+.gm-product-tag {
+  font-family: 'Anybody', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+}
+
+.gm-product-name {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(17.5px, 1.4vw, 22px);
+  font-weight: 700;
+  color: var(--gm-text-dark);
+  margin: 0;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+
+/* Card View Button matching gm-hero-action-btn */
+.gm-card-view-btn {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 0.5vw, 10px);
+  margin-top: 14px;
+  padding: clamp(9px, 0.7vw, 12px) clamp(16px, 1.4vw, 22px);
+  border: 1.5px solid #732f03 !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #732f03 !important;
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(115, 47, 3, 0.08);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  max-width: none !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none;
+}
+
+.gm-card-view-btn .gm-skip-arrow {
+  display: inline-block;
+  font-size: clamp(14px, 1.1vw, 18px);
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.gm-card-view-btn:hover {
+  background: #732f03 !important;
+  border-color: #732f03 !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(115, 47, 3, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+.gm-card-view-btn:hover .gm-skip-arrow {
+  transform: translateX(4px);
+}
+
+.gm-card-view-btn:active {
+  box-shadow: 0 2px 8px rgba(115, 47, 3, 0.2);
+  transform: translateY(0);
+}
+
+.gm-product-card:hover .gm-card-view-btn {
+  border-color: #732f03 !important;
+}
+
+/* ==========================================================================
+   3. VIEW MORE ACTION BUTTON
+   ========================================================================== */
+.gm-collection-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(48px, 7vh, 80px);
+  width: 100%;
+}
+
+.gm-view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(13px, 1.15vw, 16px) clamp(36px, 3vw, 54px);
+  border: 1.5px solid var(--gm-brand-accent);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--gm-brand-accent);
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(13px, 0.98vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(115, 47, 3, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gm-view-more-btn:hover {
+  background: var(--gm-brand-accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(115, 47, 3, 0.28);
+}
+
+.gm-view-more-btn:active {
+  transform: translateY(0);
+}
+
+.view-more-arrow {
+  display: inline-block;
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.gm-view-more-btn:hover .view-more-arrow {
+  transform: rotate(90deg) scale(1.15);
+}
+
+.gm-collection-complete {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 26px;
+  border-radius: 9999px;
+  background: rgba(115, 47, 3, 0.05);
+  border: 1px solid rgba(115, 47, 3, 0.14);
+  font-family: 'Anybody', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--gm-brand-accent);
+  letter-spacing: 0.04em;
+}
+
+.complete-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--gm-brand-accent);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   Desktop: 1920px, 1440px, 1280px
+   Tablet: 1024px, 768px
+   Mobile: 430px, 390px, 375px, 320px
+   ========================================================================== */
+
+/* Large Desktop (>= 1440px) */
+@media (min-width: 1440px) {
+  .gm-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+}
+
+/* Medium Desktop / Laptop (1025px - 1439px) */
+@media (max-width: 1439px) {
+  .gm-products-container {
+    max-width: 1240px;
+  }
+
+  .gm-products-grid {
+    gap: 36px;
+  }
+}
+
+/* Tablet Landscape (769px - 1024px) */
+@media (max-width: 1024px) {
+  .gm-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .gm-product-stage {
+    height: 340px;
+  }
+
+  .gm-products-banner-giant-text {
+    font-size: clamp(40px, 12vw, 100px);
+  }
+}
+
+/* Tablet Portrait & Mobile (< 768px) */
+@media (max-width: 767px) {
+  .gm-products-banner {
+    padding-top: 90px;
+  }
+
+  .gm-products-banner-title {
+    font-size: clamp(34px, 8.5vw, 52px);
+  }
+
+  .gm-products-banner-desc {
+    font-size: 14.5px;
+    margin-bottom: 28px;
+  }
+
+  .gm-products-collection {
+    padding-top: 48px;
+    padding-bottom: 72px;
+  }
+
+  .gm-products-container {
+    padding: 0 20px;
+  }
+
+  .gm-products-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gm-product-card {
+    padding: 32px 20px;
+    border-radius: 20px;
+  }
+
+  .gm-product-stage {
+    height: 300px;
+  }
+
+  .gm-collection-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .gm-collection-subtitle {
+    font-size: 14.5px;
+  }
+}
+
+/* Small Screen Mobile (<= 430px) */
+@media (max-width: 430px) {
+  .gm-products-banner-badge {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .gm-products-banner-cta {
+    padding: 10px 22px;
+    font-size: 12.5px;
+  }
+
+  .gm-product-stage {
+    height: 270px;
+  }
+
+  .gm-view-more-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 13px 24px;
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Mobile (<= 360px) */
+@media (max-width: 360px) {
+  .gm-products-container {
+    padding: 0 14px;
+  }
+
+  .gm-product-stage {
+    height: 240px;
+  }
+
+  .gm-products-banner-title {
+    font-size: 30px;
+  }
+}
+
+/* ==========================================================================
+   4. BOTTLE QUICK VIEW MODAL
+   Cinematic Lightbox Bottle Showcase
+   ========================================================================== */
+.gm-bottle-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(18, 12, 14, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 3vw, 32px);
+  box-sizing: border-box;
+  animation: gmFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes gmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gm-bottle-modal-dialog {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--gm-border-subtle);
+  border-radius: 28px;
+  max-width: 820px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  padding: clamp(28px, 4vw, 48px);
+  animation: gmScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes gmScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.gm-bottle-modal-close {
+  position: absolute;
+  top: clamp(16px, 2.5vw, 24px);
+  right: clamp(16px, 2.5vw, 24px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--gm-border-light);
+  background: #ffffff;
+  color: var(--gm-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.gm-bottle-modal-close:hover {
+  background: var(--gm-brand-accent);
+  border-color: var(--gm-brand-accent);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.gm-bottle-modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(24px, 4vw, 44px);
+  align-items: center;
+}
+
+.gm-bottle-modal-visual {
+  position: relative;
+  height: clamp(340px, 45vh, 440px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gm-bottle-modal-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 85%;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.22) 0%, rgba(233, 78, 27, 0.08) 55%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.gm-bottle-modal-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 20px 32px rgba(74, 34, 19, 0.22));
+}
+
+.gm-bottle-modal-pedestal {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 16px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, transparent 72%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.gm-bottle-modal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.gm-bottle-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  background: rgba(115, 47, 3, 0.06);
+  border: 1px solid rgba(115, 47, 3, 0.16);
+  border-radius: 9999px;
+  font-family: 'Anybody', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+  margin-bottom: 12px;
+}
+
+.gm-bottle-modal-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--gm-text-dark);
+  margin: 0 0 14px 0;
+}
+
+.gm-bottle-modal-desc {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(14px, 1.1vw, 15.5px);
+  line-height: 1.6;
+  color: var(--gm-text-body);
+  margin: 0 0 22px 0;
+}
+
+.gm-bottle-modal-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 16px;
+  background: #faf7f4;
+  border: 1px solid var(--gm-border-subtle);
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.modal-feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.feature-label {
+  font-family: 'Anybody', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gm-text-muted);
+  font-weight: 600;
+}
+
+.feature-val {
+  font-family: 'Anybody', sans-serif;
+  font-size: 14px;
+  color: var(--gm-text-dark);
+  font-weight: 700;
+}
+
+.gm-bottle-modal-actions {
+  width: 100%;
+}
+
+.gm-bottle-modal-action-btn {
+  padding: 12px 32px;
+  border-radius: 9999px;
+  background: var(--gm-brand-accent);
+  border: 1.5px solid var(--gm-brand-accent);
+  color: #ffffff;
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(115, 47, 3, 0.25);
+}
+
+.gm-bottle-modal-action-btn:hover {
+  background: #5a2302;
+  border-color: #5a2302;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(115, 47, 3, 0.35);
+}
+
+@media (max-width: 640px) {
+  .gm-bottle-modal-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .gm-bottle-modal-visual {
+    height: 260px;
+  }
+
+  .gm-bottle-modal-info {
+    align-items: center;
+  }
+
+  .gm-bottle-modal-features {
+    text-align: left;
+  }
+}
+

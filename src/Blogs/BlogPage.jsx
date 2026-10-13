@@ -5,13 +5,7 @@ import { blogs } from '../components/Blogs/Blogs';
 import blogBannerImg from '../assets/daa4059b-45b0-48df-a1d7-8655210f3760.png';
 import './BlogPage.css';
 
-const CATEGORIES = [
-  'ALL',
-  'MIXOLOGY & COCKTAILS',
-  'FLAVOUR CRAFT',
-  'CULTURE & CELEBRATIONS',
-  'BEHIND THE BOTTLE'
-];
+
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
@@ -53,46 +47,6 @@ export default function BlogPage() {
           MAIN CONTENT AREA - 2-COLUMN EDITORIAL GRID
           ==================================================================== */}
       <main className="gm-blog-main-content" role="main">
-        {/* Category Filters Bar & Search */}
-        <div className="gm-blog-toolbar">
-          <div className="gm-blog-categories" role="tablist" aria-label="Blog Categories">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                role="tab"
-                aria-selected={selectedCategory === cat}
-                className={`gm-category-pill ${selectedCategory === cat ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(cat)}
-              >
-                {cat === 'ALL' ? 'All Stories' : cat}
-              </button>
-            ))}
-          </div>
-
-          <div className="gm-blog-search-wrap">
-            <i className="ri-search-line gm-search-icon" aria-hidden="true"></i>
-            <input
-              type="text"
-              className="gm-blog-search-input"
-              placeholder="Search articles..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              aria-label="Search articles"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                className="gm-search-clear"
-                onClick={() => setSearchQuery('')}
-                aria-label="Clear search"
-              >
-                <i className="ri-close-circle-fill"></i>
-              </button>
-            )}
-          </div>
-        </div>
-
         {/* ====================================================================
             STORIES GRID (2-Column Layout)
             ==================================================================== */}
@@ -125,7 +79,15 @@ export default function BlogPage() {
           ) : (
             <div className="gm-stories-grid">
               {filteredBlogs.map((blog) => (
-                <article key={blog.id || blog.title} className="gm-story-card">
+                <article
+                  key={blog.id || blog.title}
+                  className="gm-story-card"
+                  onClick={() => {
+                    window.location.hash = `#blog-detail-${blog.id}`;
+                    window.dispatchEvent(new Event('hashchange'));
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="gm-story-img-wrap">
                     <img
                       src={blog.image}
@@ -150,7 +112,15 @@ export default function BlogPage() {
                     <h3 className="gm-story-title">{blog.title}</h3>
                     <p className="gm-story-excerpt">{blog.description}</p>
                     <div className="gm-story-footer">
-                      <a href="#blogs-page" className="gm-story-link">
+                      <a
+                        href={`#blog-detail-${blog.id}`}
+                        className="gm-story-link"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.location.hash = `#blog-detail-${blog.id}`;
+                          window.dispatchEvent(new Event('hashchange'));
+                        }}
+                      >
                         <span>Read Story</span>
                         <i className="ri-arrow-right-up-line" aria-hidden="true"></i>
                       </a>

@@ -1,0 +1,624 @@
+/* ==========================================================================
+   Grand Master - Single Blog Details Page Styles
+   Aesthetic: Human-Crafted Editorial Typography, High Readability
+   Zero Artificial Shadows, Zero Glassmorphism, Zero Nested Card Clutter
+   ========================================================================== */
+
+:root {
+  --gm-white: #ffffff;
+  --gm-page-bg: #ffffff;
+  --gm-offwhite: #fbf9f6;
+  --gm-text-headings: #1a1214;
+  --gm-text-body: #342a2d;
+  --gm-text-muted: #7e7174;
+  --gm-brand-accent: #732f03;
+  --gm-divider: #eee7e2;
+  --gm-divider-subtle: #f4eee9;
+  --gm-tag-bg: #faf5f0;
+  --gm-tag-border: #ebd9cb;
+}
+
+/* Page Wrapper */
+.gm-single-blog-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--gm-page-bg);
+  color: var(--gm-text-body);
+  font-family: 'Anybody', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Main Navbar Background on Single Blog Page */
+.gm-single-blog-wrapper .gm-main-nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.gm-single-blog-wrapper .gm-main-nav::after {
+  opacity: 0 !important;
+}
+
+.gm-single-blog-wrapper .gm-main-nav.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Main Content Area */
+.gm-single-blog-main {
+  width: 100%;
+  padding-top: clamp(84px, 8.5vw, 116px);
+  position: relative;
+}
+
+/* ==========================================================================
+   GENEROUS EDITORIAL READING CONTAINER
+   Expanded container (~1280px max) aligned with site layout and luxury magazine proportions
+   ========================================================================== */
+.gm-blog-reading-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. BREADCRUMB & TOP BACK TO BLOG LINK
+   ========================================================================== */
+.gm-blog-top-bar {
+  width: 100%;
+  padding: clamp(20px, 2.8vh, 32px) 0 clamp(16px, 2vh, 24px) 0;
+  border-bottom: 1px solid var(--gm-divider-subtle);
+}
+
+.gm-blog-top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.gm-blog-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--gm-text-muted);
+}
+
+.breadcrumb-link {
+  color: var(--gm-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  color: var(--gm-brand-accent);
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: #c4b6b1;
+  user-select: none;
+  font-size: 12px;
+}
+
+.breadcrumb-current {
+  color: var(--gm-text-headings);
+  font-weight: 600;
+  max-width: 580px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gm-back-to-blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--gm-brand-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gm-back-to-blog-link .back-arrow {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.gm-back-to-blog-link:hover {
+  color: #923a04;
+  text-decoration: underline;
+}
+
+.gm-back-to-blog-link:hover .back-arrow {
+  transform: translateX(-4px);
+}
+
+/* ==========================================================================
+   2. ARTICLE HEADER
+   Small category label, prominent editorial title, short excerpt, byline
+   ========================================================================== */
+.gm-article-header {
+  padding-top: clamp(36px, 5vh, 56px);
+  padding-bottom: clamp(24px, 3vh, 36px);
+}
+
+.gm-article-category-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+  margin-bottom: clamp(14px, 2vh, 20px);
+}
+
+.gm-article-editorial-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  color: var(--gm-text-headings);
+  margin: 0 0 clamp(16px, 2vh, 22px) 0;
+  text-transform: uppercase;
+}
+
+.gm-article-short-excerpt {
+  font-size: clamp(17px, 1.35vw, 20px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #554448;
+  margin: 0 0 clamp(22px, 3vh, 32px) 0;
+}
+
+.gm-article-byline-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--gm-text-muted);
+  padding-bottom: clamp(20px, 2.5vh, 28px);
+  border-bottom: 1px solid var(--gm-divider);
+}
+
+.byline-author {
+  font-weight: 700;
+  color: var(--gm-text-headings);
+  letter-spacing: 0.02em;
+}
+
+.byline-divider {
+  color: #d8ccc7;
+  user-select: none;
+}
+
+.byline-date,
+.byline-read-time {
+  color: var(--gm-text-muted);
+}
+
+/* ==========================================================================
+   3. FEATURED IMAGE
+   One large image, natural proportions, clean spacing
+   ========================================================================== */
+.gm-article-featured-image-section {
+  width: 100%;
+  margin-bottom: clamp(36px, 5vh, 52px);
+}
+
+.gm-featured-figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.gm-featured-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 640px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 4px;
+}
+
+.gm-featured-caption {
+  font-size: 12px;
+  color: var(--gm-text-muted);
+  font-style: italic;
+  margin-top: 10px;
+  text-align: right;
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   4. ARTICLE BODY
+   Readable paragraphs, elegant H2/H3 headings, bullet lists, blockquotes
+   ========================================================================== */
+.gm-article-content-body {
+  width: 100%;
+  color: var(--gm-text-body);
+}
+
+.article-lead {
+  font-size: clamp(18px, 1.35vw, 20.5px);
+  line-height: 1.76;
+  color: #261c1e;
+  font-weight: 400;
+  margin-bottom: clamp(24px, 3vh, 32px);
+}
+
+.gm-article-content-body p {
+  font-size: clamp(16px, 1.15vw, 17.5px);
+  line-height: 1.82;
+  color: var(--gm-text-body);
+  margin: 0 0 clamp(20px, 2.5vh, 28px) 0;
+}
+
+.gm-article-content-body h2 {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(22px, 2.3vw, 29px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--gm-text-headings);
+  margin-top: clamp(40px, 5.5vh, 56px);
+  margin-bottom: clamp(14px, 1.8vh, 20px);
+  text-transform: uppercase;
+}
+
+.gm-article-content-body h3 {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--gm-text-headings);
+  margin-top: clamp(28px, 3.8vh, 40px);
+  margin-bottom: clamp(12px, 1.5vh, 16px);
+}
+
+.gm-article-content-body ul,
+.gm-article-content-body ol {
+  margin: clamp(18px, 2.2vh, 24px) 0 clamp(24px, 3vh, 32px) 0;
+  padding-left: 24px;
+  font-size: clamp(15.5px, 1.1vw, 17px);
+  line-height: 1.8;
+  color: var(--gm-text-body);
+}
+
+.gm-article-content-body li {
+  margin-bottom: 10px;
+}
+
+.gm-article-content-body strong {
+  color: var(--gm-text-headings);
+  font-weight: 700;
+}
+
+/* Blockquote */
+.gm-article-content-body blockquote {
+  margin: clamp(36px, 5vh, 52px) 0;
+  padding: clamp(18px, 2.5vh, 26px) 0 clamp(18px, 2.5vh, 26px) clamp(22px, 3vw, 32px);
+  border-left: 2.5px solid var(--gm-brand-accent);
+  font-size: clamp(19px, 1.8vw, 23px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.52;
+  color: var(--gm-brand-accent);
+  background: transparent;
+}
+
+.gm-article-content-body blockquote cite {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gm-text-muted);
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   5. ARTICLE FOOTER
+   Subtle divider, relevant tags, simple social sharing icons, bottom back link
+   ========================================================================== */
+.gm-article-footer-section {
+  width: 100%;
+  margin-top: clamp(48px, 6.5vh, 72px);
+  padding-top: clamp(28px, 3.5vh, 40px);
+  border-top: 1px solid var(--gm-divider);
+}
+
+.gm-article-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Tags */
+.gm-article-tags-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gm-text-muted);
+  margin-right: 4px;
+}
+
+.gm-tags-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gm-tag-item {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gm-brand-accent);
+  background: var(--gm-tag-bg);
+  border: 1px solid var(--gm-tag-border);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.gm-tag-item:hover {
+  background: #f4eae0;
+  border-color: var(--gm-brand-accent);
+}
+
+/* Simple Social Share */
+.gm-article-share-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.share-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gm-text-muted);
+}
+
+.gm-share-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gm-share-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #dcd1c9;
+  background: transparent;
+  color: #4a3e41;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+}
+
+.gm-share-icon-btn:hover,
+.gm-share-icon-btn.copied {
+  border-color: var(--gm-brand-accent);
+  color: var(--gm-brand-accent);
+  background: rgba(115, 47, 3, 0.06);
+}
+
+.gm-bottom-back-row {
+  margin-top: clamp(28px, 4vh, 40px);
+  padding-top: clamp(20px, 2.5vh, 28px);
+  border-top: 1px solid var(--gm-divider-subtle);
+}
+
+/* ==========================================================================
+   6. RELATED BLOGS
+   2–3 clean minimal previews, no excessive cards, no heavy shadows
+   ========================================================================== */
+.gm-related-blogs-section {
+  width: 100%;
+  margin-top: clamp(56px, 7.5vh, 84px);
+  padding-top: clamp(40px, 5.5vh, 60px);
+  padding-bottom: clamp(72px, 9.5vh, 110px);
+  border-top: 1px solid var(--gm-divider);
+  background: #ffffff;
+}
+
+.gm-related-blogs-header {
+  margin-bottom: clamp(28px, 4vh, 40px);
+}
+
+.gm-related-blogs-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: var(--gm-text-headings);
+  margin: 0 0 6px 0;
+}
+
+.gm-related-blogs-subtitle {
+  font-size: 13.5px;
+  color: var(--gm-text-muted);
+  margin: 0;
+}
+
+.gm-related-blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(22px, 2.8vw, 32px);
+}
+
+.gm-related-blog-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: opacity 0.2s ease;
+}
+
+.gm-related-thumb-frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--gm-offwhite);
+  margin-bottom: 14px;
+}
+
+.gm-related-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gm-related-blog-card:hover .gm-related-thumb-img {
+  transform: scale(1.04);
+}
+
+.gm-related-blog-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gm-related-cat-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+  margin-bottom: 6px;
+}
+
+.gm-related-blog-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--gm-text-headings);
+  margin: 0 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.gm-related-blog-card:hover .gm-related-blog-title {
+  color: var(--gm-brand-accent);
+}
+
+.gm-related-blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--gm-text-muted);
+  margin-bottom: 12px;
+}
+
+.meta-dot {
+  color: #d8ccc7;
+  user-select: none;
+}
+
+.gm-related-read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gm-brand-accent);
+  text-decoration: none;
+  margin-top: auto;
+  transition: color 0.2s ease;
+}
+
+.read-more-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.gm-related-read-more-link:hover {
+  color: #923a04;
+  text-decoration: underline;
+}
+
+.gm-related-read-more-link:hover .read-more-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .gm-related-blogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .gm-blog-top-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .breadcrumb-current {
+    max-width: 220px;
+  }
+
+  .gm-article-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .gm-related-blogs-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .gm-article-content-body blockquote {
+    padding-left: 18px;
+  }
+}

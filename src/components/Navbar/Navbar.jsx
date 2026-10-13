@@ -110,6 +110,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       return;
     }
 
+    if (target === 'products' || target === 'collection') {
+      window.location.hash = '#products';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     // For products, shop, flavours
     const hash = '#' + target;
     window.location.hash = hash;
@@ -147,11 +153,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             ABOUT US
           </a>
           <a 
-            href="#flavours" 
+            href="#products" 
             className="nav-link" 
-            onClick={(e) => navigateTo('flavours', e)}
+            onClick={(e) => navigateTo('products', e)}
           >
-            FLAVOURS
+            PRODUCTS
           </a>
           <a 
             href="#" 

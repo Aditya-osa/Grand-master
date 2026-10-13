@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import ContactUs from './Contact/Contact-us';
 import BlogPage from './Blogs/BlogPage';
+import BlogDetails from './Blogs/Blog-details';
 import About from './Aboutus/About';
+import Products from './pages/Products/Products';
 
 export default function App() {
   const [currentView, setCurrentView] = useState(() => {
     const hash = (window.location.hash || '').toLowerCase();
     const pathname = (window.location.pathname || '').toLowerCase();
     if (hash === '#contact' || pathname === '/contact') return 'contact';
+    if (hash.startsWith('#blog-detail') || (hash.startsWith('#blog-') && hash !== '#blogs')) return 'blog-details';
     if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') return 'blogs';
     if (hash === '#about' || pathname === '/about') return 'about';
+    if (hash.startsWith('#product') || hash === '#products' || pathname === '/products' || hash === '#collection' || pathname === '/collection') return 'products';
     return 'home';
   });
 
@@ -21,15 +25,21 @@ export default function App() {
       if (hash === '#contact' || pathname === '/contact') {
         setCurrentView('contact');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash.startsWith('#blog-detail') || (hash.startsWith('#blog-') && hash !== '#blogs')) {
+        setCurrentView('blog-details');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') {
         setCurrentView('blogs');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (hash === '#about' || pathname === '/about') {
         setCurrentView('about');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash.startsWith('#product') || hash === '#products' || pathname === '/products' || hash === '#collection' || pathname === '/collection') {
+        setCurrentView('products');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
-        if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#' && hash !== '#blogs' && hash !== '#blog' && hash !== '#about') {
+        if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#' && hash !== '#blogs' && hash !== '#blog' && !hash.startsWith('#blog-') && hash !== '#about' && !hash.startsWith('#product') && hash !== '#collection') {
           setTimeout(() => {
             const el = document.querySelector(hash);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -43,11 +53,17 @@ export default function App() {
       if (target === 'contact') {
         setCurrentView('contact');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target.startsWith('blog-detail') || target === 'blog-details') {
+        setCurrentView('blog-details');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (target === 'blogs' || target === 'blog') {
         setCurrentView('blogs');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (target === 'about') {
         setCurrentView('about');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'products' || target === 'collection') {
+        setCurrentView('products');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
@@ -74,8 +90,10 @@ export default function App() {
   }, []);
 
   if (currentView === 'contact') return <ContactUs />;
+  if (currentView === 'blog-details') return <BlogDetails />;
   if (currentView === 'blogs') return <BlogPage />;
   if (currentView === 'about') return <About />;
+  if (currentView === 'products') return <Products />;
   return <Home />;
 }
 

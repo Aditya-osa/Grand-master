@@ -114,13 +114,18 @@
 
 /* ==========================================================================
    MAIN CONTENT CONTAINER
+   Aligned with Header Left & Right Horizontal Margins Across All Screens
    ========================================================================== */
 .gm-blog-main-content {
   position: relative;
   width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: clamp(36px, 4.5vw, 64px) clamp(20px, 3.5vw, 48px);
+  max-width: 100%;
+  margin: 0;
+  --blog-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-left: var(--blog-pad-x);
+  padding-right: var(--blog-pad-x);
+  padding-top: clamp(40px, 5vw, 64px);
+  padding-bottom: clamp(64px, 8vw, 100px);
   box-sizing: border-box;
 }
 
@@ -719,3 +724,37 @@
     min-height: 220px;
   }
 }
+
+/* ==========================================================================
+   Header Alignment Responsive Breakpoints (Matches Navbar --nav-pad-x)
+   ========================================================================== */
+@media (max-width: 1199px) {
+  .gm-blog-main-content {
+    --blog-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 1023px) {
+  .gm-blog-main-content {
+    --blog-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 767px) {
+  .gm-blog-main-content {
+    --blog-pad-x: max(20px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 599px) {
+  .gm-blog-main-content {
+    --blog-pad-x: max(16px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 374px) {
+  .gm-blog-main-content {
+    --blog-pad-x: max(12px, env(safe-area-inset-left));
+  }
+}
+
