@@ -269,6 +269,84 @@
   max-width: 720px;
 }
 
+/* Master Bottle Size Filter Controls in Collection Header */
+.gm-size-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(24px, 3vh, 32px);
+  width: 100%;
+}
+
+.gm-size-filter-label {
+  font-family: 'Anybody', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gm-text-muted);
+}
+
+.gm-size-filter-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(115, 47, 3, 0.04);
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid var(--gm-border-light);
+}
+
+.gm-size-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
+  border-radius: 9999px;
+  border: 1.5px solid transparent;
+  background: transparent;
+  color: var(--gm-text-dark);
+  font-family: 'Anybody', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none !important;
+}
+
+.gm-size-filter-btn .size-badge-icon {
+  font-size: 15px;
+}
+
+.gm-size-filter-btn .size-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.gm-size-filter-btn .size-sublabel {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.gm-size-filter-btn:hover {
+  background: rgba(115, 47, 3, 0.08);
+  color: var(--gm-brand-accent);
+}
+
+.gm-size-filter-btn.active {
+  background: var(--gm-brand-accent);
+  border-color: var(--gm-brand-accent);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(115, 47, 3, 0.3) !important;
+}
+
+.gm-size-filter-btn.active .size-sublabel {
+  opacity: 0.9;
+}
+
 /* ==========================================================================
    PRODUCT CARDS GRID
    Clean, Generous Spacing, Bottle-Centric Luxury Presentation (4 in a row)
@@ -320,6 +398,17 @@
   border-radius: 16px;
 }
 
+@keyframes gmCardBottleSwitch {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.96) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .gm-product-bottle-img {
   max-width: 100%;
   max-height: 100%;
@@ -331,11 +420,41 @@
   z-index: 2;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   filter: none !important;
+  animation: gmCardBottleSwitch 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.gm-product-bottle-img.gm-bottle-180ml {
+  max-height: 84%;
+}
+
+.gm-product-bottle-img.gm-bottle-750ml {
+  max-height: 100%;
 }
 
 .gm-product-card:hover .gm-product-bottle-img {
   transform: translateY(-8px) scale(1.04);
   filter: none !important;
+}
+
+/* Stage Size Tag */
+.gm-card-stage-size-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(115, 47, 3, 0.16);
+  font-family: 'Anybody', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--gm-brand-accent);
+  pointer-events: none;
+  z-index: 4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Product Metadata */
@@ -364,6 +483,63 @@
   margin: 0;
   line-height: 1.28;
   letter-spacing: -0.01em;
+}
+
+/* Card Size Selector Pills */
+.gm-card-size-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.gm-card-size-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  border: 1px solid var(--gm-border-light);
+  background: transparent;
+  color: var(--gm-text-body);
+  font-family: 'Anybody', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+}
+
+.gm-card-size-pill .card-pill-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gm-border-light);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gm-card-size-pill:hover {
+  border-color: var(--gm-brand-accent);
+  color: var(--gm-brand-accent);
+}
+
+.gm-card-size-pill:hover .card-pill-dot {
+  background: var(--gm-brand-accent);
+}
+
+.gm-card-size-pill.active {
+  background: var(--gm-brand-accent);
+  border-color: var(--gm-brand-accent);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(115, 47, 3, 0.25) !important;
+}
+
+.gm-card-size-pill.active .card-pill-dot {
+  background: #ffffff;
+  transform: scale(1.2);
 }
 
 /* Card View Button matching gm-hero-action-btn */

@@ -1,46 +1,61 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { PRODUCTS_DATA } from './productData';
+import { PRODUCTS_DATA, getProductImage, findProductById } from './productData';
 import './ProductDetail.css';
 
-export default function ProductDetail({ productId = 'blueberry', onBack, onSelectProduct }) {
-  const [selectedSize, setSelectedSize] = useState('750 ML');
-
-  // Find the active product or fallback to blueberry
+export default function ProductDetail({ 
+  productId = 'blueberry', 
+  initialSize = '750 ML', 
+  onBack, 
+  onSelectProduct 
+}) {
+  // Find the active product safely
   const product = useMemo(() => {
-    return PRODUCTS_DATA.find((p) => p.id === productId) || PRODUCTS_DATA[0];
+    return findProductById(productId);
   }, [productId]);
+
+  const [selectedSize, setSelectedSize] = useState(() => {
+    if (initialSize && product.sizes && product.sizes.includes(initialSize)) {
+      return initialSize;
+    }
+    return product.sizes && product.sizes.includes('750 ML') ? '750 ML' : product.sizes?.[0] || '750 ML';
+  });
 
   // 4 other bottles for the bottom section
   const relatedBottles = useMemo(() => {
     return PRODUCTS_DATA.filter((p) => p.id !== product.id).slice(0, 4);
   }, [product.id]);
 
-  // Scroll to top when bottle changes
+  // Sync size on product or initialSize change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (product.sizes && product.sizes.length > 0) {
-      setSelectedSize(product.sizes[product.sizes.length - 1]);
+    if (initialSize && product.sizes && product.sizes.includes(initialSize)) {
+      setSelectedSize(initialSize);
+    } else if (product.sizes && !product.sizes.includes(selectedSize)) {
+      setSelectedSize(product.sizes.includes('750 ML') ? '750 ML' : product.sizes[0]);
     }
-  }, [product]);
+  }, [product, initialSize]);
 
   const handleBack = (e) => {
     if (e) e.preventDefault();
     if (typeof onBack === 'function') {
-      onBack();
+      onBack(selectedSize);
     } else {
       window.location.hash = '#products';
     }
   };
 
-  const handleSelectRelated = (relatedId) => {
+  const handleSelectRelated = (relatedId, size = selectedSize) => {
     if (typeof onSelectProduct === 'function') {
-      onSelectProduct(relatedId);
+      onSelectProduct(relatedId, size);
     } else {
       window.location.hash = `#product-${relatedId}`;
     }
   };
+
+  const currentBottleImg = getProductImage(product, selectedSize);
+  const is180 = selectedSize.toString().toUpperCase().includes('180');
 
   return (
     <div className="gm-detail-page-wrapper" id="product-detail-page">
@@ -71,17 +86,21 @@ export default function ProductDetail({ productId = 'blueberry', onBack, onSelec
               <div className="gm-detail-stage-wrap">
                 <div className="gm-detail-stage">
                   <img
-                    src={product.img}
-                    alt={product.fullName}
-                    className="gm-detail-bottle-img"
+                    key={`${product.id}-${selectedSize}`}
+                    src={currentBottleImg}
+                    alt={`${product.fullName} - ${selectedSize}`}
+                    className={`gm-detail-bottle-img ${is180 ? 'gm-bottle-180ml' : 'gm-bottle-750ml'}`}
                     loading="eager"
                   />
+
+                  {/* Size Indicator Badge on Stage */}
+                 
                 </div>
               </div>
 
               {/* Right Column: Narrative & Technical Specifications */}
               <div className="gm-detail-info">
-            
+                <span className="gm-detail-category-badge">{product.tag}</span>
 
                 <h1 className="gm-detail-title">{product.fullName}</h1>
 
@@ -98,8 +117,8 @@ export default function ProductDetail({ productId = 'blueberry', onBack, onSelec
                     <span className="gm-spec-value gm-spec-highlight">{product.alcohol}</span>
                   </div>
 
-                  <div className="gm-spec-card">
-                    <span className="gm-spec-label">Size:</span>
+                  <div className="gm-spec-card gm-spec-card--size">
+                    <span className="gm-spec-label">Available Size:</span>
                     <div className="gm-size-options" role="group" aria-label="Available bottle sizes">
                       {product.sizes.map((size) => (
                         <button
@@ -107,8 +126,10 @@ export default function ProductDetail({ productId = 'blueberry', onBack, onSelec
                           type="button"
                           className={`gm-size-pill ${selectedSize === size ? 'active' : ''}`}
                           onClick={() => setSelectedSize(size)}
+                          aria-pressed={selectedSize === size}
                         >
-                          {size}
+                          <span className="pill-indicator-dot" />
+                          <span>{size}</span>
                         </button>
                       ))}
                     </div>
@@ -144,13 +165,12 @@ export default function ProductDetail({ productId = 'blueberry', onBack, onSelec
         </section>
 
         {/* ====================================================================
-            "and at the end show 4 bootel"
             4 Bottle Showcase from the Grand Master Collection
             ==================================================================== */}
         <section className="gm-detail-related" aria-label="Explore more spirits">
           <div className="gm-detail-container">
             <div className="gm-related-header">
-            
+              <span className="gm-related-eyebrow">GRAND MASTER RANGE</span>
               <h2 className="gm-related-title">EXPLORE MORE SPIRITS</h2>
               <p className="gm-related-subtitle">
                 Quadruple-distilled handcrafted vodkas infused with signature fruit and botanical essences.
@@ -158,50 +178,54 @@ export default function ProductDetail({ productId = 'blueberry', onBack, onSelec
             </div>
 
             <div className="gm-related-grid">
-              {relatedBottles.map((relProduct) => (
-                <article
-                  key={relProduct.id}
-                  className="gm-related-card"
-                  aria-label={relProduct.fullName}
-                >
-                  <div
-                    className="gm-related-stage"
-                    onClick={() => handleSelectRelated(relProduct.id)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View ${relProduct.fullName}`}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        handleSelectRelated(relProduct.id);
-                      }
-                    }}
+              {relatedBottles.map((relProduct) => {
+                const relImg = getProductImage(relProduct, selectedSize);
+                return (
+                  <article
+                    key={relProduct.id}
+                    className="gm-related-card"
+                    aria-label={relProduct.fullName}
                   >
-                    <img
-                      src={relProduct.img}
-                      alt={relProduct.fullName}
-                      className="gm-related-img"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div className="gm-related-meta">
-                    <span className="gm-related-tag">{relProduct.tag}</span>
-                    <h3 className="gm-related-name">{relProduct.name}</h3>
-
-                    {/* View Button for related bottle */}
-                    <button
-                      type="button"
-                      className="gm-hero-action-btn gm-related-view-btn"
-                      onClick={() => handleSelectRelated(relProduct.id)}
-                      aria-label={`View ${relProduct.name}`}
+                    <div
+                      className="gm-related-stage"
+                      onClick={() => handleSelectRelated(relProduct.id, selectedSize)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`View ${relProduct.fullName}`}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelectRelated(relProduct.id, selectedSize);
+                        }
+                      }}
                     >
-                      <span>View</span>
-                      <span className="gm-skip-arrow">→</span>
-                    </button>
-                  </div>
-                </article>
-              ))}
+                      <img
+                        key={`${relProduct.id}-${selectedSize}`}
+                        src={relImg}
+                        alt={relProduct.fullName}
+                        className="gm-related-img"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    <div className="gm-related-meta">
+                      <span className="gm-related-tag">{relProduct.tag}</span>
+                      <h3 className="gm-related-name">{relProduct.name}</h3>
+
+                      {/* View Button for related bottle */}
+                      <button
+                        type="button"
+                        className="gm-hero-action-btn gm-related-view-btn"
+                        onClick={() => handleSelectRelated(relProduct.id, selectedSize)}
+                        aria-label={`View ${relProduct.name}`}
+                      >
+                        <span>View</span>
+                        <span className="gm-skip-arrow">→</span>
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
