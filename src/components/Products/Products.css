@@ -465,7 +465,7 @@
   border: 1.5px solid #6c300a;
   border-radius: 999px;
 
-  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -519,7 +519,7 @@
 
 .ag-vodka-infused-text {
   fill: #fff600;
-  font-family: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-size: 21px;
   font-weight: 700;
   letter-spacing: 1px;

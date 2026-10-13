@@ -7,6 +7,7 @@
   position: relative;
   width: 100%;
   max-width: 100%;
+  margin: 0;
   box-sizing: border-box;
   overflow: hidden;
   isolation: isolate;
@@ -14,14 +15,18 @@
   /* Luxurious warm champagne / sand background matching reference image */
   background: radial-gradient(ellipse at 50% 20%, #FAF4ED 0%, #F5EAE0 50%, #ECE0D1 100%);
   color: #4A2213;
-  padding: clamp(64px, 6vw, 100px) clamp(18px, 3.5vw, 54px);
+  --enjoy-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-top: clamp(64px, 6vw, 100px);
+  padding-bottom: clamp(64px, 6vw, 100px);
+  padding-left: var(--enjoy-pad-x);
+  padding-right: var(--enjoy-pad-x);
 }
 
 .enjoy-flavours-inner {
   position: relative;
   width: 100%;
-  max-width: 1540px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -52,8 +57,7 @@
   margin: 0 0 16px 0;
 }
 .enjoy-flavours-description {
-  font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
-  font-variation-settings: 'opsz' 28;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(13px, 1.02vw, 15px);
   font-weight: 400;
   line-height: 1.2;
@@ -71,7 +75,7 @@
   gap: 12px;
   flex-shrink: 0;
   padding-top: 6px;
-  margin-right: clamp(24px, 3.5vw, 64px);
+  margin-right: 0;
 }
 
 /* Navigation Arrow Buttons */
@@ -120,7 +124,7 @@
   border: 1.5px solid #7c340f;
   background: transparent;
   color: #7c340f;
-  font-family: 'Bricolage Grotesque 28', 'Bricolage Grotesque', sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-variation-settings: 'opsz' 28;
   font-size: 14.5px;
   font-weight: 600;
@@ -209,11 +213,22 @@
 }
 
 /* ==========================================================================
-   Responsive Adaptations
+   Responsive Adaptations (Aligned with Header Spacing Breakpoints)
    ========================================================================== */
+
+/* Laptop: 1024px–1199px */
+@media (max-width: 1199px) {
+  .enjoy-flavours-section {
+    --enjoy-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+  }
+}
 
 /* Tablets Portrait & Medium Screens (768px to 1023px) */
 @media (max-width: 1023px) {
+  .enjoy-flavours-section {
+    --enjoy-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+  }
+
   .enjoy-flavours-cards {
     display: flex;
     gap: 18px;
@@ -244,7 +259,9 @@
 /* Mobile Devices (< 768px) */
 @media (max-width: 767px) {
   .enjoy-flavours-section {
-    padding: 48px 16px;
+    --enjoy-pad-x: max(20px, env(safe-area-inset-left));
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   .enjoy-flavours-header {
@@ -296,6 +313,15 @@
   }
 }
 
+/* Mobile Phones: 375px–599px */
+@media (max-width: 599px) {
+  .enjoy-flavours-section {
+    --enjoy-pad-x: max(16px, env(safe-area-inset-left));
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
 /* Small Phones (< 400px) */
 @media (max-width: 399px) {
   .enjoy-flavours-card {
@@ -311,6 +337,15 @@
   .enjoy-flavours-explore-btn {
     padding: 7px 18px;
     font-size: 12.5px;
+  }
+}
+
+/* Small Screen Mobile: <= 374px */
+@media (max-width: 374px) {
+  .enjoy-flavours-section {
+    --enjoy-pad-x: max(12px, env(safe-area-inset-left));
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
 

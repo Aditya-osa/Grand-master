@@ -9,7 +9,7 @@
   --color-yellow: #f39200;
   
   --font-serif: "Anybody", "Playfair Display", "ivymode", Georgia, serif;
-  --font-sans: "Anybody", "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Anybody", sans-serif;
   --font-anybody: "Anybody", sans-serif;
   
   --ease-premium: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -36,6 +36,10 @@ html, body, #root {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
 }
 
 .gm-home-wrapper,

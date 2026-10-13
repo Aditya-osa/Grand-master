@@ -412,7 +412,7 @@
 
 .banner-hero-container .info-box p {
   font-size: 1.25vw;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: 0.01em;
@@ -2508,7 +2508,7 @@
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.2);
   color: #732f03;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(13px, 1.05vw, 16px);
   font-weight: 700;
   letter-spacing: 0.02em;

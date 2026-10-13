@@ -8,6 +8,7 @@
   position: relative;
   width: 100%;
   max-width: 100%;
+  margin: 0;
   min-height: auto;
 
   background-color: #ffffff;
@@ -21,7 +22,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(48px, 8vh, 90px) clamp(24px, 6vw, 100px);
+  --distilled-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-top: clamp(48px, 8vh, 90px);
+  padding-bottom: clamp(48px, 8vh, 90px);
+  padding-left: var(--distilled-pad-x);
+  padding-right: var(--distilled-pad-x);
   box-sizing: border-box;
   isolation: isolate;
   overflow: clip;
@@ -52,8 +57,8 @@
 .distilled-to-inspire__inner {
   position: relative;
   width: 100%;
-  max-width: 1540px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: clamp(32px, 4vw, 56px);
@@ -106,8 +111,7 @@
    Inception Year Metadata (Original Styling)
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__inception {
-    font-family: 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
-    font-variation-settings: 'opsz' 28;
+    font-family: 'Anybody', sans-serif;
     margin-top:-10px;
     font-size: clamp(16.5px, 3.15vw, 24px);
     line-height: 0.5;
@@ -135,8 +139,7 @@
 }
 
 .distilled-to-inspire__paragraph {
-  font-family: 'Bricolage Grotesque 18', 'Bricolage Grotesque', sans-serif;
-  font-variation-settings: 'opsz' 18;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(17px, 1.35vw, 22px);
   font-weight: 400;
   line-height: 1.2;
@@ -152,37 +155,55 @@
 }
 
 /* --------------------------------------------------------------------------
-   Pill Action Button: Discover Our Flavors
+   Pill Action Button: Our Story (Styled matching gm-hero-action-btn)
+   Matches Hero Button: Pill shape with #732f03 border & text, frosted glass,
+   hover fill & shadow, animated arrow
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__btn {
   margin-top: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 28px;
-    border: 1.5px solid #b4561c;
-    border-radius: 9999px;
-    background: transparent;
-    color: #b4561c;
-    font-family: 'bricolage grotesque 18', 'Bricolage Grotesque', sans-serif;
-    font-variation-settings: 'opsz' 18;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: none !important;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 0.5vw, 10px);
+  padding: clamp(9px, 0.7vw, 12px) clamp(16px, 1.4vw, 22px);
+  border: 1.5px solid #732f03;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #732f03;
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(13px, 1.05vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(115, 47, 3, 0.08);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.distilled-to-inspire__btn-arrow {
+  display: inline-block;
+  font-size: clamp(14px, 1.1vw, 18px);
+  line-height: 1;
+  transition: transform 0.25s ease;
 }
 
 .distilled-to-inspire__btn:hover {
-  background: #d97706;
+  background: #732f03;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.3);
+  box-shadow: 0 6px 20px rgba(115, 47, 3, 0.25);
+}
+
+.distilled-to-inspire__btn:hover .distilled-to-inspire__btn-arrow {
+  transform: translateX(4px);
 }
 
 .distilled-to-inspire__btn:active {
   transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(115, 47, 3, 0.2);
 }
 
 /* --------------------------------------------------------------------------
@@ -311,8 +332,15 @@
 }
 
 /* ==========================================================================
-   Responsive Adaptations
+   Responsive Adaptations (Aligned with Header Spacing Breakpoints)
    ========================================================================== */
+
+/* Laptop: 1024px–1199px */
+@media (max-width: 1199px) {
+  .distilled-to-inspire {
+    --distilled-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+  }
+}
 
 @media (max-width: 1024px) {
   .distilled-to-inspire__inner {
@@ -342,9 +370,24 @@
   }
 }
 
+/* Tablet Landscape: 768px–1023px */
+@media (max-width: 1023px) {
+  .distilled-to-inspire {
+    --distilled-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+  }
+}
+
+/* Tablet Portrait & Large Phones: 600px–767px */
+@media (max-width: 767px) {
+  .distilled-to-inspire {
+    --distilled-pad-x: max(20px, env(safe-area-inset-left));
+  }
+}
+
 @media (max-width: 600px) {
   .distilled-to-inspire {
-    padding: clamp(32px, 5vh, 48px) 18px;
+    padding-top: clamp(32px, 5vh, 48px);
+    padding-bottom: clamp(32px, 5vh, 48px);
     min-height: auto;
   }
 
@@ -367,6 +410,28 @@
   .distilled-to-inspire__play-svg {
     width: 19px;
     height: 19px;
+  }
+}
+
+/* Mobile Phones: 375px–599px */
+@media (max-width: 599px) {
+  .distilled-to-inspire {
+    --distilled-pad-x: max(16px, env(safe-area-inset-left));
+  }
+
+  .distilled-to-inspire__btn {
+    padding: 7px 16px;
+    font-size: 12.5px;
+    border-width: 1.2px;
+  }
+}
+
+/* Small Screen Mobile: <= 374px */
+@media (max-width: 374px) {
+  .distilled-to-inspire {
+    --distilled-pad-x: max(12px, env(safe-area-inset-left));
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 }
 

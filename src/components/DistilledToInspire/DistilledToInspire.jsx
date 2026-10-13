@@ -62,8 +62,10 @@ Grand Master’s is more for the Youth because of the blended flavours and the v
             onClick={handleDiscoverClick}
             className="distilled-to-inspire__btn"
             id="discover-story-btn"
-          ><br/>
-            <span> Our Story</span>
+            aria-label="Discover Our Story"
+          >
+            <span>Our Story</span>
+            <span className="distilled-to-inspire__btn-arrow" aria-hidden="true">→</span>
           </a>
         </div>
 

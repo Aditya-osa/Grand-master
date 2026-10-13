@@ -4,7 +4,8 @@
    ========================================================================== */
 
 .stack-cards-section {
-  --track-pad: clamp(32px, 4vw, 64px);
+  --process-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  --track-pad: var(--process-pad-x);
   --card-gap: clamp(14px, 1.5vw, 22px);
   position: relative;
   width: 100%;
@@ -50,7 +51,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  padding: 0 var(--track-pad) 0 clamp(60px, 6.5vw, 130px);
+  padding: 0 var(--process-pad-x);
   margin-top: clamp(36px, 4.8vh, 64px);
   margin-bottom: clamp(16px, 2.2vh, 26px);
   z-index: 50;
@@ -78,8 +79,7 @@
 }
 
 .stack-cards-top-desc {
-  font-family: 'Bricolage Grotesque 18', 'bricolage grotesque 18', 'Bricolage Grotesque', sans-serif;
-  font-variation-settings: 'opsz' 18;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(14px, 1.15vw, 17px);
   font-weight: 400;
   line-height: 1.5;
@@ -143,7 +143,7 @@
   border: 1.5px solid #b85d19;
   background: transparent;
   color: #b85d19;
-  font-family: 'Bricolage Grotesque 28', 'Bricolage Grotesque', sans-serif;
+  font-family: 'Anybody', sans-serif;
   font-variation-settings: 'opsz' 28;
   font-size: 14.5px;
   font-weight: 600;
@@ -190,7 +190,7 @@
   align-items: flex-start;
   gap: var(--card-gap);
   width: max-content;
-  padding: 0 var(--track-pad) 20px clamp(60px, 6.5vw, 130px);
+  padding: 0 var(--process-pad-x) 20px var(--process-pad-x);
   will-change: transform;
 }
 
@@ -305,8 +305,7 @@
 }
 
 .stack-card__title {
-  font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
-  font-variation-settings: 'opsz' 28;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(18px,2.3vw,25px);
   font-weight: 700;
   line-height: 1.2;
@@ -321,8 +320,7 @@
 }
 
 .stack-card__desc {
-  font-family: 'Bricolage Grotesque 28', 'bricolage grotesque 28', 'Bricolage Grotesque', sans-serif;
-  font-variation-settings: 'opsz' 28;
+  font-family: 'Anybody', sans-serif;
   font-size: clamp(12px, 0.9vw, 14px);
   font-weight: 400;
   line-height: 1.35;
@@ -346,7 +344,8 @@
 /* 1. Large Desktop (1440px+) */
 @media (min-width: 1440px) {
   .stack-cards-section {
-    --track-pad: clamp(40px, 4.5vw, 80px);
+    --process-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+    --track-pad: var(--process-pad-x);
     --card-gap: clamp(16px, 1.6vw, 24px);
   }
 
@@ -361,20 +360,22 @@
     height: clamp(390px, 50vh, 450px);
   }
 
-  .horizontal-cards-track,
-  .stack-cards-top-header {
-    padding-left: clamp(72px, 7.5vw, 145px);
-  }
-
   .stack-cards-header-right {
-    margin-right: clamp(90px, 11vw, 240px);
+    margin-right: 0;
+  }
+}
+
+/* Laptop (1024px–1199px - Header Alignment Breakpoint) */
+@media (max-width: 1199px) {
+  .stack-cards-section {
+    --process-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+    --track-pad: var(--process-pad-x);
   }
 }
 
 /* 2. Desktop & Laptop (1024px–1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .stack-cards-section {
-    --track-pad: clamp(32px, 3.8vw, 56px);
     --card-gap: clamp(14px, 1.4vw, 20px);
   }
 
@@ -408,7 +409,8 @@
 /* 3. Tablet Landscape (768px–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .stack-cards-section {
-    --track-pad: clamp(24px, 3.5vw, 36px);
+    --process-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+    --track-pad: var(--process-pad-x);
     --card-gap: 16px;
   }
 
@@ -419,7 +421,8 @@
   .stack-cards-top-header {
     margin-top: clamp(20px, 3vh, 32px);
     margin-bottom: clamp(12px, 2vh, 18px);
-    padding-left: clamp(24px, 3.5vw, 36px);
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-cards-header-left {
@@ -437,7 +440,8 @@
   }
 
   .horizontal-cards-track {
-    padding-left: clamp(24px, 3.5vw, 36px);
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-card {
@@ -466,7 +470,8 @@
 /* 4. Tablet Portrait (600px–767px) */
 @media (min-width: 600px) and (max-width: 767px) {
   .stack-cards-section {
-    --track-pad: 24px;
+    --process-pad-x: max(20px, env(safe-area-inset-left));
+    --track-pad: var(--process-pad-x);
     --card-gap: 16px;
   }
 
@@ -477,7 +482,8 @@
   .stack-cards-top-header {
     margin-top: clamp(18px, 2.5vh, 26px);
     margin-bottom: clamp(10px, 1.8vh, 16px);
-    padding-left: 24px;
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-cards-header-left {
@@ -495,7 +501,8 @@
   }
 
   .horizontal-cards-track {
-    padding-left: 24px;
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-card {
@@ -524,7 +531,8 @@
 /* 5. Mobile (375px–599px) */
 @media (max-width: 599px) {
   .stack-cards-section {
-    --track-pad: 20px;
+    --process-pad-x: max(16px, env(safe-area-inset-left));
+    --track-pad: var(--process-pad-x);
     --card-gap: 14px;
   }
 
@@ -535,8 +543,8 @@
   .stack-cards-top-header {
     margin-top: clamp(14px, 2.2vh, 22px);
     margin-bottom: clamp(10px, 1.5vh, 14px);
-    padding-left: var(--track-pad);
-    padding-right: var(--track-pad);
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-cards-header-left {
@@ -556,7 +564,8 @@
   }
 
   .horizontal-cards-track {
-    padding-left: var(--track-pad);
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-card {
@@ -591,7 +600,8 @@
 /* 6. Small Mobile (320px–374px) */
 @media (max-width: 374px) {
   .stack-cards-section {
-    --track-pad: 14px;
+    --process-pad-x: max(12px, env(safe-area-inset-left));
+    --track-pad: var(--process-pad-x);
     --card-gap: 10px;
   }
 
@@ -602,8 +612,8 @@
   .stack-cards-top-header {
     margin-top: 12px;
     margin-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-cards-top-title {
@@ -617,11 +627,12 @@
   }
 
   .horizontal-cards-track {
-    padding-left: 14px;
+    padding-left: var(--process-pad-x);
+    padding-right: var(--process-pad-x);
   }
 
   .stack-card {
-    width: calc(100vw - 28px - 10px);
+    width: calc(100vw - (2 * var(--process-pad-x)) - 10px);
     max-width: 245px;
     height: clamp(290px, 50vh, 330px);
   }
