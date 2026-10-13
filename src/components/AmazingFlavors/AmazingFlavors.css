@@ -11,9 +11,9 @@
   /* Luxurious warm champagne / sand gradient matching Home Page sections */
   background: radial-gradient(
     ellipse at 50% 25%,
-    #FAF4ED 0%,
-    #F5EAE0 50%,
-    #ECE0D1 100%
+    #ffffff 0%,
+    #ffffff 50%,
+    #ffffff 100%
   );
   color: #4A2213;
   /* Decreased, compact section height */
@@ -89,11 +89,11 @@
 }
 
 .gm-flavors-main-title {
-  font-family: 'Anton', 'Anybody', sans-serif;
-  font-size: clamp(42px, 5.5vw, 72px);
+  font-family: 'Boldonse', sans-serif;
+  font-size: clamp(38px, 4.8vw, 56px);
   font-weight: 400;
   color: #4A2213;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin: 0;

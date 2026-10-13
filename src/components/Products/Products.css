@@ -525,9 +525,9 @@
 .ag-hero-title {
   margin: 0;
   margin-top: 4px;
-  font-family: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif;
-  font-size: clamp(44px, 4.8vw, 76px);
-  font-weight: 900;
+ font-family: 'Boldonse', sans-serif;
+  font-size: clamp(44px, 4.8vw, 50px);
+  font-weight: 400;
   line-height: 0.86;
   letter-spacing: -0.055em;
   text-transform: uppercase;

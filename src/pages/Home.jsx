@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import BannerHero from '../components/BannerHero';
 import Products from '../components/Products';
 import DistilledToInspire from '../components/DistilledToInspire';
+import AmazingFlavors from '../components/AmazingFlavors';
 import HorizontalCards from '../components/HorizontalCards';
 import Footer from '../components/Footer';
 import Enjoyflavours from '../components/Enjoy-flv/Enjoyflavours';
@@ -19,6 +20,7 @@ export default function Home() {
       <main className="gm-home-page" role="main">
         <BannerHero />
         <DistilledToInspire />
+        <AmazingFlavors />
         <Enjoyflavours />
         <Products />
         <HorizontalCards />

@@ -12,6 +12,15 @@
   src: url('/Fonts/Product Sans Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Boldonse';
+  src: url('/Fonts/Boldonse-Regular.ttf') format('truetype'),
+       url('https://fonts.gstatic.com/s/boldonse/v1/ZgNQjPxGPbbJUZemjC38.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 /* ==========================================================================
    MAIN CONTAINER
@@ -23,13 +32,13 @@
   overflow: hidden;
   z-index: 10;
   isolation: isolate;
+  font-family: 'Anybody', sans-serif;
 }
 
 .banner-hero-container *,
 .banner-hero-container *::before,
 .banner-hero-container *::after {
   box-sizing: border-box;
-  font-family: 'Anybody', sans-serif;
   box-shadow: none !important;
   text-shadow: none !important;
 }
@@ -147,7 +156,7 @@
     position: absolute;
     top: 17%;
     font-size: 29vh;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Boldonse', sans-serif !important;
     white-space: nowrap;
     user-select: none;
     text-transform: uppercase;
@@ -187,25 +196,26 @@
   transform: translateX(100vw);
 }
 
+.banner-hero-container .one #strawberry-text,
 .banner-hero-container #strawberry-text {
+  position: absolute !important;
+  top: 21% !important;
+  font-size: 17vh !important;
+  font-family: 'Boldonse', sans-serif !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  text-transform: uppercase !important;
+  line-height: 1.95 !important;
+  letter-spacing: 0.15vw !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: none !important;
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
   z-index: 1;
   opacity: 0;
-
-  background: linear-gradient(
-    90deg,
-    #e94b68 0%,
-    #e94b68 25%,
-    #efefef 50%,
-    #e94b68 75%,
-    #e94b68 100%
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: #ffffff;
-  -webkit-text-fill-color: transparent;
-  color: #ffffff;
-  text-shadow: none;
   transform: translateX(100vw);
 }
 .banner-hero-container #chocolate-text {
@@ -398,14 +408,14 @@
 }
 
 .banner-hero-container .info-box h2 {
-  font-size: 3.8vw;
-  font-family: 'Anton', sans-serif;
+  font-size: 3vw;
+  font-family: 'Boldonse', sans-serif !important;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   margin: 0 0 0.6vh 0;
   color: #ffffff;
-  line-height: 0.95;
+  line-height: 1.3;
   text-shadow: none !important;
   overflow-wrap: break-word;
 }
@@ -423,63 +433,63 @@
 }
 
 .banner-hero-container #info-orange h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Boldonse', sans-serif;
   color: #522409;
 }
 
 .banner-hero-container #info-orange p {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Anybody', sans-serif;
 
   color: #732F03;
 }
 
 .banner-hero-container #info-mango h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Boldonse', sans-serif;
   color: #522409;
 }
 
 .banner-hero-container #info-mango p {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Anybody', sans-serif;
   color: #7a4427;
 }
 
 .banner-hero-container #info-strawberry h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Boldonse', sans-serif !important;
   color: #CF173A;
 }
 
 .banner-hero-container #info-strawberry p {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Anybody', sans-serif;
   color: #CF173A;
 }
 
 .banner-hero-container #info-chocolate h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Boldonse', sans-serif;
   color: #2e1608;
 }
 
 .banner-hero-container #info-chocolate p {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Anybody', sans-serif;
   color: #5a3622;
 }
 
 .banner-hero-container #info-melon h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Boldonse', sans-serif;
   color: #22380d;
 }
 
 .banner-hero-container #info-melon p {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Anybody', sans-serif;
   color: #426323;
 }
 
 .banner-hero-container #info-blueberry h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Boldonse', sans-serif;
   color: #30438a;
 }
 
 .banner-hero-container #info-blueberry p {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Anybody', sans-serif;
   color: #6e7fae;
 }
 

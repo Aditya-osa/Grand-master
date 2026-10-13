@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './Enjoy-flv.css';
 import { flavor1, flavor2, flavor3, flavor4 } from '../../assets/Flavors';
+import bgImage from '../../assets/image copy 4.png';
 
 const FLAVOUR_ITEMS = [
   {
@@ -58,6 +59,7 @@ export default function Enjoyflavours() {
       className="enjoy-flavours-section"
       id="flavours"
       aria-label="Enjoy Unique Flavours"
+      style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="enjoy-flavours-inner">
         {/* Top Header Row */}

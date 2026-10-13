@@ -12,8 +12,10 @@
   overflow: hidden;
   isolation: isolate;
 
-  /* Luxurious warm champagne / sand background matching reference image */
-  background: radial-gradient(ellipse at 50% 20%, #FAF4ED 0%, #F5EAE0 50%, #ECE0D1 100%);
+  background-color: #faf5ee;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #4A2213;
   --enjoy-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
   padding-top: clamp(64px, 6vw, 100px);
@@ -47,8 +49,8 @@
   max-width: 980px;
 }
 .enjoy-flavours-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(34px, 4.2vw, 66px);
+font-family: 'Boldonse', sans-serif;
+  font-size: clamp(34px, 4.2vw, 50px);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;

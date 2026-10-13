@@ -123,6 +123,18 @@ export function BlogCard({ blog }) {
       </div>
       <span className="gm-insight-tag">{blog.category}</span>
       <h3 className="gm-insight-card-title">{blog.title}</h3>
+      <button
+        type="button"
+        className="gm-insight-read-more-btn"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleCardClick();
+        }}
+        aria-label={`Read more: ${blog.title}`}
+      >
+        <span>Read More</span>
+        <span className="gm-read-more-arrow" aria-hidden="true">&rarr;</span>
+      </button>
     </article>
   );
 }

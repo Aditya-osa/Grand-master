@@ -1,10 +1,11 @@
-import bottle1 from '../../assets/bottles/strawberry-bottle.png';
-import bottle2 from '../../assets/Products/1.png'; // Chocolate
-import bottle3 from '../../assets/Products/6.png'; // Mango
-import bottle4 from '../../assets/Products/5.png'; // Melon
-import bottle5 from '../../assets/Products/4.png'; // Blue Berry
-import bottle6 from '../../assets/bottles/strawberry-bottle.png'; // Strawberry Reserve
-import bottle7 from '../../assets/Products/3.png'; // Orange
+// Bottle images matching BannerHero
+const bottle1 = '/Assets/5.png'; // Strawberry (Banner)
+import bottle2 from '../../assets/bottles/chocolate-bottle.png'; // Chocolate (Banner)
+import bottle3 from '../../assets/bottles/all-flav/3.png'; // Mango (Banner)
+import bottle4 from '../../assets/bottles/all-flav/melon-bottle-hd.png'; // Melon (Banner)
+import bottle5 from '../../assets/bottles/Blue berry bottle.png'; // Blueberry (Banner)
+const bottle6 = '/Assets/5.png'; // Strawberry Reserve (Banner)
+const bottle7 = '/Assets/7.png'; // Orange (Banner)
 import bottle8 from '../../assets/Products/Blue curacao.png'; // Blue Curacao
 import bottle9 from '../../assets/Products/Plain.png'; // Plain
 import bottle10 from '../../assets/Products/Green Apple.png'; // Green Apple

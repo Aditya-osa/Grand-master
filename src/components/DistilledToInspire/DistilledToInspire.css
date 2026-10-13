@@ -82,8 +82,8 @@
    Heading: DISTILLED TO INSPIRE (Original Styling)
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(34px, 4.2vw, 66px);
+  font-family: 'Boldonse', sans-serif;
+  font-size: clamp(34px, 4.2vw, 50px);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -641,8 +641,8 @@
 }
 
 .distilled-about-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(34px, 4.2vw, 66px);
+  font-family: 'Boldonse', sans-serif;
+  font-size: clamp(34px, 4.2vw, 50px);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
