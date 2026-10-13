@@ -57,9 +57,6 @@ export default function BlogPage() {
 
         {/* Foreground Hero Content Lockup */}
         <div className="blog-banner-content">
-          <span className="blog-banner-eyebrow">
-            ★ JOURNAL &amp; STORIES ★
-          </span>
           <h1 className="blog-banner-title">OUR BLOGS</h1>
           <p className="blog-banner-desc">
             Explore stories, cocktail recipes, and behind-the-scenes craft from Grand Master.

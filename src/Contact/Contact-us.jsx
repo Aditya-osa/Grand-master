@@ -81,9 +81,6 @@ export default function ContactUs() {
 
         {/* Foreground Hero Content Lockup */}
         <div className="contact-banner-content">
-          <span className="contact-banner-eyebrow">
-            ★ GET IN TOUCH ★
-          </span>
           <h1 className="contact-banner-title">CONTACT US</h1>
           <p className="contact-banner-desc">
             Connect with the Grand Master team and experience craftsmanship at its finest.

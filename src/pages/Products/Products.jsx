@@ -66,26 +66,14 @@ export default function Products() {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       tl.fromTo(
-        '.gm-products-banner-badge',
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.15 }
+        '.gm-products-banner-title',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, delay: 0.15 }
       )
-        .fromTo(
-          '.gm-products-banner-title',
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          '-=0.5'
-        )
         .fromTo(
           '.gm-products-banner-desc',
           { opacity: 0, y: 24 },
           { opacity: 1, y: 0, duration: 0.8 },
-          '-=0.6'
-        )
-        .fromTo(
-          '.gm-products-banner-cta',
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.75 },
           '-=0.5'
         );
 
@@ -224,9 +212,6 @@ export default function Products() {
        
           {/* Foreground Hero Content Lockup */}
           <div className="gm-products-banner-content">
-            <span className="gm-products-banner-badge">
-              <span className="badge-star">★</span> PLATINUM SPIRITS COLLECTION <span className="badge-star">★</span>
-            </span>
             <h1 className="gm-products-banner-title">OUR PRODUCTS</h1>
             <p className="gm-products-banner-desc">
               Quadruple-distilled handcrafted vodkas infused with pure botanical &amp; natural fruit essences.
