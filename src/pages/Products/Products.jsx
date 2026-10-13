@@ -202,6 +202,7 @@ export default function Products() {
           className="gm-products-banner"
           aria-label="Grand Master Spirits Collection Banner"
         >
+          <div className="gm-products-banner-overlay" aria-hidden="true" />
           <video
             className="gm-products-banner-video"
             autoPlay

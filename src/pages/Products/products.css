@@ -71,10 +71,13 @@
   pointer-events: none;
 }
 
-/* Overlays removed to show clean, unobstructed banner video */
-.gm-products-banner-bg-layer,
-.gm-products-banner-mesh-overlay {
-  display: none !important;
+/* Video Overlay */
+.gm-products-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 13, 13, 0.35);
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Giant Watermark Typography matching Contact Us .banner-giant-text */
