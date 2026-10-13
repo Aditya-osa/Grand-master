@@ -37,6 +37,7 @@ export default function BlogPage() {
           HERO BANNER - Clean Video Presentation
           ==================================================================== */}
       <section className="gm-blog-banner" aria-label="Grand Master Journal & Insights">
+        <div className="blog-banner-overlay" aria-hidden="true" />
         <video
           className="blog-banner-video"
           autoPlay

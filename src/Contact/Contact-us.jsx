@@ -61,6 +61,7 @@ export default function ContactUs() {
           HALF BANNER (SIMPLE & CLASSIC LIGHT PALETTE)
           ==================================================================== */}
       <section className="gm-half-banner" aria-label="Grand Master Contact Banner">
+        <div className="banner-video-overlay" aria-hidden="true" />
         <video
           className="banner-bg-video"
           autoPlay

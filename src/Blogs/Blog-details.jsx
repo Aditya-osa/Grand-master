@@ -4,197 +4,348 @@ import Footer from '../components/Footer';
 import { blogs } from '../components/Blogs/Blogs';
 import './Blog-details.css';
 
-// Editorial content for each article with volume, quotes, and degustation notes removed for a cleaner reading experience
+// Editorial content for each article extracted faithfully from the Grand Master SEO blog drafts PDF
 export const BLOG_EXTENDED_CONTENT = {
   1: {
     subtitle:
-      'Inside our signature sunset serve featuring Grand Master Zesty Lemon Vodka, cold-infused Mediterranean citrus oils, and crisp effervescent botanicals.',
+      'Understand classic and flavoured vodka profiles, from fruit and citrus notes to coffee and chocolate, with this neutral guide to tasting vocabulary.',
     intro:
-      'The golden hour is more than just a fleeting window of afternoon light—it is a sensory ritual. Crafted to capture the transition from sunlit afternoons to electric evenings, The Golden Hour Spritz showcases the bright, aromatic Mediterranean citrus profile of Grand Master Zesty Lemon Platinum Vodka.',
-    tags: ['Mixology', 'Zesty Lemon', 'Cocktail Recipes', 'Summer Serve'],
-    author: 'Grand Master Mixology Atelier',
-    date: 'October 14, 2026',
+      'Vodka is often described as a neutral spirit, but products can differ in aroma, texture and flavour. Flavoured varieties add another layer, ranging from fruit-inspired notes to dessert-style or botanical profiles. Knowing the vocabulary makes product descriptions easier to understand and helps readers compare styles without relying on vague claims.',
+    tags: ['Vodka Flavours', 'Fruit & Citrus', 'Classic Profiles', 'Tasting Vocabulary', 'Sensory Guide'],
+    author: 'Grand Master Editorial',
+    date: 'October 2026',
     readTime: '4 min read',
+    primaryKeyword: 'vodka flavours',
+    seoTitle: 'Vodka Flavours Explained: A Guide to Fruit, Citrus and Classic Profiles',
+    suggestedSlug: '/vodka-flavours-guide/',
+    internalLinks: [
+      { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
+      { text: 'Grand Master Official Home', url: 'https://www.grandmasters.co/' },
+      { text: 'Grand Master Journal & Blog', url: 'https://www.grandmasters.co/blog/' },
+    ],
     sections: [
       {
-        heading: 'The Alchemy of Pure Citrus',
+        heading: 'What does “classic” vodka mean?',
         paragraphs: [
-          'Unlike conventional flavoured spirits that rely on heavy syrups and artificial essences, Grand Master Zesty Lemon is cold-infused with real lemon peel botanical oils. The result is a vibrant, sparkling citrus aroma that blossoms the moment it touches crystal ice, without a trace of cloying sweetness.',
-          'Temperature management is the secret to an extraordinary spritz. Always chill your glassware in advance and use dense, hand-cut clear ice rocks to prevent premature dilution while sipping.',
+          'A classic or plain vodka is generally intended to have a relatively restrained aroma and flavour. Depending on the product and production method, people may notice subtle cereal, mineral or peppery notes. Descriptions such as “clean” or “neutral” are tasting terms, not guarantees that a spirit is safer or healthier.',
         ],
       },
       {
-        heading: 'The Master Serve Formulation',
+        heading: 'Fruit and citrus profiles',
         paragraphs: [
-          'To prepare the signature serve at home or behind a professional bar, gather the following hand-selected ingredients and chilled mixers:',
-        ],
-        ingredients: [
-          '60 ml Grand Master Zesty Lemon Platinum Vodka',
-          '30 ml Freshly strained Meyer lemon juice',
-          '20 ml Artisanal elderflower cordial or simple syrup',
-          '90 ml Dry sparkling Indian tonic or mineral club soda',
-          'Garnish: Fresh garden mint sprig & flamed lemon peel twist',
+          'Fruit-flavoured varieties may draw on familiar flavour cues such as cranberry, mango, green apple, orange, watermelon or mixed berries. Citrus profiles are often described as bright or zesty, while berry profiles may be characterised as tart, sweet-smelling or jammy. Actual flavour depends on the product, so use the producer’s verified tasting notes rather than assuming all products taste alike.',
         ],
       },
       {
-        heading: 'Method & Service Technique',
+        heading: 'Dessert-inspired and unusual profiles',
         paragraphs: [
-          'Follow these barcraft steps to assemble the cocktail with proper aromatic release and effervescence:',
+          'Chocolate, coffee or cinnamon-inspired profiles use familiar aroma references. These terms describe flavour direction; they do not necessarily mean the product contains the food itself. Check the label and product information for accurate ingredient and allergen details.',
         ],
-        steps: [
-          'Fill a chilled crystal balloon glass or stemmed wine glass with dense ice rocks.',
-          'Pour Grand Master Zesty Lemon, strained lemon juice, and elderflower cordial directly over ice.',
-          'Gently roll with a teardrop bar spoon for ten seconds to chill without diluting volatile oils.',
-          'Slowly top with sparkling tonic water along the spiral of the spoon to preserve effervescence.',
-          'Express lemon peel oils over the surface, slap the mint sprig to release aromatics, and float as garnish.',
+      },
+      {
+        heading: 'How to read a flavour description',
+        paragraphs: [
+          'Look for the specific flavour named on the label, the alcohol-by-volume (ABV) statement, bottle size, producer information and any legally required warnings. “Natural,” “premium,” “smooth” and similar terms should not be treated as proof of a measurable quality unless the producer can substantiate the claim.',
+        ],
+      },
+      {
+        heading: 'Explore the range',
+        paragraphs: [
+          'Grand Master’s lists multiple flavoured and plain vodka varieties on its Flavours page. Availability can differ by location and is subject to local law. Consult the official product information for the current range rather than relying on an old article or third-party listing.',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'A useful flavour guide explains sensory vocabulary clearly and avoids health promises. For factual product details, refer to the current label and the producer’s official flavour listing. Alcohol is for adults of legal drinking age only; do not drink and drive.',
+        ],
+      },
+      {
+        heading: 'Suggested SEO Implementation',
+        paragraphs: [
+          'Use the primary keyword naturally in the page title, opening paragraph and one relevant subheading where appropriate. Link to the official Flavours page and one closely related article. Add a descriptive image alt text that accurately describes the image. Before publishing, confirm all product claims against current labels and obtain compliance approval.',
         ],
       },
     ],
   },
   2: {
     subtitle:
-      'Exploring how hand-selected orchard fruits, cold maceration, and fractional distillation preserve pure botanical character in every distillation run.',
+      'Learn what crisp, tart and fresh mean in green-apple flavour descriptions, and how to read product labels accurately.',
     intro:
-      'At House of Deejay Distillers, our philosophy rejects the shortcut of synthetic food flavorings. Every bottle in the Grand Master collection begins with hand-selected, orchard-grown fruits distilled alongside pure grain spirits.',
-    tags: ['Flavour Craft', 'Distillation', 'Real Fruit', 'House of Deejay'],
-    author: 'House of Deejay Distillers',
-    date: 'October 10, 2026',
-    readTime: '5 min read',
+      'Green apple is a familiar flavour reference because it can suggest a combination of fresh fruit aroma, gentle sweetness and tartness. On a product page, the phrase “green apple” is a flavour cue—not a promise that every brand will taste identical.',
+    tags: ['Green Apple Vodka', 'Flavour Notes', 'Crisp & Tart', 'Tasting Descriptors', 'Label Reading'],
+    author: 'Grand Master Editorial',
+    date: 'October 2026',
+    readTime: '4 min read',
+    primaryKeyword: 'green apple vodka',
+    seoTitle: 'Green Apple Flavour Notes: Understanding Crisp, Tart and Fruity Descriptions',
+    suggestedSlug: '/green-apple-flavour-notes/',
+    internalLinks: [
+      { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
+      { text: 'Grand Master Journal & Blog', url: 'https://www.grandmasters.co/blog/' },
+    ],
     sections: [
       {
-        heading: 'From Orchard Harvesting to Distillation Floors',
+        heading: 'What does “crisp” mean?',
         paragraphs: [
-          'Whether it is the tart juiciness of field cranberries, the lush fragrance of Alphonso mangoes, or the crisp bite of green apples, timing is critical. Fruits are cold-pressed at the precise peak of their sugar-to-acid ratio to preserve delicate volatile aromatics that high-heat industrial processes destroy.',
-        ],
-        bullets: [
-          'Green Apples: Hand-picked Granny Smith apples cold-pressed within 24 hours of harvest.',
-          'Field Cranberries: Northern bog berries selected for vibrant tart acidity and deep crimson hues.',
-          'Wild Blueberries: Small mountain berries prized for their intense floral aromatics.',
-          'Honeydew Melon: Ripe melons gently macerated to capture dewy, refreshing sweetness.',
+          'In tasting language, “crisp” usually describes a clean, bright impression rather than a literal physical quality. “Tart” refers to a sharp, sour-like flavour impression, while “fresh” commonly describes an aroma associated with recently cut fruit. These are descriptive terms and can vary from person to person.',
         ],
       },
       {
-        heading: 'Continuous Fractional Rectification',
+        heading: 'Green apple versus other fruit profiles',
         paragraphs: [
-          'Our continuous multi-column rectification columns strip away harsh congeners and fusel alcohols, leaving behind a 96% pure platinum spirit. When blended with pure mountain-filtered water and infused with fruit essences, the vodka retains absolute crystal clarity while delivering opulent flavor.',
-          'Every batch is tested via gas chromatography and evaluated by our sensory panel before bottling, guaranteeing that what reaches your glass is pure platinum spirit with zero throat burn.',
+          'Compared with berry-inspired descriptions, green apple is often associated with a sharper fruit impression. Mango is commonly described as fuller and tropical; orange suggests citrus; cranberry is frequently described as tart. These are general sensory associations, not fixed rules or a guarantee of a particular product’s profile.',
+        ],
+      },
+      {
+        heading: 'How flavour is presented on a label',
+        paragraphs: [
+          'Read the full product name and label. A flavour name does not, by itself, establish the exact ingredients or amount of fruit used. For ingredient, allergen and production details, consult the manufacturer’s verified information and the package label.',
+        ],
+      },
+      {
+        heading: 'A note on responsible communication',
+        paragraphs: [
+          'A flavour description should never imply that a beverage is healthy, improves performance or makes a person more confident. Alcohol carries health and safety risks, and flavour does not change that. Content should be intended for adults of legal drinking age and comply with applicable advertising rules.',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'Green apple flavour language is most useful when it is specific and honest. Use verified product information for exact claims, and treat sensory words as descriptive guidance rather than objective guarantees.',
+        ],
+      },
+      {
+        heading: 'Suggested SEO Implementation',
+        paragraphs: [
+          'Use the primary keyword naturally in the page title, opening paragraph and one relevant subheading where appropriate. Link to the official Flavours page and one closely related article. Add a descriptive image alt text that accurately describes the image. Before publishing, confirm all product claims against current labels and obtain compliance approval.',
         ],
       },
     ],
   },
   3: {
     subtitle:
-      'Vodka was never meant to be silent. Why Grand Master is championing vibrant palettes, bold flavor experimentation, and fearless celebration.',
+      'A neutral guide to cranberry flavour vocabulary, common tasting descriptors and the product-label details readers should check.',
     intro:
-      'For decades, standard vodka marketing insisted that the best vodka was the one with the least personality. It was marketed as invisible, silent, and strictly functional. Grand Master was born out of a desire to challenge that outdated orthodoxy.',
-    tags: ['Culture', 'Drink Different', 'Modern Spirits', 'Celebration'],
-    author: 'The Editorial Desk',
-    date: 'September 28, 2026',
-    readTime: '5 min read',
+      'Cranberry is commonly associated with a tart, berry-like flavour and a vivid red fruit reference. In beverage descriptions, it can signal a sharper profile than sweeter berry notes. The exact aroma and taste depend on the product formulation and should be confirmed from its label or verified product information.',
+    tags: ['Cranberry Vodka', 'Tartness & Aroma', 'Berry Profiles', 'Label Guide', 'Sensory Language'],
+    author: 'Grand Master Editorial',
+    date: 'September 2026',
+    readTime: '4 min read',
+    primaryKeyword: 'cranberry vodka',
+    seoTitle: 'Cranberry Flavour Notes: Tartness, Aroma and How to Read Labels',
+    suggestedSlug: '/cranberry-flavour-notes-guide/',
+    internalLinks: [
+      { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
+      { text: 'Grand Master Cranberry Vodka', url: 'https://www.grandmasters.co/grand-masters-cranberry-vodka/' },
+      { text: 'Grand Master Journal & Blog', url: 'https://www.grandmasters.co/blog/' },
+    ],
     sections: [
       {
-        heading: 'The Death of Neutrality',
+        heading: 'Understanding tart, sweet and fruity',
         paragraphs: [
-          'The modern generation of cocktail enthusiasts and spirit lovers does not celebrate boring drinks. Today’s consumers demand expressive aromatics, fearless visual vibrancy, and drinks that spark conversation across social tables.',
-          'By introducing bold chromatic bottles with undulating waves and sophisticated fruit infusions, Grand Master turned every bottle into an invitation to live loud, celebrate uninhibitedly, and Drink A Little Different.',
+          'Tartness is a sensory impression associated with acidity. Sweetness describes a different taste dimension, while “fruity” refers to aroma or flavour reminiscent of fruit. A product can be described as fruity and tart at the same time; one word does not determine the whole profile.',
         ],
       },
       {
-        heading: 'A Cultural Shift in Social Lounges',
+        heading: 'Cranberry compared with mixed berries',
         paragraphs: [
-          'From rooftop sunset sessions to high-energy late-night lounges, Grand Master represents confidence, authenticity, and unapologetic self-expression.',
+          'Cranberry descriptions often emphasise sharpness, while mixed-berry descriptions may suggest a broader blend of berry-like aromas. These are broad conventions, not universal definitions. Do not assume a product contains a particular fruit unless the ingredient list or producer confirms it.',
         ],
-        bullets: [
-          'Bold chromatic bottles that catch ambient lighting and refract vivid colors.',
-          'Tactile undulating glass waves engineered for both balance and distinction.',
-          'Complex natural infusions engineered to be enjoyed neat, on rocks, or mixed.',
+      },
+      {
+        heading: 'What to check on the bottle',
+        paragraphs: [
+          'Review the product name, ABV, net quantity, manufacturer details and statutory warnings. Do not infer nutritional, medical or safety benefits from a fruit flavour name. If ingredient or allergen details matter, check the package and ask the manufacturer for clarification.',
+        ],
+      },
+      {
+        heading: 'Responsible content and product accuracy',
+        paragraphs: [
+          'Keep flavour descriptions factual and avoid claims that alcohol reduces stress, improves health or leads to social success. Ensure any public-facing material follows applicable Indian law and platform policies. Availability and permitted sale vary by state.',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'Cranberry is a useful example of how flavour vocabulary helps people interpret a product description. For the precise characteristics of a particular bottle, use verified product details rather than generalisations.',
+        ],
+      },
+      {
+        heading: 'Suggested SEO Implementation',
+        paragraphs: [
+          'Use the primary keyword naturally in the page title, opening paragraph and one relevant subheading where appropriate. Link to the official Flavours page and one closely related article. Add a descriptive image alt text that accurately describes the image. Before publishing, confirm all product claims against current labels and obtain compliance approval.',
         ],
       },
     ],
   },
   4: {
     subtitle:
-      'From interactive tableside tasting flights to late-night pours, discovering how distinct flavour profiles are redefining nightlife hospitality.',
+      'Explore common citrus tasting terms such as zesty, peel-like and bright, plus tips for interpreting flavoured-spirit labels.',
     intro:
-      'Nightlife is evolving from high-volume routine to curated sensory journeys. Across premier lounges and private club tables, Grand Master flavoured vodkas are transforming traditional table service into interactive mixology hubs.',
-    tags: ['Hospitality', 'Nightlife', 'Tableside Flights', 'Culinary Pairings'],
-    author: 'Grand Master Hospitality Desk',
-    date: 'September 18, 2026',
+      'Citrus is a broad flavour family that can include orange, lemon, lime and grapefruit-like notes. In tasting language, citrus often suggests a bright aroma, a peel-like character or a tart impression. These words are descriptive and do not replace the ingredient information on a label.',
+    tags: ['Orange Flavoured Vodka', 'Citrus Tasting Terms', 'Zesty & Juicy', 'Product Evaluation', 'Sensory Guide'],
+    author: 'Grand Master Editorial',
+    date: 'September 2026',
     readTime: '4 min read',
+    primaryKeyword: 'orange flavoured vodka',
+    seoTitle: 'Orange and Citrus Flavours: A Practical Guide to Common Tasting Terms',
+    suggestedSlug: '/orange-citrus-flavour-guide/',
+    internalLinks: [
+      { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
+      { text: 'Grand Master Official Home', url: 'https://www.grandmasters.co/' },
+    ],
     sections: [
       {
-        heading: 'The Interactive Table Experience',
+        heading: 'Three common citrus descriptors',
         paragraphs: [
-          'Instead of standard generic mixers, modern hosts are presenting flights of chilled Grand Master bottles—Blueberry, Melon, and Blue Curacao—accompanied by fresh botanical garnishes and artisanal sparkling sodas, allowing guests to tailor their own serves.',
+          '“Zesty” usually refers to a lively citrus aroma, often reminiscent of peel. “Juicy” suggests an impression associated with the fruit itself. “Bitter” may refer to a peel-like edge. Different people can interpret the same aroma differently, so descriptions should be clear rather than overstated.',
         ],
       },
       {
-        heading: 'Pairing Spirits with Modern Gastronomy',
+        heading: 'Orange compared with other citrus notes',
         paragraphs: [
-          'Spirits are increasingly enjoyed alongside curated culinary courses across contemporary lounges:',
+          'Orange is often associated with a rounded, sweet-smelling citrus aroma, while lemon and lime are commonly described as sharper. Actual products can differ substantially depending on flavouring and formulation. Do not present these broad associations as a guarantee about a specific product.',
         ],
-        bullets: [
-          'Melon & Blueberry: Clean complements to spicy Southeast Asian skewers and glazed duck.',
-          'Zesty Lemon: Cuts cleanly through rich artisanal cheese and charcuterie boards.',
-          'Green Apple: An exceptional companion to fresh sushi, ceviche, and crisp salads.',
+      },
+      {
+        heading: 'How to evaluate a product page',
+        paragraphs: [
+          'Check whether the page identifies the exact flavour, manufacturer and ABV. Verify any claims about ingredients or production with official product information. Words such as “natural” or “authentic” should be used only when their meaning is clear and substantiated.',
+        ],
+      },
+      {
+        heading: 'Responsible communication',
+        paragraphs: [
+          'Citrus flavour does not reduce alcohol-related risks. Avoid health claims, claims about improved mood or performance, and messaging aimed at people under the legal drinking age. Publishing alcohol-related content in India requires careful legal and platform-policy review.',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'Clear citrus descriptions help readers understand flavour terminology without exaggerating what a product offers. Keep the wording specific, label-led and factual.',
+        ],
+      },
+      {
+        heading: 'Suggested SEO Implementation',
+        paragraphs: [
+          'Use the primary keyword naturally in the page title, opening paragraph and one relevant subheading where appropriate. Link to the official Flavours page and one closely related article. Add a descriptive image alt text that accurately describes the image. Before publishing, confirm all product claims against current labels and obtain compliance approval.',
         ],
       },
     ],
   },
   5: {
     subtitle:
-      'An inside look at the ergonomic glassware architecture, tactile ridges, and platinum crown seal behind Grand Master bottles.',
+      'Learn how coffee- and chocolate-inspired flavour descriptions use aroma, roast, cocoa and sweetness terminology.',
     intro:
-      'Before a spirit touches your lips, it first engages your eyes and your hands. The Grand Master bottle is an intentional piece of sculpture—engineered to feel substantial, balanced, and instantly unmistakable on any back bar in the world.',
-    tags: ['Bottle Design', 'Glassware', 'Ergonomics', 'Craft'],
-    author: 'Brand Design Atelier',
-    date: 'August 30, 2026',
+      'Coffee- and chocolate-inspired flavour descriptions borrow vocabulary from familiar foods. Words such as roasted, cocoa-like, bittersweet and creamy can help communicate an aroma, but they do not necessarily describe the full ingredient list or nutritional profile of a spirit.',
+    tags: ['Coffee Flavoured Vodka', 'Chocolate Profiles', 'Aroma Terminology', 'Tasting Vocabulary', 'Ingredient Details'],
+    author: 'Grand Master Editorial',
+    date: 'August 2026',
     readTime: '4 min read',
+    primaryKeyword: 'coffee flavoured vodka',
+    seoTitle: 'Coffee and Chocolate Flavour Profiles: Aroma Words Explained',
+    suggestedSlug: '/coffee-chocolate-flavour-profiles/',
+    internalLinks: [
+      { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
+      { text: 'Grand Master Official Home', url: 'https://www.grandmasters.co/' },
+    ],
     sections: [
       {
-        heading: 'The Undulating Wave Motif',
+        heading: 'Coffee-inspired notes',
         paragraphs: [
-          'The distinctive ribbon waves wrapped around each bottle are not merely decorative. They symbolize the continuous flow of fractional distillation and the ripple of bold fruit flavor. Under back-bar illumination, the raised glass ridges refract light through the liquid, creating an alluring kinetic glow.',
+          'Coffee aroma is often described through terms such as roasted, toasted, earthy or bittersweet. These descriptors may bring to mind coffee beans or brewed coffee. The actual profile depends on the product and should be checked against verified tasting notes.',
         ],
       },
       {
-        heading: 'Weight, Balance, and Bartender Grip',
+        heading: 'Chocolate-inspired notes',
         paragraphs: [
-          'Designed in collaboration with ergonomic glassware artisans, the neck length and bottle balance are calibrated specifically for precise free-pouring during busy bar shifts.',
+          'Chocolate descriptions can range from cocoa-like and bittersweet to sweeter, dessert-inspired impressions. A chocolate flavour name does not automatically mean a product contains milk, cocoa solids or other specific ingredients. Consult the package and manufacturer for ingredient and allergen information.',
         ],
-        bullets: [
-          'Calibrated neck length for clean free-pouring during high-volume bar shifts.',
-          'Weighted solid glass pedestal base for maximum stability on crowded tables.',
-          'Embossed platinum crest seal reinforcing strict standards of purity and polish.',
+      },
+      {
+        heading: 'Why sensory language needs care',
+        paragraphs: [
+          'Tasting notes are subjective. A phrase such as “rich” is an impression, not a laboratory measurement. Avoid claims that a flavoured alcoholic beverage provides energy, supports wellbeing or offers any health benefit.',
+        ],
+      },
+      {
+        heading: 'Label-reading checklist',
+        paragraphs: [
+          'Look for the exact product name, ABV, net quantity, manufacturer information and mandatory warnings. If an ingredient or allergen is important, rely on the label or a verified manufacturer response, not the flavour name alone.',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'Coffee and chocolate profiles show how aroma vocabulary can make product information more precise. The best descriptions are clear, verifiable and free of health or lifestyle promises.',
+        ],
+      },
+      {
+        heading: 'Suggested SEO Implementation',
+        paragraphs: [
+          'Use the primary keyword naturally in the page title, opening paragraph and one relevant subheading where appropriate. Link to the official Flavours page and one closely related article. Add a descriptive image alt text that accurately describes the image. Before publishing, confirm all product claims against current labels and obtain compliance approval.',
         ],
       },
     ],
   },
   6: {
     subtitle:
-      'Inside our active distillery floor: fractional multi-column rectification, sub-zero chill filtration, and the quality testing protocol.',
+      'Understand the main stages commonly used in vodka production, from raw materials and fermentation to distillation, filtration and bottling.',
     intro:
-      'Behind every bottle of Grand Master lies an uncompromising technological infrastructure. Located at House of Deejay Distillers, our modern multi-column distillation towers operate with surgical precision.',
-    tags: ['Distillery', 'Purity Protocol', 'Fractional Column', 'House of Deejay'],
+      'Vodka production combines raw materials, fermentation, distillation and, where used, filtration and blending. The exact process varies by producer and local regulations. This overview explains common terms without making assumptions about a specific bottle’s production beyond information the producer has verified.',
+    tags: ['How Vodka Is Made', 'Fermentation & Distillation', 'Grain Spirits', 'Filtration', 'Distillery Craft'],
     author: 'Master Distiller',
-    date: 'August 14, 2026',
+    date: 'August 2026',
     readTime: '5 min read',
+    primaryKeyword: 'how vodka is made',
+    seoTitle: 'How Vodka Is Made: Grains, Fermentation, Distillation and Filtration',
+    suggestedSlug: '/how-vodka-is-made/',
+    internalLinks: [
+      { text: 'Grand Master Official Home', url: 'https://www.grandmasters.co/' },
+      { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
+    ],
     sections: [
       {
-        heading: 'Continuous Fractional Rectification',
+        heading: '1. Raw materials',
         paragraphs: [
-          'Traditional pot stills leave behind trace congeners that can cause harsh ethanol bite. Our multi-stage continuous fractionating columns separate heads, hearts, and tails with microscopic thermal accuracy, capturing only the purest heart of the distillate.',
+          'Vodka can be made from agricultural materials that provide fermentable sugars or starch, including grains and other permitted sources. The chosen material and preparation affect the production process, but the label and producer’s documentation are the best sources for a particular product’s raw materials.',
         ],
       },
       {
-        heading: 'Sub-Zero Polish & Birch Charcoal Filtration',
+        heading: '2. Fermentation',
         paragraphs: [
-          'Prior to bottling, the liquid undergoes proprietary sub-zero chill filtration followed by a pass through activated birch charcoal matrix beds. This process polishes the spirit to a state of absolute clarity, resulting in an exceptionally silky mouthfeel.',
+          'During fermentation, yeast converts available sugars into alcohol and other compounds. Producers manage this stage to create a suitable fermented base for distillation. Technical details differ from one facility and product to another.',
         ],
-        bullets: [
-          'Sub-zero chill stabilization to freeze out micro-impurities.',
-          'Gravity filtration through an activated birch charcoal matrix for silky texture.',
-          'Comprehensive gas chromatography testing on every batch prior to bottling.',
+      },
+      {
+        heading: '3. Distillation',
+        paragraphs: [
+          'Distillation separates components according to their volatility and is used to concentrate alcohol. Equipment, operating conditions and the producer’s process influence the resulting spirit. Avoid interpreting words such as “multiple distilled” as an automatic guarantee of safety or superior quality.',
+        ],
+      },
+      {
+        heading: '4. Filtration and flavouring',
+        paragraphs: [
+          'Some producers filter spirit to adjust clarity or sensory characteristics. Flavoured products may also involve blending or the addition of flavouring ingredients. The precise methods and ingredients should be stated only when confirmed by the manufacturer.',
+        ],
+      },
+      {
+        heading: '5. Quality checks and bottling',
+        paragraphs: [
+          'Commercial production typically includes checks and packaging controls required by the producer and applicable law. For product-specific details, consult official documentation and the label rather than assuming every vodka follows an identical process.',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'Understanding the production stages makes technical product descriptions easier to interpret. The most reliable brand content distinguishes general industry information from verified claims about a particular product. Alcohol is for adults of legal drinking age only.',
+        ],
+      },
+      {
+        heading: 'Suggested SEO Implementation',
+        paragraphs: [
+          'Use the primary keyword naturally in the page title, opening paragraph and one relevant subheading where appropriate. Link to the official Flavours page and one closely related article. Add a descriptive image alt text that accurately describes the image. Before publishing, confirm all product claims against current labels and obtain compliance approval.',
         ],
       },
     ],
@@ -232,11 +383,14 @@ export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }
     return blogs.filter((b) => b.id !== blog.id).slice(0, 3);
   }, [blog.id]);
 
-  // Scroll to top on article change
+  // Scroll to top on article change and update document title
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setCopied(false);
-  }, [blog.id]);
+    if (blog) {
+      document.title = `${blog.seoTitle || blog.title} | Grand Master Vodka`;
+    }
+  }, [blog]);
 
   const handleBackToBlog = (e) => {
     if (e) e.preventDefault();
@@ -406,6 +560,27 @@ export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }
                   )}
                 </section>
               ))}
+
+            {/* Official Resources & Internal Links */}
+            {articleData.internalLinks && articleData.internalLinks.length > 0 && (
+              <section className="article-section-block article-resources-block">
+                <h2>Official Resources & Links</h2>
+                <ul className="article-bullets-list">
+                  {articleData.internalLinks.map((link, lIdx) => (
+                    <li key={lIdx}>
+                      <a
+                        href={link.url}
+                        target={link.url.startsWith('http') ? '_blank' : '_self'}
+                        rel="noopener noreferrer"
+                        style={{ color: 'var(--gm-brand-accent, #732f03)', textDecoration: 'underline' }}
+                      >
+                        {link.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
         </article>
 

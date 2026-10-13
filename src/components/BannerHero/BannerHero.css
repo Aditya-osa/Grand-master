@@ -172,15 +172,24 @@
    FLAVOUR TEXT STATES
    ========================================================================== */
 
+.banner-hero-container .one #orange-text,
 .banner-hero-container #orange-text {
+  position: absolute !important;
+  top: 29% !important;
+  font-size: 19vh !important;
+  font-family: 'Boldonse', sans-serif !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.15vw !important;
+  text-align: center !important;
+  color: #f1bc92 !important;
+  -webkit-text-fill-color: #f1bc92 !important;
+  text-shadow: none !important;
+  background: none !important;
   z-index: 1;
-
-  color: #f1bc92;
-
-  text-shadow: none;
-
   opacity: 1;
-
   transform: translateX(0);
 }
 
@@ -208,8 +217,8 @@
   line-height: 1.95 !important;
   letter-spacing: 0.15vw !important;
   text-align: center !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
+  color: #e1bbc2 !important;
+  -webkit-text-fill-color: #e1bbc2 !important;
   text-shadow: none !important;
   background: none !important;
   background-clip: border-box !important;
@@ -230,25 +239,45 @@
   transform: translateX(-100vw);
 }
 
+.banner-hero-container .one #melon-text,
 .banner-hero-container #melon-text {
+  position: absolute !important;
+  top: 29% !important;
+  font-size: 19vh !important;
+  font-family: 'Boldonse', sans-serif !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.15vw !important;
+  text-align: center !important;
+  color: #b5cd92 !important;
+  -webkit-text-fill-color: #b5cd92 !important;
+  text-shadow: none !important;
+  background: none !important;
   z-index: 1;
-
   opacity: 0;
-
-  color: #ecf2ea;
-
   transform: translateX(100vw);
 }
 
+.banner-hero-container .one #blueberry-text,
 .banner-hero-container #blueberry-text {
+  position: absolute !important;
+  top: 28% !important;
+  font-size: 20vh !important;
+  font-family: 'Boldonse', sans-serif !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  text-transform: uppercase !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.15vw !important;
+  text-align: center !important;
+  color: #c3cbf5 !important;
+  -webkit-text-fill-color: #c3cbf5 !important;
+  text-shadow: none !important;
+  background: none !important;
   z-index: 1;
-
   opacity: 0;
-
-  color: #cdcef5;
-
-  text-shadow: none;
-
   transform: translateX(100vw);
 }
 
