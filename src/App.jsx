@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import ContactUs from './Contact/Contact-us';
 import BlogPage from './Blogs/BlogPage';
+import About from './Aboutus/About';
 
 export default function App() {
   const [currentView, setCurrentView] = useState(() => {
@@ -9,6 +10,7 @@ export default function App() {
     const pathname = (window.location.pathname || '').toLowerCase();
     if (hash === '#contact' || pathname === '/contact') return 'contact';
     if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') return 'blogs';
+    if (hash === '#about' || pathname === '/about') return 'about';
     return 'home';
   });
 
@@ -22,9 +24,12 @@ export default function App() {
       } else if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') {
         setCurrentView('blogs');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (hash === '#about' || pathname === '/about') {
+        setCurrentView('about');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
-        if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#' && hash !== '#blogs' && hash !== '#blog') {
+        if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#' && hash !== '#blogs' && hash !== '#blog' && hash !== '#about') {
           setTimeout(() => {
             const el = document.querySelector(hash);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -40,6 +45,9 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (target === 'blogs' || target === 'blog') {
         setCurrentView('blogs');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (target === 'about') {
+        setCurrentView('about');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         setCurrentView('home');
@@ -67,6 +75,7 @@ export default function App() {
 
   if (currentView === 'contact') return <ContactUs />;
   if (currentView === 'blogs') return <BlogPage />;
+  if (currentView === 'about') return <About />;
   return <Home />;
 }
 

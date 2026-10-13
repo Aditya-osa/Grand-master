@@ -8,7 +8,7 @@ import './DistilledToInspire.css';
  * Editorial Brand & Craft Section with Video Player
  * Matches reference image with pixel-perfect precision
  */
-export default function DistilledToInspire() {
+export default function DistilledToInspire({ centered = false }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
@@ -33,9 +33,13 @@ export default function DistilledToInspire() {
   };
 
   return (
-    <section className="distilled-to-inspire" id="distilled" aria-label="Distilled to Inspire">
+    <section
+      className={`distilled-to-inspire ${centered ? 'distilled-to-inspire--centered' : ''}`}
+      id="distilled"
+      aria-label="Distilled to Inspire"
+    >
       <div className="distilled-to-inspire__inner">
-        {/* Left Side: Brand Typography, Editorial Text */}
+        {/* Left Side (or Top when centered): Brand Typography, Editorial Text */}
         <div className="distilled-to-inspire__content">
           {/* Bold Heading */}
           <h2 className="distilled-to-inspire__title">
@@ -50,23 +54,25 @@ export default function DistilledToInspire() {
           {/* Editorial Paragraph */}
           <div className="distilled-to-inspire__text-wrapper">
             <p className="distilled-to-inspire__paragraph">
-            Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master’s includes flavoured Vodka.
-<br/><br/>
-Grand Master’s is more for the Youth because of the blended flavours and the variety of Vodka it has to offer & also for people who want to start drinking and try new things.
+              Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master’s includes flavoured Vodka.
+              <br /><br />
+              Grand Master’s is more for the Youth because of the blended flavours and the variety of Vodka it has to offer &amp; also for people who want to start drinking and try new things.
             </p>
           </div>
 
-          {/* Discover Our Story Button */}
-          <a
-            href="#products"
-            onClick={handleDiscoverClick}
-            className="distilled-to-inspire__btn"
-            id="discover-story-btn"
-            aria-label="Discover Our Story"
-          >
-            <span>Our Story</span>
-            <span className="distilled-to-inspire__btn-arrow" aria-hidden="true">→</span>
-          </a>
+          {/* Discover Our Story Button (shown on home, hidden when centered in about us) */}
+          {!centered && (
+            <a
+              href="#products"
+              onClick={handleDiscoverClick}
+              className="distilled-to-inspire__btn"
+              id="discover-story-btn"
+              aria-label="Discover Our Story"
+            >
+              <span>Our Story</span>
+              <span className="distilled-to-inspire__btn-arrow" aria-hidden="true">→</span>
+            </a>
+          )}
         </div>
 
         {/* Right Side: Video Player Container */}

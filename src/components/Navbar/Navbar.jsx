@@ -104,15 +104,18 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       return;
     }
 
-    // For products, shop, flavours, about
+    if (target === 'about') {
+      window.location.hash = '#about';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    // For products, shop, flavours
     const hash = '#' + target;
     window.location.hash = hash;
     window.dispatchEvent(new Event('hashchange'));
     setTimeout(() => {
       let element = document.getElementById(target) || document.querySelector(hash);
-      if (!element && target === 'about') {
-        element = document.getElementById('distilled') || document.querySelector('.editorial-brand-section');
-      }
       if (!element && (target === 'flavours' || target === 'flavour')) {
         element = document.getElementById('products') || document.getElementById('flavours') || document.querySelector('.enjoy-flavours-section') || document.querySelector('.enjoy-flavour-section');
       }

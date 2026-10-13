@@ -1,0 +1,348 @@
+/* ==========================================================================
+   Grand Master's Vodka - About Us Page Styles
+   Aesthetic: Timeless Artisan Luxury, Warm Cream, Copper & Rich Burgundy
+   ========================================================================== */
+
+.gm-about-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #faf7f4;
+  color: #1a1214;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* White Navbar Background only for About Us Page (matching Blog Page) */
+.gm-about-page-wrapper .gm-main-nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.gm-about-page-wrapper .gm-main-nav::after {
+  opacity: 0 !important;
+}
+
+.gm-about-page-wrapper .gm-main-nav.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   HERO BANNER - Clean Craft Photography Banner (matching Blogs Page)
+   ========================================================================== */
+.gm-about-banner {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  min-height: 402px;
+  max-height: 625px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: #faf7f4;
+  user-select: none;
+}
+
+.about-banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 1;
+  transform: scale(1.01);
+  filter: contrast(1.04) saturate(1.08);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gm-about-banner:hover .about-banner-bg {
+  transform: scale(1.03);
+}
+
+/* Balance top spacing for Distilled To Inspire now that banner is directly above */
+.gm-about-page-wrapper .distilled-to-inspire--centered {
+  padding-top: clamp(48px, 6.5vh, 80px) !important;
+}
+
+.gm-about-main {
+  width: 100%;
+  position: relative;
+}
+
+/* ==========================================================================
+   DISTILLED TO INSPIRE SECTION
+   Center-aligned editorial header with video card below
+   ========================================================================== */
+.about-distilled-section {
+  width: 100%;
+  --about-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+  padding-left: var(--about-pad-x);
+  padding-right: var(--about-pad-x);
+  padding-top: clamp(110px, 13vh, 150px);
+  padding-bottom: clamp(60px, 8vh, 100px);
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255, 255, 255, 0.8) 0%,
+    #faf7f4 70%
+  );
+  box-sizing: border-box;
+}
+
+.about-distilled-inner {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Center-aligned Editorial Header
+   -------------------------------------------------------------------------- */
+.about-distilled-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-distilled-eyebrow {
+  display: inline-block;
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(12px, 0.95vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #732f03;
+  margin-bottom: clamp(10px, 1.4vh, 16px);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 18px;
+  border-radius: 9999px;
+  border: 1px solid rgba(115, 47, 3, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.about-distilled-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(34px, 4.5vw, 64px);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: #4A2213;
+  margin: 0 0 clamp(16px, 2vh, 24px) 0;
+}
+
+.about-distilled-text {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-distilled-text p {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(14.5px, 1.1vw, 17px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #554448;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   Video Player Card (Placed Below Text, Centered)
+   -------------------------------------------------------------------------- */
+.about-distilled-video-container {
+  width: 100%;
+  max-width: 1040px;
+  margin-top: clamp(36px, 4.8vh, 60px);
+}
+
+.about-distilled-video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 560px;
+  min-height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #111216;
+  border: 1px solid rgba(115, 47, 3, 0.15);
+  box-shadow: 0 20px 50px rgba(74, 34, 19, 0.14);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-distilled-video-card:hover {
+  box-shadow: 0 24px 58px rgba(74, 34, 19, 0.2);
+}
+
+/* Poster Preview State */
+.about-distilled-poster-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-distilled-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-distilled-poster-wrapper:hover .about-distilled-poster-img {
+  transform: scale(1.03);
+}
+
+.about-distilled-poster-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.22);
+  transition: background 0.3s ease;
+}
+
+.about-distilled-poster-wrapper:hover .about-distilled-poster-overlay {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* Circular Play Button */
+.about-distilled-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+  outline: none;
+}
+
+.about-distilled-play-circle {
+  width: clamp(58px, 6vw, 76px);
+  height: clamp(58px, 6vw, 76px);
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.32);
+}
+
+.about-distilled-play-svg {
+  width: clamp(22px, 2.2vw, 28px);
+  height: clamp(22px, 2.2vw, 28px);
+  margin-left: 3px;
+  fill: #ffffff;
+}
+
+.about-distilled-poster-wrapper:hover .about-distilled-play-circle {
+  transform: scale(1.1);
+  background: #732f03;
+  border-color: #ffffff;
+  box-shadow: 0 8px 28px rgba(115, 47, 3, 0.5);
+}
+
+/* Video Player State */
+.about-distilled-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+}
+
+.about-distilled-video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  background-color: #000000;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .about-distilled-section {
+    padding-top: 110px;
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gm-about-banner {
+    height: 56vh;
+    min-height: 320px;
+    max-height: 480px;
+  }
+
+  .about-distilled-section {
+    --about-pad-x: max(20px, env(safe-area-inset-left));
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  .about-distilled-video-card {
+    border-radius: 14px;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gm-about-banner {
+    height: 48vh;
+    min-height: 250px;
+    max-height: 380px;
+  }
+
+  .about-distilled-section {
+    --about-pad-x: max(16px, env(safe-area-inset-left));
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .about-distilled-title {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .about-distilled-text p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .about-distilled-video-container {
+    margin-top: 28px;
+  }
+
+  .about-distilled-video-card {
+    border-radius: 12px;
+  }
+}
