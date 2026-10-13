@@ -79,11 +79,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
     const target = (page || '').replace('#', '').toLowerCase();
 
-    // Do not redirect for contact or blogs
-    if (target === 'contact' || target === 'blogs' || target === 'blog') {
-      return;
-    }
-
     // Notify listeners via custom event with clean target
     window.dispatchEvent(
       new CustomEvent('gm-navigate', {
@@ -106,6 +101,18 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
     if (target === 'about') {
       window.location.hash = '#about';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (target === 'blogs' || target === 'blog') {
+      window.location.hash = '#blogs';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (target === 'contact') {
+      window.location.hash = '#contact';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -160,16 +167,16 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             PRODUCTS
           </a>
           <a 
-            href="#" 
+            href="#blogs" 
             className="nav-link" 
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => navigateTo('blogs',e)}
           >
             BLOG
           </a>
           <a 
-            href="#" 
+            href="#contact" 
             className="nav-link" 
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => navigateTo('contact',e)}
           >
             CONTACT US
           </a>
@@ -248,21 +255,15 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <span className="nav-text">Products</span>
             </a>
             <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-              }} 
+              href="#blogs" 
+              onClick={(e) => navigateTo('blogs', e)} 
               data-text="Blog"
             >
               <span className="nav-text">Blog</span>
             </a>
             <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-              }} 
+              href="#contact" 
+              onClick={(e) => navigateTo('contact', e)} 
               data-text="Contact"
             >
               <span className="nav-text">Contact Us</span>
