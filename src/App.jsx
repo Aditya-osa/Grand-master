@@ -62,7 +62,7 @@ export default function App() {
       } else if (target === 'about') {
         setCurrentView('about');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (target === 'products' || target === 'collection') {
+      } else if (target === 'products' || target === 'collection' || target.startsWith('product')) {
         setCurrentView('products');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {

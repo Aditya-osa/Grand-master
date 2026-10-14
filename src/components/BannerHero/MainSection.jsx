@@ -1,10 +1,10 @@
 import React from 'react';
 import InfoBox from './InfoBox';
 import Decorations from './Decorations';
-import chocolateBottle from '../../assets/bottles/chocolate-bottle.png';
-import melonBottle from '../../assets/bottles/all-flav/melon-bottle-hd.png';
-import mangoBottle from '../../assets/bottles/all-flav/3.png';
-import blueberryBottle from '../../assets/bottles/Blue berry bottle.png';
+import bottleOrange from '../../assets/750 ML 3D (1)/8.png';
+import bottleStrawberry from '../../assets/750 ML 3D (1)/1.png';
+import bottleMelon from '../../assets/750 ML 3D (1)/7.png';
+import bottleBlueberry from '../../assets/750 ML 3D (1)/3.png';
 import bgOrange from '../../assets/Background Banner/1.jpg';
 import bgStrawberry from '../../assets/Background Banner/2.jpg';
 import bgMelon from '../../assets/Background Banner/4.jpg';
@@ -31,12 +31,12 @@ const MainSection = () => {
       <h1 id="blueberry-text">BLUEBERRY</h1>
      
       {/* Tilted Bottles for each flavour */}
-      <img id="fanta" src="/Assets/7.png" alt="Grand Master Orange Vodka" />
-      {/* <img id="fanta-mango" src={mangoBottle} alt="Grand Master Mango Vodka" /> */}
-      <img id="fanta2" src="/Assets/5.png" alt="Grand Master Strawberry Vodka" />
-      {/* <img id="fanta3" src={chocolateBottle} alt="Grand Master Chocolate Vodka" /> */}
-      <img id="fanta4" src={melonBottle} alt="Grand Master Melon Vodka" />
-      <img id="fanta-blueberry" src={blueberryBottle} alt="Grand Master Blueberry Vodka" />
+      <img id="fanta" src={bottleOrange} alt="Grand Master Orange Vodka" />
+      {/* <img id="fanta-mango" alt="Grand Master Mango Vodka" /> */}
+      <img id="fanta2" src={bottleStrawberry} alt="Grand Master Strawberry Vodka" />
+      {/* <img id="fanta3" alt="Grand Master Chocolate Vodka" /> */}
+      <img id="fanta4" src={bottleMelon} alt="Grand Master Melon Vodka" />
+      <img id="fanta-blueberry" src={bottleBlueberry} alt="Grand Master Blueberry Vodka" />
     
       {/* Bottom Left Info Boxes */}
       <InfoBox />

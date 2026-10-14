@@ -48,19 +48,37 @@ const FLAVORS = [
 ];
 
 export default function AmazingFlavors() {
+  const handleFlavorClick = (flavorId) => {
+    window.location.hash = `#product-${flavorId}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <section className="gm-amazing-flavors-section" aria-label="Grand Master Amazing Flavors">
       <div className="gm-amazing-flavors-inner">
         {/* Slanted "AMAZING" Badge + Bold "FLAVORS" Title Lockup */}
         <div className="gm-amazing-title-lockup">
-          
           <h2 className="gm-flavors-main-title">FLAVORS</h2>
         </div>
 
         {/* 6 Flavor Ingredients Horizontal Row */}
         <div className="gm-amazing-flavors-grid">
           {FLAVORS.map((flavor) => (
-            <div key={flavor.id} className="gm-flavor-item" data-flavor={flavor.id}>
+            <div 
+              key={flavor.id} 
+              className="gm-flavor-item" 
+              data-flavor={flavor.id}
+              onClick={() => handleFlavorClick(flavor.id)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details of ${flavor.name} Grand Master Vodka`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleFlavorClick(flavor.id);
+                }
+              }}
+            >
               <div className="gm-flavor-img-wrap">
                 <img
                   src={flavor.image}

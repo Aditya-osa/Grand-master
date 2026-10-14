@@ -112,7 +112,7 @@
    -------------------------------------------------------------------------- */
 .distilled-to-inspire__inception {
     font-family: 'Anybody', sans-serif;
-    margin-top:-10px;
+    margin-top:4px;
     font-size: clamp(16.5px, 3.15vw, 24px);
     line-height: 0.5;
     color: #000000;
