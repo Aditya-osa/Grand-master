@@ -35,8 +35,8 @@
 .gm-about-banner {
   position: relative;
   width: 100%;
-  height: 60vh;
-  min-height: 60vh;
+  height: 75vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
