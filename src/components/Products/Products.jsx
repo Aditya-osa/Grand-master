@@ -137,7 +137,7 @@ export default function Products() {
       <div className="brand-title">
         <svg
           className="ag-curved-title-svg"
-          viewBox="0 0 920 180"
+          viewBox="0 0 920 210"
           xmlns="http://www.w3.org/2000/svg"
           aria-label="Meet Grand Master's"
           role="heading"
@@ -146,7 +146,7 @@ export default function Products() {
           <defs>
             <path
               id="gm-title-arc"
-              d="M 40,165 A 470,240 0 0,1 880,165"
+              d="M 30,195 A 460,260 0 0,1 890,195"
               fill="none"
             />
           </defs>
