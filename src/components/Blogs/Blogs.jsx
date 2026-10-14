@@ -196,7 +196,7 @@ export function BlogCard({ blog }) {
 }
 
 export default function Blogs() {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll] = useState(false);
 
   const displayedBlogs = showAll ? blogs : blogs.slice(0, 3);
 

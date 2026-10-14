@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Boldonse';
-  src: url('/Fonts/Boldonse-Regular.ttf') format('truetype'),
+  src: url('./assets/fonts/Boldonse-Regular.ttf') format('truetype'),
        url('https://fonts.gstatic.com/s/boldonse/v1/ZgNQjPxGPbbJUZemjC38.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: 'theBoldonse';
-  src: url('/Fonts/Boldonse-Regular.ttf') format('truetype'),
+  src: url('./assets/fonts/Boldonse-Regular.ttf') format('truetype'),
        url('https://fonts.gstatic.com/s/boldonse/v1/ZgNQjPxGPbbJUZemjC38.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;

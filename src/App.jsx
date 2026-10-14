@@ -6,39 +6,41 @@ import BlogDetails from './Blogs/Blog-details';
 import About from './Aboutus/About';
 import Products from './pages/Products/Products';
 
+const normalizePath = (rawPath) => {
+  let p = (rawPath || '').toLowerCase();
+  p = p.replace(/\/+$/, '');
+  if (p.startsWith('/new')) {
+    p = p.slice(4);
+  }
+  return p || '/';
+};
+
+const resolveView = (hashRaw, pathnameRaw) => {
+  const hash = (hashRaw || '').toLowerCase();
+  const path = normalizePath(pathnameRaw);
+
+  if (hash === '#contact' || path === '/contact') return 'contact';
+  if (hash.startsWith('#blog-detail') || (hash.startsWith('#blog-') && hash !== '#blogs') || path.startsWith('/blog-detail')) return 'blog-details';
+  if (hash === '#blogs' || path === '/blogs' || hash === '#blog' || path === '/blog') return 'blogs';
+  if (hash === '#about' || path === '/about') return 'about';
+  if (hash.startsWith('#product') || hash === '#products' || path === '/products' || hash === '#collection' || path === '/collection') return 'products';
+  return 'home';
+};
+
 export default function App() {
   const [currentView, setCurrentView] = useState(() => {
-    const hash = (window.location.hash || '').toLowerCase();
-    const pathname = (window.location.pathname || '').toLowerCase();
-    if (hash === '#contact' || pathname === '/contact') return 'contact';
-    if (hash.startsWith('#blog-detail') || (hash.startsWith('#blog-') && hash !== '#blogs')) return 'blog-details';
-    if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') return 'blogs';
-    if (hash === '#about' || pathname === '/about') return 'about';
-    if (hash.startsWith('#product') || hash === '#products' || pathname === '/products' || hash === '#collection' || pathname === '/collection') return 'products';
-    return 'home';
+    return resolveView(window.location.hash, window.location.pathname);
   });
 
   useEffect(() => {
     const handleHashChange = () => {
+      const view = resolveView(window.location.hash, window.location.pathname);
       const hash = (window.location.hash || '').toLowerCase();
-      const pathname = (window.location.pathname || '').toLowerCase();
-      if (hash === '#contact' || pathname === '/contact') {
-        setCurrentView('contact');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash.startsWith('#blog-detail') || (hash.startsWith('#blog-') && hash !== '#blogs')) {
-        setCurrentView('blog-details');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#blogs' || pathname === '/blogs' || hash === '#blog' || pathname === '/blog') {
-        setCurrentView('blogs');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash === '#about' || pathname === '/about') {
-        setCurrentView('about');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (hash.startsWith('#product') || hash === '#products' || pathname === '/products' || hash === '#collection' || pathname === '/collection') {
-        setCurrentView('products');
+      
+      setCurrentView(view);
+      if (view !== 'home') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        setCurrentView('home');
         if (hash && hash !== '#contact' && hash !== '#home' && hash !== '#' && hash !== '#blogs' && hash !== '#blog' && !hash.startsWith('#blog-') && hash !== '#about' && !hash.startsWith('#product') && hash !== '#collection') {
           setTimeout(() => {
             const el = document.querySelector(hash);
