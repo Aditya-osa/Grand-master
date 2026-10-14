@@ -33,11 +33,21 @@
   box-sizing: border-box;
 }
 
+/* White Navbar Background only for Contact Us Page (matching Blog Page) */
+.gm-contact-page-wrapper .gm-main-nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
 
+.gm-contact-page-wrapper .gm-main-nav::after {
+  opacity: 0 !important;
+}
 
-
-
-/* ==========================================================================
+.gm-contact-page-wrapper .gm-main-nav.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}/* ==========================================================================
    HALF BANNER (Styled with Viewport Height vh)
    ========================================================================== */
 .gm-half-banner {

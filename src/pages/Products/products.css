@@ -30,6 +30,22 @@
   box-sizing: border-box;
 }
 
+/* White Navbar Background only for Products Page (matching Blog Page) */
+.gm-products-page-wrapper .gm-main-nav {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.gm-products-page-wrapper .gm-main-nav::after {
+  opacity: 0 !important;
+}
+
+.gm-products-page-wrapper .gm-main-nav.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 .gm-products-main {
   width: 100%;
   position: relative;

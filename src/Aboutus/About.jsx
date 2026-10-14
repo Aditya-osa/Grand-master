@@ -6,6 +6,7 @@ import HorizontalCards from "../components/HorizontalCards";
 import Blogs from "../components/Blogs/Blogs";
 import Footer from "../components/Footer";
 import aboutBannerImg from "../assets/image.png";
+import bannerVideo from "../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4";
 import "./Abouts.css";
 
 function About() {
@@ -19,14 +20,34 @@ function About() {
       <Navbar />
 
       {/* ====================================================================
-          HERO BANNER - Real Grand Master Craft Photography (Like Blogs Page)
+          HERO BANNER - Matching Products, Blog & Contact
           ==================================================================== */}
       <section className="gm-about-banner" aria-label="Grand Master Heritage & Craft">
-        <img
-          src={aboutBannerImg}
-          alt="Grand Master Crafted Spirits & Flavours"
-          className="about-banner-bg"
-        />
+        <div className="about-banner-overlay" aria-hidden="true" />
+        <video
+          className="about-banner-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={aboutBannerImg}
+        >
+          <source src={bannerVideo} type="video/mp4" />
+          <img
+            src={aboutBannerImg}
+            alt="Grand Master Crafted Spirits & Flavours"
+            className="about-banner-bg"
+          />
+        </video>
+
+        {/* Foreground Hero Content Lockup */}
+        <div className="about-banner-content">
+          <h1 className="about-banner-title">ABOUT US</h1>
+          <p className="about-banner-desc">
+            Discover the legacy, passionate craftsmanship, and distinct heritage behind Grand Master spirits.
+          </p>
+        </div>
       </section>
 
       {/* Main Content */}
