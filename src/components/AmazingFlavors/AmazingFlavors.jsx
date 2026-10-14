@@ -7,7 +7,7 @@ import greenAppleImg from '../../assets/Fruits Icon/5.png';
 import mangoImg from '../../assets/Fruits Icon/6.png';
 import blueberryImg from '../../assets/Fruits Icon/7.png';
 import lemonImg from '../../assets/Fruits Icon/8.png';
-
+import jamunImg from '../../assets/Fruits Icon/9.png';
 import coconutImg from '../../assets/Fruits Icon/10.png';
 import cranberryImg from '../../assets/Fruits Icon/11.png';
 import './AmazingFlavors.css';
@@ -15,7 +15,7 @@ import './AmazingFlavors.css';
 const FLAVORS = [
   {
     id: 'orange',
-    name: 'ORANGE FIZZ',
+    name: 'ORANGE',
     image: orangeImg,
     alt: 'Grand Master Orange Fizz',
   },
@@ -33,7 +33,7 @@ const FLAVORS = [
   },
   {
     id: 'mango',
-    name: 'MANGO SPLASH',
+    name: 'MANGO',
     image: mangoImg,
     alt: 'Grand Master Mango Splash',
   },
@@ -61,7 +61,12 @@ const FLAVORS = [
     image: lemonImg,
     alt: 'Grand Master Zesty Lemon',
   },
-  
+  {
+    id: 'minty-jamun',
+    name: 'JAMUN',
+    image: jamunImg,
+    alt: 'Grand Master Minty Jamun',
+  },
   {
     id: 'coconut',
     name: 'COCONUT',

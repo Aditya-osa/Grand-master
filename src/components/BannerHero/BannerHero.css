@@ -21,6 +21,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'theBoldonse';
+  src: url('/Fonts/Boldonse-Regular.ttf') format('truetype'),
+       url('https://fonts.gstatic.com/s/boldonse/v1/ZgNQjPxGPbbJUZemjC38.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 /* ==========================================================================
    MAIN CONTAINER
@@ -156,7 +165,7 @@
     position: absolute;
     top: 17%;
     font-size: 29vh;
-    font-family: 'Boldonse', sans-serif !important;
+    font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
     white-space: nowrap;
     user-select: none;
     text-transform: uppercase;
@@ -175,9 +184,9 @@
 .banner-hero-container .one #orange-text,
 .banner-hero-container #orange-text {
   position: absolute !important;
-  top: 29% !important;
-  font-size: 19vh !important;
-  font-family: 'Boldonse', sans-serif !important;
+  top: 31% !important;
+  font-size: 16vh !important;
+  font-family:  'Boldonse', sans-serif !important;
   white-space: nowrap !important;
   user-select: none !important;
   text-transform: uppercase !important;
@@ -189,11 +198,12 @@
   text-shadow: none !important;
   background: none !important;
   z-index: 1;
-  opacity: 1;
+  opacity: 0.3 !important;
   transform: translateX(0);
 }
 
 .banner-hero-container #mango-text {
+  font-family:  'Boldonse', sans-serif !important;
   z-index: 1;
 
   opacity: 0;
@@ -224,10 +234,11 @@
   background-clip: border-box !important;
   -webkit-background-clip: border-box !important;
   z-index: 1;
-  opacity: 0;
+  opacity: 0.3 !important;
   transform: translateX(100vw);
 }
 .banner-hero-container #chocolate-text {
+  font-family:  'Boldonse', sans-serif !important;
   z-index: 1;
 
   opacity: 0;
@@ -242,8 +253,8 @@
 .banner-hero-container .one #melon-text,
 .banner-hero-container #melon-text {
   position: absolute !important;
-  top: 29% !important;
-  font-size: 19vh !important;
+  top: 32% !important;
+  font-size: 15vh !important;
   font-family: 'Boldonse', sans-serif !important;
   white-space: nowrap !important;
   user-select: none !important;
@@ -256,16 +267,16 @@
   text-shadow: none !important;
   background: none !important;
   z-index: 1;
-  opacity: 0;
+  opacity: 0.3 !important;
   transform: translateX(100vw);
 }
 
 .banner-hero-container .one #blueberry-text,
 .banner-hero-container #blueberry-text {
   position: absolute !important;
-  top: 28% !important;
-  font-size: 20vh !important;
-  font-family: 'Boldonse', sans-serif !important;
+  top: 30% !important;
+  font-size: 18vh !important;
+  font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
   white-space: nowrap !important;
   user-select: none !important;
   text-transform: uppercase !important;
@@ -277,7 +288,7 @@
   text-shadow: none !important;
   background: none !important;
   z-index: 1;
-  opacity: 0;
+  opacity: 0.3 !important;
   transform: translateX(100vw);
 }
 
@@ -1910,6 +1921,8 @@
   .banner-hero-container #melon-text,
   .banner-hero-container #blueberry-text {
 
+    font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
+
     font-size: 26vw !important;
 
     top: 45%;
@@ -2211,6 +2224,8 @@
   .banner-hero-container #chocolate-text,
   .banner-hero-container #melon-text,
   .banner-hero-container #blueberry-text {
+
+    font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
 
     font-size: 20vw !important;
 

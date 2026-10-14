@@ -77,48 +77,11 @@ export default function Enjoyflavours() {
           {/* Right: Navigation Controls & Explore Button */}
           <div className="enjoy-flavours-header-right">
             <div className="enjoy-flavours-controls" role="group" aria-label="Slider Navigation">
-              <button
-                type="button"
-                className="enjoy-flavours-nav-btn"
-                onClick={() => handleScroll('left')}
-                aria-label="Previous flavours"
-              >
-                <svg
-                  width="26"
-                  height="15"
-                  viewBox="0 0 24 14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="19" y1="7" x2="5" y2="7" />
-                  <polyline points="9.5 3 5 7 9.5 11" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                className="enjoy-flavours-nav-btn"
-                onClick={() => handleScroll('right')}
-                aria-label="Next flavours"
-              >
-                <svg
-                  width="26"
-                  height="15"
-                  viewBox="0 0 24 14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="5" y1="7" x2="19" y2="7" />
-                  <polyline points="14.5 3 19 7 14.5 11" />
-                </svg>
-              </button>
+              
+              
+                
+                
+             
             </div>
 
             <a

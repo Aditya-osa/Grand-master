@@ -34,14 +34,15 @@ export const PRODUCTS = [
   { id: 'chocolate', name: "Grand Master's Chocolate", tag: 'Platinum Vodka', img: bottleChocolate },
 
   { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottleMelon },
-  { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img  : bottleMango }, 
+  { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img  : bottleMango },
+    { id: 'coconut', name: "Grand Master's Coconut", tag: 'Platinum Vodka', img: bottleCoconut },
    { id: 'minty-jamun', name: "Grand Master's Minty Jamun", tag: 'Platinum Vodka', img: bottleMintyJamun },
  
   
 
   { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Platinum Vodka', img: bottleGreenApple },
   { id: 'blue-curacao', name: "Grand Master's Blue Curacao", tag: 'Platinum Vodka', img: bottleBlueCuracao },
-  { id: 'coconut', name: "Grand Master's Coconut", tag: 'Platinum Vodka', img: bottleCoconut },
+ 
   { id: 'plain', name: "Grand Master's Plain", tag: 'Platinum Vodka', img: bottlePlain },
 ];
 

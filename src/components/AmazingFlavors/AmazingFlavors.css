@@ -2,13 +2,12 @@
    Grand Master's Vodka - Amazing Flavors Section
    Aesthetic: Warm luxury champagne & sand gradient matching the Home Page,
    compact section height, prominent floating fruit elements,
-   and clean condensed "FLAVORS" title.
+   and clean condensed "FLAVORS" title aligned with surrounding sections.
    ========================================================================== */
 
 .gm-amazing-flavors-section {
   width: 100%;
   position: relative;
-  /* Luxurious warm champagne / sand gradient matching Home Page sections */
   background: radial-gradient(
     ellipse at 50% 25%,
     #ffffff 0%,
@@ -16,12 +15,14 @@
     #ffffff 100%
   );
   color: #4A2213;
-  /* Decreased, compact section height */
-  padding: clamp(36px, 4.5vh, 56px) clamp(24px, 4.5vw, 60px);
+  --amazing-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-top: clamp(36px, 4.5vh, 56px);
+  padding-bottom: clamp(36px, 4.5vh, 56px);
+  padding-left: var(--amazing-pad-x);
+  padding-right: var(--amazing-pad-x);
   overflow: hidden;
   box-sizing: border-box;
-  text-align: center;
-  border-top: 1px solid rgba(74, 34, 19, 0.08);
+  text-align: left;
   border-bottom: 1px solid rgba(74, 34, 19, 0.08);
 }
 
@@ -48,23 +49,26 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
    Header Lockup: Compact "FLAVORS" Title
    -------------------------------------------------------------------------- */
 .gm-amazing-title-lockup {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  width: 100%;
   position: relative;
-  margin-bottom: clamp(18px, 2.5vh, 32px);
+  margin-bottom: clamp(24px, 3.2vh, 36px);
   user-select: none;
+  text-align: left;
 }
 
 .gm-amazing-badge {
@@ -80,7 +84,6 @@
   border-radius: 6px;
   transform: rotate(-7deg) translateY(8px);
   z-index: 3;
-
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -89,15 +92,15 @@
 }
 
 .gm-flavors-main-title {
+  text-align: left;
   font-family: 'Boldonse', sans-serif;
-  font-size: clamp(38px, 4.8vw, 56px);
+  font-size: clamp(34px, 4.2vw, 45px);
   font-weight: 400;
   color: #4A2213;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  line-height: 1.08;
+  letter-spacing: normal;
   text-transform: uppercase;
   margin: 0;
- ;
 }
 
 /* --------------------------------------------------------------------------
@@ -142,27 +145,32 @@
   max-height: 100%;
   object-fit: contain;
   display: block;
-  
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
   user-select: none;
   pointer-events: none;
 }
 
+.gm-flavor-item[data-flavor="blue-curacao"] .gm-flavor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
 /* Hover Interaction: Subtle Lift */
 .gm-flavor-item:hover .gm-flavor-img {
   transform: translateY(-8px) scale(1.08);
-
 }
 
 /* Compact Bold Flavor Label */
 .gm-flavor-label {
   margin-top: 10px;
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(11.5px, 0.88vw, 14.5px);
-  font-weight: 800;
+  font-size: clamp(11.5px, 0.88vw, 16px);
+  font-weight: 600;
   color: #4A2213;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: normal;
   line-height: 1.2;
   white-space: nowrap;
   transition: color 0.25s ease, transform 0.25s ease;
@@ -193,7 +201,9 @@
 
 @media (max-width: 767px) {
   .gm-amazing-flavors-section {
-    padding: clamp(28px, 4vh, 40px) 14px;
+    --amazing-pad-x: 20px;
+    padding-top: clamp(28px, 4vh, 40px);
+    padding-bottom: clamp(28px, 4vh, 40px);
   }
 
   .gm-amazing-title-lockup {
@@ -201,7 +211,7 @@
   }
 
   .gm-flavors-main-title {
-    font-size: clamp(34px, 9vw, 48px);
+    font-size: clamp(30px, 8vw, 40px);
   }
 
   .gm-amazing-flavors-grid {

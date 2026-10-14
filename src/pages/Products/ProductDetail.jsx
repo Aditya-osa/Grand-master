@@ -4,6 +4,10 @@ import Footer from '../../components/Footer';
 import { PRODUCTS_DATA, getProductImage, findProductById, formatProductName } from './productData';
 import { distillationImg } from '../../assets/process';
 import { zestyLemonCocktail, tableSocialLounge } from '../../assets/WhatsApp Unknown 2026-10-10 at 1.15.53 PM';
+import bcImg5 from '../../assets/BC/5.jpg';
+import bcImg6 from '../../assets/BC/6.jpg';
+import melonImg35 from '../../assets/Melo/35.jpg';
+import melonImg36 from '../../assets/Melo/36.jpg';
 import brandVideo from '../../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
 import './ProductDetail.css';
 
@@ -31,6 +35,8 @@ export default function ProductDetail({
   const galleryItems = useMemo(() => {
     const img750 = product.img750 || product.img;
     const img180 = product.img180 || product.img750 || product.img;
+    const isBlueCuracao = product.id === 'blue-curacao';
+    const isMelon = product.id === 'melon';
 
     return [
       {
@@ -68,8 +74,8 @@ export default function ProductDetail({
         id: 'cocktail-serve',
         type: 'image',
         label: 'Serve',
-        thumbSrc: zestyLemonCocktail,
-        mainSrc: zestyLemonCocktail,
+        thumbSrc: isBlueCuracao ? bcImg5 : isMelon ? melonImg35 : zestyLemonCocktail,
+        mainSrc: isBlueCuracao ? bcImg5 : isMelon ? melonImg35 : zestyLemonCocktail,
         alt: `${product.fullName} Signature Cocktail Serve`,
         isBottle: false
       },
@@ -86,8 +92,8 @@ export default function ProductDetail({
         id: 'lifestyle-lounge',
         type: 'image',
         label: 'Lounge',
-        thumbSrc: tableSocialLounge,
-        mainSrc: tableSocialLounge,
+        thumbSrc: isBlueCuracao ? bcImg6 : isMelon ? melonImg36 : tableSocialLounge,
+        mainSrc: isBlueCuracao ? bcImg6 : isMelon ? melonImg36 : tableSocialLounge,
         alt: 'Grand Master Lounge Serve',
         isBottle: false
       },
@@ -181,7 +187,12 @@ export default function ProductDetail({
             <div className="gm-detail-grid">
               {/* Left Column: Premium Bottle Stage & Thumbnail Strip */}
               <div className="gm-detail-stage-wrap">
-                <div className="gm-detail-stage">
+                <div
+                  className={`gm-detail-stage gm-detail-stage--${activeItem.id} ${activeItem.isBottle ? 'gm-detail-stage--bottle' : 'gm-detail-stage--media'} gm-detail-stage--${activeItem.type}`}
+                  style={{
+                    borderColor: product.accentColor || 'rgb(173, 92, 92)',
+                  }}
+                >
                   {activeItem.type === 'video' ? (
                     <div className="gm-detail-video-wrapper">
                       <video
