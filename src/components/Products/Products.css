@@ -413,7 +413,6 @@
 .brand-title {
   top:17%;
   position: absolute;
-
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -464,7 +463,7 @@
 }
 
 .explore-shell {
-  margin-top: -10%;
+  margin-top: -6%;
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
