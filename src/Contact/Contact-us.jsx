@@ -115,6 +115,9 @@ export default function ContactUs() {
               <div className="gm-info-list">
                 {/* Head Office */}
                 <div className="gm-info-item">
+                  <div className="gm-info-icon-box" aria-hidden="true">
+                    <i className="ri-map-pin-2-line"></i>
+                  </div>
                   <div className="gm-info-details">
                     <span className="gm-info-label">Head Office</span>
                     <p className="gm-info-text">
@@ -125,6 +128,9 @@ export default function ContactUs() {
 
                 {/* Email */}
                 <div className="gm-info-item">
+                  <div className="gm-info-icon-box" aria-hidden="true">
+                    <i className="ri-mail-line"></i>
+                  </div>
                   <div className="gm-info-details">
                     <span className="gm-info-label">Email id</span>
                     <a href="mailto:mail@Grandmasters.co" className="gm-info-link">
@@ -135,6 +141,9 @@ export default function ContactUs() {
 
                 {/* Customer Care */}
                 <div className="gm-info-item">
+                  <div className="gm-info-icon-box" aria-hidden="true">
+                    <i className="ri-phone-line"></i>
+                  </div>
                   <div className="gm-info-details">
                     <span className="gm-info-label">Customer Care</span>
                     <a href="tel:022-25709440" className="gm-info-link">
