@@ -162,7 +162,7 @@
   font-family: 'Anybody', sans-serif;
   font-size: clamp(14.5px, 1.2vw, 17.5px);
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.2;
   color: rgba(255, 255, 255, 0.95);
   max-width: 660px;
   margin: 0 auto;
@@ -209,7 +209,7 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--gm-text-dark);
-  line-height: 1.15;
+  line-height: 1.2;
   margin: 0 0 clamp(8px, 1.2vh, 12px);
 }
 
@@ -217,7 +217,7 @@
 .raise-standard p {
   font-family: 'Anybody', sans-serif;
   font-size: clamp(14px, 1.7vh, 16px);
-  line-height: 1.6;
+  line-height: 1.2;
   color: var(--gm-text-body);
   max-width: 760px;
   margin: 0;
@@ -296,7 +296,7 @@
 .gm-info-text {
   font-family: 'Anybody', sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.2;
   color: var(--gm-text-body);
   margin: 0;
   max-width: 440px;
@@ -393,7 +393,7 @@
   align-items: center;
   gap: 8px;
   font-size: 15px;
-  line-height: 1.45;
+  line-height: 1.2;
   color: var(--gm-text-body);
   padding: 0.15vh 0;
   white-space: nowrap;
@@ -450,7 +450,7 @@ padding: 3vh clamp(24px, 3vw, 48px);
 .gm-message-desc {
   margin: 0 0 4vh;
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.2;
   color: var(--gm-text-body);
 }
 
@@ -511,7 +511,7 @@ padding: 3vh clamp(24px, 3vw, 48px);
   outline: none;
   box-sizing: border-box;
   resize: vertical;
-  line-height: 1.7;
+  line-height: 1.2;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 

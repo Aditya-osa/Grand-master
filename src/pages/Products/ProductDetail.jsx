@@ -2,6 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { PRODUCTS_DATA, getProductImage, findProductById } from './productData';
+import { distillationImg } from '../../assets/process';
+import { zestyLemonCocktail, tableSocialLounge } from '../../assets/WhatsApp Unknown 2026-10-10 at 1.15.53 PM';
+import brandVideo from '../../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
 import './ProductDetail.css';
 
 export default function ProductDetail({ 
@@ -22,6 +25,84 @@ export default function ProductDetail({
     return product.sizes && product.sizes.includes('750 ML') ? '750 ML' : product.sizes?.[0] || '750 ML';
   });
 
+  const [activeMediaIndex, setActiveMediaIndex] = useState(0);
+
+  // Gallery items for the thumbnail strip below the bottle (using existing assets only)
+  const galleryItems = useMemo(() => {
+    const img750 = product.img750 || product.img;
+    const img180 = product.img180 || product.img750 || product.img;
+
+    return [
+      {
+        id: 'bottle-750',
+        type: 'image',
+        label: '750 ML',
+        thumbSrc: img750,
+        mainSrc: img750,
+        size: '750 ML',
+        alt: `${product.fullName} - 750 ML`,
+        isBottle: true,
+        bottleClass: 'gm-bottle-750ml'
+      },
+      {
+        id: 'bottle-180',
+        type: 'image',
+        label: '180 ML',
+        thumbSrc: img180,
+        mainSrc: img180,
+        size: '180 ML',
+        alt: `${product.fullName} - 180 ML`,
+        isBottle: true,
+        bottleClass: 'gm-bottle-180ml'
+      },
+      {
+        id: 'bottle-detail',
+        type: 'closeup',
+        label: 'Detail',
+        thumbSrc: img750,
+        mainSrc: img750,
+        alt: `${product.fullName} Artwork Close-up`,
+        isBottle: false
+      },
+      {
+        id: 'cocktail-serve',
+        type: 'image',
+        label: 'Serve',
+        thumbSrc: zestyLemonCocktail,
+        mainSrc: zestyLemonCocktail,
+        alt: `${product.fullName} Signature Cocktail Serve`,
+        isBottle: false
+      },
+      {
+        id: 'craft-distill',
+        type: 'image',
+        label: 'Craft',
+        thumbSrc: distillationImg,
+        mainSrc: distillationImg,
+        alt: 'Quadruple Distillation Craft',
+        isBottle: false
+      },
+      {
+        id: 'lifestyle-lounge',
+        type: 'image',
+        label: 'Lounge',
+        thumbSrc: tableSocialLounge,
+        mainSrc: tableSocialLounge,
+        alt: 'Grand Master Lounge Serve',
+        isBottle: false
+      },
+      {
+        id: 'brand-video',
+        type: 'video',
+        label: 'Video',
+        thumbSrc: img750,
+        videoSrc: brandVideo,
+        alt: 'Grand Master Brand Film',
+        isVideo: true
+      }
+    ];
+  }, [product]);
+
   // 4 other bottles for the bottom section
   const relatedBottles = useMemo(() => {
     return PRODUCTS_DATA.filter((p) => p.id !== product.id).slice(0, 4);
@@ -30,6 +111,7 @@ export default function ProductDetail({
   // Sync size on product or initialSize change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActiveMediaIndex(0);
     if (initialSize && product.sizes && product.sizes.includes(initialSize)) {
       setSelectedSize(initialSize);
     } else if (product.sizes && !product.sizes.includes(selectedSize)) {
@@ -54,8 +136,23 @@ export default function ProductDetail({
     }
   };
 
-  const currentBottleImg = getProductImage(product, selectedSize);
-  const is180 = selectedSize.toString().toUpperCase().includes('180');
+  const handleThumbSelect = (index, item) => {
+    setActiveMediaIndex(index);
+    if (item.size) {
+      setSelectedSize(item.size);
+    }
+  };
+
+  const handleSizePillClick = (size) => {
+    setSelectedSize(size);
+    if (size === '180 ML') {
+      setActiveMediaIndex(1);
+    } else {
+      setActiveMediaIndex(0);
+    }
+  };
+
+  const activeItem = galleryItems[activeMediaIndex] || galleryItems[0];
 
   return (
     <div className="gm-detail-page-wrapper" id="product-detail-page">
@@ -82,16 +179,84 @@ export default function ProductDetail({
         <section className="gm-detail-hero" aria-label={product.fullName}>
           <div className="gm-detail-container">
             <div className="gm-detail-grid">
-              {/* Left Column: Premium Bottle Stage */}
+              {/* Left Column: Premium Bottle Stage & Thumbnail Strip */}
               <div className="gm-detail-stage-wrap">
                 <div className="gm-detail-stage">
-                  <img
-                    key={`${product.id}-${selectedSize}`}
-                    src={currentBottleImg}
-                    alt={`${product.fullName} - ${selectedSize}`}
-                    className={`gm-detail-bottle-img ${is180 ? 'gm-bottle-180ml' : 'gm-bottle-750ml'}`}
-                    loading="eager"
-                  />
+                  {activeItem.type === 'video' ? (
+                    <div className="gm-detail-video-wrapper">
+                      <video
+                        key={activeItem.videoSrc}
+                        src={activeItem.videoSrc}
+                        controls
+                        autoPlay
+                        playsInline
+                        muted
+                        loop
+                        className="gm-detail-stage-video"
+                      />
+                    </div>
+                  ) : activeItem.type === 'closeup' ? (
+                    <div className="gm-detail-closeup-stage" title="Label & Bottle Craft Close-up">
+                      <img
+                        key={`closeup-${product.id}`}
+                        src={activeItem.mainSrc}
+                        alt={activeItem.alt}
+                        className="gm-detail-closeup-img"
+                        loading="eager"
+                      />
+                      <span className="gm-detail-closeup-tag">Artisan Seal Close-up</span>
+                    </div>
+                  ) : activeItem.isBottle ? (
+                    <img
+                      key={`${product.id}-${activeItem.size}`}
+                      src={activeItem.mainSrc}
+                      alt={activeItem.alt}
+                      className={`gm-detail-bottle-img ${activeItem.bottleClass}`}
+                      loading="eager"
+                    />
+                  ) : (
+                    <div className="gm-detail-media-frame">
+                      <img
+                        key={activeItem.mainSrc}
+                        src={activeItem.mainSrc}
+                        alt={activeItem.alt}
+                        className="gm-detail-media-img"
+                        loading="eager"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Thumbnail Strip directly below bottle (styled exactly like user's reference) */}
+                <div className="gm-detail-thumbs-strip" role="tablist" aria-label="Product views gallery">
+                  {galleryItems.map((item, index) => {
+                    const isActive = activeMediaIndex === index;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={isActive}
+                        className={`gm-detail-thumb-card ${isActive ? 'is-active' : ''}`}
+                        onClick={() => handleThumbSelect(index, item)}
+                        title={item.label}
+                      >
+                        <div className="gm-detail-thumb-inner">
+                          <img
+                            src={item.thumbSrc}
+                            alt={item.alt}
+                            className={`gm-detail-thumb-img ${item.isBottle ? 'is-bottle' : ''}`}
+                            loading="lazy"
+                          />
+                          {item.isVideo && (
+                            <div className="gm-thumb-play-overlay" aria-hidden="true">
+                              <span className="gm-thumb-play-icon">▶</span>
+                            </div>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -122,7 +287,7 @@ export default function ProductDetail({
                           key={size}
                           type="button"
                           className={`gm-size-pill ${selectedSize === size ? 'active' : ''}`}
-                          onClick={() => setSelectedSize(size)}
+                          onClick={() => handleSizePillClick(size)}
                           aria-pressed={selectedSize === size}
                         >
                           <span className="pill-indicator-dot" />

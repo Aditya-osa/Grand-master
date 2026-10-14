@@ -20,6 +20,7 @@ import bottleChocolate from '../../assets/750 ML 3D (1)/9.png';
 import bottleGreenApple from '../../assets/750 ML 3D (1)/10.png';
 import bottlePlain from '../../assets/750 ML 3D (1)/11.png';
 import bottleZestyLemon from '../../assets/750 ML 3D (1)/12.png';
+import bottleCoconut from '../../assets/750 ML 3D (1)/13.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +40,7 @@ export const PRODUCTS = [
 
   { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Platinum Vodka', img: bottleGreenApple },
   { id: 'blue-curacao', name: "Grand Master's Blue Curacao", tag: 'Platinum Vodka', img: bottleBlueCuracao },
- 
+  { id: 'coconut', name: "Grand Master's Coconut", tag: 'Platinum Vodka', img: bottleCoconut },
   { id: 'plain', name: "Grand Master's Plain", tag: 'Platinum Vodka', img: bottlePlain },
 ];
 
@@ -134,7 +135,32 @@ export default function Products() {
       </div>
 
       <div className="brand-title">
-        Meet Grand Master's
+        <svg
+          className="ag-curved-title-svg"
+          viewBox="0 0 920 180"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Meet Grand Master's"
+          role="heading"
+          aria-level="2"
+        >
+          <defs>
+            <path
+              id="gm-title-arc"
+              d="M 40,165 A 470,240 0 0,1 880,165"
+              fill="none"
+            />
+          </defs>
+          <text className="ag-curved-title-text">
+            <textPath
+              href="#gm-title-arc"
+              startOffset="50%"
+              textAnchor="middle"
+            >
+              MEET GRAND MASTER'S
+            </textPath>
+          </text>
+        </svg>
+
         <div 
           className="explore-shell"
           onClick={() => {
@@ -214,7 +240,8 @@ export default function Products() {
               </div>
             ))}
           </div>
-        </div>
+        </div>   
+       
       </div>
       {/* Bottom Center: Scroll Prompt */}
       <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">

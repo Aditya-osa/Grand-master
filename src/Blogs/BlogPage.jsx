@@ -58,9 +58,7 @@ export default function BlogPage() {
         {/* Foreground Hero Content Lockup */}
         <div className="blog-banner-content">
           <h1 className="blog-banner-title">OUR BLOGS</h1>
-          <p className="blog-banner-desc">
-            Explore stories, cocktail recipes, and behind-the-scenes craft from Grand Master.
-          </p>
+         
         </div>
       </section>
 

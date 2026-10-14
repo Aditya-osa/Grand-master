@@ -11,6 +11,7 @@ import img750_chocolate from '../../assets/750 ML 3D (1)/9.png';
 import img750_greenApple from '../../assets/750 ML 3D (1)/10.png';
 import img750_plain from '../../assets/750 ML 3D (1)/11.png';
 import img750_zestyLemon from '../../assets/750 ML 3D (1)/12.png';
+import img750_coconut from '../../assets/750 ML 3D (1)/13.png';
 
 // 180 mL GM Bottle Assets (3D Renders)
 import img180_blueberry from '../../assets/180 ML 3D/1.png';
@@ -265,11 +266,11 @@ export const PRODUCTS_DATA = [
     sizes: ["180 ML", "750 ML"],
     pairings: "Grandmaster's Coconut flavoured vodka is best served with pineapple juice, chilled cola, or on the rocks.",
     accentColor: "#0284c7",
-    img: img180_coconut,
-    img750: img180_coconut,
+    img: img750_coconut,
+    img750: img750_coconut,
     img180: img180_coconut,
     images: {
-      '750 ML': img180_coconut,
+      '750 ML': img750_coconut,
       '180 ML': img180_coconut,
     },
   },
