@@ -497,8 +497,20 @@
   font-weight: 700;
   color: var(--gm-text-dark);
   margin: 0;
-  line-height: 1.28;
+  line-height: 1.25;
   letter-spacing: -0.01em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gm-name-prefix {
+  display: block;
+}
+
+.gm-name-flavor {
+  display: block;
 }
 
 /* Card Size Selector Pills */

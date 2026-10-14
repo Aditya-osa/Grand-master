@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import {
   grainsImg,
@@ -12,8 +10,6 @@ import {
 } from '../../assets/process';
 
 import './HorizontalCards.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const PROCESS_STEPS = [
   {
@@ -54,168 +50,12 @@ export const PROCESS_STEPS = [
 ];
 
 /**
- * HorizontalCards - Pinned Horizontal Scroll Animation
- * Pure horizontal card track sliding smoothly on vertical page scroll.
+ * HorizontalCards - Distillation Process Cards
+ * Clean responsive display of all process steps without horizontal side scrolling.
  */
 export default function HorizontalCards() {
-  const sectionRef = useRef(null);
-  const stageRef = useRef(null);
-  const trackRef = useRef(null);
-  const progressBarRef = useRef(null);
-  const progressTextRef = useRef(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    const stage = stageRef.current;
-    const track = trackRef.current;
-    if (!section || !stage || !track) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    // Helper to update progress bar and step counter
-    const updateProgress = (progress) => {
-      // Scale effective progress so 100% is reached when the track reaches the 5th card
-      const effectiveProgress = Math.min(1, progress / 0.82);
-      if (progressBarRef.current) {
-        progressBarRef.current.style.transform = `scaleX(${effectiveProgress})`;
-      }
-      if (progressTextRef.current) {
-        const stepCount = PROCESS_STEPS.length;
-        const activeIndex = Math.min(
-          stepCount - 1,
-          Math.max(0, Math.floor(effectiveProgress * stepCount * 0.999))
-        );
-        progressTextRef.current.textContent = `STAGE 0${activeIndex + 1} OF 0${stepCount}`;
-      }
-    };
-
-    const getScrollAmount = () => {
-      if (!track || !stage) return 0;
-      const scrollDistance = track.scrollWidth - stage.clientWidth;
-      return Math.max(0, scrollDistance);
-    };
-
-    // Use GSAP matchMedia for fully responsive scroll trigger calculations
-    const mm = gsap.matchMedia();
-
-    // 1. Large Desktop & Desktop (1024px+)
-    mm.add('(min-width: 1024px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: () => `+=${Math.max(window.innerHeight * 1.2, getScrollAmount() * 1.35 + 350)}`,
-          pin: true,
-          scrub: 0.8,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => updateProgress(self.progress),
-        },
-      });
-
-      tl.to(track, {
-        x: () => -getScrollAmount(),
-        ease: 'none',
-        duration: 1,
-      });
-
-      // Dwell period so the 5th card is comfortably viewed before unpinning
-      tl.to({}, { duration: 0.2 });
-
-      return () => {
-        tl.scrollTrigger?.kill();
-        tl.kill();
-      };
-    });
-
-    // 2. Tablet (600px - 1023px)
-    mm.add('(min-width: 600px) and (max-width: 1023px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: () => `+=${Math.max(window.innerHeight, getScrollAmount() * 1.2 + 250)}`,
-          pin: true,
-          scrub: 0.6,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => updateProgress(self.progress),
-        },
-      });
-
-      tl.to(track, {
-        x: () => -getScrollAmount(),
-        ease: 'none',
-        duration: 1,
-      });
-
-      tl.to({}, { duration: 0.16 });
-
-      return () => {
-        tl.scrollTrigger?.kill();
-        tl.kill();
-      };
-    });
-
-    // 3. Mobile (320px - 599px)
-    mm.add('(max-width: 599px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: () => `+=${Math.max(window.innerHeight * 0.9, getScrollAmount() * 1.1 + 180)}`,
-          pin: true,
-          scrub: 0.4,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => updateProgress(self.progress),
-        },
-      });
-
-      tl.to(track, {
-        x: () => -getScrollAmount(),
-        ease: 'none',
-        duration: 1,
-      });
-
-      tl.to({}, { duration: 0.12 });
-
-      return () => {
-        tl.scrollTrigger?.kill();
-        tl.kill();
-      };
-    });
-
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
-
-    // Refresh after layout and images settle
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 250);
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => {
-        ScrollTrigger.refresh();
-      });
-    }
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-      mm.revert();
-    };
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="distillation"
       className="stack-cards-section"
       aria-label="Grand Master Distillation Process"
@@ -223,40 +63,35 @@ export default function HorizontalCards() {
       <div className="stack-cards-viewport">
         {/* Top Header above Cards */}
         <header className="stack-cards-top-header">
-          {/* Left: Heading and Narrative Story */}
           <div className="stack-cards-header-left">
             <h2 className="stack-cards-top-title">Process</h2>
             <p className="stack-cards-top-desc">
               It is the perfect combination between quality distillate in an unique bottle shape and urban culture inspiration.
             </p>
           </div>
-
-         
         </header>
 
-        {/* Right Stage: Horizontal Cards Track */}
-        <div ref={stageRef} className="stack-cards-stage">
-          <div ref={trackRef} className="horizontal-cards-track">
+        {/* Process Cards Track / Grid */}
+        <div className="stack-cards-stage">
+          <div className="horizontal-cards-track">
             {PROCESS_STEPS.map((step) => (
               <article
                 key={step.id}
                 className="stack-card"
                 data-step={step.id}
-                style={{ '--card-accent': step.accent }}
               >
                 {/* Archival Illustration Aperture */}
                 <div className="stack-card__visual">
                   <motion.div
                     className="stack-card__img-wrap"
-                    whileHover={{ scale: 1.06 }}
+                    whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <img
                       src={step.image}
                       alt={step.title}
-                      className={`stack-card__img ${step.id === 'harvest' ? 'stack-card__img--cover' : ''}`}
-                      loading="eager"
-                      onLoad={() => ScrollTrigger.refresh()}
+                      className="stack-card__img"
+                      loading="lazy"
                     />
                   </motion.div>
                 </div>

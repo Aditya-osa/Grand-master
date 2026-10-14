@@ -313,3 +313,19 @@ export function findProductById(id) {
   return PRODUCTS_DATA.find((p) => p.id === normalized) || PRODUCTS_DATA[0];
 }
 
+/**
+ * Splits product name into brand prefix and flavor name
+ * e.g. "Grand Master's Blue Curacao" -> { prefix: "Grand Master's", flavor: "Blue Curacao" }
+ */
+export function formatProductName(name) {
+  if (!name) return { prefix: '', flavor: '' };
+  const match = name.match(/^(Grand\s*Master['’]s)\s+(.+)$/i);
+  if (match) {
+    return {
+      prefix: match[1],
+      flavor: match[2],
+    };
+  }
+  return { prefix: '', flavor: name };
+}
+

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { PRODUCTS_DATA, getProductImage, findProductById } from './productData';
+import { PRODUCTS_DATA, getProductImage, findProductById, formatProductName } from './productData';
 import { distillationImg } from '../../assets/process';
 import { zestyLemonCocktail, tableSocialLounge } from '../../assets/WhatsApp Unknown 2026-10-10 at 1.15.53 PM';
 import brandVideo from '../../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
@@ -372,7 +372,19 @@ export default function ProductDetail({
 
                     <div className="gm-related-meta">
                       <span className="gm-related-tag">{relProduct.tag}</span>
-                      <h3 className="gm-related-name">{relProduct.name}</h3>
+                      <h3 className="gm-related-name">
+                        {(() => {
+                          const { prefix, flavor } = formatProductName(relProduct.name);
+                          return prefix ? (
+                            <>
+                              <span className="gm-name-prefix">{prefix}</span>
+                              <span className="gm-name-flavor">{flavor}</span>
+                            </>
+                          ) : (
+                            relProduct.name
+                          );
+                        })()}
+                      </h3>
 
                       {/* View Button for related bottle */}
                       <button

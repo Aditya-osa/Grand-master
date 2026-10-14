@@ -805,7 +805,19 @@
   font-weight: 700;
   color: var(--gm-text-dark);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.28;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gm-related-name .gm-name-prefix {
+  display: block;
+}
+
+.gm-related-name .gm-name-flavor {
+  display: block;
 }
 
 /* Related Button matching gm-hero-action-btn (Zero shadows) */

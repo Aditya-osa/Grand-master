@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import bannerImg from '../../assets/image.png';
 import bannerVideo from '../../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4';
-import { PRODUCTS_DATA as ALL_PRODUCTS } from './productData';
+import { PRODUCTS_DATA as ALL_PRODUCTS, formatProductName } from './productData';
 import ProductDetail from './ProductDetail';
 import './products.css';
 
@@ -264,7 +264,19 @@ export default function Products() {
                     {/* Product Metadata Details */}
                     <div className="gm-product-meta">
                       <span className="gm-product-tag">{product.tag}</span>
-                      <h3 className="gm-product-name">{product.name}</h3>
+                      <h3 className="gm-product-name">
+                        {(() => {
+                          const { prefix, flavor } = formatProductName(product.name);
+                          return prefix ? (
+                            <>
+                              <span className="gm-name-prefix">{prefix}</span>
+                              <span className="gm-name-flavor">{flavor}</span>
+                            </>
+                          ) : (
+                            product.name
+                          );
+                        })()}
+                      </h3>
 
                       {/* View Button for Every Bottle -> Navigates to Detail Page */}
                       <button

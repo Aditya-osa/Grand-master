@@ -174,8 +174,9 @@ export const initCarouselScroll = ({ containerRef, trackRef, getBottleEls }) => 
         : Math.min(window.innerWidth * 0.36, 420);
       const bottleEls = getBottleEls();
 
-      const baseScale = isSmallMobile ? 0.78 : isMobile ? 0.82 : 0.85;
-      const maxBoost = isSmallMobile ? 0.34 : isMobile ? 0.44 : 0.55;
+      // Scale tuned to be 15% smaller so center magnified bottle doesn't collide with title
+      const baseScale = isSmallMobile ? 0.70 : isMobile ? 0.74 : 0.76;
+      const maxBoost = isSmallMobile ? 0.28 : isMobile ? 0.34 : 0.40;
 
       bottleEls.forEach((el) => {
         if (!el) return;

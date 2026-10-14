@@ -3,6 +3,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHeroEntrance, initCarouselScroll } from '../../animations/heroAnimations';
+import { formatProductName } from '../../pages/Products/productData';
 import './Products.css';
 import bgLeft from '../../assets/Bg (2)/1.png';
 import bgRight from '../../assets/Bg (2)/2.png';
@@ -108,6 +109,19 @@ export default function Products() {
       lenis.destroy();
     };
   }, []);
+
+  const handleSkip = (e) => {
+    if (e) e.preventDefault();
+    const container = containerRef.current;
+    if (container) {
+      const pinSpacer = container.closest('.pin-spacer') || container;
+      const targetY = pinSpacer.offsetTop + pinSpacer.offsetHeight;
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <section
@@ -234,7 +248,19 @@ export default function Products() {
                   onLoad={() => ScrollTrigger.refresh()}
                 />
                 <div className="ag-bottle-info">
-                  <span className="ag-bottle-name">{product.name}</span>
+                  <span className="ag-bottle-name">
+                    {(() => {
+                      const { prefix, flavor } = formatProductName(product.name);
+                      return prefix ? (
+                        <>
+                          <span className="ag-name-prefix">{prefix}</span>
+                          <span className="ag-name-flavor">{flavor}</span>
+                        </>
+                      ) : (
+                        product.name
+                      );
+                    })()}
+                  </span>
                   <span className="ag-bottle-tag">{product.tag}</span>
                 </div>
               </div>
@@ -243,9 +269,18 @@ export default function Products() {
         </div>   
        
       </div>
-      {/* Bottom Center: Scroll Prompt */}
-      <div ref={promptRef} className="ag-scroll-prompt-wrap" aria-hidden="true">
-        <span className="ag-scroll-prompt">SCROLL To DISCOVER</span>
+      {/* Bottom Center: Skip Button & Scroll Prompt */}
+      <div ref={promptRef} className="ag-scroll-prompt-wrap">
+        <button
+          type="button"
+          className="ag-skip-btn"
+          onClick={handleSkip}
+          aria-label="Skip to next section"
+        >
+          <span>SKIP</span>
+          <i className="ri-arrow-down-line" aria-hidden="true"></i>
+        </button>
+    
       </div>
     </section>
   );
