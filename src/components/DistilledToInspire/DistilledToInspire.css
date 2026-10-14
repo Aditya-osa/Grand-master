@@ -577,24 +577,26 @@
   flex-shrink: 0;
 }
 
-.distilled-about-eyebrow {
-  display: inline-flex;
+/* Centered Eyebrow Header */
+.distilled-about-center-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 7px;
-  font-family: 'Anybody', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #1a1214;
-  margin-bottom: clamp(36px, 4.5vh, 56px);
+  text-align: center;
+  margin-bottom: clamp(32px, 4.2vh, 52px);
 }
 
-.distilled-about-star {
-  width: 13px;
-  height: 13px;
-  color: #e74240; /* Coral Red Accent from Reference */
-  flex-shrink: 0;
+.distilled-about-eyebrow {
+  display: inline-block;
+  font-family: 'Anybody', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1214;
+  margin: 0;
+  text-align: center;
 }
 
 /* Video Card in Left Slot */
@@ -753,8 +755,8 @@
     white-space: normal;
   }
 
-  .distilled-about-eyebrow {
-    margin-bottom: 16px;
+  .distilled-about-center-header {
+    margin-bottom: 22px;
   }
 
   .distilled-about-video-card {

@@ -21,6 +21,7 @@ export default function DistilledToInspire({ centered = false }) {
   const rightColRef = useRef(null);
   const videoCardRef = useRef(null);
   const videoRef = useRef(null);
+  const eyebrowRef = useRef(null);
 
   // Play / Pause toggle handler
   const handleTogglePlay = (e) => {
@@ -119,6 +120,19 @@ export default function DistilledToInspire({ centered = false }) {
               {
                 opacity: 0,
                 y: -28,
+                duration: 0.28,
+                ease: 'power1.out',
+              },
+              0
+            );
+          }
+
+          if (eyebrowRef.current) {
+            tl.to(
+              eyebrowRef.current,
+              {
+                opacity: 0,
+                y: -20,
                 duration: 0.28,
                 ease: 'power1.out',
               },
@@ -249,22 +263,15 @@ export default function DistilledToInspire({ centered = false }) {
            - Scroll interaction: Video expands from left to cinematic full-width
            ==================================================================== */
         <div ref={trackRef} className="distilled-about-track">
+          {/* Centered Eyebrow without Star */}
+          <div ref={eyebrowRef} className="distilled-about-center-header">
+            <span className="distilled-about-eyebrow">OUR STORY</span>
+          </div>
+
           <div ref={topGridRef} className="distilled-about-grid">
             
-            {/* Left Column: Eyebrow + Left-Aligned Video */}
+            {/* Left Column: Left-Aligned Video */}
             <div className="distilled-about-col-left">
-              <div className="distilled-about-eyebrow">
-                <svg
-                  className="distilled-about-star"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 2L14.3 9.7L22 12L14.3 14.3L12 22L9.7 14.3L2 12L9.7 9.7L12 2Z" />
-                </svg>
-                <span>OUR STORY</span>
-              </div>
-
               {/* Video Player Card (Left-Aligned matching screenshot) */}
               <div
                 ref={videoCardRef}
