@@ -109,7 +109,7 @@ export default function BlogPage() {
                 >
                   <div className="gm-story-img-wrap">
                     <img
-                      src={blog.image}
+                      src={blog.thumbnail || blog.image}
                       alt={blog.title}
                       className="gm-story-img"
                       loading="lazy"

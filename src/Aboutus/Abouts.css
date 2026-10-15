@@ -46,6 +46,7 @@ about-banner-subtitle{
   overflow: hidden;
   background-color: #faf7f4;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .about-banner-bg,
@@ -77,35 +78,36 @@ about-banner-subtitle{
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 900px;
-  padding: 0 24px;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
   margin-top: clamp(40px, 4.5vh, 60px);
+  box-sizing: border-box;
 }
 
-.about-banner-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 7px 22px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(115, 47, 3, 0.22);
-  border-radius: 9999px;
+.about-banner-eyebrow,
+.about-banner-subtitle {
+  display: inline-block;
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(11px, 0.85vw, 13px);
+  font-size: clamp(12px, 0.95vw, 14px);
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #732f03;
-  margin-bottom: clamp(14px, 1.8vh, 22px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: clamp(12px, 1.6vh, 18px);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  text-align: center;
   user-select: none;
 }
 
 .about-banner-title {
   font-family: 'Boldonse', sans-serif;
+  white-space: nowrap;
   font-size: clamp(38px, 6vw, 68px);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -114,16 +116,18 @@ about-banner-subtitle{
   color: #ffffff;
   margin: 0 0 clamp(12px, 1.5vh, 20px) 0;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+  text-align: center;
 }
 
 .about-banner-desc {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(15px, 1.35vw, 19px);
+  font-size: clamp(15px, 1.35vw, 18.5px);
   font-weight: 500;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
   max-width: 680px;
   margin: 0 auto;
+  text-align: center;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
@@ -368,15 +372,14 @@ about-banner-subtitle{
   }
 
   .about-banner-content {
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     padding: 0 16px;
   }
 
   .about-banner-eyebrow {
     font-size: 11px;
-    padding: 6px 18px;
     letter-spacing: 0.2em;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .about-banner-title {
@@ -408,15 +411,14 @@ about-banner-subtitle{
   }
 
   .about-banner-content {
-    margin-top: 16px;
+    margin: 16px auto 0 auto;
     padding: 0 14px;
   }
 
   .about-banner-eyebrow {
     font-size: 10px;
-    padding: 5px 14px;
     letter-spacing: 0.18em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .about-banner-title {

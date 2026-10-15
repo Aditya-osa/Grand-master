@@ -63,58 +63,45 @@ export default function Products() {
     if (activeDetailId) return;
 
     const ctx = gsap.context(() => {
+      const el = heroRef.current;
+      if (!el) return;
+
+      const badge = el.querySelector('.gm-products-banner-badge');
+      const title = el.querySelector('.gm-products-banner-title');
+      const desc = el.querySelector('.gm-products-banner-desc');
+      const cards = el.querySelectorAll('.gm-product-card');
+      const grid = el.querySelector('.gm-products-grid');
+
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      tl.fromTo(
-        '.gm-products-banner-badge',
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.15 }
-      )
-        .fromTo(
-          '.gm-products-banner-title',
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          '-=0.5'
-        )
-        .fromTo(
-          '.gm-products-banner-desc',
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          '-=0.5'
+      if (badge) {
+        tl.fromTo(badge, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.15 });
+      }
+      if (title) {
+        tl.fromTo(title, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, badge ? '-=0.5' : 0);
+      }
+      if (desc) {
+        tl.fromTo(desc, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8 }, title ? '-=0.5' : 0);
+      }
+
+      if (cards && cards.length > 0 && grid) {
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.08,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: grid,
+              start: 'top 85%',
+              once: true,
+            },
+          }
         );
-
-      // ScrollTrigger for products section entrance
-      gsap.fromTo(
-        '.gm-collection-header',
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: '.gm-collection-header',
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      );
-
-      gsap.fromTo(
-        '.gm-product-card',
-        { opacity: 0, y: 35 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.08,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.gm-products-grid',
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      );
+      }
     }, heroRef);
 
     return () => ctx.revert();

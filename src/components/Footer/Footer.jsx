@@ -54,7 +54,7 @@ export default function Footer() {
             <span className="gm-footer-tag">Enjoy Responsibly</span>
             <span className="gm-footer-bullet" aria-hidden="true">&bull;</span>
             <a
-              href="https://www.dwebbox.com/"
+              href="https://www.10dumbs.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="gm-footer-creator-link"

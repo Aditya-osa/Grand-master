@@ -147,6 +147,7 @@
   font-family: 'Boldonse', sans-serif;
   font-size: clamp(38px, 6.5vw, 70px);
   font-weight: 400;
+  margin-top:5px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
@@ -178,22 +179,22 @@
 .gm-contact-body {
   position: relative;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  margin-top: 6vh;
-  padding: 6.5vh clamp(24px, 4.5vw, 48px);
+  max-width: 100%;
+  margin: 0;
+  margin-top: clamp(24px, 4vh, 48px);
+  --contact-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
+  padding-left: var(--contact-pad-x);
+  padding-right: var(--contact-pad-x);
+  padding-top: clamp(16px, 2.5vh, 32px);
+  padding-bottom: clamp(60px, 8vh, 100px);
   box-sizing: border-box;
 }
 
 /* ==========================================================================
    RAISE THE STANDARD - INTRO HEADER (Aligned with Cards Below)
    ========================================================================== */
-/* ==========================================================================
-   RAISE THE STANDARD - INTRO HEADER
-   ========================================================================== */
-
 .raise-standard {
-  margin-bottom: clamp(30px, 4vh, 45px);
+  margin-bottom: clamp(28px, 3.5vh, 44px);
   text-align: left;
   max-width: 900px;
 }
@@ -214,7 +215,7 @@
 .raise-standard p {
   font-family: 'Anybody', sans-serif;
   font-size: clamp(14px, 1.7vh, 16px);
-  line-height: 1.2;
+  line-height: 1.5;
   color: var(--gm-text-body);
   max-width: 760px;
   margin: 0;
@@ -222,9 +223,9 @@
 /* 2-Column Split: Contact & Presence (Left) | Wider Send Message Form (Right) */
 .gm-contact-split {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1fr 1.15fr;
   gap: clamp(32px, 4vw, 56px);
-  align-items: stretch;
+  align-items: start;
 }
 
 /* ==========================================================================
@@ -234,7 +235,7 @@
   display: flex;
   flex-direction: column;
   gap: 3.5vh;
-  height: 100%;
+  height: auto;
 }
 
 /* Contact Details Card */
@@ -429,7 +430,7 @@
   border-radius: 18px;
 padding: 3vh clamp(24px, 3vw, 48px);
   box-sizing: border-box;
-  margin-top: -17vh;
+  margin-top: 0;
 
 }
 
@@ -588,7 +589,17 @@ padding: 3vh clamp(24px, 3vw, 48px);
 /* ==========================================================================
    RESPONSIVE LAYOUT
    ========================================================================== */
+@media (max-width: 1400px) {
+  .gm-contact-body {
+    --contact-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+  }
+}
+
 @media (max-width: 1024px) {
+  .gm-contact-body {
+    --contact-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+  }
+
   .gm-contact-split {
     grid-template-columns: 1fr;
     gap: 4vh;
@@ -596,6 +607,24 @@ padding: 3vh clamp(24px, 3vw, 48px);
 
   .gm-message-card {
     margin-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .gm-contact-body {
+    --contact-pad-x: max(20px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 599px) {
+  .gm-contact-body {
+    --contact-pad-x: max(16px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 374px) {
+  .gm-contact-body {
+    --contact-pad-x: max(12px, env(safe-area-inset-left));
   }
 }
 

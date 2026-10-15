@@ -236,49 +236,49 @@ export const BLOG_EXTENDED_CONTENT = {
   },
   5: {
     subtitle:
-      'Learn how coffee- and chocolate-inspired flavour descriptions use aroma, roast, cocoa and sweetness terminology.',
+      'Compare plain and flavoured vodka by flavour profile, label details and common terminology in this straightforward guide.',
     intro:
-      'Coffee- and chocolate-inspired flavour descriptions borrow vocabulary from familiar foods. Words such as roasted, cocoa-like, bittersweet and creamy can help communicate an aroma, but they do not necessarily describe the full ingredient list or nutritional profile of a spirit.',
-    tags: ['Coffee Flavoured Vodka', 'Chocolate Profiles', 'Aroma Terminology', 'Tasting Vocabulary', 'Ingredient Details'],
+      'Plain vodka and flavoured vodka differ primarily in their intended flavour profile. Plain vodka is generally positioned as relatively neutral, while flavoured varieties are designed to present an additional aroma or taste. Both remain alcoholic beverages, and flavour does not remove alcohol-related risks.',
+    tags: ['Plain Vodka', 'Flavoured Vodka', 'Tasting Differences', 'Label Reading', 'Spirit Guide'],
     author: 'Grand Master Editorial',
     date: 'August 2026',
     readTime: '4 min read',
-    primaryKeyword: 'coffee flavoured vodka',
-    seoTitle: 'Coffee and Chocolate Flavour Profiles: Aroma Words Explained',
-    suggestedSlug: '/coffee-chocolate-flavour-profiles/',
+    primaryKeyword: 'plain vodka vs flavoured vodka',
+    seoTitle: 'Plain Vodka vs Flavoured Vodka: Key Differences Explained',
+    suggestedSlug: '/plain-vodka-vs-flavoured-vodka/',
     internalLinks: [
       { text: 'Grand Master Flavours', url: 'https://www.grandmasters.co/flavours/' },
       { text: 'Grand Master Official Home', url: 'https://www.grandmasters.co/' },
     ],
     sections: [
       {
-        heading: 'Coffee-inspired notes',
+        heading: 'What is plain vodka?',
         paragraphs: [
-          'Coffee aroma is often described through terms such as roasted, toasted, earthy or bittersweet. These descriptors may bring to mind coffee beans or brewed coffee. The actual profile depends on the product and should be checked against verified tasting notes.',
+          'Plain vodka is typically described with restrained aroma and flavour. Depending on the product, people may notice subtle cereal, mineral or peppery notes. The term “plain” does not mean alcohol-free or risk-free.',
         ],
       },
       {
-        heading: 'Chocolate-inspired notes',
+        heading: 'What is flavoured vodka?',
         paragraphs: [
-          'Chocolate descriptions can range from cocoa-like and bittersweet to sweeter, dessert-inspired impressions. A chocolate flavour name does not automatically mean a product contains milk, cocoa solids or other specific ingredients. Consult the package and manufacturer for ingredient and allergen information.',
+          'Flavoured vodka uses a defined flavour direction, which may be fruit-inspired, citrus-like, berry-based or dessert-inspired. The name alone does not establish the exact ingredients. For specific ingredient information, consult the product label and verified manufacturer details.',
         ],
       },
       {
-        heading: 'Why sensory language needs care',
+        heading: 'How to compare labels',
         paragraphs: [
-          'Tasting notes are subjective. A phrase such as “rich” is an impression, not a laboratory measurement. Avoid claims that a flavoured alcoholic beverage provides energy, supports wellbeing or offers any health benefit.',
+          'Compare ABV, bottle size, manufacturer, ingredient statements where provided and statutory warnings. Do not assume flavoured products have less alcohol or fewer calories unless reliable product data confirms the relevant figure. Avoid treating marketing words such as “smooth” as a health or safety claim.',
         ],
       },
       {
-        heading: 'Label-reading checklist',
+        heading: 'Product range information',
         paragraphs: [
-          'Look for the exact product name, ABV, net quantity, manufacturer information and mandatory warnings. If an ingredient or allergen is important, rely on the label or a verified manufacturer response, not the flavour name alone.',
+          'Grand Master’s official Flavours page lists plain vodka and a range of flavoured varieties. Check the current page for the producer’s latest published range, and confirm local availability through lawful, authorised channels.',
         ],
       },
       {
         heading: 'Conclusion',
         paragraphs: [
-          'Coffee and chocolate profiles show how aroma vocabulary can make product information more precise. The best descriptions are clear, verifiable and free of health or lifestyle promises.',
+          'The distinction is about flavour presentation, not safety. Clear product descriptions should explain the profile accurately, avoid unsupported claims and follow applicable alcohol-marketing rules.',
         ],
       },
       {
@@ -681,7 +681,7 @@ export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }
                 >
                   <div className="gm-related-thumb-frame">
                     <img
-                      src={rel.image}
+                      src={rel.thumbnail || rel.image}
                       alt={rel.title}
                       className="gm-related-thumb-img"
                       loading="lazy"

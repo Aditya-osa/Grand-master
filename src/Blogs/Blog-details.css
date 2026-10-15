@@ -493,9 +493,9 @@
 
 .gm-related-thumb-frame {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 353 / 288;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 12px;
   background: var(--gm-offwhite);
   margin-bottom: 14px;
 }

@@ -84,7 +84,7 @@ export default function ContactUs() {
           <span className="contact-banner-subtitle">WE'RE HERE TO CONNECT</span>
           <h1 className="contact-banner-title">LET'S TALK</h1>
           <p className="contact-banner-desc">
-            Have a question or want to connect with Grand Master's? We'd love to hear from you.
+            Have a question or want to connect with Grand Master's?<br/> We'd love to hear from you.
           </p>
         </div>
       </section>
@@ -95,10 +95,9 @@ export default function ContactUs() {
       <main className="gm-contact-body" role="main">
         {/* Intro Tagline Header - Left aligned with the cards */}
         <div className="raise-standard">
-          <h1 className="raise-standard-title">CONNECT WITH GRAND MASTER'S
-</h1>
+          <h1 className="raise-standard-title">CONNECT WITH GRAND MASTER'S</h1>
           <p className="raise-standard-desc">
-         Have a question or need assistance? Get in touch with the Grand Master's team. <br/>We're here to help with your enquiries, feedback, and brand-related questions.
+            Have a question or need assistance? Get in touch with the Grand Master's team. <br/>We're here to help with your enquiries, feedback, and brand-related questions.
           </p>
         </div>
 
@@ -202,10 +201,7 @@ export default function ContactUs() {
               ------------------------------------------------------------------ */}
           <section className="gm-message-card" aria-labelledby="send-message-title">
             <h2 className="gm-section-title-main" id="send-message-title">
-            SEND US A MESSAGE
-
-
-
+              SEND US A MESSAGE
             </h2>
             <p className="gm-message-desc">
            We'd love to hear from you. Share your questions, feedback, or thoughts with our team.

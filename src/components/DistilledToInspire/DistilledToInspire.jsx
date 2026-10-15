@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import videoPoster from '../../assets/image copy 3.png';
-import distilleryVideo from '../../assets/1791798325702656.mov';
+import distilleryVideo from '../../assets/1792047869658684 (1).mp4';
 import './DistilledToInspire.css';
 
 gsap.registerPlugin(ScrollTrigger);
