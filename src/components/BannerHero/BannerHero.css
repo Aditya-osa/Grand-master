@@ -539,44 +539,33 @@
    ========================================================================== */
 
 .banner-hero-container .pill-btn {
-
   background-color: #ffffff;
-
   color: #1a1a1a;
-
   border: none;
-
-  width: 11vw;
-
-  height: 3.4vw;
-
+  width: auto;
   min-width: 120px;
-
-  min-height: 34px;
-
   max-width: 155px;
-
+  height: 3.4vw;
+  min-height: 34px;
   max-height: 42px;
-
+  padding: 0 16px;
   border-radius: 999px;
-
   cursor: pointer;
-
   margin-top: 1.8vh;
-
   box-shadow: none;
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
 }
 
 .banner-hero-container .pill-btn:hover {
-
   transform: translateY(-2px);
-
   box-shadow: none;
-
   background-color: #ffffff;
 }
 
