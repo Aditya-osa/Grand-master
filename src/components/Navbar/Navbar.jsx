@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import navLogo from '../../assets/logo1.png';
 import './Navbar.css';
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
@@ -148,7 +147,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           aria-label="Grand Master Vodka Home"
           onClick={(e) => navigateTo('home', e)}
         >
-          <img src={navLogo} alt="Grand Master Logo" className="nav-logo" />
+          <img src="/Assets/logo1.png" alt="Grand Master Logo" className="nav-logo" />
         </a>
 
         {/* Desktop Navigation Links */}

@@ -33,6 +33,16 @@ const FLAVOUR_ITEMS = [
 export default function Enjoyflavours() {
   const cardsContainerRef = useRef(null);
 
+  const handleScroll = (direction) => {
+    const container = cardsContainerRef.current;
+    if (!container) return;
+    const scrollAmount = container.clientWidth * 0.75;
+    container.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+
   const handleExploreClick = (e) => {
     e.preventDefault();
     const target =
