@@ -481,24 +481,24 @@
     width: auto;
     height: 40px;
     max-height: 40px;
-    max-width: clamp(135px, 28vw, 160px);
+    max-width: 150px;
     aspect-ratio: 216 / 128;
     object-position: left center;
   }
 
   .menu-overlay {
     width: min(380px, 85vw);
-    padding: clamp(24px, 4vw, 36px);
+    padding: 28px 24px;
     padding-top: max(28px, calc(env(safe-area-inset-top) + 16px));
     padding-bottom: max(24px, calc(env(safe-area-inset-bottom) + 16px));
   }
 
   .cntr-nav {
-    gap: clamp(16px, 2.5vh, 26px);
+    gap: 20px;
   }
 
   .cntr-nav a {
-    font-size: clamp(22px, 4.8vw, 26px);
+    font-size: 24px;
   }
 
   .social-icons a {
@@ -522,7 +522,7 @@
     width: auto;
     height: 38px;
     max-height: 38px;
-    max-width: clamp(125px, 36vw, 150px);
+    max-width: 140px;
     aspect-ratio: 216 / 128;
     object-position: left center;
   }

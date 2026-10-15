@@ -718,7 +718,7 @@
 }
 
 /* ==========================================================================
-   Responsive Adaptations
+   Responsive Adaptations (No clamp, fluid & balanced)
    ========================================================================== */
 
 /* Smaller Desktop: 1280px - 1440px */
@@ -728,30 +728,30 @@
 
 @media (max-width: 1280px) {
   .ag-marquee-stage {
-    height: clamp(380px, 52vh, 550px);
+    height: 50vh;
   }
   .ag-carousel-img {
-    height: clamp(260px, 42vh, 480px);
+    height: 40vh;
   }
   .ag-carousel-track {
-    gap: clamp(130px, 14vw, 220px);
+    gap: 15vw;
   }
   
   .ag-hero-info {
-    top: clamp(50px, 7vh, 90px);
-    right: clamp(20px, 4vw, 60px);
+    top: 7vh;
+    right: 4vw;
     left: auto;
     bottom: auto;
-    margin-top: clamp(10px, 2vh, 25px);
+    margin-top: 15px;
     transform: none;
-    width: min(340px, 32vw);
+    width: 30vw;
     max-width: 340px;
   }
   .ag-hero-title {
-    font-size: clamp(40px, 4.4vw, 64px);
+    font-size: 54px;
   }
   .ag-vodka-infused-wrap {
-    width: clamp(160px, 16vw, 220px);
+    width: 190px;
   }
   .ag-vodka-infused-text {
     font-size: 19px;
@@ -761,40 +761,40 @@
 /* Laptop & Tablet Landscape: 768px–1023px */
 @media (max-width: 1023px) {
   .ag-marquee-stage {
-    height: clamp(340px, 50vh, 500px);
+    height: 46vh;
   }
   .ag-carousel-img {
-    height: clamp(250px, 40vh, 440px);
+    height: 38vh;
   }
   .ag-carousel-track {
-    gap: clamp(100px, 12vw, 170px);
+    gap: 13vw;
   }
 
   .ag-hero-info {
-    top: clamp(40px, 6vh, 75px);
-    right: clamp(20px, 4vw, 40px);
+    top: 50px;
+    right: 30px;
     left: auto;
     bottom: auto;
     margin-top: 0;
     transform: none;
     width: auto;
-    max-width: 300px;
+    max-width: 290px;
   }
   .ag-hero-title {
-    font-size: clamp(34px, 4.6vw, 54px);
+    font-size: 44px;
   }
   .ag-vodka-infused-wrap {
-    width: 170px;
-    height: 60px;
-    margin-left: -18px;
+    width: 165px;
+    height: 58px;
+    margin-left: -16px;
   }
   .ag-vodka-infused-text {
     font-size: 18px;
   }
   .ag-hero-desc {
     font-size: 12px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 14px;
+    margin-bottom: 14px;
   }
   .ag-shop-btn {
     min-width: 120px;
@@ -808,23 +808,23 @@
 /* Tablet Portrait: 600px–767px */
 @media (max-width: 767px) {
   .ag-header {
-    padding: 18px 16px;
+    padding: 16px;
   }
   .ag-brand-logo-wrap {
     top: 16px;
   }
   .ag-brand-logo-img {
-    width: 110px;
+    width: 105px;
   }
   .ag-marquee-stage {
-    height: clamp(310px, 46vh, 420px);
+    height: 42vh;
     transform: translate(-50%, -50%) rotate(8deg);
   }
   .ag-carousel-img {
-    height: clamp(230px, 36vh, 360px);
+    height: 34vh;
   }
   .ag-carousel-track {
-    gap: clamp(75px, 11vw, 130px);
+    gap: 12vw;
   }
   .ag-menu-pill {
     min-width: 75px;
@@ -836,13 +836,13 @@
     min-height: 100svh;
   }
   .ag-hero-info {
-    top: clamp(24px, 5vh, 48px);
-    right: clamp(16px, 4vw, 24px);
+    top: 36px;
+    right: 20px;
     left: auto;
     bottom: auto;
     margin-top: 0;
     width: auto;
-    max-width: 250px;
+    max-width: 240px;
     transform: none;
   }
   .ag-vodka-infused-wrap {
@@ -855,16 +855,16 @@
     font-size: 16px;
   }
   .ag-hero-title {
-    font-size: clamp(30px, 7.8vw, 42px);
+    font-size: 36px;
     line-height: 0.88;
-    letter-spacing: -0.06em;
+    letter-spacing: -0.05em;
   }
   .ag-hero-desc {
     font-size: 11.5px;
     line-height: 1.4;
-    margin-top: 14px;
-    margin-bottom: 14px;
-    max-width: 220px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    max-width: 210px;
   }
   .ag-shop-btn {
     min-width: 115px;
@@ -879,10 +879,11 @@
 /* Mobile: 375px–599px */
 @media (max-width: 599px) {
   .brand-title {
-    top: 55px;
+    top: 52px;
   }
   .ag-curved-title-svg {
-    width: clamp(280px, 88vw, 380px);
+    width: 86vw;
+    max-width: 360px;
   }
   .explore-shell {
     margin-top: 4px;
@@ -891,20 +892,20 @@
     font-size: 12px;
   }
   .ag-header {
-    padding: 14px 12px;
+    padding: 12px;
   }
   .ag-brand-logo-img {
-    width: 96px;
+    width: 92px;
   }
   .ag-marquee-stage {
-    height: clamp(280px, 42vh, 340px);
+    height: 38vh;
     transform: translate(-50%, -50%) rotate(7deg);
   }
   .ag-carousel-img {
-    height: clamp(200px, 34vh, 290px);
+    height: 30vh;
   }
   .ag-carousel-track {
-    gap: clamp(55px, 13vw, 95px);
+    gap: 65px;
   }
   .ag-scroll-prompt {
     font-size: 9px;
@@ -915,12 +916,12 @@
 /* Small Mobile: 320px–480px */
 @media (max-width: 480px) {
   .ag-hero-info {
-    top: 20px;
-    right: 16px;
+    top: 18px;
+    right: 14px;
     left: auto;
     bottom: auto;
     width: auto;
-    max-width: 210px;
+    max-width: 200px;
     transform: none;
   }
   .ag-vodka-infused-wrap {
@@ -932,13 +933,13 @@
     font-size: 14px;
   }
   .ag-hero-title {
-    font-size: clamp(25px, 6.8vw, 33px);
+    font-size: 28px;
   }
   .ag-hero-desc {
-    font-size: 11px;
-    margin-top: 10px;
-    margin-bottom: 12px;
-    max-width: 200px;
+    font-size: 10.5px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    max-width: 190px;
   }
   .ag-shop-btn {
     min-width: 105px;
@@ -951,20 +952,31 @@
 
 @media (max-width: 374px) {
   .ag-header {
-    padding: 12px 10px;
+    padding: 10px;
   }
   .ag-brand-logo-img {
-    width: 88px;
+    width: 84px;
   }
   .ag-marquee-stage {
-    height: 260px;
+    height: 250px;
     transform: translate(-50%, -50%) rotate(6deg);
   }
   .ag-carousel-img {
-    height: 185px;
+    height: 180px;
   }
   .ag-carousel-track {
-    gap: clamp(45px, 12vw, 75px);
+    gap: 50px;
+  }
+  .ag-curved-title-svg {
+    width: 88vw;
+    max-width: 290px;
+  }
+  .ag-hero-title {
+    font-size: 24px;
+  }
+  .ag-hero-desc {
+    font-size: 10px;
+    max-width: 170px;
   }
   .ag-scroll-prompt {
     font-size: 8.5px;

@@ -497,22 +497,31 @@
 
 .gm-detail-title {
   font-family: 'Boldonse', sans-serif;
-  font-size: clamp(34px, 4.2vw, 52px);
+  font-size: clamp(34px, 4.2vw, 39px);
   font-weight: 400;
-  line-height: 1.38;
-  letter-spacing: -0.02em;
+  line-height: 1.6;
+  letter-spacing: none;
   color: var(--gm-text-dark);
-  margin: 0 0 clamp(14px, 1.8vh, 20px) 0;
+  margin: 0 0 clamp(14px, 1.8vh, 20px);
   text-transform: uppercase;
 }
 
+
+
+
+
+
+
+
+
+
 .gm-detail-tagline {
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(16.5px, 1.35vw, 20px);
-  font-weight: 700;
-  line-height: 1.45;
   color: var(--gm-brand-accent);
-  margin: 0 0 clamp(20px, 2.5vh, 28px) 0;
+    margin: 0 0 clamp(20px, 2.5vh, 28px);
+    font-family: Anybody, sans-serif;
+    font-size: clamp(16.5px, 1.35vw, 23px);
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 /* Clean Editorial Description (No alert box / left bar styling) */
@@ -526,11 +535,11 @@
 }
 
 .gm-detail-description {
-  font-family: 'Anybody', sans-serif;
-  font-size: clamp(15px, 1.15vw, 17px);
-  line-height: 1.72;
-  color: var(--gm-text-body);
-  margin: 0;
+   color: var(--gm-text-body);
+    margin: 0;
+    font-family: Anybody, sans-serif;
+    font-size: clamp(15px, 1.15vw, 19px);
+    line-height: 1.2;
 }
 
 /* Minimalist Horizontal Specification Bar (No dashboard widgets) */
@@ -684,10 +693,6 @@
 .gm-detail-inquire-btn {
   position: relative !important;
   display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 28px;
   border-radius: 9999px !important;
   border: 1.5px solid #732f03 !important;
   background: rgba(255, 255, 255, 0.2) !important;
@@ -695,18 +700,22 @@
   font-family: 'Anybody', sans-serif;
   font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.02em;
   text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: none !important;
   transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
   max-width: none !important;
   left: auto !important;
   bottom: auto !important;
   transform: none;
+  letter-spacing: 0px;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 19px 27px;
 }
 
 .gm-detail-inquire-btn .gm-skip-arrow {
@@ -751,14 +760,14 @@
 }
 
 .gm-related-title {
-  font-family: 'Boldonse', sans-serif;
-  font-size: clamp(28px, 3.6vw, 40px);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  color: var(--gm-text-dark);
-  margin: 0 0 10px 0;
-  line-height: 1.15;
+   letter-spacing: -.01em;
+    text-transform: uppercase;
+    color: var(--gm-text-dark);
+    margin: 0 0 -8px;
+    font-family: Boldonse, sans-serif;
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 400;
+    line-height: 2.15;
 }
 
 .gm-related-subtitle {

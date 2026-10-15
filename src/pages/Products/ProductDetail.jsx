@@ -239,41 +239,12 @@ export default function ProductDetail({
                 </div>
 
                 {/* Thumbnail Strip directly below bottle (styled exactly like user's reference) */}
-                <div className="gm-detail-thumbs-strip" role="tablist" aria-label="Product views gallery">
-                  {galleryItems.map((item, index) => {
-                    const isActive = activeMediaIndex === index;
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        role="tab"
-                        aria-selected={isActive}
-                        className={`gm-detail-thumb-card ${isActive ? 'is-active' : ''}`}
-                        onClick={() => handleThumbSelect(index, item)}
-                        title={item.label}
-                      >
-                        <div className="gm-detail-thumb-inner">
-                          <img
-                            src={item.thumbSrc}
-                            alt={item.alt}
-                            className={`gm-detail-thumb-img ${item.isBottle ? 'is-bottle' : ''}`}
-                            loading="lazy"
-                          />
-                          {item.isVideo && (
-                            <div className="gm-thumb-play-overlay" aria-hidden="true">
-                              <span className="gm-thumb-play-icon">▶</span>
-                            </div>
-                          )}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
+                
               </div>
 
               {/* Right Column: Narrative & Technical Specifications */}
               <div className="gm-detail-info">
-                <span className="gm-detail-category-badge">{product.tag}</span>
+                
 
                 <h1 className="gm-detail-title">{product.fullName}</h1>
 
@@ -382,7 +353,7 @@ export default function ProductDetail({
                     </div>
 
                     <div className="gm-related-meta">
-                      <span className="gm-related-tag">{relProduct.tag}</span>
+                      
                       <h3 className="gm-related-name">
                         {(() => {
                           const { prefix, flavor } = formatProductName(relProduct.name);

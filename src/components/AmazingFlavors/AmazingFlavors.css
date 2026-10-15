@@ -180,28 +180,59 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE ADAPTATIONS
+   RESPONSIVE ADAPTATIONS (No clamp, fluid & balanced)
    ========================================================================== */
 @media (max-width: 1199px) {
+  .gm-amazing-flavors-section {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
   .gm-amazing-flavors-grid {
-    
+    gap: 20px 14px;
+    justify-content: center;
   }
 
   .gm-flavor-item {
-    flex: 0 1 clamp(90px, 12vw, 115px);
+    flex: 0 1 105px;
   }
 
   .gm-flavor-img-wrap {
-    width: clamp(75px, 10vw, 105px);
-    height: clamp(75px, 10vw, 105px);
+    width: 95px;
+    height: 95px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .gm-amazing-flavors-section {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .gm-amazing-flavors-grid {
+    gap: 18px 12px;
+    justify-content: center;
+  }
+
+  .gm-flavor-item {
+    flex: 0 1 96px;
+  }
+
+  .gm-flavor-img-wrap {
+    width: 84px;
+    height: 84px;
+  }
+
+  .gm-flavor-label {
+    font-size: 12px;
   }
 }
 
 @media (max-width: 767px) {
   .gm-amazing-flavors-section {
     --amazing-pad-x: 20px;
-    padding-top: clamp(28px, 4vh, 40px);
-    padding-bottom: clamp(28px, 4vh, 40px);
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .gm-amazing-title-lockup {
@@ -209,20 +240,21 @@
   }
 
   .gm-flavors-main-title {
-    font-size: clamp(30px, 8vw, 40px);
+    font-size: 7.2vw;
   }
 
   .gm-amazing-flavors-grid {
-    
+    gap: 16px 10px;
+    justify-content: center;
   }
 
   .gm-flavor-item {
-    flex: 0 1 clamp(80px, 26vw, 105px);
+    flex: 0 1 90px;
   }
 
   .gm-flavor-img-wrap {
-    width: clamp(70px, 20vw, 92px);
-    height: clamp(70px, 20vw, 92px);
+    width: 76px;
+    height: 76px;
   }
 
   .gm-flavor-label {
@@ -231,17 +263,62 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+  .gm-amazing-flavors-section {
+    --amazing-pad-x: 16px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .gm-flavors-main-title {
+    font-size: 26px;
+  }
+
+  .gm-amazing-flavors-grid {
+    gap: 14px 8px;
+    justify-content: center;
+  }
+
   .gm-flavor-item {
-    flex: 0 1 clamp(75px, 28vw, 90px);
+    flex: 0 1 82px;
   }
 
   .gm-flavor-img-wrap {
-    width: 65px;
-    height: 65px;
+    width: 68px;
+    height: 68px;
   }
 
   .gm-flavor-label {
     font-size: 10.5px;
+  }
+}
+
+@media (max-width: 374px) {
+  .gm-amazing-flavors-section {
+    --amazing-pad-x: 12px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .gm-flavors-main-title {
+    font-size: 21px;
+  }
+
+  .gm-amazing-flavors-grid {
+    gap: 12px 6px;
+  }
+
+  .gm-flavor-item {
+    flex: 0 1 72px;
+  }
+
+  .gm-flavor-img-wrap {
+    width: 58px;
+    height: 58px;
+  }
+
+  .gm-flavor-label {
+    font-size: 9.5px;
+    margin-top: 4px;
   }
 }

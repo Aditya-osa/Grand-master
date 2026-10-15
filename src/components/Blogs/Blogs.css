@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
-  background-color: #e1e1e194;
+  background-color: #e1e1e129;
   color: #111111;
   --blog-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
   padding-top: clamp(56px, 8vh, 96px);
@@ -248,22 +248,24 @@
 }
 
 /* ==========================================================================
-   Responsive Adaptations (Aligned with Header Spacing Breakpoints)
+   Responsive Adaptations (Aligned with Header Spacing Breakpoints, No clamp)
    ========================================================================== */
 
 /* Laptop: 1024px–1199px */
 @media (max-width: 1199px) {
   .gm-blogs-section {
-    --blog-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+    --blog-pad-x: max(40px, env(safe-area-inset-left));
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 }
 
 /* Tablet Landscape: 768px–1023px */
 @media (max-width: 1023px) {
   .gm-blogs-section {
-    --blog-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
-    padding-top: clamp(48px, 6.5vh, 76px);
-    padding-bottom: clamp(48px, 6.5vh, 76px);
+    --blog-pad-x: max(28px, env(safe-area-inset-left));
+    padding-top: 52px;
+    padding-bottom: 52px;
   }
 }
 
@@ -279,8 +281,20 @@
 @media (max-width: 767px) {
   .gm-blogs-section {
     --blog-pad-x: max(20px, env(safe-area-inset-left));
-    padding-top: clamp(40px, 5.5vh, 60px);
-    padding-bottom: clamp(40px, 5.5vh, 60px);
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  .gm-blogs-heading {
+    font-size: 6.8vw;
+    margin-bottom: 12px;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .gm-blogs-subheading {
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 }
 
@@ -290,25 +304,31 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .gm-blogs-heading {
-    font-size: clamp(16px, 5.2vw, 24px);
-    white-space: nowrap;
+    font-size: 26px;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .gm-blogs-view-btn {
+    padding: 8px 18px;
+    font-size: 12.5px;
   }
 
   .gm-blogs-insights-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 }
 
 @media (max-width: 599px) {
   .gm-blogs-section {
     --blog-pad-x: max(16px, env(safe-area-inset-left));
-    padding-top: 44px;
-    padding-bottom: 44px;
+    padding-top: 36px;
+    padding-bottom: 36px;
   }
 }
 
@@ -316,12 +336,13 @@
 @media (max-width: 374px) {
   .gm-blogs-section {
     --blog-pad-x: max(12px, env(safe-area-inset-left));
-    padding-top: 36px;
-    padding-bottom: 36px;
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 
   .gm-blogs-heading {
-    font-size: clamp(13px, 4.5vw, 16px);
-    white-space: nowrap;
+    font-size: 21px;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 }

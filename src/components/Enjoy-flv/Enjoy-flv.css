@@ -226,14 +226,14 @@ font-family: 'Boldonse', sans-serif;
 /* Laptop: 1024px–1199px */
 @media (max-width: 1199px) {
   .enjoy-flavours-section {
-    --enjoy-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+    --enjoy-pad-x: max(40px, env(safe-area-inset-left));
   }
 }
 
 /* Tablets Portrait & Medium Screens (768px to 1023px) */
 @media (max-width: 1023px) {
   .enjoy-flavours-section {
-    --enjoy-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+    --enjoy-pad-x: max(28px, env(safe-area-inset-left));
   }
 
   .enjoy-flavours-cards {
@@ -254,7 +254,7 @@ font-family: 'Boldonse', sans-serif;
     flex: 0 0 calc((100% - 18px) / 2);
     min-width: calc((100% - 18px) / 2);
     aspect-ratio: 4 / 5.7;
-    min-height: 440px;
+    min-height: 380px;
     scroll-snap-align: start;
   }
 
@@ -267,34 +267,34 @@ font-family: 'Boldonse', sans-serif;
 @media (max-width: 767px) {
   .enjoy-flavours-section {
     --enjoy-pad-x: max(20px, env(safe-area-inset-left));
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 
   .enjoy-flavours-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 22px;
-    margin-bottom: 28px;
+    gap: 20px;
+    margin-bottom: 26px;
   }
 
   .enjoy-flavours-header-right {
     width: 100%;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-top: 0;
     margin-right: 0;
   }
 
   .enjoy-flavours-title {
-    font-size: clamp(28px, 7.5vw, 38px);
+    font-size: 7.2vw;
     margin-bottom: 12px;
   }
 
   .enjoy-flavours-description {
     font-size: 13.5px;
-    line-height: 1.58;
+    line-height: 1.55;
   }
 
   .enjoy-flavours-cards {
@@ -312,10 +312,10 @@ font-family: 'Boldonse', sans-serif;
   }
 
   .enjoy-flavours-card {
-    flex: 0 0 84%;
-    min-width: 84%;
+    flex: 0 0 82%;
+    min-width: 82%;
     aspect-ratio: 4 / 5.7;
-    min-height: 420px;
+    min-height: 320px;
     scroll-snap-align: start;
   }
 }
@@ -324,16 +324,21 @@ font-family: 'Boldonse', sans-serif;
 @media (max-width: 599px) {
   .enjoy-flavours-section {
     --enjoy-pad-x: max(16px, env(safe-area-inset-left));
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .enjoy-flavours-title {
+    font-size: 26px;
   }
 }
 
 /* Small Phones (< 400px) */
 @media (max-width: 399px) {
   .enjoy-flavours-card {
-    flex: 0 0 88%;
-    min-width: 88%;
+    flex: 0 0 86%;
+    min-width: 86%;
+    min-height: 290px;
   }
 
   .enjoy-flavours-nav-btn {
@@ -342,8 +347,8 @@ font-family: 'Boldonse', sans-serif;
   }
 
   .enjoy-flavours-explore-btn {
-    padding: 7px 18px;
-    font-size: 12.5px;
+    padding: 7px 16px;
+    font-size: 12px;
   }
 }
 
@@ -351,8 +356,18 @@ font-family: 'Boldonse', sans-serif;
 @media (max-width: 374px) {
   .enjoy-flavours-section {
     --enjoy-pad-x: max(12px, env(safe-area-inset-left));
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .enjoy-flavours-title {
+    font-size: 21px;
+  }
+
+  .enjoy-flavours-card {
+    flex: 0 0 90%;
+    min-width: 90%;
+    min-height: 270px;
   }
 }
 

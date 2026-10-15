@@ -230,22 +230,32 @@
 }
 
 /* ==========================================================================
-   Responsive Adaptations (Aligned with Header Spacing Breakpoints)
+   Responsive Adaptations (Aligned with Header Spacing Breakpoints, No clamp)
    ========================================================================== */
 
 /* Laptop: 1024px–1199px */
 @media (max-width: 1199px) {
   .gm-footer-container {
-    --footer-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
+    --footer-pad-x: max(40px, env(safe-area-inset-left));
+    padding-top: 56px;
+    padding-bottom: 36px;
   }
 }
 
 /* Tablet Landscape: 768px–1023px */
 @media (max-width: 1023px) {
   .gm-footer-container {
-    --footer-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
-    padding-top: clamp(38px, 5.2vh, 56px);
-    padding-bottom: clamp(22px, 3.2vh, 34px);
+    --footer-pad-x: max(28px, env(safe-area-inset-left));
+    padding-top: 48px;
+    padding-bottom: 30px;
+  }
+
+  .gm-footer-nav-link {
+    font-size: 18px;
+  }
+
+  .gm-footer-bottom {
+    font-size: 14px;
   }
 }
 
@@ -253,19 +263,29 @@
 @media (max-width: 767px) {
   .gm-footer-container {
     --footer-pad-x: max(20px, env(safe-area-inset-left));
-    padding-top: clamp(34px, 4.8vh, 48px);
-    padding-bottom: clamp(20px, 2.8vh, 30px);
+    padding-top: 40px;
+    padding-bottom: 24px;
+  }
+
+  .gm-footer-logo-img {
+    height: 48px;
+    max-width: 220px;
   }
 
   .gm-footer-nav-list {
     gap: 12px 18px;
   }
 
+  .gm-footer-nav-link {
+    font-size: 16px;
+  }
+
   .gm-footer-bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 6px;
+    gap: 8px;
+    font-size: 13.5px;
   }
 
   .gm-footer-copyright {
@@ -282,12 +302,25 @@
 @media (max-width: 599px) {
   .gm-footer-container {
     --footer-pad-x: max(16px, env(safe-area-inset-left));
-    padding-top: clamp(28px, 4.2vh, 40px);
-    padding-bottom: clamp(18px, 2.4vh, 26px);
+    padding-top: 32px;
+    padding-bottom: 20px;
+  }
+
+  .gm-footer-logo-img {
+    height: 42px;
+    max-width: 190px;
   }
 
   .gm-footer-nav-list {
     gap: 10px 16px;
+  }
+
+  .gm-footer-nav-link {
+    font-size: 15px;
+  }
+
+  .gm-footer-bottom {
+    font-size: 12.5px;
   }
 }
 
@@ -297,5 +330,22 @@
     --footer-pad-x: max(12px, env(safe-area-inset-left));
     padding-top: 24px;
     padding-bottom: 16px;
+  }
+
+  .gm-footer-logo-img {
+    height: 36px;
+    max-width: 160px;
+  }
+
+  .gm-footer-nav-list {
+    gap: 8px 12px;
+  }
+
+  .gm-footer-nav-link {
+    font-size: 13.5px;
+  }
+
+  .gm-footer-bottom {
+    font-size: 11.5px;
   }
 }

@@ -404,29 +404,50 @@
   }
 
   .stack-cards-viewport {
-    height: 100vh;
-    min-height: 100svh;
-    height: 100dvh;
+    height: auto;
+    min-height: auto;
     max-height: none;
+    overflow: visible;
+  }
+
+  .stack-cards-stage {
+    height: auto;
+    min-height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 12px;
+  }
+
+  .stack-cards-stage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stack-card {
+    scroll-snap-align: start;
+    height: auto;
+    min-height: 340px;
   }
 }
 
 /* 3. Tablet Landscape (768px–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .stack-cards-section {
-    --process-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+    --process-pad-x: max(24px, env(safe-area-inset-left));
     --track-pad: var(--process-pad-x);
     --card-gap: 16px;
     --card-img-height: 235px;
   }
 
   .stack-cards-viewport {
-    padding: clamp(12px, 2vh, 20px) 0;
+    padding: 16px 0;
   }
 
   .stack-cards-top-header {
-    margin-top: clamp(20px, 3vh, 32px);
-    margin-bottom: clamp(12px, 2vh, 18px);
+    margin-top: 24px;
+    margin-bottom: 14px;
     padding-left: var(--process-pad-x);
     padding-right: var(--process-pad-x);
   }
@@ -436,8 +457,10 @@
   }
 
   .stack-cards-top-title {
-    font-size: clamp(28px, 4.2vw, 38px);
+    font-size: 32px;
     margin-bottom: 8px;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   .stack-cards-top-desc {
@@ -482,8 +505,8 @@
   }
 
   .stack-cards-top-header {
-    margin-top: clamp(18px, 2.5vh, 26px);
-    margin-bottom: clamp(10px, 1.8vh, 16px);
+    margin-top: 20px;
+    margin-bottom: 12px;
     padding-left: var(--process-pad-x);
     padding-right: var(--process-pad-x);
   }
@@ -495,6 +518,8 @@
   .stack-cards-top-title {
     font-size: 28px;
     margin-bottom: 6px;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   .stack-cards-top-desc {
@@ -531,7 +556,7 @@
     --process-pad-x: max(16px, env(safe-area-inset-left));
     --track-pad: var(--process-pad-x);
     --card-gap: 14px;
-    --card-img-height: 200px;
+    --card-img-height: 195px;
   }
 
   .stack-cards-viewport {
@@ -539,8 +564,8 @@
   }
 
   .stack-cards-top-header {
-    margin-top: clamp(14px, 2.2vh, 22px);
-    margin-bottom: clamp(10px, 1.5vh, 14px);
+    margin-top: 16px;
+    margin-bottom: 10px;
     padding-left: var(--process-pad-x);
     padding-right: var(--process-pad-x);
   }
@@ -550,8 +575,9 @@
   }
 
   .stack-cards-top-title {
-    font-size: clamp(18px, 5.2vw, 26px);
-    white-space: nowrap;
+    font-size: 24px;
+    white-space: normal;
+    overflow-wrap: break-word;
     margin-bottom: 4px;
   }
 
@@ -570,7 +596,8 @@
   .stack-card {
     width: calc((100vw - var(--track-pad) - var(--card-gap)) / 1.32);
     max-width: 275px;
-    min-width: 220px;
+    min-width: 215px;
+    min-height: 310px;
   }
 
   .stack-card__content {
@@ -596,7 +623,7 @@
     --process-pad-x: max(12px, env(safe-area-inset-left));
     --track-pad: var(--process-pad-x);
     --card-gap: 10px;
-    --card-img-height: 185px;
+    --card-img-height: 175px;
   }
 
   .stack-cards-viewport {
@@ -611,8 +638,9 @@
   }
 
   .stack-cards-top-title {
-    font-size: clamp(14px, 4.8vw, 18px);
-    white-space: nowrap;
+    font-size: 19px;
+    white-space: normal;
+    overflow-wrap: break-word;
     margin-bottom: 4px;
   }
 
@@ -629,6 +657,7 @@
   .stack-card {
     width: calc(100vw - (2 * var(--process-pad-x)) - 10px);
     max-width: 245px;
+    min-height: 290px;
   }
 
   .stack-card__content {
@@ -636,7 +665,7 @@
   }
 
   .stack-card__title {
-    font-size: 15px;
+    font-size: 14.5px;
     margin-top: 0;
     margin-bottom: 2px;
   }
