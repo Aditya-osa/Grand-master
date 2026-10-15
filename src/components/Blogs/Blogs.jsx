@@ -207,19 +207,24 @@ export default function Blogs() {
   };
 
   return (
-    <section className="gm-blogs-section" id="blogs" aria-label="Blog and Insights">
+    <section className="gm-blogs-section" id="blogs" aria-label="Stories, Flavours & Insights">
       <div className="gm-blogs-inner">
-        {/* Top Header Row: Heading on Left, View All Insights Button on Right */}
+        {/* Top Header Row: Heading and Subtitle on Left, Explore All Articles Button on Right */}
         <div className="gm-blogs-header">
-          <h2 className="gm-blogs-heading">Blog and Insights</h2>
+          <div className="gm-blogs-header-left">
+            <h2 className="gm-blogs-heading">STORIES, FLAVOURS &amp; INSIGHTS</h2>
+            <p className="gm-blogs-subheading">
+              Explore the world of Grand Master&apos;s through flavour guides, cocktail inspiration, and insights into our distinctive collection.
+            </p>
+          </div>
           <button
             type="button"
             className="gm-blogs-view-btn"
             id="view-all-insights-btn"
             onClick={handleViewAll}
-            aria-label="View all insights"
+            aria-label="Explore all articles"
           >
-            <span>View All Insights</span>
+            <span>EXPLORE ALL ARTICLES</span>
             <span className="gm-blogs-arrow" aria-hidden="true">&rarr;</span>
           </button>
         </div>
