@@ -69,14 +69,10 @@ export default function ContactUs() {
           muted
           playsInline
           preload="auto"
-          poster={bannerImg}
+          
         >
           <source src={bannerVideo} type="video/mp4" />
-          <img
-            src={bannerImg}
-            alt="Grand Master Spirits"
-            className="banner-bg-image"
-          />
+          
         </video>
 
         {/* Foreground Hero Content Lockup */}

@@ -64,7 +64,7 @@
 .blog-banner-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgb(14 13 13 / 71%);;
   z-index: 2;
   pointer-events: none;
 }

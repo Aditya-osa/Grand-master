@@ -264,9 +264,9 @@ export default function DistilledToInspire({ centered = false }) {
            ==================================================================== */
         <div ref={trackRef} className="distilled-about-track">
           {/* Centered Eyebrow without Star */}
-          <div ref={eyebrowRef} className="distilled-about-center-header">
+          {/* <div ref={eyebrowRef} className="distilled-about-center-header">
             <span className="distilled-about-eyebrow">OUR STORY</span>
-          </div>
+          </div> */}
 
           <div ref={topGridRef} className="distilled-about-grid">
             

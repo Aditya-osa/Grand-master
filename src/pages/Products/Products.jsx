@@ -191,7 +191,7 @@ export default function Products() {
             muted
             playsInline
             preload="auto"
-            poster={bannerImg}
+           
           >
             <source src={bannerVideo} type="video/mp4" />
             <img
@@ -259,7 +259,7 @@ export default function Products() {
 
                     {/* Product Metadata Details */}
                     <div className="gm-product-meta">
-                      <span className="gm-product-tag">{product.tag}</span>
+                      
                       <h3 className="gm-product-name">
                         {(() => {
                           const { prefix, flavor } = formatProductName(product.name);

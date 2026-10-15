@@ -20,6 +20,28 @@ import thumbCranberry from '../../assets/GM_thmnail 353 x 288/carnberry.jpeg';
 export const blogs = [
   {
     id: 1,
+    category: 'FLAVOUR NOTES',
+    title: 'Green Apple Flavour Notes: Understanding Crisp, Tart and Fruity Descriptions',
+    description:
+      'Learn what crisp, tart and fresh mean in green-apple flavour descriptions, and how to read product labels accurately.',
+    image: innerGreenApple,
+    thumbnail: thumbGreenApple,
+    date: 'October 2026',
+    readTime: '4 min read',
+    byline: 'Grand Master Editorial',
+    slug: '/green-apple-flavour-notes/',
+    seoTitle: 'Green Apple Flavour Notes: Understanding Crisp, Tart and Fruity Descriptions',
+    primaryKeyword: 'green apple vodka',
+    metaDescription:
+      'Learn what crisp, tart and fresh mean in green-apple flavour descriptions, and how to read product labels accurately.',
+    internalLinks: [
+      'https://www.grandmasters.co/flavours/',
+      'https://www.grandmasters.co/blog/',
+    ],
+    link: '#',
+  },
+  {
+    id: 2,
     category: 'FLAVOUR GUIDE',
     title: 'Vodka Flavours Explained: A Guide to Fruit, Citrus and Classic Profiles',
     description:
@@ -40,28 +62,7 @@ export const blogs = [
       'https://www.grandmasters.co/blog/',
     ],
     link: '#',
-  },
-  {
-    id: 2,
-    category: 'FLAVOUR NOTES',
-    title: 'Green Apple Flavour Notes: Understanding Crisp, Tart and Fruity Descriptions',
-    description:
-      'Learn what crisp, tart and fresh mean in green-apple flavour descriptions, and how to read product labels accurately.',
-    image: innerGreenApple,
-    thumbnail: thumbGreenApple,
-    date: 'October 2026',
-    readTime: '4 min read',
-    byline: 'Grand Master Editorial',
-    slug: '/green-apple-flavour-notes/',
-    seoTitle: 'Green Apple Flavour Notes: Understanding Crisp, Tart and Fruity Descriptions',
-    primaryKeyword: 'green apple vodka',
-    metaDescription:
-      'Learn what crisp, tart and fresh mean in green-apple flavour descriptions, and how to read product labels accurately.',
-    internalLinks: [
-      'https://www.grandmasters.co/flavours/',
-      'https://www.grandmasters.co/blog/',
-    ],
-    link: '#',
+    
   },
   {
     id: 3,

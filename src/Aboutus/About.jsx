@@ -30,21 +30,15 @@ function About() {
           loop
           muted
           playsInline
-          preload="auto"
-          poster={aboutBannerImg}
-        >
+          preload="auto">
           <source src={bannerVideo} type="video/mp4" />
-          <img
-            src={aboutBannerImg}
-            alt="Grand Master Crafted Spirits & Flavours"
-            className="about-banner-bg"
-          />
+          
         </video>
 
         {/* Foreground Hero Content Lockup */}
         <div className="about-banner-content">
           <span className="about-banner-subtitle ">THE STORY BEHIND THE BRAND</span>
-          <h1 className="about-banner-title">CRAFTED WITH CHARACTER</h1>
+          <h1 className="about-banner-title">CRAFTED WITH <br/> CHARACTER</h1>
           <p className="about-banner-desc">
             Discover the spirit of Grand Master's
           </p>

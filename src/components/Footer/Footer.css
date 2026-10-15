@@ -10,7 +10,7 @@
   font-family: 'Anybody', sans-serif;
   overflow: hidden;
   box-sizing: border-box;
-  border-top: 1px solid rgba(118, 37, 48, 0.08);
+  /* border-top: 1px solid rgba(118, 37, 48, 0.08); */
 }
 
 .gm-footer-container {

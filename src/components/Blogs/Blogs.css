@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #e1e1e194;
   color: #111111;
   --blog-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
   padding-top: clamp(56px, 8vh, 96px);
@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: center;
   gap: clamp(6px, 0.5vw, 10px);
-  padding: clamp(9px, 0.7vw, 12px) clamp(16px, 1.4vw, 22px);
+   padding: clamp(9px, 1.7vw, 18px) clamp(18px, 3.4vw, 19px);
   border: 1.5px solid #732f03;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.2);
@@ -214,9 +214,6 @@
   gap: 8px;
   margin-top: 16px;
   padding: 8px 20px;
-  border: 1.5px solid #732f03;
-  border-radius: 9999px;
-  background: transparent;
   color: #732f03;
   font-family: 'Anybody', sans-serif;
   font-size: 13px;
@@ -225,7 +222,9 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: none !important;
+  margin-left:auto;
+  border: none !important;
+    background: none;
 }
 
 .gm-insight-read-more-btn .gm-read-more-arrow {
@@ -236,9 +235,6 @@
 }
 
 .gm-insight-read-more-btn:hover {
-  background: #732f03;
-  color: #ffffff;
-  border-color: #732f03;
   transform: translateY(-1px);
 }
 
@@ -248,9 +244,7 @@
 }
 
 .gm-insight-card:hover .gm-insight-read-more-btn {
-  background: #732f03;
-  color: #ffffff;
-  border-color: #732f03;
+ 
 }
 
 /* ==========================================================================

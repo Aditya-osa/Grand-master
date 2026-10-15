@@ -528,7 +528,7 @@ font-size: clamp(30px, 4vw, 35px);
    Right: Bold Editorial Headline + Two Metric Cards (98% & 35K+)
    ========================================================================== */
 .distilled-to-inspire--about-layout {
-  padding-top: clamp(80px, 10vh, 120px);
+  padding-top: clamp(52px, 10.5vh, 86px) !important;
   padding-bottom: clamp(60px, 8vh, 100px);
   background-color: #ffffff;
   background-image: 
@@ -580,7 +580,7 @@ font-size: clamp(30px, 4vw, 35px);
 .distilled-about-center-header {
   width: 100%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   text-align: center;
   margin-bottom: clamp(32px, 4.2vh, 52px);
@@ -659,12 +659,12 @@ font-size: clamp(30px, 4vw, 35px);
 
 .distilled-about-subtitle {
   font-family: 'Anybody', sans-serif;
-  margin-top: -10px;
+  margin-top: 0px;
   margin-bottom: 24px;
   font-size: clamp(16.5px, 3.15vw, 24px);
   line-height: 1.2;
   color: #000000;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.01em;
   text-align: left;
   align-self: flex-start;
@@ -686,19 +686,19 @@ font-size: clamp(30px, 4vw, 35px);
 
 .distilled-about-paragraph {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(17px, 1.35vw, 22px);
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: 0;
-  color: #000000 !important;
-  -webkit-text-fill-color: #000000 !important;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  text-align: left;
-  overflow-wrap: break-word;
-  word-break: normal;
-  background-image: none !important;
+    font-size: clamp(14px, 1.22vw, 19px);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-break: normal;
+    background-image: none !important;
 }
 
 /* Responsive Breakpoints */

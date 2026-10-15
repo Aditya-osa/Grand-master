@@ -130,9 +130,8 @@
 .contact-banner-subtle {
   display: inline-block;
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(12px, 0.95vw, 14px);
-  font-weight: 700;
-  letter-spacing: 0.24em;
+  font-size: clamp(19px, 2.95vw, 22px);
+  font-weight: 400;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.92);
   margin-bottom: clamp(12px, 1.6vh, 18px);
@@ -141,6 +140,7 @@
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+  margin-bottom:6%;
 }
 
 .contact-banner-title {
@@ -154,6 +154,7 @@
   line-height: 1.05;
   margin: 0 0 clamp(14px, 1.8vh, 22px) 0;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+  margin-bottom:2%;
 }
 
 .contact-banner-desc {
