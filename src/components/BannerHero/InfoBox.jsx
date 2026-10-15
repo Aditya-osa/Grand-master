@@ -4,7 +4,7 @@ const InfoBox = () => {
   return (
     <>
       <div className="info-box" id="info-orange">
-        <h2>A BURST OF<br />CITRUS.</h2>
+        <h2>A BURST<br /> OF CITRUS.</h2>
         <p>Bright. Bold. Zesty.</p>
       </div>
       {/* <div className="info-box" id="info-mango">
