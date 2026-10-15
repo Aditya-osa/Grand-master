@@ -58,7 +58,7 @@ export default function Enjoyflavours() {
     <section
       className="enjoy-flavours-section"
       id="flavours"
-      aria-label="Enjoy Unique Flavours"
+      aria-label="Discover Distinctive Flavours"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="enjoy-flavours-inner">
@@ -66,11 +66,9 @@ export default function Enjoyflavours() {
         <div className="enjoy-flavours-header">
           {/* Left: Heading and Narrative Story */}
           <div className="enjoy-flavours-header-left">
-            <h2 className="enjoy-flavours-title">ENJOY UNIQUE FLAVOURS</h2>
+            <h2 className="enjoy-flavours-title">DISCOVER DISTINCTIVE FLAVOURS</h2>
             <p className="enjoy-flavours-description">
-              It is the perfect combination between quality distillate in an unique bottle shape and urban culture inspiration.<br />
-              GRAND MASTER’S represents the stubborn eager, free spirits of the young generation. It’s exquisite nature<br />
-              drives through limits and cultural dogmas.
+              From vibrant citrus to luscious berries, Grand Master's brings a bold world of flavour and contemporary style together. Discover a range crafted to stand out, with every variant bringing its own unique character.
             </p>
           </div>
 
@@ -88,9 +86,9 @@ export default function Enjoyflavours() {
               href="#products"
               className="enjoy-flavours-explore-btn"
               onClick={handleExploreClick}
-              aria-label="Explore all Grand Master flavours"
+              aria-label="Explore Flavours"
             >
-              <span>Explore </span>
+              <span>EXPLORE FLAVOURS </span>
               <svg
                 className="enjoy-flavours-explore-arrow"
                 width="15"

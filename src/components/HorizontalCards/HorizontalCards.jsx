@@ -15,36 +15,36 @@ export const PROCESS_STEPS = [
   {
     id: 'grains',
     stepNumber: '01',
-    title: '01 - Grains',
-    description: 'From carefully selected grains,<br/> the finest ingredients<br/> are chosen.',
+    title: '01 – Grain Selection',
+    description: 'Carefully selected grains form the foundation of the distillation process.',
     image: grainsImg,
   },
   {
     id: 'distillation',
     stepNumber: '02',
-    title: '02 - Distillation',
-    description: 'The spirit undergoes a precise distillation process to achieve the desired character and quality.',
+    title: '02 – Distillation',
+    description: 'A precise distillation process helps develop the spirit’s distinctive character.',
     image: distillationImg,
   },
   {
     id: 'blending',
     stepNumber: '03',
-    title: '03 - Blending',
-    description: 'Carefully selected ingredients are blended to create a smooth and balanced flavour.',
+    title: '03 – Flavour Blending',
+    description: 'Flavours are thoughtfully blended to create a distinctive taste profile.',
     image: blendingImg,
   },
   {
     id: 'filtration',
     stepNumber: '04',
-    title: '04 - Filtration',
-    description: 'The spirit is thoroughly filtered to ensure clarity, smoothness, and consistent quality.',
+    title: '04 – Filtration',
+    description: 'A dedicated filtration process helps achieve clarity and consistency.',
     image: filtrationImg,
   },
   {
     id: 'bottling',
     stepNumber: '05',
-    title: '05 - Bottling',
-    description: 'The finished spirit is carefully bottled and sealed to preserve its quality and freshness.',
+    title: '05 – Bottling',
+    description: 'Each bottle is carefully filled and sealed for a consistent presentation.',
     image: bottlingImg,
   },
 ];
@@ -58,15 +58,15 @@ export default function HorizontalCards() {
     <section
       id="distillation"
       className="stack-cards-section"
-      aria-label="Grand Master Distillation Process"
+      aria-label="The Art of Distillation"
     >
       <div className="stack-cards-viewport">
         {/* Top Header above Cards */}
         <header className="stack-cards-top-header">
           <div className="stack-cards-header-left">
-            <h2 className="stack-cards-top-title">Process</h2>
+            <h2 className="stack-cards-top-title">THE ART OF DISTILLATION</h2>
             <p className="stack-cards-top-desc">
-              It is the perfect combination between quality distillate in an unique bottle shape and urban culture inspiration.
+              From carefully selected ingredients to precise distillation and bottling, every step reflects our focus on quality, consistency, and distinctive flavour.
             </p>
           </div>
         </header>

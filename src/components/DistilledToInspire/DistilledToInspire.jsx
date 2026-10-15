@@ -335,19 +335,16 @@ export default function DistilledToInspire({ centered = false }) {
             {/* Right Column: Sticky Text, Title & Paragraphs (Same Position, Left-Aligned) */}
             <div ref={rightColRef} className="distilled-about-col-right distilled-about-sticky-col">
               <h2 className="distilled-about-title">
-                DISTILLED TO INSPIRE
+                CRAFTED TO STAND OUT
               </h2>
 
               <p className="distilled-about-subtitle">
-                Crafted Since 2015
+                A legacy of flavour since 2015
               </p>
 
               <div className="distilled-about-text-wrapper">
                 <p className="distilled-about-paragraph">
-                  Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master’s includes flavoured Vodka.
-                </p>
-                <p className="distilled-about-paragraph">
-                  Grand Master’s is more for the Youth because of the blended flavours and the variety of Vodka it has to offer &amp; also for people who want to start drinking and try new things.
+                  Grand Master's Vodka brings together quality distillation, distinctive flavours, and the spirit of modern urban culture. Crafted by House of Deejay Distilleries Pvt. Ltd. since 2015, the brand combines carefully selected grains, a refined filtration process, and a diverse range of flavour blends to create a distinctive vodka experience. Inspired by individuality and a bold, contemporary outlook, Grand Master's celebrates a world where tradition meets modernity and every flavour has its own identity.
                 </p>
               </div>
 
@@ -362,18 +359,16 @@ export default function DistilledToInspire({ centered = false }) {
         <div className="distilled-to-inspire__inner">
           <div className="distilled-to-inspire__content">
             <h2 className="distilled-to-inspire__title">
-              DISTILLED TO INSPIRE
+              CRAFTED TO STAND OUT
             </h2>
 
             <p className="distilled-to-inspire__inception">
-              Crafted Since 2015
+              A legacy of flavour since 2015
             </p>
 
             <div className="distilled-to-inspire__text-wrapper">
               <p className="distilled-to-inspire__paragraph">
-                Grand Masters vodka is produced by House of Deejay Distilleries Pvt Ltd. It is present in the major cities of Maharashtra and distributed in Africa and Middle East. Grand Master’s includes flavoured Vodka.
-                <br /><br />
-                Grand Master’s is more for the Youth because of the blended flavours and the variety of Vodka it has to offer &amp; also for people who want to start drinking and try new things.
+                Grand Master's Vodka brings together quality distillation, distinctive flavours, and the spirit of modern urban culture. Crafted by House of Deejay Distilleries Pvt. Ltd. since 2015, the brand combines carefully selected grains, a refined filtration process, and a diverse range of flavour blends to create a distinctive vodka experience. Inspired by individuality and a bold, contemporary outlook, Grand Master's celebrates a world where tradition meets modernity and every flavour has its own identity.
               </p>
             </div>
 
@@ -382,9 +377,9 @@ export default function DistilledToInspire({ centered = false }) {
               onClick={handleDiscoverClick}
               className="distilled-to-inspire__btn"
               id="discover-story-btn"
-              aria-label="Discover Our Story"
+              aria-label="Our Story"
             >
-              <span>Our Story</span>
+              <span>OUR STORY</span>
               <span className="distilled-to-inspire__btn-arrow" aria-hidden="true">→</span>
             </a>
           </div>

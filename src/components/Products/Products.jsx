@@ -154,7 +154,7 @@ export default function Products() {
           className="ag-curved-title-svg"
           viewBox="0 0 920 310"
           xmlns="http://www.w3.org/2000/svg"
-          aria-label="Meet Grand Master's"
+          aria-label="The Flavour Collection"
           role="heading"
           aria-level="2"
         >
@@ -171,7 +171,7 @@ export default function Products() {
               startOffset="50%"
               textAnchor="middle"
             >
-              MEET GRAND MASTER'S
+              THE FLAVOUR COLLECTION
             </textPath>
           </text>
         </svg>
@@ -194,7 +194,7 @@ export default function Products() {
             }
           }}
         >
-          <span>All Flavours</span>
+          <span>ALL FLAVOURS</span>
           <svg
             className="explore-arrow"
             width="15"

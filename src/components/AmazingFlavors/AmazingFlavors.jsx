@@ -88,11 +88,11 @@ export default function AmazingFlavors() {
   };
 
   return (
-    <section className="gm-amazing-flavors-section" aria-label="Grand Master Amazing Flavors">
+    <section className="gm-amazing-flavors-section" aria-label="Explore Our Flavours">
       <div className="gm-amazing-flavors-inner">
-        {/* Slanted "AMAZING" Badge + Bold "FLAVORS" Title Lockup */}
+        {/* Bold Title Lockup */}
         <div className="gm-amazing-title-lockup">
-          <h2 className="gm-flavors-main-title">FLAVORS</h2>
+          <h2 className="gm-flavors-main-title">EXPLORE OUR FLAVOURS</h2>
         </div>
 
         {/* 11 Flavor Ingredients Flex / Grid Layout */}
