@@ -26,24 +26,19 @@ import bottleCoconut from '../../assets/750 ML 3D (1)/13.png';
 gsap.registerPlugin(ScrollTrigger);
 
 export const PRODUCTS = [
-  { id: 'blueberry', name: "Grand Master's Blue Berry", tag: 'Platinum Vodka', img: bottleBlueberry },
-  { id: 'zesty-lemon', name: "Grand Master's Zesty Lemon", tag: 'Platinum Vodka', img: bottleZestyLemon },
-  { id: 'strawberry', name: "Grand Master's Strawberry", tag: 'Platinum Vodka', img: bottleStrawberry },
-  { id: 'orange', name: "Grand Master's Orange", tag: 'Platinum Vodka', img: bottleOrange },
-  { id: 'cranberry', name: "Grand Master's Cranberry", tag: 'Platinum Vodka', img: bottleCranberry },
-  { id: 'chocolate', name: "Grand Master's Chocolate", tag: 'Platinum Vodka', img: bottleChocolate },
-
-  { id: 'melon', name: "Grand Master's Melon", tag: 'Platinum Vodka', img: bottleMelon },
-  { id: 'mango', name: "Grand Master's Mango", tag: 'Platinum Vodka', img  : bottleMango },
-    { id: 'coconut', name: "Grand Master's Coconut", tag: 'Platinum Vodka', img: bottleCoconut },
-   { id: 'minty-jamun', name: "Grand Master's Minty Jamun", tag: 'Platinum Vodka', img: bottleMintyJamun },
- 
-  
-
-  { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Platinum Vodka', img: bottleGreenApple },
-  { id: 'blue-curacao', name: "Grand Master's Blue Curacao", tag: 'Platinum Vodka', img: bottleBlueCuracao },
- 
-  { id: 'plain', name: "Grand Master's Plain", tag: 'Platinum Vodka', img: bottlePlain },
+  { id: 'blueberry', name: "Grand Master's Blueberry", tag: 'Blue Berry', img: bottleBlueberry },
+  { id: 'cranberry', name: "Grand Master's Cranberry", tag: 'Cranberry', img: bottleCranberry },
+  { id: 'melon', name: "Grand Master's Melon", tag: 'Melon', img: bottleMelon },
+  { id: 'blue-curacao', name: "Grand Master's Blue Curaçao", tag: 'Blue Curacao', img: bottleBlueCuracao },
+  { id: 'green-apple', name: "Grand Master's Green Apple", tag: 'Green Apple', img: bottleGreenApple },
+  { id: 'strawberry', name: "Grand Master's Strawberry", tag: 'Strawberry', img: bottleStrawberry },
+  { id: 'zesty-lemon', name: "Grand Master's Zesty Lemon", tag: 'Zesty Lemon', img: bottleZestyLemon },
+  { id: 'orange', name: "Grand Master's Orange", tag: 'Orange', img: bottleOrange },
+  { id: 'chocolate', name: "Grand Master's Chocolate", tag: 'Chocolate', img: bottleChocolate },
+  { id: 'mango', name: "Grand Master's Mango", tag: 'Mango', img: bottleMango },
+  { id: 'plain', name: "Grand Master's Plain", tag: 'Plain', img: bottlePlain },
+  { id: 'minty-jamun', name: "Grand Master's Minty Jamun", tag: 'Minty Jamun', img: bottleMintyJamun },
+  { id: 'coconut', name: "Grand Master's Coconut", tag: 'Coconut', img: bottleCoconut },
 ];
 
 export default function Products() {

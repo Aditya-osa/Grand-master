@@ -12,7 +12,9 @@
   overflow-x: hidden;
   box-sizing: border-box;
 }
-
+about-banner-subtitle{
+  color:#faf7f4;
+}
 /* White Navbar Background only for About Us Page (matching Blog Page) */
 .gm-about-page-wrapper .gm-main-nav {
   background: #ffffff !important;
@@ -71,9 +73,35 @@
 .about-banner-content {
   position: relative;
   z-index: 3;
-  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
   padding: 0 24px;
   margin-top: clamp(40px, 4.5vh, 60px);
+}
+
+.about-banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 22px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(115, 47, 3, 0.22);
+  border-radius: 9999px;
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(11px, 0.85vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #732f03;
+  margin-bottom: clamp(14px, 1.8vh, 22px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  user-select: none;
 }
 
 .about-banner-title {
@@ -85,18 +113,18 @@
   line-height: 1.05;
   color: #ffffff;
   margin: 0 0 clamp(12px, 1.5vh, 20px) 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
 }
 
 .about-banner-desc {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(14.5px, 1.2vw, 17.5px);
+  font-size: clamp(15px, 1.35vw, 19px);
   font-weight: 500;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* Balance top spacing for Distilled To Inspire now that banner is directly above */
@@ -344,6 +372,13 @@
     padding: 0 16px;
   }
 
+  .about-banner-eyebrow {
+    font-size: 11px;
+    padding: 6px 18px;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+  }
+
   .about-banner-title {
     font-size: clamp(32px, 9vw, 44px);
   }
@@ -375,6 +410,13 @@
   .about-banner-content {
     margin-top: 16px;
     padding: 0 14px;
+  }
+
+  .about-banner-eyebrow {
+    font-size: 10px;
+    padding: 5px 14px;
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
   }
 
   .about-banner-title {

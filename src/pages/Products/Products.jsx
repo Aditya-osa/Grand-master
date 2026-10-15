@@ -66,10 +66,16 @@ export default function Products() {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       tl.fromTo(
-        '.gm-products-banner-title',
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.9, delay: 0.15 }
+        '.gm-products-banner-badge',
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 0.15 }
       )
+        .fromTo(
+          '.gm-products-banner-title',
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.9 },
+          '-=0.5'
+        )
         .fromTo(
           '.gm-products-banner-desc',
           { opacity: 0, y: 24 },
@@ -212,8 +218,11 @@ export default function Products() {
        
           {/* Foreground Hero Content Lockup */}
           <div className="gm-products-banner-content">
+            <span className="gm-products-banner-badge">DISCOVER THE COLLECTION</span>
             <h1 className="gm-products-banner-title">OUR PRODUCTS</h1>
-           
+            <p className="gm-products-banner-desc">
+              Discover distinctive flavours, crafted to stand out.
+            </p>
           </div>
         </section>
 
@@ -285,7 +294,7 @@ export default function Products() {
                         onClick={() => handleGoToDetail(product.id)}
                         aria-label={`View detail of ${product.name}`}
                       >
-                        <span>View</span>
+                        <span>VIEW PRODUCT</span>
                         <span className="gm-skip-arrow">→</span>
                       </button>
                     </div>

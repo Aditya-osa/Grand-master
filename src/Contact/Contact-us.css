@@ -126,47 +126,44 @@
   box-sizing: border-box;
 }
 
-.contact-banner-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 18px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(115, 47, 3, 0.2);
-  border-radius: 9999px;
+.contact-banner-subtitle,
+.contact-banner-subtle {
+  display: inline-block;
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(11px, 0.85vw, 12.5px);
+  font-size: clamp(12px, 0.95vw, 14px);
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--gm-brand-accent);
-  margin-bottom: clamp(12px, 1.6vh, 20px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: clamp(12px, 1.6vh, 18px);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 .contact-banner-title {
   font-family: 'Boldonse', sans-serif;
-  font-size: clamp(38px, 6vw, 68px);
+  font-size: clamp(38px, 6.5vw, 70px);
   font-weight: 400;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
   line-height: 1.05;
-  margin: 0 0 clamp(12px, 1.6vh, 20px) 0;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.4);
+  margin: 0 0 clamp(14px, 1.8vh, 22px) 0;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
 }
 
 .contact-banner-desc {
   font-family: 'Anybody', sans-serif;
-  font-size: clamp(14.5px, 1.2vw, 17.5px);
+  font-size: clamp(15px, 1.35vw, 18.5px);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
-  max-width: 660px;
+  max-width: 680px;
   margin: 0 auto;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 

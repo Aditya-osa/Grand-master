@@ -43,8 +43,11 @@ function About() {
 
         {/* Foreground Hero Content Lockup */}
         <div className="about-banner-content">
-          <h1 className="about-banner-title">ABOUT US</h1>
-          
+          <span className="about-banner-title ">THE STORY BEHIND THE BRAND</span>
+          <h1 className="about-banner-subtitle">CRAFTED WITH CHARACTER</h1>
+          <p className="about-banner-desc">
+            Discover the spirit of Grand Master's
+          </p>
         </div>
       </section>
 

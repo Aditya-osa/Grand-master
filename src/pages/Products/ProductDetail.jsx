@@ -404,7 +404,7 @@ export default function ProductDetail({
                         onClick={() => handleSelectRelated(relProduct.id, selectedSize)}
                         aria-label={`View ${relProduct.name}`}
                       >
-                        <span>View</span>
+                        <span>VIEW PRODUCT</span>
                         <span className="gm-skip-arrow">→</span>
                       </button>
                     </div>
