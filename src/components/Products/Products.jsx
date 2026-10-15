@@ -166,7 +166,7 @@ export default function Products() {
               startOffset="50%"
               textAnchor="middle"
             >
-              THE FLAVOUR COLLECTION
+              CRAFTED FLAVOURS
             </textPath>
           </text>
         </svg>
