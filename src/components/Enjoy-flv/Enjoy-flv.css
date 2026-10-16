@@ -385,3 +385,135 @@ font-family: 'Boldonse', sans-serif;
     transform: none !important;
   }
 }
+
+/* ================= ENJOY FLAVOURS MOBILE FIX ================= */
+
+@media (max-width: 600px) {
+
+  /* Section spacing */
+  .enjoy-flavours-section {
+    padding: 32px 16px;
+    overflow: hidden;
+  }
+
+  .enjoy-flavours-inner {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Header layout */
+  .enjoy-flavours-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+
+  .enjoy-flavours-header-left {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Prevent title overlap */
+  .enjoy-flavours-title {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(21px, 6vw, 28px) !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+    margin: 0 0 12px;
+  }
+
+  /* Description */
+  .enjoy-flavours-description {
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Controls and Explore button */
+  .enjoy-flavours-header-right {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .enjoy-flavours-controls {
+    gap: 8px;
+  }
+
+  .enjoy-flavours-nav-btn {
+    width: 42px;
+    height: 34px;
+  }
+
+  .enjoy-flavours-explore-btn {
+    padding: 9px 13px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* Horizontal swipe cards */
+  .enjoy-flavours-cards {
+    display: flex;
+    width: 100%;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 0 12px;
+  }
+
+  .enjoy-flavours-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .enjoy-flavours-card {
+    flex: 0 0 82%;
+    width: 82%;
+    min-width: 0;
+    min-height: 0;
+    aspect-ratio: 4 / 5.7;
+    scroll-snap-align: start;
+    border-radius: 6px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 374px) {
+  .enjoy-flavours-section {
+    padding: 26px 12px;
+  }
+
+  .enjoy-flavours-title {
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+  }
+
+  .enjoy-flavours-header-right {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .enjoy-flavours-explore-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .enjoy-flavours-card {
+    flex-basis: 88%;
+  }
+}

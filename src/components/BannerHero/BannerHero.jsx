@@ -110,6 +110,14 @@ export default function BannerHero() {
       }
     };
 
+    // Ensure only Orange text is visible on initial load across all viewports
+    gsap.set("#orange-text", { x: "0vw", autoAlpha: 0.85, visibility: "visible" });
+    gsap.set(["#strawberry-text", "#melon-text", "#blueberry-text", "#mango-text", "#chocolate-text"], {
+      x: "100vw",
+      autoAlpha: 0,
+      visibility: "hidden",
+    });
+
     const mm = gsap.matchMedia(heroEl);
 
     // =========================================================================
@@ -128,7 +136,7 @@ export default function BannerHero() {
 
       entryTl
         .fromTo("#fanta", { y: "-65vh", opacity: 0, rotate: 12 }, { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true }, 0)
-        .fromTo("#orange-text", { x: "-60vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
+        .fromTo("#orange-text", { x: "-60vw", autoAlpha: 0 }, { x: "0vw", autoAlpha: 0.3, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".decor-orange", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03 }, 0)
         .fromTo("#info-orange", { y: "35vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".gm-skip-hero", { y: "30vh", xPercent: -50, opacity: 0 }, { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.15)
@@ -144,7 +152,7 @@ export default function BannerHero() {
       // =======================================================================
       // 1. Orange Exits First (0.0s -> 0.55s)
       tl.to("#fanta", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 0)
-        .to("#orange-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
+        .to("#orange-text", { x: "-100vw", autoAlpha: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to("#info-orange", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to(".decor-orange", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in", stagger: 0.02 }, 0.02)
         .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
@@ -223,8 +231,8 @@ export default function BannerHero() {
         STRAWBERRY_START_DESK
       )
         .fromTo("#strawberry-text",
-          { x: "100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          { x: "100vw", autoAlpha: 0 },
+          { x: "0vw", autoAlpha: 0.3, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_DESK
         )
         .fromTo(".decor-strawberry",
@@ -255,7 +263,7 @@ export default function BannerHero() {
       // STAGE 2 -> STAGE 3: STRAWBERRY -> MELON (Direct Transition)
       // =======================================================================
       tl.to("#fanta2", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 2.00)
-        .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.00)
+        .to("#strawberry-text", { x: "100vw", autoAlpha: 0, duration: 0.55, ease: "power2.in" }, 2.00)
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.00)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 2.00)
         .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 2.00)
@@ -326,7 +334,7 @@ export default function BannerHero() {
 
       // Melon Elements Enter At (2.50s)
       tl.fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50)
-        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50)
+        .fromTo("#melon-text", { x: "100vw", autoAlpha: 0 }, { x: "0vw", autoAlpha: 0.3, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50)
         .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.7, ease: "power2.out", immediateRender: false }, 2.50)
         .fromTo(".decor-melon",
           { opacity: 0, scale: 0.9 },
@@ -351,7 +359,7 @@ export default function BannerHero() {
       // STAGE 3 -> STAGE 4: MELON -> BLUEBERRY
       // =======================================================================
       tl.to("#fanta4", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 3.20)
-        .to("#melon-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.20)
+        .to("#melon-text", { x: "100vw", autoAlpha: 0, duration: 0.55, ease: "power2.in" }, 3.20)
         .to("#info-melon", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.20)
         .to(".decor-melon", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.20)
         .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 3.20)
@@ -366,8 +374,8 @@ export default function BannerHero() {
         BLUEBERRY_START_DESK
       )
         .fromTo("#blueberry-text",
-          { x: "100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          { x: "100vw", autoAlpha: 0 },
+          { x: "0vw", autoAlpha: 0.3, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_DESK
         )
         .fromTo(".decor-blueberry",
@@ -405,6 +413,13 @@ export default function BannerHero() {
     // 2. TABLET (min-width: 600px and max-width: 1023px)
     // =========================================================================
     mm.add('(min-width: 600px) and (max-width: 1023px)', () => {
+      gsap.set("#orange-text", { x: "0vw", autoAlpha: 1, visibility: "visible" });
+      gsap.set(["#strawberry-text", "#melon-text", "#blueberry-text", "#mango-text", "#chocolate-text"], {
+        x: "100vw",
+        autoAlpha: 0,
+        visibility: "hidden",
+      });
+
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
@@ -417,7 +432,7 @@ export default function BannerHero() {
 
       entryTl
         .fromTo("#fanta", { y: "-55vh", opacity: 0, rotate: 12 }, { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true }, 0)
-        .fromTo("#orange-text", { x: "-50vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
+        .fromTo("#orange-text", { x: "-50vw", autoAlpha: 0 }, { x: "0vw", autoAlpha: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".decor-orange", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03 }, 0)
         .fromTo("#info-orange", { y: "28vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".gm-skip-hero", { y: "25vh", xPercent: -50, opacity: 0 }, { y: "0vh", xPercent: -50, opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.15)
@@ -430,7 +445,7 @@ export default function BannerHero() {
 
       // Staged Transition 1: Orange -> Strawberry (Direct Transition)
       tl.to("#fanta", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 0)
-        .to("#orange-text", { x: "-100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
+        .to("#orange-text", { x: "-100vw", autoAlpha: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to("#info-orange", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 0)
         .to(".decor-orange", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in", stagger: 0.02 }, 0.02)
         .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
@@ -509,8 +524,8 @@ export default function BannerHero() {
         STRAWBERRY_START_TAB
       )
         .fromTo("#strawberry-text",
-          { x: "100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          { x: "100vw", autoAlpha: 0 },
+          { x: "0vw", autoAlpha: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_TAB
         )
         .fromTo(".decor-strawberry",
@@ -539,7 +554,7 @@ export default function BannerHero() {
 
       // Staged Transition 2: Strawberry -> Melon (Direct Transition)
       tl.to("#fanta2", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 1.75)
-        .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
+        .to("#strawberry-text", { x: "100vw", autoAlpha: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 1.75)
         .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 1.75)
@@ -611,7 +626,7 @@ export default function BannerHero() {
 
       // Melon Elements Enter (2.25s)
       tl.fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25)
-        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25)
+        .fromTo("#melon-text", { x: "100vw", autoAlpha: 0 }, { x: "0vw", autoAlpha: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25)
         .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.65, ease: "power2.out", immediateRender: false }, 2.25)
         .fromTo(".decor-melon",
           { opacity: 0, scale: 0.9 },
@@ -634,7 +649,7 @@ export default function BannerHero() {
 
       // Staged Transition 3: Melon -> Blueberry
       tl.to("#fanta4", { y: "100vh", opacity: 0, rotate: 14, duration: 0.55, ease: "power2.in" }, 3.00)
-        .to("#melon-text", { x: "100vw", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.00)
+        .to("#melon-text", { x: "100vw", autoAlpha: 0, duration: 0.55, ease: "power2.in" }, 3.00)
         .to("#info-melon", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.00)
         .to(".decor-melon", { y: "100vh", opacity: 0, duration: 0.55, ease: "power2.in" }, 3.00)
         .to(".gm-skip-hero", { y: "15vh", xPercent: -50, opacity: 0, duration: 0.5, ease: "power2.in" }, 3.00)
@@ -649,8 +664,8 @@ export default function BannerHero() {
         BLUEBERRY_START_TAB
       )
         .fromTo("#blueberry-text",
-          { x: "100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          { x: "100vw", autoAlpha: 0 },
+          { x: "0vw", autoAlpha: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_TAB
         )
         .fromTo(".decor-blueberry",
@@ -688,6 +703,14 @@ export default function BannerHero() {
     // 3. MOBILE & SMALL MOBILE (max-width: 599px)
     // =========================================================================
     mm.add('(max-width: 599px)', () => {
+      // Explicitly set initial states: ONLY Orange text is visible, others wait off-screen!
+      gsap.set("#orange-text", { x: "0vw", autoAlpha: 0.85, visibility: "visible" });
+      gsap.set(["#strawberry-text", "#melon-text", "#blueberry-text", "#mango-text", "#chocolate-text"], {
+        x: "100vw",
+        autoAlpha: 0,
+        visibility: "hidden",
+      });
+
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
@@ -700,7 +723,7 @@ export default function BannerHero() {
 
       entryTl
         .fromTo("#fanta", { y: "-45vh", opacity: 0, rotate: 12 }, { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true }, 0)
-        .fromTo("#orange-text", { x: "-40vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
+        .fromTo("#orange-text", { x: "-40vw", autoAlpha: 0 }, { x: "0vw", autoAlpha: 0.85, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".decor-orange", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: DURATION, ease: EASE, force3D: true, stagger: 0.03 }, 0)
         .fromTo("#info-orange", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0)
         .fromTo(".gm-skip-hero", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true }, 0.15)
@@ -713,7 +736,7 @@ export default function BannerHero() {
 
       // Staged Transition 1: Orange -> Strawberry (Direct Transition)
       tl.to("#fanta", { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" }, 0)
-        .to("#orange-text", { x: "-100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
+        .to("#orange-text", { x: "-100vw", autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 0)
         .to("#info-orange", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 0)
         .to(".decor-orange", { y: "100vh", opacity: 0, duration: 0.45, ease: "power2.in", stagger: 0.02 }, 0.02)
         .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 0)
@@ -791,8 +814,8 @@ export default function BannerHero() {
         STRAWBERRY_START_MOB
       )
         .fromTo("#strawberry-text",
-          { x: "100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          { x: "100vw", autoAlpha: 0 },
+          { x: "0vw", autoAlpha: 0.85, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           STRAWBERRY_START_MOB
         )
         .fromTo(".decor-strawberry",
@@ -821,7 +844,7 @@ export default function BannerHero() {
 
       // Staged Transition 2: Strawberry -> Melon (Direct Transition)
       tl.to("#fanta2", { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" }, 1.50)
-        .to("#strawberry-text", { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
+        .to("#strawberry-text", { x: "100vw", autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to("#info-strawberry", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to(".decor-strawberry", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 1.50)
         .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 1.50)
@@ -829,71 +852,10 @@ export default function BannerHero() {
         .to(".bg-strawberry", { opacity: 0, duration: 1.1, ease: "power2.inOut" }, 1.50)
         .to(".bg-melon", { opacity: 1, duration: 1.1, ease: "power2.inOut" }, 1.50);
 
-      /* =======================================================================
-         [COMMENTED OUT: CHOCOLATE STAGE MOBILE]
-      const CHOCOLATE_START_MOB = 3.35;
-      tl.fromTo("#fanta3",
-        { y: "-45vh", opacity: 0, rotate: 12 },
-        { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-        CHOCOLATE_START_MOB
-      )
-        .fromTo("#chocolate-text",
-          { x: "-100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".chocolate-top-left",
-          { x: "-15vw", y: -10, opacity: 0 },
-          { x: 0, y: 0, rotate: -6, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".chocolate-mint-top",
-          { y: "-20vh", opacity: 0 },
-          { x: 0, y: 0, rotate: 20, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".chocolate-coffee-beans",
-          { x: "15vw", y: -10, opacity: 0 },
-          { x: 0, y: 0, rotate: -5, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".chocolate-mint-single",
-          { x: "-12vw", y: 10, opacity: 0 },
-          { x: 0, y: 0, rotate: 18, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".chocolate-shavings",
-          { x: "15vw", y: "15vh", opacity: 0 },
-          { x: 0, y: 0, rotate: 0, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".chocolate-mint-bottom",
-          { x: "12vw", y: "12vh", opacity: 0 },
-          { x: 0, y: 0, rotate: -30, opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo("#info-chocolate",
-          { y: "20vh", opacity: 0 },
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".gm-skip-hero",
-          { y: "20vh", opacity: 0 },
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        )
-        .fromTo(".gm-explore-hero",
-          { y: "20vh", opacity: 0 },
-          { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
-          CHOCOLATE_START_MOB
-        );
-      tl.addLabel('flavour-chocolate-mob', 4.50);
-      ======================================================================= */
-
       // Melon Elements Enter (1.90s)
-      tl.fromTo("#fanta4", { y: "-100vh", opacity: 0, rotate: 14 }, { y: "0vh", opacity: 1, rotate: 14, duration: 0.6, ease: "power2.out", immediateRender: false }, 1.90)
-        .fromTo("#melon-text", { x: "100vw", opacity: 0 }, { x: "0vw", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 1.90)
-        .fromTo("#info-melon", { y: "100vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: 0.6, ease: "power2.out", immediateRender: false }, 1.90)
+      tl.fromTo("#fanta4", { y: "-45vh", opacity: 0, rotate: 12 }, { y: "0vh", opacity: 1, rotate: 14, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 1.90)
+        .fromTo("#melon-text", { x: "100vw", autoAlpha: 0 }, { x: "0vw", autoAlpha: 0.85, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 1.90)
+        .fromTo("#info-melon", { y: "20vh", opacity: 0 }, { y: "0vh", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false }, 1.90)
         .fromTo(".decor-melon",
           { opacity: 0, scale: 0.9 },
           { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out", force3D: true, stagger: 0.03, immediateRender: false },
@@ -915,7 +877,7 @@ export default function BannerHero() {
 
       // Staged Transition 3: Melon -> Blueberry
       tl.to("#fanta4", { y: "100vh", opacity: 0, rotate: 14, duration: 0.5, ease: "power2.in" }, 2.60)
-        .to("#melon-text", { x: "100vw", opacity: 0, duration: 0.5, ease: "power2.in" }, 2.60)
+        .to("#melon-text", { x: "100vw", autoAlpha: 0, duration: 0.5, ease: "power2.in" }, 2.60)
         .to("#info-melon", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 2.60)
         .to(".decor-melon", { y: "100vh", opacity: 0, duration: 0.5, ease: "power2.in" }, 2.60)
         .to(".gm-skip-hero", { y: "12vh", opacity: 0, duration: 0.45, ease: "power2.in" }, 2.60)
@@ -930,8 +892,8 @@ export default function BannerHero() {
         BLUEBERRY_START_MOB
       )
         .fromTo("#blueberry-text",
-          { x: "100vw", opacity: 0 },
-          { x: "0vw", opacity: 1, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
+          { x: "100vw", autoAlpha: 0 },
+          { x: "0vw", autoAlpha: 0.85, duration: DURATION, ease: EASE, force3D: true, immediateRender: false },
           BLUEBERRY_START_MOB
         )
         .fromTo(".decor-blueberry",

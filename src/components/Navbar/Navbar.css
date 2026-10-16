@@ -638,3 +638,84 @@
     font-size: 16px;
   }
 }
+
+/* Mobile Navbar Fix */
+@media (max-width: 767px) {
+  .gm-main-nav {
+    width: 100%;
+    height: 64px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    gap: 12px;
+  }
+
+  .nav-logo {
+    height: 38px;
+    max-height: 38px;
+    max-width: min(140px, 42vw);
+    object-fit: contain;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .menu-toggle-btn,
+  #menu-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .menu-toggle-btn i,
+  #menu-toggle i {
+    font-size: 26px;
+  }
+
+  .gm-main-nav::after {
+    left: max(16px, env(safe-area-inset-left));
+    right: max(16px, env(safe-area-inset-right));
+  }
+
+  .menu-overlay {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .menu-content {
+    min-height: 100%;
+    height: auto;
+    gap: 24px;
+  }
+
+  .cntr-nav a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Extra-small Phones */
+@media (max-width: 374px) {
+  .gm-main-nav {
+    height: 58px;
+  }
+
+  .nav-logo {
+    height: 32px;
+    max-height: 32px;
+    max-width: 110px;
+  }
+
+  .menu-toggle-btn,
+  #menu-toggle,
+  .menu-toggle-btn i,
+  #menu-toggle i {
+    font-size: 24px;
+  }
+}

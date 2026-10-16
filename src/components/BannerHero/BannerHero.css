@@ -178,118 +178,134 @@
 
 
 /* ==========================================================================
-   FLAVOUR TEXT STATES
+   FLAVOUR TEXT STATES (BASE DEFAULTS)
    ========================================================================== */
 
-.banner-hero-container .one #orange-text,
+/* Initially only Orange is at x: 0 */
 .banner-hero-container #orange-text {
-  position: absolute !important;
-  top: 31% !important;
-  font-size: 16vh !important;
-  font-family:  'Boldonse', sans-serif !important;
-  white-space: nowrap !important;
-  user-select: none !important;
-  text-transform: uppercase !important;
-  line-height: 0.95 !important;
-  letter-spacing: 0.15vw !important;
-  text-align: center !important;
-  color: #f1bc92 !important;
-  -webkit-text-fill-color: #f1bc92 !important;
-  text-shadow: none !important;
-  background: none !important;
-  z-index: 1;
-  opacity: 0.3 !important;
   transform: translateX(0);
+  opacity: 0.85;
+  visibility: visible;
 }
 
-.banner-hero-container #mango-text {
-  font-family:  'Boldonse', sans-serif !important;
-  z-index: 1;
-
-  opacity: 0;
-
-  color: #b86800;
-
-  text-shadow: none;
-
-  transform: translateX(100vw);
-}
-
-.banner-hero-container .one #strawberry-text,
-.banner-hero-container #strawberry-text {
-  position: absolute !important;
-  top: 21% !important;
-  font-size: 17vh !important;
-  font-family: 'Boldonse', sans-serif !important;
-  white-space: nowrap !important;
-  user-select: none !important;
-  text-transform: uppercase !important;
-  line-height: 1.95 !important;
-  letter-spacing: 0.15vw !important;
-  text-align: center !important;
-  color: #e1bbc2 !important;
-  -webkit-text-fill-color: #e1bbc2 !important;
-  text-shadow: none !important;
-  background: none !important;
-  background-clip: border-box !important;
-  -webkit-background-clip: border-box !important;
-  z-index: 1;
-  opacity: 0.3 !important;
-  transform: translateX(100vw);
-}
+/* Inactive flavours start off-screen (100vw) with opacity 0 and hidden */
+.banner-hero-container #strawberry-text,
+.banner-hero-container #melon-text,
+.banner-hero-container #blueberry-text,
+.banner-hero-container #mango-text,
 .banner-hero-container #chocolate-text {
-  font-family:  'Boldonse', sans-serif !important;
-  z-index: 1;
-
+  transform: translateX(100vw);
   opacity: 0;
-
-  color: #381d0c;
-
-  text-shadow: none;
-
-  transform: translateX(-100vw);
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.banner-hero-container .one #melon-text,
-.banner-hero-container #melon-text {
-  position: absolute !important;
-  top: 32% !important;
-  font-size: 15vh !important;
-  font-family: 'Boldonse', sans-serif !important;
-  white-space: nowrap !important;
-  user-select: none !important;
-  text-transform: uppercase !important;
-  line-height: 0.95 !important;
-  letter-spacing: 0.15vw !important;
-  text-align: center !important;
-  color: #b5cd92 !important;
-  -webkit-text-fill-color: #b5cd92 !important;
-  text-shadow: none !important;
-  background: none !important;
-  z-index: 1;
-  opacity: 0.3 !important;
-  transform: translateX(100vw);
-}
+/* ==========================================================================
+   FLAVOUR TEXT STATES (DESKTOP)
+   ========================================================================== */
 
-.banner-hero-container .one #blueberry-text,
-.banner-hero-container #blueberry-text {
-  position: absolute !important;
-  top: 30% !important;
-  font-size: 18vh !important;
-  font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
-  white-space: nowrap !important;
-  user-select: none !important;
-  text-transform: uppercase !important;
-  line-height: 0.95 !important;
-  letter-spacing: 0.15vw !important;
-  text-align: center !important;
-  color: #c3cbf5 !important;
-  -webkit-text-fill-color: #c3cbf5 !important;
-  text-shadow: none !important;
-  background: none !important;
-  z-index: 1;
-  opacity: 0.3 !important;
-  transform: translateX(100vw);
+@media (min-width: 1024px) {
+  .banner-hero-container .one #orange-text,
+  .banner-hero-container #orange-text {
+    position: absolute !important;
+    top: 31% !important;
+    font-size: 16vh !important;
+    font-family:  'Boldonse', sans-serif !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    text-transform: uppercase !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.15vw !important;
+    text-align: center !important;
+    color: #f1bc92 !important;
+    -webkit-text-fill-color: #f1bc92 !important;
+    text-shadow: none !important;
+    background: none !important;
+    z-index: 1;
+    opacity: 0.3 !important;
+    transform: translateX(0);
+  }
+
+  .banner-hero-container #mango-text {
+    font-family:  'Boldonse', sans-serif !important;
+    z-index: 1;
+    opacity: 0;
+    color: #b86800;
+    text-shadow: none;
+    transform: translateX(100vw);
+  }
+
+  .banner-hero-container .one #strawberry-text,
+  .banner-hero-container #strawberry-text {
+    position: absolute !important;
+    top: 31% !important;
+    font-size: 16vh !important;
+    font-family: 'Boldonse', sans-serif !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    text-transform: uppercase !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.15vw !important;
+    text-align: center !important;
+    color: #e1bbc2 !important;
+    -webkit-text-fill-color: #e1bbc2 !important;
+    text-shadow: none !important;
+    background: none !important;
+    z-index: 1;
+    opacity: 0.3 !important;
+    transform: translateX(100vw);
+  }
+
+  .banner-hero-container #chocolate-text {
+    font-family:  'Boldonse', sans-serif !important;
+    z-index: 1;
+    opacity: 0;
+    color: #381d0c;
+    text-shadow: none;
+    transform: translateX(-100vw);
+  }
+
+  .banner-hero-container .one #melon-text,
+  .banner-hero-container #melon-text {
+    position: absolute !important;
+    top: 32% !important;
+    font-size: 15vh !important;
+    font-family: 'Boldonse', sans-serif !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    text-transform: uppercase !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.15vw !important;
+    text-align: center !important;
+    color: #b5cd92 !important;
+    -webkit-text-fill-color: #b5cd92 !important;
+    text-shadow: none !important;
+    background: none !important;
+    z-index: 1;
+    opacity: 0.3 !important;
+    transform: translateX(100vw);
+  }
+
+  .banner-hero-container .one #blueberry-text,
+  .banner-hero-container #blueberry-text {
+    position: absolute !important;
+    top: 30% !important;
+    font-size: 18vh !important;
+    font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    text-transform: uppercase !important;
+    line-height: 0.95 !important;
+    letter-spacing: 0.15vw !important;
+    text-align: center !important;
+    color: #c3cbf5 !important;
+    -webkit-text-fill-color: #c3cbf5 !important;
+    text-shadow: none !important;
+    background: none !important;
+    z-index: 1;
+    opacity: 0.3 !important;
+    transform: translateX(100vw);
+  }
 }
 
 .banner-hero-container .banner-btn-pill {
@@ -1861,6 +1877,8 @@
   .banner-hero-container #melon-text,
   .banner-hero-container #blueberry-text {
 
+    
+
     position: absolute;
 
     z-index: 2 !important;
@@ -1885,61 +1903,130 @@
   .banner-hero-container #fanta3,
   .banner-hero-container #fanta4,
   .banner-hero-container #fanta-blueberry {
-
     position: absolute;
-
     z-index: 5 !important;
-
-    /*
-       Larger mobile bottle.
-    */
-    height: 72vh !important;
-
-    max-height: 75vh !important;
+    height: 62vh !important;
+    max-height: 64vh !important;
   }
 
 
   /* FLAVOUR HEADING */
 
+  /* FLAVOUR HEADING BASE */
   .banner-hero-container .one h1,
+  .banner-hero-container .one #orange-text,
+  .banner-hero-container .one #mango-text,
+  .banner-hero-container .one #strawberry-text,
+  .banner-hero-container .one #chocolate-text,
+  .banner-hero-container .one #melon-text,
+  .banner-hero-container .one #blueberry-text,
   .banner-hero-container #orange-text,
   .banner-hero-container #mango-text,
   .banner-hero-container #strawberry-text,
   .banner-hero-container #chocolate-text,
   .banner-hero-container #melon-text,
   .banner-hero-container #blueberry-text {
-
+    position: absolute !important;
     font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
+    top: 45% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    line-height: 1 !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    font-size: 26vw !important;
+  /* 1. ORANGE (Only active flavour initially at x: 0) */
+  .banner-hero-container .one #orange-text,
+  .banner-hero-container #orange-text {
+    font-family: 'Boldonse', 'theBoldonse', sans-serif !important;
+    font-size: clamp(46px, 14.5vw, 68px) !important;
+    letter-spacing: 0.04em !important;
+    color: #e38d4f !important;
+    -webkit-text-fill-color: #e38d4f !important;
+    transform: translateX(0);
+    opacity: 0.85;
+    visibility: visible;
+  }
 
-    top: 45%;
+  /* 2. STRAWBERRY (Starts hidden off-screen) */
+  .banner-hero-container .one #strawberry-text,
+  .banner-hero-container #strawberry-text {
+    font-family: 'Boldonse', 'theBoldonse', sans-serif !important;
+    font-size: clamp(38px, 11.8vw, 56px) !important;
+    letter-spacing: 0.02em !important;
+    color: #cf5e76 !important;
+    -webkit-text-fill-color: #cf5e76 !important;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+  }
 
-    letter-spacing: 0.05vw;
+  /* 3. MELON (Starts hidden off-screen) */
+  .banner-hero-container .one #melon-text,
+  .banner-hero-container .one #melon-text {
+    font-size: clamp(50px, 16vw, 76px) !important;
+    color: #8dae61 !important;
+    -webkit-text-fill-color: #8dae61 !important;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* 4. BLUEBERRY (Starts hidden off-screen) */
+  .banner-hero-container .one #blueberry-text,
+  .banner-hero-container #blueberry-text {
+    font-size: clamp(32px, 10.5vw, 48px) !important;
+    color: #7d8edb !important;
+    -webkit-text-fill-color: #7d8edb !important;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .banner-hero-container #mango-text {
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .banner-hero-container #chocolate-text {
+    transform: translateX(-100vw);
+    opacity: 0;
+    visibility: hidden;
   }
 
 
-  /* ORANGE */
+  /* ============================================================
+     1. ORANGE DECOR - MOBILE (375px–599px)
+     ============================================================ */
 
   .banner-hero-container .orange-top-left,
   .banner-hero-container .orange-slice-left {
-    width: 32vw;
-    top: 24%;
+    width: 30vw;
+    top: 22%;
     left: 2%;
   }
 
   .banner-hero-container .orange-top-right,
   .banner-hero-container .orange-whole-right {
-    width: 34vw;
-    top: 20%;
+    width: 32vw;
+    top: 18%;
     right: 2%;
   }
 
   .banner-hero-container .orange-bottom-right,
   .banner-hero-container .orange-wedge-bottom-right {
-    width: 25vw;
-    top: 60%;
-    right: 4%;
+    width: 22vw;
+    top: 58%;
+    right: 3%;
   }
 
   .banner-hero-container .leaf-right-1,
@@ -1951,247 +2038,247 @@
 
   .banner-hero-container .leaf-left-1,
   .banner-hero-container .orange-mint-top-left {
-    width: 12vw;
-    top: 20%;
-    left: 24%;
+    width: 11vw;
+    top: 19%;
+    left: 23%;
   }
-
 
   .banner-hero-container .leaf-bottom-mid,
   .banner-hero-container .orange-mint-mid-right {
-    width: 11vw;
-    top: 66%;
+    width: 10vw;
+    top: 62%;
     left: 56%;
   }
 
-  /* MANGO */
-  .banner-hero-container .mango-top-left {
-    width: 32vw;
-    top: 11%;
-    left: 3%;
-  }
-
-  .banner-hero-container .mango-top-right {
-    width: 34vw;
-    top: 8%;
-    right: 4%;
-  }
-
-  .banner-hero-container .mango-bottom-right {
-    width: 35vw;
-    bottom: 3%;
-    right: 4%;
-  }
-
-  .banner-hero-container .mango-leaf-left-1 {
-    width: 25vw;
-    top: 40%;
-    left: 1%;
-  }
-
-  .banner-hero-container .mango-leaf-top-mid {
-    width: 27vw;
-    top: 2%;
-    left: 24%;
-  }
-
-
-
-  .banner-hero-container .mango-leaf-bottom-mid {
-    width: 26vw;
-    bottom: 8%;
-    left: 20%;
-  }
-
-  /* =========================
-     BLUEBERRY ELEMENTS - MOBILE
-     ========================= */
-
-  .banner-hero-container .blueberry-leaf-bottom-left {
-    width: 20vw;
-    bottom: -3%;
+  .banner-hero-container .orange-branch-bottom-left {
+    width: 18vw;
+    bottom: -2%;
     left: -2%;
   }
 
-  .banner-hero-container .blueberry-top-left {
-    width: 28vw;
-    top: 22%;
-    left: 4%;
-  }
-
-  .banner-hero-container .blueberry-leaf-top-mid {
-    width: 12vw;
-    top: 20%;
-    left: 28%;
-  }
-
-  .banner-hero-container .blueberry-bottom-right {
-    width: 18vw;
-    top: 60%;
-    right: 12%;
-  }
-
-  .banner-hero-container .blueberry-leaf-bottom-mid {
-    width: 10vw;
-    top: 62%;
-    left: 54%;
-  }
-
-  .banner-hero-container .blueberry-top-right {
-    width: 28vw;
-    top: 22%;
-    right: 4%;
-  }
-
-  .banner-hero-container .blueberry-branch-top-right {
-    width: 20vw;
-    top: 0;
-    right: 0;
-  }
-
-  .banner-hero-container .blueberry-mint-bottom-right {
-    width: 12vw;
-    bottom: -2%;
-    right: 0;
-  }
-
-
-
-  /* STRAWBERRY */
-
-  .banner-hero-container .strawberry-top-left {
-    width: 26vw;
-    top: 24%;
-    left: 4%;
-  }
-
-  .banner-hero-container .strawberry-leaf-bottom-left {
-    width: 24vw;
-    bottom: -3%;
-    left: -1%;
-  }
-
-  .banner-hero-container .strawberry-leaf-top-mid {
-    width: 14vw;
-    top: 20%;
-    left: 26%;
-  }
-
-  .banner-hero-container .strawberry-bottom-right {
-    width: 22vw;
-    top: 62%;
-    right: 8%;
-  }
-
-  .banner-hero-container .strawberry-top-right {
-    width: 30vw;
-    top: 20%;
-    right: 4%;
-  }
-
-  .banner-hero-container .strawberry-leaf-top-right {
-    width: 24vw;
-    top: 0;
-    right: 0;
-  }
-
-  .banner-hero-container .strawberry-leaf-bottom-mid {
-    width: 15vh;
-    top: 66%;
-    left: 55%;
-  }
-
-  .banner-hero-container .strawberry-mint-bottom-right {
-    width: 13vw;
+  .banner-hero-container .orange-mint-bottom-right {
+    width: 11vw;
     bottom: -1%;
     right: 0;
   }
 
 
   /* ============================================================
-     CHOCOLATE - MOBILE 375px–599px
-     Matched visually closer to Orange scale
+     2. STRAWBERRY DECOR - MOBILE (375px–599px)
      ============================================================ */
 
-  .banner-hero-container .chocolate-top-left {
-    width: 32vw;
-    top: 10%;
+  .banner-hero-container .strawberry-top-left,
+  .banner-hero-container .strawberry-single-left {
+    width: 24vw;
+    top: 22%;
     left: 3%;
   }
 
-  .banner-hero-container .chocolate-mint-top {
-    width: 13vw;
-    top: 2%;
-    left: 60%;
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: 20vw;
+    bottom: -2%;
+    left: -1%;
   }
 
-  .banner-hero-container .chocolate-coffee-beans {
-    width: 34vw;
-    top: 12%;
+  .banner-hero-container .strawberry-leaf-top-mid,
+  .banner-hero-container .strawberry-mint-top-left {
+    width: 12vw;
+    top: 18%;
+    left: 24%;
+  }
+
+  .banner-hero-container .strawberry-bottom-right,
+  .banner-hero-container .strawberry-single-right {
+    width: 20vw;
+    top: 60%;
+    right: 5%;
+  }
+
+  .banner-hero-container .strawberry-top-right,
+  .banner-hero-container .strawberry-pair-right {
+    width: 26vw;
+    top: 18%;
+    right: 3%;
+  }
+
+  .banner-hero-container .strawberry-leaf-top-right,
+  .banner-hero-container .strawberry-branch-top-right {
+    width: 20vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .strawberry-leaf-bottom-mid,
+  .banner-hero-container .strawberry-mint-mid-right {
+    width: 12vw;
+    top: 63%;
+    left: 54%;
+  }
+
+  .banner-hero-container .strawberry-mint-bottom-right {
+    width: 11vw;
+    bottom: -1%;
+    right: 0;
+  }
+
+
+  /* ============================================================
+     3. MELON DECOR - MOBILE (375px–599px)
+     ============================================================ */
+
+  .banner-hero-container .melon-top-left,
+  .banner-hero-container .melon-whole-left {
+    width: 24vw;
+    top: 21%;
+    left: 3%;
+  }
+
+  .banner-hero-container .melon-leaf-top-mid,
+  .banner-hero-container .melon-mint-top-left {
+    width: 12vw;
+    top: 18%;
+    left: 24%;
+  }
+
+  .banner-hero-container .melon-leaf-bottom-left {
+    width: 18vw;
+    bottom: -2%;
+    left: -2%;
+  }
+
+  .banner-hero-container .melon-bottom-right,
+  .banner-hero-container .melon-slice-mid-right {
+    width: 24vw;
+    top: 58%;
+    right: 4%;
+  }
+
+  .banner-hero-container .melon-top-right,
+  .banner-hero-container .melon-cluster-right {
+    width: 28vw;
+    top: 17%;
     right: 2%;
   }
 
-  .banner-hero-container .chocolate-mint-single {
+  .banner-hero-container .melon-branch-top-right {
+    width: 22vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .melon-leaf-bottom-mid,
+  .banner-hero-container .melon-mint-mid-right {
     width: 11vw;
+    top: 62%;
+    left: 54%;
+  }
+
+  .banner-hero-container .melon-mint-bottom-right {
+    width: 11vw;
+    bottom: -1%;
+    right: 0;
+  }
+
+
+  /* ============================================================
+     4. BLUEBERRY DECOR - MOBILE (375px–599px)
+     ============================================================ */
+
+  .banner-hero-container .blueberry-leaf-bottom-left {
+    width: 18vw;
+    bottom: -2%;
+    left: -2%;
+  }
+
+  .banner-hero-container .blueberry-top-left,
+  .banner-hero-container .blueberry-cluster-left {
+    width: 24vw;
+    top: 21%;
+    left: 4%;
+  }
+
+  .banner-hero-container .blueberry-leaf-top-mid,
+  .banner-hero-container .blueberry-mint-top-left {
+    width: 11vw;
+    top: 18%;
+    left: 26%;
+  }
+
+  .banner-hero-container .blueberry-bottom-right,
+  .banner-hero-container .blueberry-trio-right {
+    width: 17vw;
     top: 58%;
-    left: 0%;
+    right: 8%;
   }
 
-  .banner-hero-container .chocolate-shavings {
-    width: 35vw;
-    bottom: 8%;
-    left: 49%;
+  .banner-hero-container .blueberry-leaf-bottom-mid,
+  .banner-hero-container .blueberry-mint-mid-right {
+    width: 10vw;
+    top: 60%;
+    left: 53%;
   }
 
-  .banner-hero-container .chocolate-mint-bottom {
-    width: 14vw;
-    bottom: 10%;
-    right: 0%;
+  .banner-hero-container .blueberry-top-right,
+  .banner-hero-container .blueberry-cluster-right {
+    width: 25vw;
+    top: 20%;
+    right: 3%;
+  }
+
+  .banner-hero-container .blueberry-branch-top-right {
+    width: 18vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .blueberry-mint-bottom-right {
+    width: 11vw;
+    bottom: -1%;
+    right: 0;
   }
 
 
-  /* INFO BOX */
+  /* ============================================================
+     INFO BOX - MOBILE (Sits above bottom action buttons)
+     ============================================================ */
 
   .banner-hero-container .info-box {
-
-    bottom: 5%;
-
-    left: 6%;
-
-    max-width: 78vw;
+    position: absolute;
+    z-index: 10 !important;
+    bottom: 70px !important;
+    left: 4% !important;
+    max-width: calc(100vw - 32px) !important;
+    pointer-events: auto;
+    text-align: left;
+    margin: 0;
+    padding: 0;
   }
 
   .banner-hero-container .info-box h2 {
-
-    font-size: 6.4vw;
+    font-size: clamp(21px, 6vw, 26px) !important;
+    font-family: 'Boldonse', sans-serif !important;
+    font-weight: 400;
+    line-height: 1.15 !important;
+    margin: 0 0 5px 0 !important;
+    letter-spacing: 0.01em;
+    text-shadow: none !important;
   }
 
   .banner-hero-container .info-box p {
-
-    font-size: 4vw;
-
-    line-height: 1.4;
+    font-size: clamp(13px, 3.6vw, 15px) !important;
+    font-family: 'Anybody', sans-serif !important;
+    font-weight: 400;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    letter-spacing: 0.01em;
+    text-shadow: none !important;
   }
 
   .banner-hero-container .pill-btn {
-
     width: 24vw;
-
     height: 8vw;
-
     padding: 1vw 2.4vw;
-
     font-size: 3vw;
-  }
-
-
-  /* INFO FOREGROUND */
-
-  .banner-hero-container .info-box {
-
-    position: absolute;
-
-    z-index: 10 !important;
   }
 }
 
@@ -2203,21 +2290,56 @@
 
 @media (max-width: 374px) {
 
-  /* FLAVOUR TEXT */
-
+  /* FLAVOUR TEXT BASE - SMALL MOBILE */
   .banner-hero-container .one h1,
+  .banner-hero-container .one #orange-text,
+  .banner-hero-container .one #mango-text,
+  .banner-hero-container .one #strawberry-text,
+  .banner-hero-container .one #chocolate-text,
+  .banner-hero-container .one #melon-text,
+  .banner-hero-container .one #blueberry-text,
   .banner-hero-container #orange-text,
   .banner-hero-container #mango-text,
   .banner-hero-container #strawberry-text,
   .banner-hero-container #chocolate-text,
   .banner-hero-container #melon-text,
   .banner-hero-container #blueberry-text {
-
     font-family: 'theBoldonse', 'Boldonse', sans-serif !important;
+    font-size: 8.8vw !important;
+    top: 45% !important;
+    letter-spacing: 0.03em !important;
+  }
 
-    font-size: 20vw !important;
+  .banner-hero-container .one #orange-text,
+  .banner-hero-container #orange-text {
+    font-size: 13.5vw !important;
+    transform: translateX(0);
+    opacity: 0.85;
+    visibility: visible;
+  }
 
-    top: 45%;
+  .banner-hero-container .one #strawberry-text,
+  .banner-hero-container #strawberry-text {
+    font-size: 9.2vw !important;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .banner-hero-container .one #melon-text,
+  .banner-hero-container #melon-text {
+    font-size: 15vw !important;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .banner-hero-container .one #blueberry-text,
+  .banner-hero-container #blueberry-text {
+    font-size: 9.8vw !important;
+    transform: translateX(100vw);
+    opacity: 0;
+    visibility: hidden;
   }
 
 
@@ -2229,32 +2351,30 @@
   .banner-hero-container #fanta3,
   .banner-hero-container #fanta4,
   .banner-hero-container #fanta-blueberry {
-
-    height: 68vh !important;
-
-    max-height: 68vh !important;
+    height: 60vh !important;
+    max-height: 62vh !important;
   }
 
 
-  /* ORANGE */
+  /* 1. ORANGE - SMALL MOBILE */
 
   .banner-hero-container .orange-top-left,
   .banner-hero-container .orange-slice-left {
-    width: 32vw;
+    width: 30vw;
     top: 24%;
     left: 2%;
   }
 
   .banner-hero-container .orange-top-right,
   .banner-hero-container .orange-whole-right {
-    width: 34vw;
+    width: 32vw;
     top: 20%;
     right: 2%;
   }
 
   .banner-hero-container .orange-bottom-right,
   .banner-hero-container .orange-wedge-bottom-right {
-    width: 25vw;
+    width: 24vw;
     top: 60%;
     right: 4%;
   }
@@ -2273,7 +2393,6 @@
     left: 24%;
   }
 
-
   .banner-hero-container .leaf-bottom-mid,
   .banner-hero-container .orange-mint-mid-right {
     width: 11vw;
@@ -2281,220 +2400,209 @@
     left: 56%;
   }
 
-  /* MANGO */
-  .banner-hero-container .mango-top-left {
-    width: 32vw;
-    top: 12%;
-    left: 3%;
-  }
-
-  .banner-hero-container .mango-top-right {
-    width: 34vw;
-    top: 9%;
-    right: 4%;
-  }
-
-  .banner-hero-container .mango-bottom-right {
-    width: 35vw;
-    bottom: 3%;
-    right: 3%;
-  }
-
-  .banner-hero-container .mango-leaf-left-1 {
-    width: 25vw;
-    top: 42%;
-    left: 1%;
-  }
-
-  .banner-hero-container .mango-leaf-top-mid {
-    width: 27vw;
-    top: 2%;
-    left: 22%;
-  }
-
-  .banner-hero-container .mango-leaf-right-1 {
-    width: 26vw;
-    top: 34%;
-    right: 1%;
-  }
-
-  .banner-hero-container .mango-leaf-bottom-mid {
-    width: 26vw;
-    bottom: 8%;
-    left: 18%;
-  }
-
-  /* BLUEBERRY */
-  .banner-hero-container .blueberry-leaf-bottom-left {
-    width: 22vw;
-    bottom: -3%;
+  .banner-hero-container .orange-branch-bottom-left {
+    width: 18vw;
+    bottom: -2%;
     left: -2%;
   }
 
-  .banner-hero-container .blueberry-top-left {
-    width: 30vw;
-    top: 22%;
-    left: 3%;
-  }
-
-  .banner-hero-container .blueberry-leaf-top-mid {
-    width: 14vw;
-    top: 20%;
-    left: 26%;
-  }
-
-  .banner-hero-container .blueberry-bottom-right {
-    width: 20vw;
-    top: 60%;
-    right: 10%;
-  }
-
-  .banner-hero-container .blueberry-leaf-bottom-mid {
-    width: 12vw;
-    top: 62%;
-    left: 54%;
-  }
-
-  .banner-hero-container .blueberry-top-right {
-    width: 30vw;
-    top: 22%;
-    right: 3%;
-  }
-
-  .banner-hero-container .blueberry-branch-top-right {
-    width: 22vw;
-    top: 0;
-    right: 0;
-  }
-
-  .banner-hero-container .blueberry-mint-bottom-right {
-    width: 13vw;
-    bottom: -2%;
-    right: 0;
-  }
-
-
-  /* STRAWBERRY */
-
-  .banner-hero-container .strawberry-top-left {
-    width: 26vw;
-    top: 24%;
-    left: 3%;
-  }
-
-  .banner-hero-container .strawberry-leaf-bottom-left {
-    width: 24vw;
-    bottom: -3%;
-    left: -1%;
-  }
-
-  .banner-hero-container .strawberry-leaf-top-mid {
-    width: 14vw;
-    top: 20%;
-    left: 25%;
-  }
-
-  .banner-hero-container .strawberry-bottom-right {
-    width: 22vw;
-    top: 62%;
-    right: 8%;
-  }
-
-  .banner-hero-container .strawberry-top-right {
-    width: 30vw;
-    top: 20%;
-    right: 4%;
-  }
-
-  .banner-hero-container .strawberry-leaf-top-right {
-    width: 24vw;
-    top: 0;
-    right: 0;
-  }
-
-  .banner-hero-container .strawberry-leaf-bottom-mid {
-    width: 15vh;
-    top: 66%;
-    left: 55%;
-  }
-
-  .banner-hero-container .strawberry-mint-bottom-right {
-    width: 13vw;
+  .banner-hero-container .orange-mint-bottom-right {
+    width: 11vw;
     bottom: -1%;
     right: 0;
   }
 
 
-  /* ============================================================
-     CHOCOLATE - SMALL MOBILE 320px–374px
-     ============================================================ */
+  /* 2. STRAWBERRY - SMALL MOBILE */
 
-  .banner-hero-container .chocolate-top-left {
-    width: 30vw;
-    top: 10%;
+  .banner-hero-container .strawberry-top-left,
+  .banner-hero-container .strawberry-single-left {
+    width: 25vw;
+    top: 24%;
     left: 3%;
   }
 
-  .banner-hero-container .chocolate-mint-top {
-    width: 12vw;
-    top: 2%;
-    left: 59%;
+  .banner-hero-container .strawberry-leaf-bottom-left {
+    width: 22vw;
+    bottom: -3%;
+    left: -1%;
   }
 
-  .banner-hero-container .chocolate-coffee-beans {
-    width: 32vw;
-    top: 13%;
-    right: 1%;
-  }
-
-  .banner-hero-container .chocolate-mint-single {
-    width: 10vw;
-    top: 58%;
-    left: 0%;
-  }
-
-  .banner-hero-container .chocolate-shavings {
-    width: 32vw;
-    bottom: 9%;
-    left: 49%;
-  }
-
-  .banner-hero-container .chocolate-mint-bottom {
+  .banner-hero-container .strawberry-leaf-top-mid,
+  .banner-hero-container .strawberry-mint-top-left {
     width: 13vw;
-    bottom: 10%;
-    right: 0%;
+    top: 20%;
+    left: 25%;
+  }
+
+  .banner-hero-container .strawberry-bottom-right,
+  .banner-hero-container .strawberry-single-right {
+    width: 21vw;
+    top: 62%;
+    right: 7%;
+  }
+
+  .banner-hero-container .strawberry-top-right,
+  .banner-hero-container .strawberry-pair-right {
+    width: 28vw;
+    top: 20%;
+    right: 3%;
+  }
+
+  .banner-hero-container .strawberry-leaf-top-right,
+  .banner-hero-container .strawberry-branch-top-right {
+    width: 22vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .strawberry-leaf-bottom-mid,
+  .banner-hero-container .strawberry-mint-mid-right {
+    width: 12vw;
+    top: 65%;
+    left: 54%;
+  }
+
+  .banner-hero-container .strawberry-mint-bottom-right {
+    width: 12vw;
+    bottom: -1%;
+    right: 0;
   }
 
 
-  /* INFO */
+  /* 3. MELON - SMALL MOBILE */
+
+  .banner-hero-container .melon-top-left,
+  .banner-hero-container .melon-whole-left {
+    width: 24vw;
+    top: 22%;
+    left: 2%;
+  }
+
+  .banner-hero-container .melon-leaf-top-mid,
+  .banner-hero-container .melon-mint-top-left {
+    width: 12vw;
+    top: 19%;
+    left: 22%;
+  }
+
+  .banner-hero-container .melon-leaf-bottom-left {
+    width: 18vw;
+    bottom: -2%;
+    left: -2%;
+  }
+
+  .banner-hero-container .melon-bottom-right,
+  .banner-hero-container .melon-slice-mid-right {
+    width: 24vw;
+    top: 58%;
+    right: 3%;
+  }
+
+  .banner-hero-container .melon-top-right,
+  .banner-hero-container .melon-cluster-right {
+    width: 28vw;
+    top: 18%;
+    right: 2%;
+  }
+
+  .banner-hero-container .melon-branch-top-right {
+    width: 22vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .melon-leaf-bottom-mid,
+  .banner-hero-container .melon-mint-mid-right {
+    width: 11vw;
+    top: 62%;
+    left: 54%;
+  }
+
+  .banner-hero-container .melon-mint-bottom-right {
+    width: 11vw;
+    bottom: -1%;
+    right: 0;
+  }
+
+
+  /* 4. BLUEBERRY - SMALL MOBILE */
+
+  .banner-hero-container .blueberry-leaf-bottom-left {
+    width: 20vw;
+    bottom: -3%;
+    left: -2%;
+  }
+
+  .banner-hero-container .blueberry-top-left,
+  .banner-hero-container .blueberry-cluster-left {
+    width: 28vw;
+    top: 22%;
+    left: 3%;
+  }
+
+  .banner-hero-container .blueberry-leaf-top-mid,
+  .banner-hero-container .blueberry-mint-top-left {
+    width: 13vw;
+    top: 20%;
+    left: 26%;
+  }
+
+  .banner-hero-container .blueberry-bottom-right,
+  .banner-hero-container .blueberry-trio-right {
+    width: 19vw;
+    top: 60%;
+    right: 9%;
+  }
+
+  .banner-hero-container .blueberry-leaf-bottom-mid,
+  .banner-hero-container .blueberry-mint-mid-right {
+    width: 11vw;
+    top: 62%;
+    left: 54%;
+  }
+
+  .banner-hero-container .blueberry-top-right,
+  .banner-hero-container .blueberry-cluster-right {
+    width: 28vw;
+    top: 22%;
+    right: 3%;
+  }
+
+  .banner-hero-container .blueberry-branch-top-right {
+    width: 20vw;
+    top: 0;
+    right: 0;
+  }
+
+  .banner-hero-container .blueberry-mint-bottom-right {
+    width: 12vw;
+    bottom: -2%;
+    right: 0;
+  }
+
+
+  /* INFO BOX - SMALL MOBILE */
 
   .banner-hero-container .info-box {
-
-    bottom: 4%;
-
-    left: 6%;
-
-    max-width: 76vw;
+    bottom: 58px !important;
+    left: 12px !important;
+    max-width: calc(100vw - 24px) !important;
   }
 
   .banner-hero-container .info-box h2 {
-
-    font-size: 6.8vw;
+    font-size: 19px !important;
+    margin-bottom: 3px !important;
   }
 
   .banner-hero-container .info-box p {
-
-    font-size: 4vw;
+    font-size: 12px !important;
   }
 
   .banner-hero-container .pill-btn {
-
     width: 25vw;
-
     height: 8vw;
-
     padding: 1vw 2vw;
-
     font-size: 3vw;
   }
 }
@@ -2632,6 +2740,12 @@
     padding: 7px 13px;
     font-size: 12px;
     border-width: 1.2px;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    white-space: nowrap;
   }
 
   .gm-skip-hero {
@@ -2640,6 +2754,7 @@
     bottom: 16px;
     top: auto;
     transform: none;
+    min-height: 38px;
   }
 
   .gm-skip-hero:hover {
@@ -2657,8 +2772,6 @@
     bottom: 16px;
     top: auto;
     transform: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
     min-height: 38px;
   }
 
@@ -2674,21 +2787,21 @@
 @media (max-width: 374px) {
   .banner-hero-container .gm-hero-action-btn,
   .gm-hero-action-btn {
-    padding: 5px 10px;
+    padding: 6px 11px;
     font-size: 11px;
+    min-height: 34px;
   }
 
   .gm-skip-hero {
-    right: 3%;
+    right: 12px;
     bottom: 12px;
+    min-height: 34px;
   }
 
   .banner-hero-container .gm-explore-hero,
   .gm-explore-hero {
-    left: 3%;
+    left: 12px;
     bottom: 12px;
     min-height: 34px;
-    padding-top: 6px;
-    padding-bottom: 6px;
   }
 }
