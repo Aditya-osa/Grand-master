@@ -256,7 +256,7 @@
 /* Laptop: 1024px–1199px */
 @media (max-width: 1199px) {
   .gm-blogs-section {
-    --blog-pad-x: max(40px, env(safe-area-inset-left));
+    --blog-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
     padding-top: 64px;
     padding-bottom: 64px;
   }
@@ -265,7 +265,7 @@
 /* Tablet Landscape: 768px–1023px */
 @media (max-width: 1023px) {
   .gm-blogs-section {
-    --blog-pad-x: max(28px, env(safe-area-inset-left));
+    --blog-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
     padding-top: 52px;
     padding-bottom: 52px;
   }
@@ -503,8 +503,8 @@
 
 .gm-blogs-inner {
   width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
+  max-width: 100%;
+  margin: 0;
 }
 
 .gm-blogs-header {
@@ -571,7 +571,7 @@
 /* Large desktop */
 @media (min-width: 1440px) {
   .gm-blogs-section {
-    --blog-pad-x: clamp(80px, 10.5vw, 180px);
+    --blog-pad-x: max(clamp(48px, 10.5vw, 180px), env(safe-area-inset-left));
   }
 
   .gm-blogs-heading {
@@ -586,7 +586,7 @@
 /* Laptop */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .gm-blogs-section {
-    --blog-pad-x: clamp(40px, 5vw, 72px);
+    --blog-pad-x: max(clamp(36px, 6vw, 90px), env(safe-area-inset-left));
     padding-top: 64px;
     padding-bottom: 64px;
   }
@@ -603,7 +603,7 @@
 /* Tablet */
 @media (min-width: 601px) and (max-width: 1023px) {
   .gm-blogs-section {
-    --blog-pad-x: 28px;
+    --blog-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
     padding-top: 50px;
     padding-bottom: 50px;
   }

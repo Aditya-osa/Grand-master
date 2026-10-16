@@ -5,12 +5,17 @@
 
 .gm-about-page-wrapper {
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   background-color: #faf7f4;
   color: #1a1214;
   position: relative;
   overflow-x: hidden;
   box-sizing: border-box;
+}
+
+.gm-about-page-wrapper .gm-footer-wrapper {
+  position: relative;
+  margin-bottom: 0 !important;
 }
 .about-banner-subtitle {
   color: #faf7f4;
@@ -141,6 +146,7 @@
 .gm-about-main {
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -467,7 +473,7 @@
 .gm-about-page-wrapper {
   width: 100%;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .gm-about-banner,

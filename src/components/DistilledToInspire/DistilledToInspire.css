@@ -559,7 +559,7 @@ font-size: clamp(30px, 4vw, 35px);
 
 @media (min-width: 992px) {
   .distilled-about-track {
-    min-height: 180vh;
+    min-height: auto;
   }
 }
 
@@ -570,6 +570,7 @@ font-size: clamp(30px, 4vw, 35px);
   align-items: flex-start;
   gap: clamp(36px, 4vw, 64px);
   position: relative;
+  overflow: hidden;
 }
 
 /* Left Column: Eyebrow + Left-Aligned Video */
@@ -639,6 +640,7 @@ font-size: clamp(30px, 4vw, 35px);
   align-items: flex-start;
   text-align: left;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 @media (min-width: 992px) {

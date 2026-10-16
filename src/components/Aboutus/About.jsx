@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../Navbar";
 import DistilledToInspire from "../DistilledToInspire";
 import AmazingFlavors from "../AmazingFlavors";
@@ -7,11 +9,24 @@ import Blogs from "../Blogs/Blogs";
 import Footer from "../Footer";
 import aboutBannerImg from "../assets/image.png";
 import bannerVideo from "../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4";
-import "./Abouts.css";
+import "../../Aboutus/Abouts.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function About() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+    const handleLoad = () => ScrollTrigger.refresh();
+    window.addEventListener('load', handleLoad);
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('load', handleLoad);
+      ScrollTrigger.refresh();
+    };
   }, []);
 
   return (
@@ -43,8 +58,8 @@ function About() {
 
         {/* Foreground Hero Content Lockup */}
         <div className="about-banner-content">
-          <h1 className="about-banner-title">THE STORY BEHIND THE BRAND</h1>
-          <h2 className="about-banner-subtitle">CRAFTED WITH CHARACTER</h2>
+          <span className="about-banner-subtitle ">THE STORY BEHIND THE BRAND</span>
+          <h1 className="about-banner-title">CRAFTED WITH <br/> CHARACTER</h1>
           <p className="about-banner-desc">
             Discover the spirit of Grand Master's
           </p>
@@ -54,7 +69,7 @@ function About() {
       {/* Main Content */}
       <main className="gm-about-main" role="main">
         {/* DISTILLED TO INSPIRE Section: Center-aligned content with video below */}
-        <DistilledToInspire centered={true} />
+       
 
         {/* AMAZING FLAVORS Section: Slanted badge, bold title & 6 flavor ingredients */}
         <AmazingFlavors />
@@ -64,10 +79,10 @@ function About() {
 
         {/* Blog and Insights Section */}
         <Blogs />
-      </main>
 
-      {/* Brand Footer */}
-      <Footer />
+        {/* Brand Footer */}
+        <Footer />
+      </main>
     </div>
   );
 }

@@ -170,9 +170,9 @@
 }
 
 .gm-detail-stage.gm-detail-stage--hipster {
-  width: 62% !important;
-  max-width: 390px !important;
-  height: clamp(460px, 50vw, 620px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
   padding: clamp(12px, 1.8vw, 22px) !important;
 }
 

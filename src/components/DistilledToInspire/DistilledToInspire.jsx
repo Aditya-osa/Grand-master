@@ -88,7 +88,7 @@ export default function DistilledToInspire({ centered = false }) {
             scrollTrigger: {
               trigger: trackRef.current,
               start: 'top 80px',
-              end: 'bottom bottom',
+              end: '+=700',
               scrub: 0.8,
               pin: true,
               anticipatePin: 1,
@@ -113,7 +113,15 @@ export default function DistilledToInspire({ centered = false }) {
           }
 
           if (rightColRef.current) {
-            gsap.set(rightColRef.current, { opacity: 1, width: 'auto', flex: 1, y: 0, pointerEvents: 'auto' });
+            gsap.set(rightColRef.current, {
+              opacity: 1,
+              width: 'auto',
+              flex: 1,
+              y: 0,
+              pointerEvents: 'auto',
+              overflow: 'hidden',
+              visibility: 'visible',
+            });
           }
 
           // Phase 1 (0 -> 0.32): Video comes further down, right column text eases out
@@ -187,6 +195,8 @@ export default function DistilledToInspire({ centered = false }) {
                 flex: 0,
                 padding: 0,
                 margin: 0,
+                overflow: 'hidden',
+                visibility: 'hidden',
                 duration: 0.68,
                 ease: 'power1.inOut',
               },

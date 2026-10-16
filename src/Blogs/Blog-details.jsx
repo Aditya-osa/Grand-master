@@ -355,8 +355,7 @@ export const BLOG_EXTENDED_CONTENT = {
 export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }) {
   const [copied, setCopied] = useState(false);
 
-  // Extract ID from prop or URL hash
-  const activeId = useMemo(() => {
+  const getHashId = () => {
     if (propBlogId) return Number(propBlogId);
     const hash = (window.location.hash || '').toLowerCase();
     if (hash.startsWith('#blog-detail-')) {
@@ -368,6 +367,30 @@ export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }
       if (!isNaN(parsed)) return parsed;
     }
     return 1;
+  };
+
+  // Track activeId in React state so clicking related blogs instantly updates view
+  const [activeId, setActiveId] = useState(getHashId);
+
+  useEffect(() => {
+    if (propBlogId) {
+      setActiveId(Number(propBlogId));
+    }
+  }, [propBlogId]);
+
+  useEffect(() => {
+    const handleHashSync = () => {
+      const newId = getHashId();
+      setActiveId(newId);
+    };
+
+    window.addEventListener('hashchange', handleHashSync);
+    window.addEventListener('popstate', handleHashSync);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashSync);
+      window.removeEventListener('popstate', handleHashSync);
+    };
   }, [propBlogId]);
 
   // Find active blog or fallback to first
@@ -403,11 +426,14 @@ export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }
   };
 
   const handleSelectRelated = (id) => {
+    const targetId = Number(id);
+    setActiveId(targetId);
+    window.location.hash = `#blog-detail-${targetId}`;
+    window.dispatchEvent(new Event('hashchange'));
+    window.dispatchEvent(new CustomEvent('gm-navigate', { detail: `blog-detail-${targetId}` }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (typeof onSelectBlog === 'function') {
-      onSelectBlog(id);
-    } else {
-      window.location.hash = `#blog-detail-${id}`;
-      window.dispatchEvent(new Event('hashchange'));
+      onSelectBlog(targetId);
     }
   };
 
@@ -701,6 +727,7 @@ export default function BlogDetails({ blogId: propBlogId, onBack, onSelectBlog }
                       href={`#blog-detail-${rel.id}`}
                       className="gm-related-read-more-link"
                       onClick={(e) => {
+                        e.preventDefault();
                         e.stopPropagation();
                         handleSelectRelated(rel.id);
                       }}
