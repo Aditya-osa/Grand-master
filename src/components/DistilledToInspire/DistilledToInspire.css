@@ -648,6 +648,11 @@ font-size: clamp(30px, 4vw, 35px);
     align-self: flex-start;
     z-index: 5;
   }
+
+  .distilled-about-video-card {
+    max-width: none !important;
+    aspect-ratio: auto !important;
+  }
 }
 
 .distilled-about-title {
@@ -656,7 +661,7 @@ font-size: clamp(30px, 4vw, 35px);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  line-height: 1.08;
+  line-height: 1.4;
   color: #4A2213;
   margin: 0 0 16px 0;
   text-align: left;
@@ -712,16 +717,6 @@ font-size: clamp(30px, 4vw, 35px);
 
 /* Responsive Breakpoints */
 @media (max-width: 1199px) {
-  .distilled-about-col-left {
-    width: 390px;
-    min-width: 390px;
-  }
-
-  .distilled-about-video-card {
-    width: 390px;
-    height: 270px;
-  }
-
   .distilled-about-title {
     white-space: normal;
   }
@@ -818,18 +813,6 @@ font-size: clamp(30px, 4vw, 35px);
     height: auto;
     min-height: 0;
     aspect-ratio: 16 / 9;
-  }
-
-  .distilled-about-col-left {
-    width: min(36%, 390px);
-    min-width: 0;
-  }
-
-  .distilled-about-video-card {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 440 / 295;
   }
 }
 
@@ -1248,7 +1231,7 @@ font-size: clamp(30px, 4vw, 35px);
 
   .distilled-about-title {
     font-size: clamp(30px, 4vw, 40px);
-    line-height: 1.2;
+    line-height: 1.4;
     white-space: normal;
     overflow-wrap: anywhere;
   }
@@ -1296,5 +1279,292 @@ font-size: clamp(30px, 4vw, 35px);
 
   .distilled-to-inspire__inner {
     gap: 26px;
+  }
+}
+
+/* ============== ALL-SCREEN RESPONSIVE FIX ============== */
+
+/* All screen sizes */
+.distilled-to-inspire,
+.distilled-to-inspire--about-layout {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.distilled-to-inspire *,
+.distilled-to-inspire--about-layout * {
+  box-sizing: border-box;
+}
+
+.distilled-to-inspire__inner,
+.distilled-about-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+.distilled-to-inspire__content,
+.distilled-to-inspire__video-side,
+.distilled-about-col-left,
+.distilled-about-col-right {
+  min-width: 0;
+}
+
+.distilled-to-inspire__title,
+.distilled-about-title {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.distilled-to-inspire__video-card {
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  .distilled-about-video-card {
+    max-width: 100%;
+  }
+}
+
+/* Laptop: 1025px–1280px */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .distilled-to-inspire {
+    --distilled-pad-x: 5vw;
+  }
+
+  .distilled-to-inspire__inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 32px;
+  }
+
+  .distilled-to-inspire__video-card {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Tablet: 768px–1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .distilled-to-inspire,
+  .distilled-to-inspire--about-layout {
+    padding: 48px 32px;
+  }
+
+  .distilled-to-inspire__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .distilled-to-inspire__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .distilled-to-inspire__title {
+    font-size: clamp(28px, 4vw, 36px);
+  }
+
+  .distilled-to-inspire__paragraph {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .distilled-to-inspire__video-side {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .distilled-to-inspire__video-card {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .distilled-about-track {
+    min-height: 0 !important;
+  }
+
+  .distilled-about-grid {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .distilled-about-col-left {
+    order: 2;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .distilled-about-col-right {
+    order: 1;
+    width: 100%;
+  }
+
+  .distilled-about-sticky-col {
+    position: relative;
+    top: auto;
+  }
+
+  .distilled-about-video-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Mobile: 375px–767px */
+@media (max-width: 767px) {
+  .distilled-to-inspire,
+  .distilled-to-inspire--about-layout {
+    padding: 36px 20px;
+  }
+
+  .distilled-to-inspire__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .distilled-to-inspire__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .distilled-to-inspire__title {
+    font-size: clamp(23px, 5.5vw, 30px);
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .distilled-to-inspire__inception {
+    font-size: clamp(16px, 3.5vw, 19px);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .distilled-to-inspire__text-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .distilled-to-inspire__paragraph {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .distilled-to-inspire__btn {
+    margin-top: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .distilled-to-inspire__video-card {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .distilled-to-inspire__play-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .distilled-to-inspire__play-svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* About layout */
+  .distilled-about-track {
+    min-height: 0 !important;
+  }
+
+  .distilled-about-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .distilled-about-col-right {
+    order: 1;
+    width: 100%;
+  }
+
+  .distilled-about-col-left {
+    order: 2;
+    width: 100%;
+    min-width: 0;
+    margin-top: 0;
+  }
+
+  .distilled-about-sticky-col {
+    position: relative;
+    top: auto;
+  }
+
+  .distilled-about-title {
+    font-size: clamp(24px, 6vw, 34px);
+    line-height: 1.4;
+  }
+
+  .distilled-about-subtitle {
+    font-size: 17px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .distilled-about-paragraph {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .distilled-about-eyebrow {
+    font-size: clamp(19px, 4vw, 24px);
+    letter-spacing: 0.1em;
+  }
+
+  .distilled-about-video-card {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+}
+
+/* Small phones: 374px and below */
+@media (max-width: 374px) {
+  .distilled-to-inspire,
+  .distilled-to-inspire--about-layout {
+    padding: 28px 14px;
+  }
+
+  .distilled-to-inspire__inner {
+    gap: 20px;
+  }
+
+  .distilled-to-inspire__title {
+    font-size: 22px;
+  }
+
+  .distilled-to-inspire__paragraph,
+  .distilled-about-paragraph {
+    font-size: 13px;
+  }
+
+  .distilled-to-inspire__btn {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .distilled-about-video-card {
+    border-radius: 10px;
   }
 }

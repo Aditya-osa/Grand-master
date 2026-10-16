@@ -2,8 +2,6 @@
    Grand Master's Vodka - Premium Navigation Bar & Drawer Styles
    ========================================================================== */
 
-@import url('https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css');
-
 /* Base Navigation Container */
 .gm-main-nav {
   position: fixed;

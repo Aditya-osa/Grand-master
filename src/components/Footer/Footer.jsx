@@ -4,10 +4,11 @@ import './Footer.css';
 
 const FOOTER_NAV = [
   { name: 'Home', href: '#home' },
-  { name: 'About', href: '#distilled' },
-  { name: 'Flavours', href: '#flavours' },
-  { name: 'Process', href: '#distillation' },
+  { name: 'About', href: '#about' },
+  { name: 'Products', href: '#products' },
+  { name: 'Blogs', href: '#blogs' },
   { name: 'Contact', href: '#contact' },
+
 ];
 
 

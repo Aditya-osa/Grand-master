@@ -64,47 +64,40 @@ export default function Enjoyflavours() {
       <div className="enjoy-flavours-inner">
         {/* Top Header Row */}
         <div className="enjoy-flavours-header">
-          {/* Left: Heading and Narrative Story */}
-          <div className="enjoy-flavours-header-left">
-            <h2 className="enjoy-flavours-title">DISCOVER DISTINCTIVE FLAVOURS</h2>
+          {/* Title in 1 line */}
+          <h2 className="enjoy-flavours-title">DISCOVER DISTINCTIVE FLAVOURS</h2>
+
+          {/* Sub-row: Paragraph on left, Button beside it */}
+          <div className="enjoy-flavours-header-sub">
             <p className="enjoy-flavours-description">
               From vibrant citrus to luscious berries, Grand Master's brings a bold world of flavour and contemporary style together. Discover a range crafted to stand out, with every variant bringing its own unique character.
             </p>
-          </div>
 
-          {/* Right: Navigation Controls & Explore Button */}
-          <div className="enjoy-flavours-header-right">
-            <div className="enjoy-flavours-controls" role="group" aria-label="Slider Navigation">
-              
-              
-                
-                
-             
-            </div>
-
-            <a
-              href="#products"
-              className="enjoy-flavours-explore-btn"
-              onClick={handleExploreClick}
-              aria-label="Explore Flavours"
-            >
-              <span>EXPLORE FLAVOURS </span>
-              <svg
-                className="enjoy-flavours-explore-arrow"
-                width="15"
-                height="11"
-                viewBox="0 0 16 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+            <div className="enjoy-flavours-header-right">
+              <a
+                href="#products"
+                className="enjoy-flavours-explore-btn"
+                onClick={handleExploreClick}
+                aria-label="Explore Flavours"
               >
-                <line x1="2" y1="6" x2="14" y2="6" />
-                <polyline points="9.5 2.5 14 6 9.5 9.5" />
-              </svg>
-            </a>
+                <span>EXPLORE FLAVOURS </span>
+                <svg
+                  className="enjoy-flavours-explore-arrow"
+                  width="15"
+                  height="11"
+                  viewBox="0 0 16 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="2" y1="6" x2="14" y2="6" />
+                  <polyline points="9.5 2.5 14 6 9.5 9.5" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 

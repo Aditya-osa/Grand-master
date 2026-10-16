@@ -20,6 +20,7 @@ export default function DistilledToInspire({ centered = false }) {
   const topGridRef = useRef(null);
   const rightColRef = useRef(null);
   const videoCardRef = useRef(null);
+  const colLeftRef = useRef(null);
   const videoRef = useRef(null);
   const eyebrowRef = useRef(null);
 
@@ -103,6 +104,18 @@ export default function DistilledToInspire({ centered = false }) {
             borderRadius: 18,
           });
 
+          if (colLeftRef.current) {
+            gsap.set(colLeftRef.current, { width: 440 });
+          }
+
+          if (topGridRef.current) {
+            gsap.set(topGridRef.current, { gap: 'clamp(36px, 4vw, 64px)' });
+          }
+
+          if (rightColRef.current) {
+            gsap.set(rightColRef.current, { opacity: 1, width: 'auto', flex: 1, y: 0, pointerEvents: 'auto' });
+          }
+
           // Phase 1 (0 -> 0.32): Video comes further down, right column text eases out
           tl.to(
             videoCardRef.current,
@@ -122,6 +135,7 @@ export default function DistilledToInspire({ centered = false }) {
                 y: -28,
                 duration: 0.28,
                 ease: 'power1.out',
+                pointerEvents: 'none',
               },
               0
             );
@@ -140,11 +154,50 @@ export default function DistilledToInspire({ centered = false }) {
             );
           }
 
-          // Phase 2 (0.32 -> 1.0): Video then scales big to full cinematic width and height
+          // Phase 2 (0.32 -> 1.0): Both column and video scale to full cinematic width and height
+          if (topGridRef.current) {
+            tl.to(
+              topGridRef.current,
+              {
+                gap: 0,
+                duration: 0.68,
+                ease: 'power1.inOut',
+              },
+              0.32
+            );
+          }
+
+          if (colLeftRef.current) {
+            tl.to(
+              colLeftRef.current,
+              {
+                width: '100%',
+                duration: 0.68,
+                ease: 'power1.inOut',
+              },
+              0.32
+            );
+          }
+
+          if (rightColRef.current) {
+            tl.to(
+              rightColRef.current,
+              {
+                width: 0,
+                flex: 0,
+                padding: 0,
+                margin: 0,
+                duration: 0.68,
+                ease: 'power1.inOut',
+              },
+              0.32
+            );
+          }
+
           tl.to(
             videoCardRef.current,
             {
-              width: () => (topGridRef.current ? topGridRef.current.offsetWidth : 1360),
+              width: '100%',
               height: () => Math.min(window.innerHeight * 0.74, 700),
               y: 80,
               borderRadius: 14,
@@ -271,7 +324,7 @@ export default function DistilledToInspire({ centered = false }) {
           <div ref={topGridRef} className="distilled-about-grid">
             
             {/* Left Column: Left-Aligned Video */}
-            <div className="distilled-about-col-left">
+            <div ref={colLeftRef} className="distilled-about-col-left">
               {/* Video Player Card (Left-Aligned matching screenshot) */}
               <div
                 ref={videoCardRef}
