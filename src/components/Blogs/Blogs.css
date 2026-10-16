@@ -200,6 +200,8 @@
   line-height: 1.35;
   color: #111111;
   margin: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
   transition: color 0.2s ease;
 }
 
@@ -587,7 +589,6 @@
     --blog-pad-x: clamp(40px, 5vw, 72px);
     padding-top: 64px;
     padding-bottom: 64px;
-    white-space: nowrap;
   }
 
   .gm-blogs-heading {
