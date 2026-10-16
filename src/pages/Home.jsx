@@ -7,7 +7,7 @@ import AmazingFlavors from '../components/AmazingFlavors';
 import HorizontalCards from '../components/HorizontalCards';
 import Footer from '../components/Footer';
 import Enjoyflavours from '../components/Enjoy-flv/Enjoyflavours';
-import Blogs from '../components/Blogs/Blogs';
+import Blogs from '../Blogs/Blogs';
 
 /**
  * Home Page Component

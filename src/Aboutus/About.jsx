@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import DistilledToInspire from "../components/DistilledToInspire";
 import AmazingFlavors from "../components/AmazingFlavors";
 import HorizontalCards from "../components/HorizontalCards";
-import Blogs from "../components/Blogs/Blogs";
+import Blogs from "../Blogs/Blogs";
 import Footer from "../components/Footer";
 import aboutBannerImg from "../assets/image.png";
 import bannerVideo from "../assets/6a4659235173f72a046a6f90_6a5e3a721a51901c488abdee_banner video _mp4.mp4";

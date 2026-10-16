@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { blogs } from '../components/Blogs/Blogs';
+import { blogs } from './blogsData';
 import './Blog-details.css';
 
 // Editorial content for each article extracted faithfully from the Grand Master SEO blog drafts PDF
