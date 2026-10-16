@@ -453,9 +453,19 @@
   max-height: 100%;
 }
 
+.gm-product-bottle-img.gm-bottle-hipster {
+  max-height: 100%;
+  transform: scale(1.3) !important;
+  transform-origin: center center;
+}
+
 .gm-product-card:hover .gm-product-bottle-img {
   transform: translateY(-8px) scale(1.04);
   filter: none !important;
+}
+
+.gm-product-card:hover .gm-product-bottle-img.gm-bottle-hipster {
+  transform: scale(1.3) !important;
 }
 
 /* Stage Size Tag */

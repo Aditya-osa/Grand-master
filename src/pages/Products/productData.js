@@ -26,6 +26,11 @@ import img180_cranberry from '../../assets/180 ML 3D/9.png';
 import img180_mango from '../../assets/180 ML 3D/10.png';
 import img180_mintyJamun from '../../assets/180 ML 3D/11.png';
 
+// Hipster 3D Bottle Assets
+import imgHipster_lemon from '../../assets/Hipster 3d/2.png';
+import imgHipster_plain from '../../assets/Hipster 3d/3.png';
+import imgHipster_apple from '../../assets/Hipster 3d/1.png';
+
 export const PRODUCTS_DATA = [
   {
     id: 'blueberry',
@@ -45,6 +50,26 @@ export const PRODUCTS_DATA = [
       '750 ML': img750_blueberry,
       '180 ML': img180_blueberry,
     },
+  },
+   {
+    id: 'hipster',
+    name: "Grand Master's Hipster",
+    fullName: "GrandMaster’s Vodka – Hipster Pocket Pack",
+    tag: 'Hipster',
+    tagline: "Ultra-portable ergonomic design with signature platinum vodka craftsmanship.",
+    description: "The Grand Master Hipster series combines the silky smoothness of quadruple-distilled platinum vodka with an innovative, pocket-contoured flask design. Engineered for on-the-go lifestyle and modern celebrations without compromising on taste.",
+    alcohol: "42.8%",
+    accentColor: "#b85d19",
+    isHipster: true,
+    img: imgHipster_lemon,
+    img750: imgHipster_lemon,
+    img180: imgHipster_lemon,
+    pictures: [
+      { id: 'lemon', label: 'Zesty Lemon', src: imgHipster_lemon, alt: "GrandMaster's Hipster - Zesty Lemon" },
+      { id: 'plain', label: 'Platinum Vodka', src: imgHipster_plain, alt: "GrandMaster's Hipster - Platinum Vodka" },
+      { id: 'apple', label: 'Green Apple', src: imgHipster_apple, alt: "GrandMaster's Hipster - Green Apple" },
+    ],
+    pairings: "Grandmaster's Hipster pocket editions are best enjoyed ice-cold, on the rocks, or topped with chilled soda and a fresh citrus twist.",
   },
   {
     id: 'cranberry',
@@ -274,6 +299,7 @@ export const PRODUCTS_DATA = [
       '180 ML': img180_coconut,
     },
   },
+ 
 ];
 
 /**
@@ -284,6 +310,9 @@ export const PRODUCTS_DATA = [
  */
 export function getProductImage(product, size = '750 ML') {
   if (!product) return '';
+  if (product.isHipster || product.pictures) {
+    return product.img || product.pictures?.[0]?.src || '';
+  }
   const is180 = (size || '').toString().toUpperCase().includes('180');
   const targetKey = is180 ? '180 ML' : '750 ML';
 
@@ -309,6 +338,9 @@ export function findProductById(id) {
   const normalized = id.toLowerCase().trim();
   if (normalized === 'strawberry-reserve') {
     return PRODUCTS_DATA.find((p) => p.id === 'minty-jamun') || PRODUCTS_DATA[0];
+  }
+  if (normalized === 'hipster' || normalized === 'hipster-3d' || normalized === 'hipster3d') {
+    return PRODUCTS_DATA.find((p) => p.id === 'hipster') || PRODUCTS_DATA[0];
   }
   return PRODUCTS_DATA.find((p) => p.id === normalized) || PRODUCTS_DATA[0];
 }

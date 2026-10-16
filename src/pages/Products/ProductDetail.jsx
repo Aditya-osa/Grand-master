@@ -29,10 +29,63 @@ export default function ProductDetail({
     return product.sizes && product.sizes.includes('750 ML') ? '750 ML' : product.sizes?.[0] || '750 ML';
   });
 
+  const [selectedPictureIndex, setSelectedPictureIndex] = useState(0);
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
 
   // Gallery items for the thumbnail strip below the bottle (using existing assets only)
   const galleryItems = useMemo(() => {
+    if (product.isHipster && product.pictures) {
+      return [
+        ...product.pictures.map((pic, idx) => ({
+          id: `pic-${pic.id || idx}`,
+          type: 'image',
+          label: pic.label,
+          thumbSrc: pic.src,
+          mainSrc: pic.src,
+          alt: pic.alt || `${product.fullName} - ${pic.label}`,
+          isBottle: true,
+          pictureIndex: idx,
+          bottleClass: 'gm-bottle-hipster',
+        })),
+        {
+          id: 'bottle-detail',
+          type: 'closeup',
+          label: 'Detail',
+          thumbSrc: product.pictures[0]?.src || product.img,
+          mainSrc: product.pictures[0]?.src || product.img,
+          alt: `${product.fullName} Artwork Close-up`,
+          isBottle: false
+        },
+        {
+          id: 'craft-distill',
+          type: 'image',
+          label: 'Craft',
+          thumbSrc: distillationImg,
+          mainSrc: distillationImg,
+          alt: 'Quadruple Distillation Craft',
+          isBottle: false
+        },
+        {
+          id: 'lifestyle-lounge',
+          type: 'image',
+          label: 'Lounge',
+          thumbSrc: tableSocialLounge,
+          mainSrc: tableSocialLounge,
+          alt: 'Grand Master Lounge Serve',
+          isBottle: false
+        },
+        {
+          id: 'brand-video',
+          type: 'video',
+          label: 'Video',
+          thumbSrc: product.pictures[0]?.src || product.img,
+          videoSrc: brandVideo,
+          alt: 'Grand Master Brand Film',
+          isVideo: true
+        }
+      ];
+    }
+
     const img750 = product.img750 || product.img;
     const img180 = product.img180 || product.img750 || product.img;
     const isBlueCuracao = product.id === 'blue-curacao';
@@ -118,9 +171,10 @@ export default function ProductDetail({
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setActiveMediaIndex(0);
+    setSelectedPictureIndex(0);
     if (initialSize && product.sizes && product.sizes.includes(initialSize)) {
       setSelectedSize(initialSize);
-    } else if (product.sizes && !product.sizes.includes(selectedSize)) {
+    } else if (product.sizes && product.sizes.length > 0) {
       setSelectedSize(product.sizes.includes('750 ML') ? '750 ML' : product.sizes[0]);
     }
   }, [product, initialSize]);
@@ -147,9 +201,17 @@ export default function ProductDetail({
     if (item.size) {
       setSelectedSize(item.size);
     }
+    if (typeof item.pictureIndex === 'number') {
+      setSelectedPictureIndex(item.pictureIndex);
+    }
   };
 
-  const handleSizePillClick = (size) => {
+  const handlePictureSelect = (idx) => {
+    setSelectedPictureIndex(idx);
+    setActiveMediaIndex(idx);
+  };
+
+  const handleSizeCardClick = (size) => {
     setSelectedSize(size);
     if (size === '180 ML') {
       setActiveMediaIndex(1);
@@ -188,7 +250,7 @@ export default function ProductDetail({
               {/* Left Column: Premium Bottle Stage & Thumbnail Strip */}
               <div className="gm-detail-stage-wrap">
                 <div
-                  className={`gm-detail-stage gm-detail-stage--${activeItem.id} ${activeItem.isBottle ? 'gm-detail-stage--bottle' : 'gm-detail-stage--media'} gm-detail-stage--${activeItem.type}`}
+                  className={`gm-detail-stage gm-detail-stage--${activeItem.id} ${product.isHipster ? 'gm-detail-stage--hipster' : ''} ${activeItem.isBottle ? 'gm-detail-stage--bottle' : 'gm-detail-stage--media'} gm-detail-stage--${activeItem.type}`}
                   style={{
                     borderColor: product.accentColor || 'rgb(173, 92, 92)',
                   }}
@@ -219,10 +281,10 @@ export default function ProductDetail({
                     </div>
                   ) : activeItem.isBottle ? (
                     <img
-                      key={`${product.id}-${activeItem.size}`}
+                      key={`${product.id}-${activeItem.size || activeItem.id || activeMediaIndex}`}
                       src={activeItem.mainSrc}
                       alt={activeItem.alt}
-                      className={`gm-detail-bottle-img ${activeItem.bottleClass}`}
+                      className={`gm-detail-bottle-img ${activeItem.bottleClass || ''} ${product.isHipster ? 'gm-bottle-hipster' : ''}`}
                       loading="eager"
                     />
                   ) : (
@@ -237,9 +299,6 @@ export default function ProductDetail({
                     </div>
                   )}
                 </div>
-
-                {/* Thumbnail Strip directly below bottle (styled exactly like user's reference) */}
-                
               </div>
 
               {/* Right Column: Narrative & Technical Specifications */}
@@ -254,30 +313,64 @@ export default function ProductDetail({
                   <p className="gm-detail-description">{product.description}</p>
                 </div>
 
-                {/* Specs Box: Alcohol Content & Bottle Sizes */}
+                {/* Specs Box: Alcohol Content & Available Pictures (for Hipster) or Available Sizes */}
                 <div className="gm-detail-specs-grid">
                   <div className="gm-spec-card">
                     <span className="gm-spec-label">Alcohol Content:</span>
                     <span className="gm-spec-value gm-spec-highlight">{product.alcohol}</span>
                   </div>
 
-                  <div className="gm-spec-card gm-spec-card--size">
-                    <span className="gm-spec-label">Available Size:</span>
-                    <div className="gm-size-options" role="group" aria-label="Available bottle sizes">
-                      {product.sizes.map((size) => (
-                        <button
-                          key={size}
-                          type="button"
-                          className={`gm-size-pill ${selectedSize === size ? 'active' : ''}`}
-                          onClick={() => handleSizePillClick(size)}
-                          aria-pressed={selectedSize === size}
-                        >
-                          <span className="pill-indicator-dot" />
-                          <span>{size}</span>
-                        </button>
-                      ))}
+                  {product.isHipster || product.pictures ? (
+                    <div className="gm-spec-card gm-spec-card--pictures">
+                      <span className="gm-spec-label">Available Pictures:</span>
+                      <div className="gm-card-selector-row" role="group" aria-label="Available pictures">
+                        {product.pictures.map((pic, idx) => {
+                          const isSelected = selectedPictureIndex === idx;
+                          return (
+                            <button
+                              key={pic.id || idx}
+                              type="button"
+                              className={`gm-card-selector-item ${isSelected ? 'active' : ''}`}
+                              onClick={() => handlePictureSelect(idx)}
+                              aria-pressed={isSelected}
+                              title={pic.alt || pic.label}
+                            >
+                              <div className="gm-card-selector-thumb">
+                                <img src={pic.src} alt={pic.alt || pic.label} />
+                              </div>
+                              <span className="gm-card-selector-label">{pic.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
+                  ) : product.sizes && product.sizes.length > 0 ? (
+                    <div className="gm-spec-card gm-spec-card--size">
+                      <span className="gm-spec-label">Available Size:</span>
+                      <div className="gm-card-selector-row" role="group" aria-label="Available bottle sizes">
+                        {product.sizes.map((size) => {
+                          const is750 = size.includes('750');
+                          const thumbImg = is750 ? (product.img750 || product.img) : (product.img180 || product.img);
+                          const isSelected = selectedSize === size;
+                          return (
+                            <button
+                              key={size}
+                              type="button"
+                              className={`gm-card-selector-item ${isSelected ? 'active' : ''}`}
+                              onClick={() => handleSizeCardClick(size)}
+                              aria-pressed={isSelected}
+                              title={`${product.fullName} - ${size}`}
+                            >
+                              <div className="gm-card-selector-thumb">
+                                <img src={thumbImg} alt={`${product.fullName} - ${size}`} />
+                              </div>
+                              <span className="gm-card-selector-label">{size.toLowerCase()}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
 
                 {/* Tasting & Pairings Card */}
@@ -347,7 +440,7 @@ export default function ProductDetail({
                         key={`${relProduct.id}-${selectedSize}`}
                         src={relImg}
                         alt={relProduct.fullName}
-                        className="gm-related-img"
+                        className={`gm-related-img ${relProduct.isHipster ? 'gm-bottle-hipster' : ''}`}
                         loading="lazy"
                       />
                     </div>

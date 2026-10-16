@@ -169,6 +169,13 @@
   padding: clamp(18px, 2.2vw, 28px) clamp(16px, 2vw, 26px);
 }
 
+.gm-detail-stage.gm-detail-stage--hipster {
+  width: 62% !important;
+  max-width: 390px !important;
+  height: clamp(460px, 50vw, 620px) !important;
+  padding: clamp(12px, 1.8vw, 22px) !important;
+}
+
 .gm-detail-stage.gm-detail-stage--media {
   width: 100%;
   max-width: 480px;
@@ -643,6 +650,137 @@
   transform: scale(1.2);
 }
 
+/* ==========================================================================
+   BOTTLE & PICTURE CARD SELECTOR (Matching User's Reference Screenshot)
+   5-Card Row layout with bottle image, bottom label, and active border highlight
+   ========================================================================== */
+.gm-card-selector-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.2vw, 14px);
+  margin-top: 4px;
+}
+
+.gm-card-selector-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: clamp(76px, 6.8vw, 92px);
+  height: clamp(108px, 9.8vw, 126px);
+  padding: 10px 6px 10px 6px;
+  background: #ffffff;
+  border: 1.5px solid #e5dfd7;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.gm-card-selector-item:hover {
+  border-color: #b85d19;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(184, 93, 25, 0.12);
+}
+
+/* Active State: Amber/Copper 2px border + soft warm tint (matching reference) */
+.gm-card-selector-item.active {
+  border: 2px solid #b85d19;
+  background: #fdfaf6;
+  box-shadow: 0 0 0 1px #b85d19, 0 6px 18px rgba(184, 93, 25, 0.18);
+  transform: translateY(-2px);
+}
+
+.gm-card-selector-thumb {
+  width: 100%;
+  height: clamp(62px, 5.8vw, 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  padding: 2px;
+}
+
+.gm-card-selector-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+ 
+}
+
+.gm-card-selector-item:hover .gm-card-selector-thumb img {
+  transform: scale(1.06);
+}
+
+.gm-card-selector-label {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(11px, 0.85vw, 12.5px);
+  font-weight: 700;
+  color: #1a1214;
+  text-align: center;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding-top: 4px;
+}
+
+/* Hipster Bottle specific scaling - Make it prominently big */
+.gm-detail-bottle-img.gm-bottle-hipster {
+  max-height: 100% !important;
+  max-width: 96% !important;
+  height: 98% !important;
+  width: auto !important;
+  transform: scale(1.32) !important;
+  transform-origin: center center;
+  object-fit: contain !important;
+  filter: none !important;
+}
+
+/* No hover scaling or movement for hipster bottle */
+.gm-detail-stage-wrap:hover .gm-detail-bottle-img.gm-bottle-hipster,
+.gm-detail-stage:hover .gm-detail-bottle-img.gm-bottle-hipster {
+  transform: scale(1.32) !important;
+}
+.gm-spec-card--pictures .gm-card-selector-item {
+  width: clamp(86px, 7.8vw, 104px);
+  height: clamp(120px, 11vw, 140px);
+  padding: 10px 6px 12px 6px;
+}
+
+.gm-spec-card--pictures .gm-card-selector-thumb {
+  height: clamp(74px, 7vw, 90px);
+}
+
+.gm-spec-card--pictures .gm-card-selector-thumb img {
+  transform: scale(1.24);
+}
+
+.gm-spec-card--pictures .gm-card-selector-item:hover .gm-card-selector-thumb img {
+  transform: scale(1.32);
+}
+
+.gm-spec-card--pictures .gm-card-selector-label {
+  font-size: clamp(11.5px, 0.95vw, 13px);
+  font-weight: 800;
+}
+
+/* Hipster in Related Bottles */
+.gm-related-img.gm-bottle-hipster {
+  transform: scale(1.28) !important;
+  transform-origin: center center;
+}
+
+.gm-related-stage:hover .gm-related-img.gm-bottle-hipster {
+  transform: scale(1.28) !important;
+}
+
 /* Sophisticated Tasting & Pairings Note (Clean minimal tint, no dashed border) */
 .gm-detail-pairings-card {
   width: 100%;
@@ -1012,5 +1150,20 @@
 
   .gm-detail-pairings-card {
     padding: 16px;
+  }
+
+  .gm-card-selector-item {
+    width: 72px;
+    height: 102px;
+    padding: 8px 4px;
+    border-radius: 12px;
+  }
+
+  .gm-card-selector-thumb {
+    height: 58px;
+  }
+
+  .gm-card-selector-label {
+    font-size: 10.5px;
   }
 }

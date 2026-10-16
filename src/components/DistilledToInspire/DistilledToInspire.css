@@ -1135,3 +1135,166 @@ font-size: clamp(30px, 4vw, 35px);
     font-size: 14px;
   }
 }
+
+/* ================= TABLET RESPONSIVE FIX ================= */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .distilled-to-inspire {
+    padding: 55px 36px;
+  }
+
+  /* Main content layout */
+  .distilled-to-inspire__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+  }
+
+  /* Text content */
+  .distilled-to-inspire__content {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .distilled-to-inspire__title {
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    margin-bottom: 12px;
+  }
+
+  .distilled-to-inspire__wave {
+    margin-bottom: 16px;
+  }
+
+  .distilled-to-inspire__inception {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-top: 4px;
+  }
+
+  .distilled-to-inspire__text-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .distilled-to-inspire__paragraph {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .distilled-to-inspire__btn {
+    margin-top: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  /* Video */
+  .distilled-to-inspire__video-side {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .distilled-to-inspire__video-card {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .distilled-to-inspire__play-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* About page layout */
+  .distilled-to-inspire--about-layout {
+    padding: 55px 36px;
+  }
+
+  .distilled-about-track {
+    width: 100%;
+    min-height: 0 !important;
+  }
+
+  .distilled-about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .distilled-about-col-right {
+    order: 1;
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .distilled-about-col-left {
+    order: 2;
+    width: 100%;
+    min-width: 0;
+    margin-top: 0;
+  }
+
+  .distilled-about-sticky-col {
+    position: relative;
+    top: auto;
+  }
+
+  .distilled-about-title {
+    font-size: clamp(30px, 4vw, 40px);
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .distilled-about-subtitle {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .distilled-about-text-wrapper {
+    max-width: 100%;
+  }
+
+  .distilled-about-paragraph {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .distilled-about-center-header {
+    margin-bottom: 20px;
+  }
+
+  .distilled-about-eyebrow {
+    font-size: 25px;
+    letter-spacing: 0.12em;
+  }
+
+  .distilled-about-video-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+  }
+}
+
+/* Smaller tablets */
+@media (min-width: 768px) and (max-width: 850px) {
+  .distilled-to-inspire,
+  .distilled-to-inspire--about-layout {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  .distilled-to-inspire__inner {
+    gap: 26px;
+  }
+}

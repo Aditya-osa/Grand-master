@@ -252,7 +252,7 @@ export default function Products() {
                       <img
                         src={product.img}
                         alt={product.name}
-                        className="gm-product-bottle-img"
+                        className={`gm-product-bottle-img ${product.isHipster || product.id === 'hipster' ? 'gm-bottle-hipster' : ''}`}
                         loading="lazy"
                       />
                     </div>
