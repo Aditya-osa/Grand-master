@@ -618,6 +618,7 @@
 @media (max-width: 1024px) {
   .gm-contact-body {
     --contact-pad-x: max(clamp(24px, 4.5vw, 60px), env(safe-area-inset-left));
+    line-height: 1.5;
   }
 
   .gm-contact-split {

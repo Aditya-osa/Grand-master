@@ -618,6 +618,7 @@
 
   .gm-blogs-heading {
     font-size: clamp(25px, 3.5vw, 32px);
+    line-height: 1.5;
     margin-bottom: 12px;
   }
 
