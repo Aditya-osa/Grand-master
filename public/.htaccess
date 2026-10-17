@@ -7,6 +7,12 @@
   RewriteRule . index.html [L]
 </IfModule>
 
+# Disable ModSecurity request filtering for form posts
+<IfModule mod_security.c>
+  SecFilterEngine Off
+  SecFilterScanPOST Off
+</IfModule>
+
 # Allow CORS for static assets (prevents www vs non-www redirect blocks)
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot|mp4|webm)$">

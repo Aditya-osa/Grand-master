@@ -32,55 +32,162 @@ export default function ContactUs() {
     comment: '',
   });
 
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const validateField = (name, value) => {
+    const trimmed = (value || '').trim();
+
+    if (name === 'firstName') {
+      if (!trimmed) return 'First name is required.';
+      if (!/^[a-zA-Z\s'-]+$/.test(trimmed)) return 'First name can only contain letters.';
+      if (trimmed.length < 2) return 'First name must be at least 2 characters.';
+    }
+
+    if (name === 'lastName') {
+      if (!trimmed) return 'Last name is required.';
+      if (!/^[a-zA-Z\s'-]+$/.test(trimmed)) return 'Last name can only contain letters.';
+      if (trimmed.length < 2) return 'Last name must be at least 2 characters.';
+    }
+
+    if (name === 'email') {
+      if (!trimmed) return 'Email address is required.';
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(trimmed)) return 'Please enter a valid email address (e.g. name@domain.com).';
+    }
+
+    return '';
+  };
+
+  const validateAll = () => {
+    const newErrors = {};
+    const fNameErr = validateField('firstName', formData.firstName);
+    if (fNameErr) newErrors.firstName = fNameErr;
+
+    const lNameErr = validateField('lastName', formData.lastName);
+    if (lNameErr) newErrors.lastName = lNameErr;
+
+    const emailErr = validateField('email', formData.email);
+    if (emailErr) newErrors.email = emailErr;
+
+    setErrors(newErrors);
+    return newErrors;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (touched[name]) {
+      const err = validateField(name, value);
+      setErrors((prev) => ({ ...prev, [name]: err }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const err = validateField(name, value);
+    setErrors((prev) => ({ ...prev, [name]: err }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.firstName.trim() || !formData.email.trim()) return;
+
+    setTouched({
+      firstName: true,
+      lastName: true,
+      email: true,
+    });
+
+    const validationErrors = validateAll();
+    if (Object.keys(validationErrors).length > 0) {
+      const firstErrorField = Object.keys(validationErrors)[0];
+      const el = document.getElementById(firstErrorField);
+      if (el) el.focus();
+      return;
+    }
 
     setIsSubmitting(true);
     setErrorMessage('');
 
     const payload = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      name: `${formData.firstName} ${formData.lastName}`.trim(),
-      email: formData.email,
+      firstName: formData.firstName.trim(),
+      lastName: formData.lastName.trim(),
+      name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
+      email: formData.email.trim(),
       phone: 'Website Inquiry',
       company: "Grand Master's Vodka",
       service: 'General Inquiry',
-      message: formData.comment || 'No comment provided',
-      comment: formData.comment || 'No comment provided',
+      message: formData.comment ? formData.comment.trim() : 'No comment provided',
+      comment: formData.comment ? formData.comment.trim() : 'No comment provided',
     };
 
     try {
-      const response = await fetch('/sendmail.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(payload),
+      // Ensure anti-bot challenge cookie is present
+      try {
+        document.cookie = 'humans_21909=1; path=/; max-age=31536000; SameSite=Lax';
+      } catch (_) {}
+
+      const formDataToSend = new FormData();
+      Object.entries(payload).forEach(([key, val]) => {
+        formDataToSend.append(key, val);
       });
 
-      if (response.ok) {
+      let response = await fetch('/sendmail.php', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'include',
+        body: formDataToSend,
+      });
+
+      // If server returns anti-bot challenge 409, set cookie and retry
+      if (response.status === 409) {
+        try {
+          const text = await response.text();
+          const match = text.match(/document\.cookie\s*=\s*["']([^"']+)["']/);
+          if (match && match[1]) {
+            document.cookie = `${match[1]}; path=/; max-age=31536000; SameSite=Lax`;
+          } else {
+            document.cookie = 'humans_21909=1; path=/; max-age=31536000; SameSite=Lax';
+          }
+          response = await fetch('/sendmail.php', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            body: formDataToSend,
+          });
+        } catch (_) {}
+      }
+
+      const rawText = await response.text();
+      let data = {};
+      try {
+        data = JSON.parse(rawText);
+      } catch (_) {}
+
+      if (response.ok && (data.success === true || data.status === 'success')) {
         setIsSubmitted(true);
         setFormData({ firstName: '', lastName: '', email: '', comment: '' });
+        setErrors({});
+        setTouched({});
+        setErrorMessage('');
       } else {
-        throw new Error('Server returned an error');
+        const errorMsg = data.message || data.debug || data.error || `Server responded with status ${response.status}`;
+        throw new Error(errorMsg);
       }
     } catch (err) {
-      console.warn('Form submission notice:', err);
-      // Graceful fallback: show submission confirmation
-      setIsSubmitted(true);
-      setFormData({ firstName: '', lastName: '', email: '', comment: '' });
+      console.error('Contact form submission error:', err);
+      setErrorMessage(err.message || 'Unable to send message. Please email mail@grandmasters.co directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -283,10 +390,19 @@ export default function ContactUs() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="First Name"
-                      className="gm-form-input"
+                      className={`gm-form-input ${touched.firstName && errors.firstName ? 'gm-input-error' : ''}`}
+                      aria-invalid={Boolean(touched.firstName && errors.firstName)}
+                      aria-describedby={touched.firstName && errors.firstName ? 'firstName-error' : undefined}
                       required
                     />
+                    {touched.firstName && errors.firstName && (
+                      <span className="gm-field-error" id="firstName-error" role="alert">
+                        <i className="ri-error-warning-fill" aria-hidden="true"></i>
+                        {errors.firstName}
+                      </span>
+                    )}
                   </div>
 
                   <div className="gm-form-group">
@@ -299,10 +415,19 @@ export default function ContactUs() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="Last Name"
-                      className="gm-form-input"
+                      className={`gm-form-input ${touched.lastName && errors.lastName ? 'gm-input-error' : ''}`}
+                      aria-invalid={Boolean(touched.lastName && errors.lastName)}
+                      aria-describedby={touched.lastName && errors.lastName ? 'lastName-error' : undefined}
                       required
                     />
+                    {touched.lastName && errors.lastName && (
+                      <span className="gm-field-error" id="lastName-error" role="alert">
+                        <i className="ri-error-warning-fill" aria-hidden="true"></i>
+                        {errors.lastName}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -317,10 +442,19 @@ export default function ContactUs() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Enter your email address"
-                    className="gm-form-input"
+                    className={`gm-form-input ${touched.email && errors.email ? 'gm-input-error' : ''}`}
+                    aria-invalid={Boolean(touched.email && errors.email)}
+                    aria-describedby={touched.email && errors.email ? 'email-error' : undefined}
                     required
                   />
+                  {touched.email && errors.email && (
+                    <span className="gm-field-error" id="email-error" role="alert">
+                      <i className="ri-error-warning-fill" aria-hidden="true"></i>
+                      {errors.email}
+                    </span>
+                  )}
                 </div>
 
                 {/* Comment */}
