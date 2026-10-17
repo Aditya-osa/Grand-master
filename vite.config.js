@@ -21,7 +21,51 @@ try {
 // https://vite.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'sendmail-dev-mock',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url === '/sendmail.php' && req.method === 'POST') {
+            let body = ''
+            req.on('data', chunk => {
+              body += chunk
+            })
+            req.on('end', () => {
+              let data = {}
+              try {
+                data = JSON.parse(body)
+              } catch (_) {
+                data = Object.fromEntries(new URLSearchParams(body))
+              }
+
+              console.log('\n==================================================')
+              console.log('📬 [GRAND MASTER CONTACT FORM - LOCAL TEST]')
+              console.log(`👤 Name:    ${data.name || (data.firstName + ' ' + data.lastName)}`)
+              console.log(`📧 Email:   ${data.email}`)
+              console.log(`💬 Message: ${data.message || data.comment}`)
+              console.log(`🎯 Target:  adityasahu15571@gmail.com, krushika@10dumbs.com`)
+              console.log('✅ Status:   Success (No activation permission needed)')
+              console.log('==================================================\n')
+
+              res.setHeader('Content-Type', 'application/json')
+              res.statusCode = 200
+              res.end(
+                JSON.stringify({
+                  status: 'success',
+                  success: true,
+                  message: "We've received your information",
+                })
+              )
+            })
+            return
+          }
+          next()
+        })
+      },
+    },
+  ],
   server: {
     watch: {
       ignored: ['**/*.mp4', '**/*.mov'],

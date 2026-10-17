@@ -1,14 +1,14 @@
 import React from 'react';
 import InfoBox from './InfoBox';
 import Decorations from './Decorations';
-import bottleOrange from '../../assets/750 ML 3D (1)/8.png';
-import bottleStrawberry from '../../assets/750 ML 3D (1)/1.png';
-import bottleMelon from '../../assets/750 ML 3D (1)/7.png';
-import bottleBlueberry from '../../assets/750 ML 3D (1)/3.png';
-import bgOrange from '../../assets/Background Banner/1.jpg';
-import bgStrawberry from '../../assets/Background Banner/2.jpg';
-import bgMelon from '../../assets/Background Banner/4.jpg';
-import bgBlueberry from '../../assets/Background Banner/3.jpg';
+import bottleOrange from '../../assets/750 ML 3D (1)/8.webp';
+import bottleStrawberry from '../../assets/750 ML 3D (1)/1.webp';
+import bottleMelon from '../../assets/750 ML 3D (1)/7.webp';
+import bottleBlueberry from '../../assets/750 ML 3D (1)/3.webp';
+import bgOrange from '../../assets/Background Banner/1.webp';
+import bgStrawberry from '../../assets/Background Banner/2.webp';
+import bgMelon from '../../assets/Background Banner/4.webp';
+import bgBlueberry from '../../assets/Background Banner/3.webp';
 
 const MainSection = () => {
   return (

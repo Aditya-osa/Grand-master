@@ -1,17 +1,17 @@
 // 750 mL GM Bottle Assets (3D Renders)
-import img750_strawberry from '../../assets/750 ML 3D (1)/1.png';
-import img750_blueCuracao from '../../assets/750 ML 3D (1)/2.png';
-import img750_blueberry from '../../assets/750 ML 3D (1)/3.png';
-import img750_cranberry from '../../assets/750 ML 3D (1)/4.png';
-import img750_mango from '../../assets/750 ML 3D (1)/5.png';
-import img750_mintyJamun from '../../assets/750 ML 3D (1)/6.png';
-import img750_melon from '../../assets/750 ML 3D (1)/7.png';
-import img750_orange from '../../assets/750 ML 3D (1)/8.png';
-import img750_chocolate from '../../assets/750 ML 3D (1)/9.png';
-import img750_greenApple from '../../assets/750 ML 3D (1)/10.png';
-import img750_plain from '../../assets/750 ML 3D (1)/11.png';
-import img750_zestyLemon from '../../assets/750 ML 3D (1)/12.png';
-import img750_coconut from '../../assets/750 ML 3D (1)/13.png';
+import img750_strawberry from '../../assets/750 ML 3D (1)/1.webp';
+import img750_blueCuracao from '../../assets/750 ML 3D (1)/2.webp';
+import img750_blueberry from '../../assets/750 ML 3D (1)/3.webp';
+import img750_cranberry from '../../assets/750 ML 3D (1)/4.webp';
+import img750_mango from '../../assets/750 ML 3D (1)/5.webp';
+import img750_mintyJamun from '../../assets/750 ML 3D (1)/6.webp';
+import img750_melon from '../../assets/750 ML 3D (1)/7.webp';
+import img750_orange from '../../assets/750 ML 3D (1)/8.webp';
+import img750_chocolate from '../../assets/750 ML 3D (1)/9.webp';
+import img750_greenApple from '../../assets/750 ML 3D (1)/10.webp';
+import img750_plain from '../../assets/750 ML 3D (1)/11.webp';
+import img750_zestyLemon from '../../assets/750 ML 3D (1)/12.webp';
+import img750_coconut from '../../assets/750 ML 3D (1)/13.webp';
 
 // 180 mL GM Bottle Assets (3D Renders)
 import img180_blueberry from '../../assets/180 ML 3D/1.png';

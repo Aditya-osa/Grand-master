@@ -9,19 +9,19 @@ import bgLeft from '../../assets/Bg (2)/1.png';
 import bgRight from '../../assets/Bg (2)/2.png';
 
 // 750 mL 3D Bottle Assets
-import bottleStrawberry from '../../assets/750 ML 3D (1)/1.png';
-import bottleBlueCuracao from '../../assets/750 ML 3D (1)/2.png';
-import bottleBlueberry from '../../assets/750 ML 3D (1)/3.png';
-import bottleCranberry from '../../assets/750 ML 3D (1)/4.png';
-import bottleMango from '../../assets/750 ML 3D (1)/5.png';
-import bottleMintyJamun from '../../assets/750 ML 3D (1)/6.png';
-import bottleMelon from '../../assets/750 ML 3D (1)/7.png';
-import bottleOrange from '../../assets/750 ML 3D (1)/8.png';
-import bottleChocolate from '../../assets/750 ML 3D (1)/9.png';
-import bottleGreenApple from '../../assets/750 ML 3D (1)/10.png';
-import bottlePlain from '../../assets/750 ML 3D (1)/11.png';
-import bottleZestyLemon from '../../assets/750 ML 3D (1)/12.png';
-import bottleCoconut from '../../assets/750 ML 3D (1)/13.png';
+import bottleStrawberry from '../../assets/750 ML 3D (1)/1.webp';
+import bottleBlueCuracao from '../../assets/750 ML 3D (1)/2.webp';
+import bottleBlueberry from '../../assets/750 ML 3D (1)/3.webp';
+import bottleCranberry from '../../assets/750 ML 3D (1)/4.webp';
+import bottleMango from '../../assets/750 ML 3D (1)/5.webp';
+import bottleMintyJamun from '../../assets/750 ML 3D (1)/6.webp';
+import bottleMelon from '../../assets/750 ML 3D (1)/7.webp';
+import bottleOrange from '../../assets/750 ML 3D (1)/8.webp';
+import bottleChocolate from '../../assets/750 ML 3D (1)/9.webp';
+import bottleGreenApple from '../../assets/750 ML 3D (1)/10.webp';
+import bottlePlain from '../../assets/750 ML 3D (1)/11.webp';
+import bottleZestyLemon from '../../assets/750 ML 3D (1)/12.webp';
+import bottleCoconut from '../../assets/750 ML 3D (1)/13.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
