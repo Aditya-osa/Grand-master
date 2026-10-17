@@ -37,16 +37,16 @@ $message   = isset($_REQUEST['message']) && !empty($_REQUEST['message'])
 
 // Verify required fields (valid email and name)
 if (!empty($email) && (!empty($name) || !empty($firstName) || !empty($phone))) {
-    $subject = "Deejay Distilleries - Inquiry From Website";
-    $to ='mail@Grandmasters.co';
+    $subject = "Grand Master Vodka - Inquiry From Website";
+    $to = 'mail@Grandmasters.co';
 
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $headers .= "From: drout@deejays.in\r\n";
+    $headers .= "From: Grand Master Vodka <mail@Grandmasters.co>\r\n";
     if (!empty($email)) {
         $headers .= "Reply-To: " . $email . "\r\n";
     }
-    $headers .= "Cc: krushika@10dumbs.com\r\n";
+   
 
     $mail_content = '<div>
 <div class="HEADER"> 

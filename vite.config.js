@@ -45,7 +45,7 @@ export default defineConfig({
               console.log(`👤 Name:    ${data.name || (data.firstName + ' ' + data.lastName)}`)
               console.log(`📧 Email:   ${data.email}`)
               console.log(`💬 Message: ${data.message || data.comment}`)
-              console.log(`🎯 Target:  adityasahu15571@gmail.com, krushika@10dumbs.com`)
+              console.log(`🎯 Target:  mail@Grandmasters.co`)
               console.log('✅ Status:   Success (No activation permission needed)')
               console.log('==================================================\n')
 
