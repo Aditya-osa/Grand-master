@@ -14,17 +14,17 @@ import img750_zestyLemon from '../../assets/750 ML 3D (1)/12.webp';
 import img750_coconut from '../../assets/750 ML 3D (1)/13.webp';
 
 // 180 mL GM Bottle Assets (3D Renders)
-import img180_blueberry from '../../assets/180 ML 3D/1.png';
-import img180_greenApple from '../../assets/180 ML 3D/2.png';
-import img180_orange from '../../assets/180 ML 3D/3.png';
-import img180_melon from '../../assets/180 ML 3D/4.png';
-import img180_coconut from '../../assets/180 ML 3D/5.png';
-import img180_blueCuracao from '../../assets/180 ML 3D/6.png';
-import img180_plain from '../../assets/180 ML 3D/7.png';
-import img180_strawberry from '../../assets/180 ML 3D/8.png';
-import img180_cranberry from '../../assets/180 ML 3D/9.png';
-import img180_mango from '../../assets/180 ML 3D/10.png';
-import img180_mintyJamun from '../../assets/180 ML 3D/11.png';
+import img180_blueberry from '../../assets/180 ML 3D/1.webp';
+import img180_greenApple from '../../assets/180 ML 3D/2.webp';
+import img180_orange from '../../assets/180 ML 3D/3.webp';
+import img180_melon from '../../assets/180 ML 3D/4.webp';
+import img180_coconut from '../../assets/180 ML 3D/5.webp';
+import img180_blueCuracao from '../../assets/180 ML 3D/6.webp';
+import img180_plain from '../../assets/180 ML 3D/7.webp';
+import img180_strawberry from '../../assets/180 ML 3D/8.webp';
+import img180_cranberry from '../../assets/180 ML 3D/9.webp';
+import img180_mango from '../../assets/180 ML 3D/10.webp';
+import img180_mintyJamun from '../../assets/180 ML 3D/11.webp';
 
 // Hipster 3D Bottle Assets
 import imgHipster_lemon from '../../assets/Hipster 3d/2.png';
