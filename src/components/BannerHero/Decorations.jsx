@@ -61,14 +61,14 @@ const Decorations = () => {
   return (
     <>
       {/* 🫐 Blueberry Stage Floating Decor */}
-      <img className="decor decor-blueberry blueberry-top-left blueberry-cluster-left" src={blueberry2} alt="Blueberry Cluster Top Left" />
-      <img className="decor decor-blueberry blueberry-leaf-top-mid blueberry-mint-top-left" src={blueberry3} alt="Mint Leaf Top Left" />
-      <img className="decor decor-blueberry blueberry-top-right blueberry-cluster-right" src={blueberry6} alt="Blueberry Cluster Top Right" />
-      <img className="decor decor-blueberry blueberry-bottom-right blueberry-trio-right" src={blueberry4} alt="Blueberry Trio Bottom Right" />
-      <img className="decor decor-blueberry blueberry-leaf-bottom-mid blueberry-mint-mid-right" src={blueberry5} alt="Mint Leaf Mid Right" />
-      <img className="decor decor-blueberry blueberry-branch-top-right" src={blueberry7} alt="Blueberry Branch Top Right" />
-      <img className="decor decor-blueberry blueberry-leaf-bottom-left" src={blueberry1} alt="Blueberry Leaves Bottom Left" />
-      <img className="decor decor-blueberry blueberry-mint-bottom-right" src={blueberry8} alt="Mint Leaf Bottom Right" />
+      <img className="decor decor-blueberry blueberry-top-left blueberry-cluster-left" data-flavour-decoration="blueberry" data-src={blueberry2} alt="Blueberry Cluster Top Left" />
+      <img className="decor decor-blueberry blueberry-leaf-top-mid blueberry-mint-top-left" data-flavour-decoration="blueberry" data-src={blueberry3} alt="Mint Leaf Top Left" />
+      <img className="decor decor-blueberry blueberry-top-right blueberry-cluster-right" data-flavour-decoration="blueberry" data-src={blueberry6} alt="Blueberry Cluster Top Right" />
+      <img className="decor decor-blueberry blueberry-bottom-right blueberry-trio-right" data-flavour-decoration="blueberry" data-src={blueberry4} alt="Blueberry Trio Bottom Right" />
+      <img className="decor decor-blueberry blueberry-leaf-bottom-mid blueberry-mint-mid-right" data-flavour-decoration="blueberry" data-src={blueberry5} alt="Mint Leaf Mid Right" />
+      <img className="decor decor-blueberry blueberry-branch-top-right" data-flavour-decoration="blueberry" data-src={blueberry7} alt="Blueberry Branch Top Right" />
+      <img className="decor decor-blueberry blueberry-leaf-bottom-left" data-flavour-decoration="blueberry" data-src={blueberry1} alt="Blueberry Leaves Bottom Left" />
+      <img className="decor decor-blueberry blueberry-mint-bottom-right" data-flavour-decoration="blueberry" data-src={blueberry8} alt="Mint Leaf Bottom Right" />
 
       {/* 🥭 Mango Stage Floating Decor (Orange-like layout and structure) - Commented out
       <img className="decor decor-mango mango-top-left" src={mangoSlice} alt="Mango Sliced Cheek" />
@@ -80,14 +80,14 @@ const Decorations = () => {
       */}
 
       {/* 🍈 Melon Stage Floating Decor (Matching Reference Image) */}
-      <img className="decor decor-melon melon-top-left melon-whole-left" src={melon1} alt="Whole Melon Top Left" />
-      <img className="decor decor-melon melon-leaf-top-mid melon-mint-top-left" src={melon2} alt="Mint Leaf Top Left" />
-      <img className="decor decor-melon melon-leaf-bottom-left" src={melon3} alt="Melon Leaf Bottom Left" />
-      <img className="decor decor-melon melon-bottom-right melon-slice-mid-right" src={melon4} alt="Melon Slice Mid Right" />
-      <img className="decor decor-melon melon-top-right melon-cluster-right" src={melon5} alt="Melon Cluster Top Right" />
-      <img className="decor decor-melon melon-branch-top-right" src={orange2} alt="Melon Branch Top Right" />
-      <img className="decor decor-melon melon-leaf-bottom-mid melon-mint-mid-right" src={melon7} alt="Mint Leaf Mid Right" />
-      <img className="decor decor-melon melon-mint-bottom-right" src={melon8} alt="Mint Leaf Bottom Right" />
+      <img className="decor decor-melon melon-top-left melon-whole-left" data-flavour-decoration="melon" data-src={melon1} alt="Whole Melon Top Left" />
+      <img className="decor decor-melon melon-leaf-top-mid melon-mint-top-left" data-flavour-decoration="melon" data-src={melon2} alt="Mint Leaf Top Left" />
+      <img className="decor decor-melon melon-leaf-bottom-left" data-flavour-decoration="melon" data-src={melon3} alt="Melon Leaf Bottom Left" />
+      <img className="decor decor-melon melon-bottom-right melon-slice-mid-right" data-flavour-decoration="melon" data-src={melon4} alt="Melon Slice Mid Right" />
+      <img className="decor decor-melon melon-top-right melon-cluster-right" data-flavour-decoration="melon" data-src={melon5} alt="Melon Cluster Top Right" />
+      <img className="decor decor-melon melon-branch-top-right" data-flavour-decoration="melon" data-src={orange2} alt="Melon Branch Top Right" />
+      <img className="decor decor-melon melon-leaf-bottom-mid melon-mint-mid-right" data-flavour-decoration="melon" data-src={melon7} alt="Mint Leaf Mid Right" />
+      <img className="decor decor-melon melon-mint-bottom-right" data-flavour-decoration="melon" data-src={melon8} alt="Mint Leaf Bottom Right" />
       {/* 🍊 Orange Stage Floating Decor */}
       <img className="decor decor-orange orange-top-left orange-slice-left" src={orange1} alt="Orange Slices" />
       <img className="decor decor-orange leaf-right-1 orange-branch-top-right" src={orange2} alt="Orange Leaves Top Right" />
@@ -99,14 +99,14 @@ const Decorations = () => {
       <img className="decor decor-orange orange-mint-bottom-right" src={orange8} alt="Mint Leaf Bottom Right" />
 
       {/* 🍓 Strawberry Stage Floating Decor */}
-      <img className="decor decor-strawberry strawberry-top-left strawberry-single-left" src={strawberry1} alt="Fresh Strawberry Left" />
-      <img className="decor decor-strawberry strawberry-leaf-bottom-left" src={strawberry2} alt="Strawberry Leaves Bottom Left" />
-      <img className="decor decor-strawberry strawberry-leaf-top-mid strawberry-mint-top-left" src={strawberry3} alt="Mint Leaf Top Left" />
-      <img className="decor decor-strawberry strawberry-bottom-right strawberry-single-right" src={strawberry4} alt="Fresh Strawberry Bottom Right" />
-      <img className="decor decor-strawberry strawberry-top-right strawberry-pair-right" src={strawberry5} alt="Strawberry Pair Top Right" />
-      <img className="decor decor-strawberry strawberry-leaf-top-right" src={strawberry6} alt="Strawberry Leaves Top Right" />
-      <img className="decor decor-strawberry strawberry-leaf-bottom-mid strawberry-mint-mid-right" src={strawberry7} alt="Mint Leaf Mid Right" />
-      <img className="decor decor-strawberry strawberry-mint-bottom-right" src={strawberry8} alt="Mint Leaf Bottom Right" />
+      <img className="decor decor-strawberry strawberry-top-left strawberry-single-left" data-flavour-decoration="strawberry" data-src={strawberry1} alt="Fresh Strawberry Left" />
+      <img className="decor decor-strawberry strawberry-leaf-bottom-left" data-flavour-decoration="strawberry" data-src={strawberry2} alt="Strawberry Leaves Bottom Left" />
+      <img className="decor decor-strawberry strawberry-leaf-top-mid strawberry-mint-top-left" data-flavour-decoration="strawberry" data-src={strawberry3} alt="Mint Leaf Top Left" />
+      <img className="decor decor-strawberry strawberry-bottom-right strawberry-single-right" data-flavour-decoration="strawberry" data-src={strawberry4} alt="Fresh Strawberry Bottom Right" />
+      <img className="decor decor-strawberry strawberry-top-right strawberry-pair-right" data-flavour-decoration="strawberry" data-src={strawberry5} alt="Strawberry Pair Top Right" />
+      <img className="decor decor-strawberry strawberry-leaf-top-right" data-flavour-decoration="strawberry" data-src={strawberry6} alt="Strawberry Leaves Top Right" />
+      <img className="decor decor-strawberry strawberry-leaf-bottom-mid strawberry-mint-mid-right" data-flavour-decoration="strawberry" data-src={strawberry7} alt="Mint Leaf Mid Right" />
+      <img className="decor decor-strawberry strawberry-mint-bottom-right" data-flavour-decoration="strawberry" data-src={strawberry8} alt="Mint Leaf Bottom Right" />
 
       {/* 🍫 Chocolate Stage Floating Decor (Matching Reference Layout) - Commented out
       <img className="decor decor-chocolate chocolate-top-left" src={chocolateSquares} alt="Chocolate Squares Stack" />

@@ -41,7 +41,6 @@ export function BlogCard({ blog }) {
           </div>
         )}
       </div>
-      <span className="gm-insight-tag">{blog.category}</span>
       <h3 className="gm-insight-card-title">{blog.title}</h3>
       <button
         type="button"

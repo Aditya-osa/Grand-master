@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Home from './pages/Home';
-import ContactUs from './Contact/Contact-us';
-import BlogPage from './Blogs/BlogPage';
-import BlogDetails from './Blogs/Blog-details';
-import About from './Aboutus/About';
-import Products from './pages/Products/Products';
+
+const ContactUs = lazy(() => import('./Contact/Contact-us'));
+const BlogPage = lazy(() => import('./Blogs/BlogPage'));
+const BlogDetails = lazy(() => import('./Blogs/Blog-details'));
+const About = lazy(() => import('./Aboutus/About'));
+const Products = lazy(() => import('./pages/Products/Products'));
 
 export default function App() {
   const [currentView, setCurrentView] = useState(() => {
@@ -89,11 +90,14 @@ export default function App() {
     };
   }, []);
 
-  if (currentView === 'contact') return <ContactUs />;
-  if (currentView === 'blog-details') return <BlogDetails />;
-  if (currentView === 'blogs') return <BlogPage />;
-  if (currentView === 'about') return <About />;
-  if (currentView === 'products') return <Products />;
-  return <Home />;
+  return (
+    <Suspense fallback={<div role="status">Loading...</div>}>
+      {currentView === 'contact' ? <ContactUs /> :
+        currentView === 'blog-details' ? <BlogDetails /> :
+          currentView === 'blogs' ? <BlogPage /> :
+            currentView === 'about' ? <About /> :
+              currentView === 'products' ? <Products /> : <Home />}
+    </Suspense>
+  );
 }
 

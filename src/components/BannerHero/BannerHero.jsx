@@ -98,6 +98,23 @@ export default function BannerHero() {
     currentFlavourRef.current = isNaN(initialFlavour) ? 0 : initialFlavour;
     isAnimatingRef.current = initialFlavour === 0; // Lock interactions until entrance animation completes
 
+    const flavourStages = ['orange', 'strawberry', 'melon', 'blueberry'];
+    const preloadFlavourDecorations = (stageIndex) => {
+      const flavour = flavourStages[stageIndex];
+      if (!flavour) return;
+
+      heroEl
+        .querySelectorAll(`[data-flavour-decoration="${flavour}"][data-src]`)
+        .forEach((image) => {
+          image.src = image.dataset.src;
+          image.removeAttribute('data-src');
+        });
+    };
+
+    for (let stageIndex = 1; stageIndex <= Math.min(currentFlavourRef.current, 3); stageIndex += 1) {
+      preloadFlavourDecorations(stageIndex);
+    }
+
     // Prevent Lenis interference while inside Hero flavour stages
     heroEl.setAttribute('data-lenis-prevent', 'true');
 
@@ -127,6 +144,7 @@ export default function BannerHero() {
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
+          preloadFlavourDecorations(currentFlavourRef.current + 1);
         },
       });
       entryTlRef.current = entryTl;
@@ -423,6 +441,7 @@ export default function BannerHero() {
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
+          preloadFlavourDecorations(currentFlavourRef.current + 1);
         },
       });
       entryTlRef.current = entryTl;
@@ -714,6 +733,7 @@ export default function BannerHero() {
       const entryTl = gsap.timeline({
         onComplete: () => {
           isAnimatingRef.current = false;
+          preloadFlavourDecorations(currentFlavourRef.current + 1);
         },
       });
       entryTlRef.current = entryTl;
@@ -947,6 +967,7 @@ export default function BannerHero() {
             currentFlavourRef.current = target;
             isAnimatingRef.current = false;
             updateLenisPrevent();
+            preloadFlavourDecorations(target + 1);
           },
         });
       }

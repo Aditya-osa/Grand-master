@@ -463,7 +463,7 @@ export default function DistilledToInspire({ centered = false }) {
                   loop
                   muted
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   className="distilled-to-inspire__video-element"
                 >
                   <source src={distilleryVideo} type="video/mp4" />

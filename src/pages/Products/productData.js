@@ -4,7 +4,7 @@ import img750_blueCuracao from '../../assets/750 ML 3D (1)/2.webp';
 import img750_blueberry from '../../assets/750 ML 3D (1)/3.webp';
 import img750_cranberry from '../../assets/750 ML 3D (1)/4.webp';
 import img750_mango from '../../assets/750 ML 3D (1)/5.webp';
-import img750_mintyJamun from '../../assets/750 ML 3D (1)/6.webp';
+import img750_mintyJamun from '../../assets/750 ML 3D (1)/6.png';
 import img750_melon from '../../assets/750 ML 3D (1)/7.webp';
 import img750_orange from '../../assets/750 ML 3D (1)/8.webp';
 import img750_chocolate from '../../assets/750 ML 3D (1)/9.webp';
@@ -24,12 +24,12 @@ import img180_plain from '../../assets/180 ML 3D/7.webp';
 import img180_strawberry from '../../assets/180 ML 3D/8.webp';
 import img180_cranberry from '../../assets/180 ML 3D/9.webp';
 import img180_mango from '../../assets/180 ML 3D/10.webp';
-import img180_mintyJamun from '../../assets/180 ML 3D/11.webp';
+import img180_mintyJamun from '../../assets/180 ML 3D/11.png';
 
 // Hipster 3D Bottle Assets
-import imgHipster_lemon from '../../assets/Hipster 3d/2.png';
-import imgHipster_plain from '../../assets/Hipster 3d/3.png';
-import imgHipster_apple from '../../assets/Hipster 3d/1.png';
+import imgHipster_lemon from '../../assets/Hipster 3d/2.webp';
+import imgHipster_plain from '../../assets/Hipster 3d/3.webp';
+import imgHipster_apple from '../../assets/Hipster 3d/1.webp';
 
 export const PRODUCTS_DATA = [
   {

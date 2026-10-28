@@ -14,7 +14,7 @@ import bottleBlueCuracao from '../../assets/750 ML 3D (1)/2.webp';
 import bottleBlueberry from '../../assets/750 ML 3D (1)/3.webp';
 import bottleCranberry from '../../assets/750 ML 3D (1)/4.webp';
 import bottleMango from '../../assets/750 ML 3D (1)/5.webp';
-import bottleMintyJamun from '../../assets/750 ML 3D (1)/6.webp';
+import bottleMintyJamun from '../../assets/750 ML 3D (1)/6.png';
 import bottleMelon from '../../assets/750 ML 3D (1)/7.webp';
 import bottleOrange from '../../assets/750 ML 3D (1)/8.webp';
 import bottleChocolate from '../../assets/750 ML 3D (1)/9.webp';
@@ -239,7 +239,9 @@ export default function Products() {
                   src={product.img}
                   alt={product.name}
                   className="ag-carousel-img"
-                  loading="eager"
+                  width="1250"
+                  height="4219"
+                  loading={idx < 5 ? 'eager' : 'lazy'}
                   decoding="async"
                   onLoad={() => ScrollTrigger.refresh()}
                 />
